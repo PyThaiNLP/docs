@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>From PyThaiNLP 1.7 to PyThaiNLP 2.0 &mdash; PyThaiNLP 2.0.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.corpus" href="../api/corpus.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">From PyThaiNLP 1.7 to PyThaiNLP 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sentiment-analysis">Sentiment Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#soundex">Soundex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#romanization">Romanization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collation">collation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change">change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rank">rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#number">number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#named-entity-recognition">Named Entity Recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metasound">MetaSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#corpus">Corpus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stopword">stopword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tone-in-thai">Tone in Thai</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consonant-in-thai">Consonant in thai</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#word-list-in-thai">Word list in thai</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-country-name">Thai country name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>From PyThaiNLP 1.7 to PyThaiNLP 2.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/notes/pythainlp-1_7-2_0.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="from-pythainlp-1-7-to-pythainlp-2-0">
+<h1>From PyThaiNLP 1.7 to PyThaiNLP 2.0<a class="headerlink" href="#from-pythainlp-1-7-to-pythainlp-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sentiment-analysis">
+<h2>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We are removing sentiment analysis in PyThaiNLP 2.0
+<a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/172#issuecomment-457456966">https://github.com/PyThaiNLP/pythainlp/issues/172#issuecomment-457456966</a></p>
+</div>
+<div class="section" id="soundex">
+<h2>Soundex<a class="headerlink" href="#soundex" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.soundex.LK82</span></code> to <code class="docutils literal notranslate"><span class="pre">pythainlp.soundex.lk82</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.soundex.Udom83</span></code> to <code class="docutils literal notranslate"><span class="pre">pythainlp.soundex.udom83</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="romanization">
+<h2>Romanization<a class="headerlink" href="#romanization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.romanization.romanization</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.transliterate.romanize</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="collation">
+<h2>collation<a class="headerlink" href="#collation" title="Permalink to this headline">¶</a></h2>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.collation.collation</span></code> to <code class="docutils literal notranslate"><span class="pre">pythainlp.util.collate</span></code></p>
+</div>
+<div class="section" id="change">
+<h2>change<a class="headerlink" href="#change" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.change.texttothai</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.thai_to_eng</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.change.texttoeng</span></code> to <code class="docutils literal notranslate"><span class="pre">pythainlp.util.eng_to_thai</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="rank">
+<h2>rank<a class="headerlink" href="#rank" title="Permalink to this headline">¶</a></h2>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.rank.rank</span></code> to <code class="docutils literal notranslate"><span class="pre">pythainlp.util.rank</span></code></p>
+</div>
+<div class="section" id="number">
+<h2>number<a class="headerlink" href="#number" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.number.thai_num_to_num</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.thai_digit_to_arabic_digit</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.number.num_to_thai_num</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.arabic_digit_to_thai_digit</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.number.num_to_text</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.num_to_thaiword</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.number.text_to_num</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.text_to_arabic_digit</span></code></p></li>
+<li><p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.number.numtowords</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.util.num_to_thaiword</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="named-entity-recognition">
+<h2>Named Entity Recognition<a class="headerlink" href="#named-entity-recognition" title="Permalink to this headline">¶</a></h2>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.ner.thainer</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.tag.named_entity.ThaiNameTagger</span></code></p>
+</div>
+<div class="section" id="metasound">
+<h2>MetaSound<a class="headerlink" href="#metasound" title="Permalink to this headline">¶</a></h2>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.MetaSound.MetaSound(name)</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.soundex.metasound(name)</span></code></p>
+</div>
+<div class="section" id="corpus">
+<h2>Corpus<a class="headerlink" href="#corpus" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stopword">
+<h3>stopword<a class="headerlink" href="#stopword" title="Permalink to this headline">¶</a></h3>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.stopwords.words(&quot;thai&quot;)</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.common.thai_stopwords()</span></code></p>
+</div>
+<div class="section" id="tone-in-thai">
+<h3>Tone in Thai<a class="headerlink" href="#tone-in-thai" title="Permalink to this headline">¶</a></h3>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.tone.get_data()</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.thai_tonemarks</span></code></p>
+</div>
+<div class="section" id="consonant-in-thai">
+<h3>Consonant in thai<a class="headerlink" href="#consonant-in-thai" title="Permalink to this headline">¶</a></h3>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.alphabet.get_data()</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.thai_consonants</span></code></p>
+</div>
+<div class="section" id="word-list-in-thai">
+<h3>Word list in thai<a class="headerlink" href="#word-list-in-thai" title="Permalink to this headline">¶</a></h3>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.thaiword.get_data()</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.thai_words()</span></code></p>
+</div>
+<div class="section" id="thai-country-name">
+<h3>Thai country name<a class="headerlink" href="#thai-country-name" title="Permalink to this headline">¶</a></h3>
+<p>from <code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.country.get_data()</span></code> to
+<code class="docutils literal notranslate"><span class="pre">pythainlp.corpus.countries()</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../api/corpus.html" class="btn btn-neutral float-right" title="pythainlp.corpus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

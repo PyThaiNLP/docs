@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.corpus.wordnet &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../corpus.html">pythainlp.corpus</a> &raquo;</li>
+        
+      <li>pythainlp.corpus.wordnet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.corpus.wordnet</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">NLTK WordNet wrapper</span>
+
+<span class="sd">API here is exactly the same as NLTK API,</span>
+<span class="sd">except that lang (language) argument will be &quot;tha&quot; (Thai) by default.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/omw&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;omw&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/wordnet&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wordnet&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span>
+
+
+<div class="viewcode-block" id="synsets"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.synsets">[docs]</a><span class="k">def</span> <span class="nf">synsets</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function return the synonym sets for all lemmas given the word</span>
+<span class="sd">        with an optional argument to constrain the part of speech of the word.</span>
+
+<span class="sd">        :param str word: word to find its synsets</span>
+<span class="sd">        :param str pos: the part of speech constraint (i.e. *n* for Noun, *v*</span>
+<span class="sd">                        for Verb, *a* for Adjective, *s* for Adjective</span>
+<span class="sd">                        satellites, and *r* for Adverb)</span>
+<span class="sd">        :param str lang: abbreviation of language (i.e. *eng*, *tha*).</span>
+<span class="sd">                         By default, it is *tha*</span>
+
+<span class="sd">        :return: :class:`Synset` for all lemmas for the word constrained with</span>
+<span class="sd">                 the argument *pos*.</span>
+<span class="sd">        :rtype: list[:class:`Synset`]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import synsets</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; synsets(&quot;ทำงาน&quot;)</span>
+<span class="sd">            [Synset(&#39;function.v.01&#39;), Synset(&#39;work.v.02&#39;),</span>
+<span class="sd">             Synset(&#39;work.v.01&#39;), Synset(&#39;work.v.08&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; synsets(&quot;บ้าน&quot;, lang=&quot;tha&quot;))</span>
+<span class="sd">            [Synset(&#39;duplex_house.n.01&#39;), Synset(&#39;dwelling.n.01&#39;),</span>
+<span class="sd">             Synset(&#39;house.n.01&#39;), Synset(&#39;family.n.01&#39;), Synset(&#39;home.n.03&#39;),</span>
+<span class="sd">             Synset(&#39;base.n.14&#39;), Synset(&#39;home.n.01&#39;),</span>
+<span class="sd">             Synset(&#39;houseful.n.01&#39;), Synset(&#39;home.n.07&#39;)]</span>
+
+<span class="sd">            When specifying the part of speech constrain. For example,</span>
+<span class="sd">            the word &quot;แรง&quot; cound be interpreted as force (n.) or hard (adj.).</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import synsets</span>
+<span class="sd">            &gt;&gt;&gt; # By default, accept all part of speech</span>
+<span class="sd">            &gt;&gt;&gt; synsets(&quot;แรง&quot;, lang=&quot;tha&quot;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; # only Noun</span>
+<span class="sd">            &gt;&gt;&gt; synsets(&quot;แรง&quot;, pos=&quot;n&quot;, lang=&quot;tha&quot;)</span>
+<span class="sd">            [Synset(&#39;force.n.03&#39;), Synset(&#39;force.n.02&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; # only Adjective</span>
+<span class="sd">            &gt;&gt;&gt; synsets(&quot;แรง&quot;, pos=&quot;a&quot;, lang=&quot;tha&quot;)</span>
+<span class="sd">            [Synset(&#39;hard.s.10&#39;), Synset(&#39;strong.s.02&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="n">lemma</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="synset"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.synset">[docs]</a><span class="k">def</span> <span class="nf">synset</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function return the synonym set (synset) given the name of synset</span>
+<span class="sd">        (i.e. &#39;dog.n.01&#39;, &#39;chase.v.01&#39;).</span>
+
+<span class="sd">        :param str name_synsets: name of the sysset</span>
+
+<span class="sd">        :return: :class:`Synset` of the given name</span>
+<span class="sd">        :rtype: :class:`Synset`</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import synset</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; difficult = synset(&#39;difficult.a.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; difficult</span>
+<span class="sd">            Synset(&#39;difficult.a.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; difficult.definition()</span>
+<span class="sd">            &#39;not easy; requiring great physical or mental effort to accomplish</span>
+<span class="sd">                       or comprehend or endure&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synset</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="all_lemma_names"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.all_lemma_names">[docs]</a><span class="k">def</span> <span class="nf">all_lemma_names</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns all lemma names for all synsets for the given</span>
+<span class="sd">        part of speech tag and language. If part of speech tag is not</span>
+<span class="sd">        specified, all synsets for all part of speech will be used.</span>
+
+<span class="sd">        :param str pos: the part of speech constraint (i.e. *n* for Noun,</span>
+<span class="sd">                        *v* for Verb, *a* for Adjective, *s* for</span>
+<span class="sd">                        Adjective satellites, and *r* for Adverb).</span>
+<span class="sd">                        By default, *pos* is **None**.</span>
+<span class="sd">        :param str lang: abbreviation of language (i.e. *eng*, *tha*).</span>
+<span class="sd">                         By default, it is *tha*.</span>
+
+<span class="sd">        :return: :class:`Synset` of lemmas names given the pos and language</span>
+<span class="sd">        :rtype: list[:class:`Synset`]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import all_lemma_names</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; all_lemma_names()</span>
+<span class="sd">            [&#39;อเมริโก_เวสปุชชี&#39;,</span>
+<span class="sd">             &#39;เมืองชีย์เอนเน&#39;,</span>
+<span class="sd">             &#39;การรับเลี้ยงบุตรบุญธรรม&#39;,</span>
+<span class="sd">             &#39;ผู้กัด&#39;,</span>
+<span class="sd">             &#39;ตกแต่งเรือด้วยธง&#39;,</span>
+<span class="sd">             &#39;จิโอวานนิ_เวอร์จินิโอ&#39;,...]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; len(all_lemma_names())</span>
+<span class="sd">            80508</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; all_lemma_names(pos=&quot;a&quot;)</span>
+<span class="sd">            [&#39;ซึ่งไม่มีแอลกอฮอล์&#39;,</span>
+<span class="sd">             &#39;ซึ่งตรงไปตรงมา&#39;,</span>
+<span class="sd">             &#39;ที่เส้นศูนย์สูตร&#39;,</span>
+<span class="sd">             &#39;ทางจิตใจ&#39;,...]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; len(all_lemma_names(pos=&quot;a&quot;))</span>
+<span class="sd">            5277</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">all_lemma_names</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="all_synsets"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.all_synsets">[docs]</a><span class="k">def</span> <span class="nf">all_synsets</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function iterates over all synsets constrained by given</span>
+<span class="sd">        part of speech tag.</span>
+
+<span class="sd">        :param str pos: part of speech tag</span>
+
+<span class="sd">        :return: list of synsets constrained by given part of speech tag.</span>
+<span class="sd">        :rtype: Iterable[:class:`Synset`]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import all_synsets</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; generator = all_synsets(pos=&quot;n&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; next(generator)</span>
+<span class="sd">            Synset(&#39;entity.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; next(generator)</span>
+<span class="sd">            Synset(&#39;physical_entity.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; next(generator)</span>
+<span class="sd">            Synset(&#39;abstraction.n.06&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt;  generator = all_synsets()</span>
+<span class="sd">            &gt;&gt;&gt; next(generator)</span>
+<span class="sd">            Synset(&#39;able.a.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; next(generator)</span>
+<span class="sd">            Synset(&#39;unable.a.01&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">all_synsets</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="langs"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.langs">[docs]</a><span class="k">def</span> <span class="nf">langs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function return a set of ISO-639 language codes.</span>
+
+<span class="sd">        :return: ISO-639 language codes</span>
+<span class="sd">        :rtype: list[str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import langs</span>
+<span class="sd">            &gt;&gt;&gt; langs()</span>
+<span class="sd">            [&#39;eng&#39;, &#39;als&#39;, &#39;arb&#39;, &#39;bul&#39;, &#39;cat&#39;, &#39;cmn&#39;, &#39;dan&#39;,</span>
+<span class="sd">             &#39;ell&#39;, &#39;eus&#39;, &#39;fas&#39;, &#39;fin&#39;, &#39;fra&#39;, &#39;glg&#39;, &#39;heb&#39;,</span>
+<span class="sd">             &#39;hrv&#39;, &#39;ind&#39;, &#39;ita&#39;, &#39;jpn&#39;, &#39;nld&#39;, &#39;nno&#39;, &#39;nob&#39;,</span>
+<span class="sd">             &#39;pol&#39;, &#39;por&#39;, &#39;qcn&#39;, &#39;slv&#39;, &#39;spa&#39;, &#39;swe&#39;, &#39;tha&#39;,</span>
+<span class="sd">             &#39;zsm&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">langs</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="lemmas"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemmas">[docs]</a><span class="k">def</span> <span class="nf">lemmas</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns all lemmas given the word with an optional</span>
+<span class="sd">        argument to constrain the part of speech of the word.</span>
+
+<span class="sd">        :param str word: word to find its lammas</span>
+<span class="sd">        :param str pos: the part of speech constraint (i.e. *n* for Noun,</span>
+<span class="sd">                        *v* for Verb, *a* for Adjective, *s* for</span>
+<span class="sd">                        Adjective satellites, and *r* for Adverb)</span>
+<span class="sd">        :param str lang: abbreviation of language (i.e. *eng*, *tha*).</span>
+<span class="sd">                         By default, it is *tha*.</span>
+
+<span class="sd">        :return: :class:`Synset` for all lemmas for the word constraine</span>
+<span class="sd">                  with the argument *pos*.</span>
+<span class="sd">        :rtype: list[:class:`Lemma`]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import lemmas</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lemmas(&quot;โปรด&quot;)</span>
+<span class="sd">            [Lemma(&#39;like.v.03.โปรด&#39;), Lemma(&#39;like.v.02.โปรด&#39;)]</span>
+
+<span class="sd">            &gt;&gt;&gt; print(lemmas(&quot;พระเจ้า&quot;))</span>
+<span class="sd">            [Lemma(&#39;god.n.01.พระเจ้า&#39;), Lemma(&#39;godhead.n.01.พระเจ้า&#39;),</span>
+<span class="sd">             Lemma(&#39;father.n.06.พระเจ้า&#39;), Lemma(&#39;god.n.03.พระเจ้า&#39;)]</span>
+
+<span class="sd">            When specify the part of speech tag.</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import lemmas</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lemmas(&quot;ม้วน&quot;)</span>
+<span class="sd">            [Lemma(&#39;roll.v.18.ม้วน&#39;), Lemma(&#39;roll.v.17.ม้วน&#39;),</span>
+<span class="sd">             Lemma(&#39;roll.v.08.ม้วน&#39;),  Lemma(&#39;curl.v.01.ม้วน&#39;),</span>
+<span class="sd">             Lemma(&#39;roll_up.v.01.ม้วน&#39;), Lemma(&#39;wind.v.03.ม้วน&#39;),</span>
+<span class="sd">             Lemma(&#39;roll.n.11.ม้วน&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; # only lammas with Noun as the part of speech</span>
+<span class="sd">            &gt;&gt;&gt; lemmas(&quot;ม้วน&quot;, pos=&quot;n&quot;)</span>
+<span class="sd">            [Lemma(&#39;roll.n.11.ม้วน&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemmas</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lemma"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemma">[docs]</a><span class="k">def</span> <span class="nf">lemma</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function return lemma object given the name.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            Support only English language (*eng*).</span>
+
+<span class="sd">        :param str name_synsets: name of the synset</span>
+
+<span class="sd">        :return: lemma object with the given name</span>
+<span class="sd">        :rtype: :class:`Lemma`</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import lemma</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lemma(&#39;practice.v.01.exercise&#39;)</span>
+<span class="sd">            Lemma(&#39;practice.v.01.exercise&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lemma(&#39;drill.v.03.exercise&#39;)</span>
+<span class="sd">            Lemma(&#39;drill.v.03.exercise&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lemma(&#39;exercise.n.01.exercise&#39;)</span>
+<span class="sd">            Lemma(&#39;exercise.n.01.exercise&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemma</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lemma_from_key"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemma_from_key">[docs]</a><span class="k">def</span> <span class="nf">lemma_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns lemma object given the lemma key.</span>
+<span class="sd">        This is similar to :func:`lemma` but it needs to supply the key</span>
+<span class="sd">        of lemma instead of the name.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            Support only English language (*eng*).</span>
+
+<span class="sd">        :param str key: key of the lemma object</span>
+
+<span class="sd">        :return: lemma object with the given key</span>
+<span class="sd">        :rtype: :class:`Lemma`</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import lemma, lemma_from_key</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; practice = lemma(&#39;practice.v.01.exercise&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; practice.key()</span>
+<span class="sd">            exercise%2:41:00::</span>
+<span class="sd">            &gt;&gt;&gt; lemma_from_key(practice.key())</span>
+<span class="sd">            Lemma(&#39;practice.v.01.exercise&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemma_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="path_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.path_similarity">[docs]</a><span class="k">def</span> <span class="nf">path_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns similarity between two synsets based on the</span>
+<span class="sd">        shortest path distance from the equation as follows.</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            path\\_similarity = {1 \\over shortest\\_path\\_distance(synsets1,</span>
+<span class="sd">                                 synsets2) + 1}</span>
+
+<span class="sd">        The shortest path distance is calculated by the connection through</span>
+<span class="sd">        the is-a (hypernym/hyponym) taxonomy. The score is in the ranage</span>
+<span class="sd">        0 to 1. Path similarity of 1 indicates identicality.</span>
+
+<span class="sd">        :param `Synset` synsets1: first synset supplied to measures</span>
+<span class="sd">                                  the path similarity</span>
+<span class="sd">        :param `Synset` synsets2: second synset supplied to measures</span>
+<span class="sd">                                  the path similarity</span>
+
+<span class="sd">        :return: path similarity between two synsets</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import path_similarity, synset</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entity = synset(&#39;entity.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; obj = synset(&#39;object.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; cat = synset(&#39;cat.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; path_similarity(entity, obj)</span>
+<span class="sd">            0.3333333333333333</span>
+<span class="sd">            &gt;&gt;&gt; path_similarity(entity, cat)</span>
+<span class="sd">            0.07142857142857142</span>
+<span class="sd">            &gt;&gt;&gt; path_similarity(obj, cat)</span>
+<span class="sd">            0.08333333333333333</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">path_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lch_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lch_similarity">[docs]</a><span class="k">def</span> <span class="nf">lch_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns Leacock Chodorow similarity (LCH)</span>
+<span class="sd">        between two synsets, based on the shortest path distance</span>
+<span class="sd">        and the maximum depth of the taxonomy. The equation to</span>
+<span class="sd">        calculate LCH similarity is shown below:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            lch\\_similarity = {-log(shortest\\_path\\_distance(synsets1,</span>
+<span class="sd">                               synsets2) \\over 2 * taxonomy\\_depth}</span>
+
+<span class="sd">        :param `Synset` synsets1: first synset supplied to measures</span>
+<span class="sd">                                  the LCH similarity</span>
+<span class="sd">        :param `Synset` synsets2: second synset supplied to measures</span>
+<span class="sd">                                  the LCH similarity</span>
+
+<span class="sd">        :return: LCH similarity between two synsets</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import lch_similarity, synset</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entity = synset(&#39;entity.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; obj = synset(&#39;object.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; cat = synset(&#39;cat.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; lch_similarity(entity, obj)</span>
+<span class="sd">            2.538973871058276</span>
+<span class="sd">            &gt;&gt;&gt; lch_similarity(entity, cat)</span>
+<span class="sd">            0.9985288301111273</span>
+<span class="sd">            &gt;&gt;&gt; lch_similarity(obj, cat)</span>
+<span class="sd">            1.1526795099383855</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lch_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="wup_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.wup_similarity">[docs]</a><span class="k">def</span> <span class="nf">wup_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns Wu-Palmer similarity (WUP) between two synsets,</span>
+<span class="sd">        based on the depth of the two senses in the taxonomy and their</span>
+<span class="sd">        Least Common Subsumer (most specific ancestor node).</span>
+
+<span class="sd">        :param `Synset` synsets1: first synset supplied to measures</span>
+<span class="sd">                                  the WUP similarity</span>
+<span class="sd">        :param `Synset` synsets2: second synset supplied to measures</span>
+<span class="sd">                                  the WUP similarity</span>
+
+<span class="sd">        :return: WUP similarity between two synsets</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import wup_similarity, synset</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entity = synset(&#39;entity.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; obj = synset(&#39;object.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; cat = synset(&#39;cat.n.01&#39;)</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; wup_similarity(entity, obj)</span>
+<span class="sd">            0.5</span>
+<span class="sd">            &gt;&gt;&gt; wup_similarity(entity, cat)</span>
+<span class="sd">            0.13333333333333333</span>
+<span class="sd">            &gt;&gt;&gt; wup_similarity(obj, cat)</span>
+<span class="sd">            0.35294117647058826</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">wup_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="morphy"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.morphy">[docs]</a><span class="k">def</span> <span class="nf">morphy</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function finds a possible base form for the given form,</span>
+<span class="sd">        with the given part of speech.</span>
+
+<span class="sd">        :param str form: the form to finds the base form</span>
+<span class="sd">        :param str pos: part of speech tag of words to be searched</span>
+
+<span class="sd">        :return: base form of the given form</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.corpus.wordnet import morphy</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; morphy(&quot;dogs&quot;)</span>
+<span class="sd">            &#39;dogs&#39;</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; morphy(&quot;thieves&quot;)</span>
+<span class="sd">            &#39;thief&#39;</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; morphy(&quot;mixed&quot;)</span>
+<span class="sd">            &#39;mix&#39;</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; morphy(&quot;calculated&quot;)</span>
+<span class="sd">            &#39;calculate&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">morphy</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="custom_lemmas"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.custom_lemmas">[docs]</a><span class="k">def</span> <span class="nf">custom_lemmas</span><span class="p">(</span><span class="n">tab_file</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function reads a custom tab file</span>
+<span class="sd">        (see: http://compling.hss.ntu.edu.sg/omw/)</span>
+<span class="sd">        containing mappings of lemmas in the given language.</span>
+
+<span class="sd">        :param tab_file: Tab file as a file or file-like object</span>
+<span class="sd">        :param str lang: abbreviation of language (i.e. *eng*, *tha*).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">custom_lemmas</span><span class="p">(</span><span class="n">tab_file</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

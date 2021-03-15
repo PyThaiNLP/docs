@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.tag &mdash; PyThaiNLP 1.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.tokenize" href="tokenizer.html" />
+    <link rel="prev" title="pythainlp.summarize" href="summarize.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="change.html">pythainlp.change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collation.html">pythainlp.collation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="date.html">pythainlp.date</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ner.html">pythainlp.ner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="number.html">pythainlp.number</a></li>
+<li class="toctree-l1"><a class="reference internal" href="romanization.html">pythainlp.romanization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment.html">pythainlp.sentiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenizer.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pythainlp.tag</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/tag.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pythainlp-tag">
+<h1>pythainlp.tag<a class="headerlink" href="#pythainlp-tag" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">pythainlp.tag</span></code> contains functions that are used to tag different parts of a text.</p>
+<dl class="py function">
+<dt id="pythainlp.tag.pos_tag">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></code><code class="sig-name descname"><span class="pre">pos_tag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'perceptron'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'orchid'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/pythainlp/tag/pos_tag.html#pos_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.pos_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks words with part-of-speech (POS) tags, such as ‘NOUN’ and ‘VERB’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – a list of tokenized words</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <ul>
+<li><p><em>perceptron</em> - perceptron tagger (default)</p></li>
+<li><p><em>unigram</em> - unigram tagger</p></li>
+<li><p><em>wangchanberta</em> - wangchanberta model (support lst20 corpus only             and it supports a string only. if you input a list of word,             it will convert list word to a string.</p></li>
+</ul>
+</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – the corpus that used to create the language model for tagger
+* <em>lst20</em> - <a class="reference external" href="https://aiforthai.in.th/corpus.php">LST20</a> corpus             by National Electronics and Computer Technology Center, Thailand
+* <em>lst20_ud</em> - LST20 text, with tags mapped to Universal POS tag             from <cite>Universal Dependencies &lt;https://universaldependencies.org/&gt;</cite>
+* <em>orchid</em> - <a class="reference external" href="https://www.academia.edu/9127599/Thai_Treebank">ORCHID</a> corpus,             text from Thai academic articles (default)
+* <em>orchid_ud</em> - ORCHID text, with tags mapped to Universal POS tags
+* <em>pud</em> - <a class="reference external" href="https://github.com/UniversalDependencies/UD_Thai-PUD">Parallel Universal Dependencies (PUD)</a>             treebanks, natively use Universal POS tags</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of tuples (word, POS tag)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]]</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<p>Tag words with corpus <cite>orchid</cite> (default):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PPRS&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;ชีวิต&#39;, &#39;NCMN&#39;), (&#39;รอด&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ใน&#39;, &#39;RPRE&#39;), (&#39;อาคาร&#39;, &#39;NCMN&#39;), (&#39;หลบภัย&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ของ&#39;, &#39;RPRE&#39;), (&#39;นายก&#39;, &#39;NCMN&#39;), (&#39;เชอร์ชิล&#39;, &#39;NCMN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with corpus <cite>orchid_ud</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;orchid_ud&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;รอด&#39;, &#39;NOUN&#39;), (&#39;ใน&#39;, &#39;ADP&#39;),  (&#39;อาคาร&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;หลบภัย&#39;, &#39;NOUN&#39;), (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;เชอร์ชิล&#39;, &#39;NOUN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with corpus <cite>pud</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;pud&#39;</span><span class="p">)</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PRON&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;), (&#39;รอด&#39;, &#39;VERB&#39;),</span>
+<span class="c1">#   (&#39;ใน&#39;, &#39;ADP&#39;), (&#39;อาคาร&#39;, &#39;NOUN&#39;), (&#39;หลบภัย&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;), (&#39;เชอร์ชิล&#39;, &#39;PROPN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with different engines including <em>perceptron</em> and <em>unigram</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;เก้าอี้&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;จำนวน&#39;</span><span class="p">,</span><span class="s1">&#39;ขา&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;perceptron&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;orchid&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;เก้าอี้&#39;, &#39;NCMN&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;จำนวน&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ขา&#39;, &#39;NCMN&#39;), (&#39; &#39;, &#39;PUNC&#39;),</span>
+<span class="c1">#   (&#39;=&#39;, &#39;PUNC&#39;), (&#39;3&#39;, &#39;NCNM&#39;)]</span>
+
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;unigram&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;pud&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;เก้าอี้&#39;, None), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;จำนวน&#39;, &#39;NOUN&#39;), (&#39;ขา&#39;, None),</span>
+<span class="c1">#   (&#39;&lt;space&gt;&#39;, None), (&#39;&lt;equal&gt;&#39;, None), (&#39;3&#39;, &#39;NUM&#39;)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tokenizer.html" class="btn btn-neutral float-right" title="pythainlp.tokenize" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="summarize.html" class="btn btn-neutral float-left" title="pythainlp.summarize" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

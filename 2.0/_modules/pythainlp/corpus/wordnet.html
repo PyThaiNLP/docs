@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.corpus.wordnet &mdash; PyThaiNLP 2.0.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/pythainlp-1_7-2_0.html">From PyThaiNLP 1.7 to PyThaiNLP 2.0</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../corpus.html">pythainlp.corpus</a> &raquo;</li>
+        
+      <li>pythainlp.corpus.wordnet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.corpus.wordnet</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">NLTK WordNet wrapper</span>
+
+<span class="sd">API here is exactly the same as NLTK API,</span>
+<span class="sd">except that lang (language) argument will be &quot;tha&quot; (Thai) by default.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/omw&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;omw&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/wordnet&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wordnet&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span>
+
+
+<div class="viewcode-block" id="synsets"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.synsets">[docs]</a><span class="k">def</span> <span class="nf">synsets</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="n">lemma</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="synset"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.synset">[docs]</a><span class="k">def</span> <span class="nf">synset</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synset</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="all_lemma_names"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.all_lemma_names">[docs]</a><span class="k">def</span> <span class="nf">all_lemma_names</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">all_lemma_names</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="all_synsets"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.all_synsets">[docs]</a><span class="k">def</span> <span class="nf">all_synsets</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">all_synsets</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="langs"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.langs">[docs]</a><span class="k">def</span> <span class="nf">langs</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">langs</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="lemmas"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemmas">[docs]</a><span class="k">def</span> <span class="nf">lemmas</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tha&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemmas</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lemma"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemma">[docs]</a><span class="k">def</span> <span class="nf">lemma</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemma</span><span class="p">(</span><span class="n">name_synsets</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lemma_from_key"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lemma_from_key">[docs]</a><span class="k">def</span> <span class="nf">lemma_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lemma_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="path_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.path_similarity">[docs]</a><span class="k">def</span> <span class="nf">path_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">path_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lch_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.lch_similarity">[docs]</a><span class="k">def</span> <span class="nf">lch_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">lch_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="wup_similarity"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.wup_similarity">[docs]</a><span class="k">def</span> <span class="nf">wup_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">wup_similarity</span><span class="p">(</span><span class="n">synsets1</span><span class="p">,</span> <span class="n">synsets2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="morphy"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.morphy">[docs]</a><span class="k">def</span> <span class="nf">morphy</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">morphy</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="custom_lemmas"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.wordnet.custom_lemmas">[docs]</a><span class="k">def</span> <span class="nf">custom_lemmas</span><span class="p">(</span><span class="n">tab_file</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">custom_lemmas</span><span class="p">(</span><span class="n">tab_file</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

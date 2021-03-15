@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.tag &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.tag</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.tag</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Tagging each token in a sentence with supplementary information,</span>
+<span class="sd">such as its Part-of-Speech (POS) tag, and Named Entity Recognition (NER) tag.</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pos_tag&quot;</span><span class="p">,</span> <span class="s2">&quot;pos_tag_sents&quot;</span><span class="p">,</span> <span class="s2">&quot;tag_provinces&quot;</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">.locations</span> <span class="kn">import</span> <span class="n">tag_provinces</span>
+
+<span class="c1"># tag map for orchid to Universal Dependencies</span>
+<span class="c1"># from Korakot Chaovavanich</span>
+<span class="n">_TAG_MAP_UD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># NOUN</span>
+    <span class="s2">&quot;NOUN&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NCMN&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NTTL&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CNIT&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CLTV&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CMTR&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CFQC&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CVBL&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">,</span>
+    <span class="c1"># VERB</span>
+    <span class="s2">&quot;VACT&quot;</span><span class="p">:</span> <span class="s2">&quot;VERB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;VSTA&quot;</span><span class="p">:</span> <span class="s2">&quot;VERB&quot;</span><span class="p">,</span>
+    <span class="c1"># PROPN</span>
+    <span class="s2">&quot;PROPN&quot;</span><span class="p">:</span> <span class="s2">&quot;PROPN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NPRP&quot;</span><span class="p">:</span> <span class="s2">&quot;PROPN&quot;</span><span class="p">,</span>
+    <span class="c1"># ADJ</span>
+    <span class="s2">&quot;ADJ&quot;</span><span class="p">:</span> <span class="s2">&quot;ADJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NONM&quot;</span><span class="p">:</span> <span class="s2">&quot;ADJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;VATT&quot;</span><span class="p">:</span> <span class="s2">&quot;ADJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DONM&quot;</span><span class="p">:</span> <span class="s2">&quot;ADJ&quot;</span><span class="p">,</span>
+    <span class="c1"># ADV</span>
+    <span class="s2">&quot;ADV&quot;</span><span class="p">:</span> <span class="s2">&quot;ADV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADVN&quot;</span><span class="p">:</span> <span class="s2">&quot;ADV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADVI&quot;</span><span class="p">:</span> <span class="s2">&quot;ADV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADVP&quot;</span><span class="p">:</span> <span class="s2">&quot;ADV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADVS&quot;</span><span class="p">:</span> <span class="s2">&quot;ADV&quot;</span><span class="p">,</span>
+    <span class="c1"># INT</span>
+    <span class="s2">&quot;INT&quot;</span><span class="p">:</span> <span class="s2">&quot;INTJ&quot;</span><span class="p">,</span>
+    <span class="c1"># PRON</span>
+    <span class="s2">&quot;PRON&quot;</span><span class="p">:</span> <span class="s2">&quot;PRON&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PPRS&quot;</span><span class="p">:</span> <span class="s2">&quot;PRON&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PDMN&quot;</span><span class="p">:</span> <span class="s2">&quot;PRON&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PNTR&quot;</span><span class="p">:</span> <span class="s2">&quot;PRON&quot;</span><span class="p">,</span>
+    <span class="c1"># DET</span>
+    <span class="s2">&quot;DET&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DDAN&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DDAC&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DDBQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DDAQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DIAC&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DIBQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DIAQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DET&quot;</span><span class="p">,</span>
+    <span class="c1"># NUM</span>
+    <span class="s2">&quot;NUM&quot;</span><span class="p">:</span> <span class="s2">&quot;NUM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NCNM&quot;</span><span class="p">:</span> <span class="s2">&quot;NUM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NLBL&quot;</span><span class="p">:</span> <span class="s2">&quot;NUM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DCNM&quot;</span><span class="p">:</span> <span class="s2">&quot;NUM&quot;</span><span class="p">,</span>
+    <span class="c1"># AUX</span>
+    <span class="s2">&quot;AUX&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XVBM&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XVAM&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XVMM&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XVBB&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XVAE&quot;</span><span class="p">:</span> <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+    <span class="c1"># ADP</span>
+    <span class="s2">&quot;ADP&quot;</span><span class="p">:</span> <span class="s2">&quot;ADP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RPRE&quot;</span><span class="p">:</span> <span class="s2">&quot;ADP&quot;</span><span class="p">,</span>
+    <span class="c1"># CCONJ</span>
+    <span class="s2">&quot;CCONJ&quot;</span><span class="p">:</span> <span class="s2">&quot;CCONJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JCRG&quot;</span><span class="p">:</span> <span class="s2">&quot;CCONJ&quot;</span><span class="p">,</span>
+    <span class="c1"># SCONJ</span>
+    <span class="s2">&quot;SCONJ&quot;</span><span class="p">:</span> <span class="s2">&quot;SCONJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PREL&quot;</span><span class="p">:</span> <span class="s2">&quot;SCONJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JSBR&quot;</span><span class="p">:</span> <span class="s2">&quot;SCONJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JCMP&quot;</span><span class="p">:</span> <span class="s2">&quot;SCONJ&quot;</span><span class="p">,</span>
+    <span class="c1"># PART</span>
+    <span class="s2">&quot;PART&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FIXN&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FIXV&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EAFF&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EITT&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AITT&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NEG&quot;</span><span class="p">:</span> <span class="s2">&quot;PART&quot;</span><span class="p">,</span>
+    <span class="c1"># PUNCT</span>
+    <span class="s2">&quot;PUNCT&quot;</span><span class="p">:</span> <span class="s2">&quot;PUNCT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PUNC&quot;</span><span class="p">:</span> <span class="s2">&quot;PUNCT&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_UD_Exception</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="s2">&quot;การ&quot;</span> <span class="ow">or</span> <span class="n">w</span> <span class="o">==</span> <span class="s2">&quot;ความ&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;NOUN&quot;</span>
+
+    <span class="k">return</span> <span class="n">tag</span>
+
+
+<span class="k">def</span> <span class="nf">_orchid_to_ud</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="n">_i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">_i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+        <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="n">_i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_UD_Exception</span><span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="n">_i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_TAG_MAP_UD</span><span class="p">[</span><span class="n">tag</span><span class="p">[</span><span class="n">_i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]))</span>
+        <span class="p">)</span>
+        <span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">temp</span>
+
+
+<div class="viewcode-block" id="pos_tag"><a class="viewcode-back" href="../../api/tag.html#pythainlp.tag.pos_tag">[docs]</a><span class="k">def</span> <span class="nf">pos_tag</span><span class="p">(</span>
+    <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;perceptron&quot;</span><span class="p">,</span> <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;orchid&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The function tag a list of tokenized words into Part-of-Speech (POS) tags</span>
+<span class="sd">    such as &#39;NOUN&#39;, &#39;VERB&#39;, &#39;ADJ&#39;, and &#39;DET&#39;.</span>
+
+<span class="sd">    :param list words: a list of tokenized words</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *perceptron* - perceptron tagger (default)</span>
+<span class="sd">        * *unigram* - unigram tagger</span>
+<span class="sd">    :param str corpus:</span>
+<span class="sd">        * *orchid* - annotated Thai academic articles namedly</span>
+<span class="sd">          `Orchid &lt;https://www.academia.edu/9127599/Thai_Treebank&gt;`_ (default)</span>
+<span class="sd">        * *orchid_ud* - annotated Thai academic articles *Orchid* but the</span>
+<span class="sd">          POS tags are mapped to comply with</span>
+<span class="sd">          `Universal Dependencies &lt;https://universaldependencies.org/u/pos&gt;`_</span>
+<span class="sd">          POS  Tags</span>
+<span class="sd">        * *pud* - `Parallel Universal Dependencies (PUD)</span>
+<span class="sd">          &lt;https://github.com/UniversalDependencies/UD_Thai-PUD&gt;`_ treebanks</span>
+<span class="sd">    :return: returns a list of labels regarding which part of speech it is</span>
+<span class="sd">    :rtype: list[tuple[str, str]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Tag words with corpus `orchid` (default)::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PPRS&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;ชีวิต&#39;, &#39;NCMN&#39;), (&#39;รอด&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ใน&#39;, &#39;RPRE&#39;), (&#39;อาคาร&#39;, &#39;NCMN&#39;), (&#39;หลบภัย&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ของ&#39;, &#39;RPRE&#39;), (&#39;นายก&#39;, &#39;NCMN&#39;), (&#39;เชอร์ชิล&#39;, &#39;NCMN&#39;)]</span>
+
+<span class="sd">    Tag words with corpus `orchid_ud`::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words, corpus=&#39;orchid_ud&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;รอด&#39;, &#39;NOUN&#39;), (&#39;ใน&#39;, &#39;ADP&#39;),  (&#39;อาคาร&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;หลบภัย&#39;, &#39;NOUN&#39;), (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;เชอร์ชิล&#39;, &#39;NOUN&#39;)]</span>
+
+<span class="sd">    Tag words with corpus `pud`::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words, corpus=&#39;pud&#39;)</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PRON&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;), (&#39;รอด&#39;, &#39;VERB&#39;),</span>
+<span class="sd">        #   (&#39;ใน&#39;, &#39;ADP&#39;), (&#39;อาคาร&#39;, &#39;NOUN&#39;), (&#39;หลบภัย&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;), (&#39;เชอร์ชิล&#39;, &#39;PROPN&#39;)]</span>
+
+<span class="sd">    Tag words with different engines including *perceptron* and *unigram*::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;เก้าอี้&#39;,&#39;มี&#39;,&#39;จำนวน&#39;,&#39;ขา&#39;, &#39; &#39;, &#39;=&#39;, &#39;3&#39;]</span>
+
+<span class="sd">        pos_tag(words, engine=&#39;perceptron&#39;, corpus=&#39;orchid&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;เก้าอี้&#39;, &#39;NCMN&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;จำนวน&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ขา&#39;, &#39;NCMN&#39;), (&#39; &#39;, &#39;PUNC&#39;),</span>
+<span class="sd">        #   (&#39;=&#39;, &#39;PUNC&#39;), (&#39;3&#39;, &#39;NCNM&#39;)]</span>
+
+<span class="sd">        pos_tag(words, engine=&#39;unigram&#39;, corpus=&#39;pud&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;เก้าอี้&#39;, None), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;จำนวน&#39;, &#39;NOUN&#39;), (&#39;ขา&#39;, None),</span>
+<span class="sd">        #   (&#39;&lt;space&gt;&#39;, None), (&#39;&lt;equal&gt;&#39;, None), (&#39;3&#39;, &#39;NUM&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># NOTE:</span>
+    <span class="n">_corpus</span> <span class="o">=</span> <span class="n">corpus</span>
+    <span class="n">_tag</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;orchid_ud&quot;</span><span class="p">:</span>
+        <span class="n">corpus</span> <span class="o">=</span> <span class="s2">&quot;orchid&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;perceptron&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.perceptron</span> <span class="kn">import</span> <span class="n">tag</span> <span class="k">as</span> <span class="n">tag_</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># default, use &quot;unigram&quot; (&quot;old&quot;) engine</span>
+        <span class="kn">from</span> <span class="nn">.unigram</span> <span class="kn">import</span> <span class="n">tag</span> <span class="k">as</span> <span class="n">tag_</span>
+    <span class="n">_tag</span> <span class="o">=</span> <span class="n">tag_</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_corpus</span> <span class="o">==</span> <span class="s2">&quot;orchid_ud&quot;</span><span class="p">:</span>
+        <span class="n">_tag</span> <span class="o">=</span> <span class="n">_orchid_to_ud</span><span class="p">(</span><span class="n">_tag</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_tag</span></div>
+
+
+<div class="viewcode-block" id="pos_tag_sents"><a class="viewcode-back" href="../../api/tag.html#pythainlp.tag.pos_tag_sents">[docs]</a><span class="k">def</span> <span class="nf">pos_tag_sents</span><span class="p">(</span>
+    <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;perceptron&quot;</span><span class="p">,</span>
+    <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;orchid&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The function tag multiple list of tokenized words into Part-of-Speech</span>
+<span class="sd">    (POS) tags.</span>
+
+<span class="sd">    :param list sentences: a list of lists of tokenized words</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *perceptron* - perceptron tagger (default)</span>
+<span class="sd">        * *unigram* - unigram tagger</span>
+<span class="sd">    :param str corpus:</span>
+<span class="sd">        * *orchid* - annotated Thai academic articles namedly\</span>
+<span class="sd">            `Orchid &lt;https://www.academia.edu/9127599/Thai_Treebank&gt;`_\</span>
+<span class="sd">            (default)</span>
+<span class="sd">        * *orchid_ud* - annotated Thai academic articles using\</span>
+<span class="sd">            `Universal Dependencies &lt;https://universaldependencies.org/&gt;`_ Tags</span>
+<span class="sd">        * *pud* - `Parallel Universal Dependencies (PUD)\</span>
+<span class="sd">            &lt;https://github.com/UniversalDependencies/UD_Thai-PUD&gt;`_ treebanks</span>
+<span class="sd">    :return: returns a list of labels regarding which part of speech it is</span>
+<span class="sd">             for each sentence given.</span>
+<span class="sd">    :rtype: list[list[tuple[str, str]]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Labels POS for two sentences::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag_sents</span>
+
+<span class="sd">        sentences = [[&#39;เก้าอี้&#39;,&#39;มี&#39;,&#39;3&#39;,&#39;ขา&#39;], \\</span>
+<span class="sd">                            [&#39;นก&#39;, &#39;บิน&#39;, &#39;กลับ&#39;, &#39;รัง&#39;]]</span>
+<span class="sd">        pos_tag_sents(sentences, corpus=&#39;pud)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [[(&#39;เก้าอี้&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;3&#39;, &#39;NUM&#39;),</span>
+<span class="sd">        #   (&#39;ขา&#39;, &#39;NOUN&#39;)], [(&#39;นก&#39;, &#39;NOUN&#39;), (&#39;บิน&#39;, &#39;VERB&#39;),</span>
+<span class="sd">        #   (&#39;กลับ&#39;, &#39;VERB&#39;), (&#39;รัง&#39;, &#39;NOUN&#39;)]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

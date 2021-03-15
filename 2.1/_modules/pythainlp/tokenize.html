@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.tokenize &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.tokenize</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.tokenize</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Thai tokenizers</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">thai_syllables</span><span class="p">,</span> <span class="n">thai_words</span>
+
+<span class="kn">from</span> <span class="nn">.trie</span> <span class="kn">import</span> <span class="n">Trie</span>
+
+<span class="n">DEFAULT_DICT_TRIE</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="word_tokenize"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.word_tokenize">[docs]</a><span class="k">def</span> <span class="nf">word_tokenize</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Trie</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="n">keep_whitespace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function tokenizes running text into words.</span>
+
+<span class="sd">    :param str text: text to be tokenized</span>
+<span class="sd">    :param str engine: name of the tokenizer to be used</span>
+<span class="sd">    :param pythainlp.tokenize.Trie custom_dict: dictionary trie</span>
+<span class="sd">    :param bool keep_whitespace: True to keep whitespaces, a common mark</span>
+<span class="sd">                                 for end of phrase in Thai.</span>
+<span class="sd">                                 Otherwise, whitespaces are omitted.</span>
+<span class="sd">    :return: list of words</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *newmm* (default) - dictionary-based, Maximum Matching +</span>
+<span class="sd">          Thai Character Cluster</span>
+<span class="sd">        * *newmm-safe* - newmm, with a mechanism to avoid long</span>
+<span class="sd">          processing time for some long continuous text without spaces</span>
+<span class="sd">        * *longest* - dictionary-based, Longest Matching</span>
+<span class="sd">        * *icu* - wrapper for ICU (International Components for Unicode,</span>
+<span class="sd">          using PyICU), dictionary-based</span>
+<span class="sd">        * *attacut* - wrapper for</span>
+<span class="sd">          `AttaCut &lt;https://github.com/PyThaiNLP/attacut&gt;`_.,</span>
+<span class="sd">          learning-based approach</span>
+<span class="sd">        * *deepcut* - wrapper for</span>
+<span class="sd">          `DeepCut &lt;https://github.com/rkcosmos/deepcut&gt;`_,</span>
+<span class="sd">          learning-based approach</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        * the option for engine named *ulmfit* has been deprecated since \</span>
+<span class="sd">          PyThaiNLP version 2.1</span>
+<span class="sd">    :Note:</span>
+<span class="sd">        - The parameter **custom_dict** can be provided as an argument \</span>
+<span class="sd">          only for *newmm*, *longest*, and *attacut* engine.</span>
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Tokenize text with different tokenizer::</span>
+
+<span class="sd">        from pythainlp.tokenize import word_tokenize</span>
+
+<span class="sd">        text = &quot;โอเคบ่พวกเรารักภาษาบ้านเกิด&quot;</span>
+
+<span class="sd">        word_tokenize(text, engine=&quot;newmm&quot;)</span>
+<span class="sd">        # output: [&#39;โอเค&#39;, &#39;บ่&#39;, &#39;พวกเรา&#39;, &#39;รัก&#39;, &#39;ภาษา&#39;, &#39;บ้านเกิด&#39;]</span>
+
+<span class="sd">        word_tokenize(text, engine=&#39;attacut&#39;)</span>
+<span class="sd">        # output: [&#39;โอเค&#39;, &#39;บ่&#39;, &#39;พวกเรา&#39;, &#39;รัก&#39;, &#39;ภาษา&#39;, &#39;บ้านเกิด&#39;]</span>
+
+<span class="sd">    Tokenize text by omiting whitespaces::</span>
+
+<span class="sd">        text = &quot;วรรณกรรม ภาพวาด และการแสดงงิ้ว &quot;</span>
+
+<span class="sd">        word_tokenize(text, engine=&quot;newmm&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;วรรณกรรม&#39;, &#39; &#39;, &#39;ภาพวาด&#39;, &#39; &#39;, &#39;และ&#39;, &#39;การแสดง&#39;, &#39;งิ้ว&#39;, &#39; &#39;]</span>
+
+<span class="sd">        word_tokenize(text, engine=&quot;newmm&quot;, keep_whitespace=False)</span>
+<span class="sd">        # output: [&#39;วรรณกรรม&#39;, &#39;ภาพวาด&#39;, &#39;และ&#39;, &#39;การแสดง&#39;, &#39;งิ้ว&#39;]</span>
+
+<span class="sd">    Tokenize with default and custom dictionary::</span>
+
+<span class="sd">        from pythainlp.corpus.common import thai_words</span>
+<span class="sd">        from pythainlp.tokenize import dict_trie</span>
+
+<span class="sd">        text = &#39;ชินโซ อาเบะ เกิด 21 กันยายน&#39;</span>
+
+<span class="sd">        word_tokenize(text, engine=&quot;newmm&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;ชิน&#39;, &#39;โซ&#39;, &#39; &#39;, &#39;อา&#39;, &#39;เบะ&#39;, &#39; &#39;,</span>
+<span class="sd">        #  &#39;เกิด&#39;, &#39; &#39;, &#39;21&#39;, &#39; &#39;, &#39;กันยายน&#39;]</span>
+
+<span class="sd">        custom_dict_japanese_name = set(thai_words()</span>
+<span class="sd">        custom_dict_japanese_name.add(&#39;ชินโซ&#39;)</span>
+<span class="sd">        custom_dict_japanese_name.add(&#39;อาเบะ&#39;)</span>
+
+<span class="sd">        trie = dict_trie(dict_source=custom_dict_japanese_name)</span>
+
+<span class="sd">        word_tokenize(text, engine=&quot;newmm&quot;, custom_dict=trie))</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;ชินโซ&#39;, &#39; &#39;, &#39;อาเบะ&#39;,</span>
+<span class="sd">        #   &#39; &#39;, &#39;เกิด&#39;, &#39; &#39;, &#39;21&#39;, &#39; &#39;, &#39;กันยายน&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;newmm&quot;</span> <span class="ow">or</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;onecut&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.newmm</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;newmm-safe&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.newmm</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;attacut&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.attacut</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;longest&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.longest</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;mm&quot;</span> <span class="ow">or</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;multi_cut&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.multi_cut</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;deepcut&quot;</span><span class="p">:</span>  <span class="c1"># deepcut can optionally use dictionary</span>
+        <span class="kn">from</span> <span class="nn">.deepcut</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="k">if</span> <span class="n">custom_dict</span><span class="p">:</span>
+            <span class="n">custom_dict</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">)</span>
+            <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;icu&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.pyicu</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># default, use &quot;newmm&quot; engine</span>
+        <span class="kn">from</span> <span class="nn">.newmm</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_whitespace</span><span class="p">:</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">segments</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">segments</span></div>
+
+
+<span class="k">def</span> <span class="nf">dict_word_tokenize</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Trie</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_TRIE</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="n">keep_whitespace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :meth: DEPRECATED: Please use `word_tokenize()` with a `custom_dict`</span>
+<span class="sd">           argument instead</span>
+<span class="sd">    :param str text: text to be tokenized</span>
+<span class="sd">    :param dict custom_dict: a dictionary trie, or an iterable of words,</span>
+<span class="sd">                             or a string of dictionary path</span>
+<span class="sd">    :param str engine: choose between different options of engine to token</span>
+<span class="sd">                       (newmm [default], longest, and attacut)</span>
+<span class="sd">    :param bool keep_whitespace: True to keep whitespaces, a common mark</span>
+<span class="sd">                                 for end of phrase in Thai</span>
+<span class="sd">    :return: list of words</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;dict_word_tokenize is deprecated. Use word_tokenize with a custom_dict argument instead.&quot;</span><span class="p">,</span>
+        <span class="ne">DeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+        <span class="n">custom_dict</span><span class="o">=</span><span class="n">custom_dict</span><span class="p">,</span>
+        <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+        <span class="n">keep_whitespace</span><span class="o">=</span><span class="n">keep_whitespace</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="sent_tokenize"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.sent_tokenize">[docs]</a><span class="k">def</span> <span class="nf">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;whitespace+newline&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function does not yet automatically recognize when a sentence</span>
+<span class="sd">    actually ends. Rather it helps split text where white space and</span>
+<span class="sd">    a new line is found.</span>
+
+<span class="sd">    :param str text: the text to be tokenized</span>
+<span class="sd">    :param str engine: choose between *&#39;whitespace&#39;* or *&#39;whitespace+newline&#39;*</span>
+<span class="sd">    :return: list of splited sentences</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *whitespace+newline* (default) - split by whitespace token \</span>
+<span class="sd">                                           and newline.</span>
+<span class="sd">        * *whitespace* - split by whitespace token. Specifiaclly, with \</span>
+<span class="sd">                         :class:`regex` pattern  ``r&quot; +&quot;``</span>
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Split the text based on *whitespace*::</span>
+
+<span class="sd">        from pythainlp.tokenize import sent_tokenize</span>
+
+<span class="sd">        sentence_1 = &quot;ฉันไปประชุมเมื่อวันที่ 11 มีนาคม&quot;</span>
+<span class="sd">        sentence_2 = &quot;ข้าราชการได้รับการหมุนเวียนเป็นระยะ \\</span>
+<span class="sd">        และได้รับมอบหมายให้ประจำในระดับภูมิภาค&quot;</span>
+
+<span class="sd">        sent_tokenize(sentence_1, engine=&quot;whitespace&quot;)</span>
+<span class="sd">        # output: [&#39;ฉันไปประชุมเมื่อวันที่&#39;, &#39;11&#39;, &#39;มีนาคม&#39;]</span>
+
+<span class="sd">        sent_tokenize(sentence_2, engine=&quot;whitespace&quot;)</span>
+<span class="sd">        # output: [&#39;ข้าราชการได้รับการหมุนเวียนเป็นระยะ&#39;,</span>
+<span class="sd">        #   &#39;\\nและได้รับมอบหมายให้ประจำในระดับภูมิภาค&#39;]</span>
+
+<span class="sd">    Split the text based on *whitespace* and *newline*::</span>
+
+<span class="sd">        sent_tokenize(sentence_1, engine=&quot;whitespace+newline&quot;)</span>
+<span class="sd">        # output: [&#39;ฉันไปประชุมเมื่อวันที่&#39;, &#39;11&#39;, &#39;มีนาคม&#39;]</span>
+
+<span class="sd">        sent_tokenize(sentence_2, engine=&quot;whitespace+newline&quot;)</span>
+<span class="sd">        # output: [&#39;ข้าราชการได้รับการหมุนเวียนเป็นระยะ&#39;,</span>
+<span class="sd">        &#39;\\nและได้รับมอบหมายให้ประจำในระดับภูมิภาค&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;whitespace&quot;</span><span class="p">:</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot; +&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># default, use whitespace + newline</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">sentences</span></div>
+
+
+<div class="viewcode-block" id="subword_tokenize"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.subword_tokenize">[docs]</a><span class="k">def</span> <span class="nf">subword_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcc&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function tokenizes text into inseparable units of</span>
+<span class="sd">    Thai contiguous characters namely</span>
+<span class="sd">    `Thai Character Clusters (TCCs) \</span>
+<span class="sd">    &lt;https://www.researchgate.net/publication/2853284_Character_Cluster_Based_Thai_Information_Retrieval&gt;`_</span>
+<span class="sd">    TCCs are the units based on Thai spelling feature that could not be</span>
+<span class="sd">    separated any character further such as   &#39;ก็&#39;, &#39;จะ&#39;, &#39;ไม่&#39;, and &#39;ฝา&#39;.</span>
+<span class="sd">    If the following units are separated, they could not be spelled out.</span>
+<span class="sd">    This function apply the TCC rules to tokenizes the text into</span>
+<span class="sd">    the smallest units.</span>
+
+<span class="sd">    For example, the word &#39;ขนมชั้น&#39; would be tokenized</span>
+<span class="sd">    into &#39;ข&#39;, &#39;น&#39;, &#39;ม&#39;, and &#39;ชั้น&#39;.</span>
+
+<span class="sd">    :param str text: text to be tokenized</span>
+<span class="sd">    :param str engine: the name subword tokenizer</span>
+<span class="sd">    :return: list of subwords</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *tcc* (default) -  Thai Character Cluster (Theeramunkong et al. 2000)</span>
+<span class="sd">        * *ssg* - CRF syllable segmenter for Thai.</span>
+<span class="sd">        * *etcc* - Enhanced Thai Character Cluster (Inrut et al. 2001)</span>
+<span class="sd">          [In development]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Tokenize text into subword based on *tcc*::</span>
+
+<span class="sd">        from pythainlp.tokenize import subword_tokenize</span>
+
+<span class="sd">        text_1 = &quot;ยุคเริ่มแรกของ ราชวงศ์หมิง&quot;</span>
+<span class="sd">        text_2 = &quot;ความแปลกแยกและพัฒนาการ&quot;</span>
+
+<span class="sd">        subword_tokenize(text_1, engine=&#39;tcc&#39;)</span>
+<span class="sd">        # output: [&#39;ยุ&#39;, &#39;ค&#39;, &#39;เริ่ม&#39;, &#39;แร&#39;, &#39;ก&#39;,</span>
+<span class="sd">        #   &#39;ข&#39;, &#39;อ&#39;, &#39;ง&#39;, &#39; &#39;, &#39;รา&#39;, &#39;ช&#39;, &#39;ว&#39;, &#39;ง&#39;,</span>
+<span class="sd">        #   &#39;ศ&#39;, &#39;์&#39;, &#39;ห&#39;, &#39;มิ&#39;, &#39;ง&#39;]</span>
+
+<span class="sd">        subword_tokenize(text_2, engine=&#39;tcc&#39;)</span>
+<span class="sd">        # output: [&#39;ค&#39;, &#39;วา&#39;, &#39;ม&#39;, &#39;แป&#39;, &#39;ล&#39;, &#39;ก&#39;, &#39;แย&#39;, &#39;ก&#39;,</span>
+<span class="sd">        &#39;และ&#39;, &#39;พัฒ&#39;,&#39;นา&#39;, &#39;กา&#39;, &#39;ร&#39;]</span>
+
+<span class="sd">    Tokenize text into subword based on *etcc* **(Work In Progress)**::</span>
+
+<span class="sd">        text_1 = &quot;ยุคเริ่มแรกของ ราชวงศ์หมิง&quot;</span>
+<span class="sd">        text_2 = &quot;ความแปลกแยกและพัฒนาการ&quot;</span>
+
+<span class="sd">        subword_tokenize(text_1, engine=&#39;etcc&#39;)</span>
+<span class="sd">        # output: [&#39;ยุคเริ่มแรกของ ราชวงศ์หมิง&#39;]</span>
+
+<span class="sd">        subword_tokenize(text_2, engine=&#39;etcc&#39;)</span>
+<span class="sd">        # output: [&#39;ความแปลกแยกและ&#39;, &#39;พัฒ&#39;, &#39;นาการ&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;etcc&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.etcc</span> <span class="kn">import</span> <span class="n">segment</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;ssg&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.ssg</span> <span class="kn">import</span> <span class="n">segment</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># default</span>
+        <span class="kn">from</span> <span class="nn">.tcc</span> <span class="kn">import</span> <span class="n">segment</span>
+
+    <span class="k">return</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="syllable_tokenize"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.syllable_tokenize">[docs]</a><span class="k">def</span> <span class="nf">syllable_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is to tokenize text into syllable (Thai: พยางค์), a unit of</span>
+<span class="sd">    pronunciation having one vowel sound.  For example, the word &#39;รถไฟ&#39;</span>
+<span class="sd">    contains two syallbles including &#39;รถ&#39;, and &#39;ไฟ&#39;.</span>
+<span class="sd">    Under the hood, this function uses :func:`pythainlp.tokenize.word_tokenize`</span>
+<span class="sd">    with *newmm* as a tokenizer. The function tokenize the text with</span>
+<span class="sd">    the dictionary of Thai words from</span>
+<span class="sd">    :func:`pythainlp.corpus.common.thai_words`</span>
+<span class="sd">    and then dictionary of Thai syllable from</span>
+<span class="sd">    :func:`pythainlp.corpus.common.thai_syllables`.</span>
+<span class="sd">    As a result, only syllables are obtained.</span>
+
+<span class="sd">    :param str text: input string to be tokenized</span>
+<span class="sd">    :param str engine: name of the syllable tokenizer</span>
+<span class="sd">    :return: list of syllables where whitespaces in the text **are included**</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *default*</span>
+<span class="sd">        * *ssg* - CRF syllable segmenter for Thai.</span>
+<span class="sd">    :Example::</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.tokenize import syllable_tokenize</span>
+
+<span class="sd">        text = &#39;รถไฟสมัยใหม่จะใช้กำลังจากหัวรถจักรดีเซล หรือจากไฟฟ้า&#39;</span>
+<span class="sd">        syllable_tokenize(text)</span>
+<span class="sd">        [&#39;รถ&#39;, &#39;ไฟ&#39;, &#39;สมัย&#39;, &#39;ใหม่&#39;, &#39;ใช้&#39;, &#39;กำ&#39;, &#39;ลัง&#39;, &#39;จาก&#39;, &#39;หัว&#39;,</span>
+<span class="sd">        &#39;รถ&#39;, &#39;จักร&#39;, &#39;ดี&#39;, &#39;เซล&#39;, &#39; &#39;, &#39;หรือ&#39;, &#39;จาก&#39;, &#39;ไฟ&#39;, &#39;ฟ้า&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">trie</span> <span class="o">=</span> <span class="n">dict_trie</span><span class="p">(</span><span class="n">dict_source</span><span class="o">=</span><span class="n">thai_syllables</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+            <span class="n">tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">trie</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.ssg</span> <span class="kn">import</span> <span class="n">segment</span>
+
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tokens</span></div>
+
+
+<div class="viewcode-block" id="dict_trie"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.dict_trie">[docs]</a><span class="k">def</span> <span class="nf">dict_trie</span><span class="p">(</span><span class="n">dict_source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Trie</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Trie</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a dictionary trie which will be used for word_tokenize() function.</span>
+
+<span class="sd">    :param str|Iterable[str]|pythainlp.tokenize.Trie dict_source: a path to</span>
+<span class="sd">        dictionary file or a list of words or a pythainlp.tokenize.Trie object</span>
+<span class="sd">    :return: a trie object created from a dictionary input</span>
+<span class="sd">    :rtype: pythainlp.tokenize.Trie</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">trie</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_source</span><span class="p">,</span> <span class="n">Trie</span><span class="p">):</span>
+        <span class="n">trie</span> <span class="o">=</span> <span class="n">dict_source</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_source</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># Receive a file path of the dict to read</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dict_source</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">_vocabs</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+            <span class="n">trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">_vocabs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_source</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+        <span class="c1"># Note: Since Trie and str are both Iterable,</span>
+        <span class="c1"># so the Iterable check should be here, at the very end,</span>
+        <span class="c1"># because it has less specificality</span>
+        <span class="c1"># Received a sequence type object of vocabs</span>
+        <span class="n">trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">dict_source</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;Type of dict_source must be pythainlp.tokenize.Trie, or Iterable[str], or str (path to source file)&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">trie</span></div>
+
+
+<div class="viewcode-block" id="Tokenizer"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.Tokenizer">[docs]</a><span class="k">class</span> <span class="nc">Tokenizer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class allows users to pre-define custom dictionary along with</span>
+<span class="sd">    tokenizer and encapsulate them into one single object.</span>
+<span class="sd">    It is an wrapper for both two functions including</span>
+<span class="sd">    :func:`pythainlp.tokenize.word_tokenize`,</span>
+<span class="sd">    and :func:`pythainlp.tokenize.dict_trie`</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Tokenizer object instantiated with :class:`pythainlp.tokenize.Trie`::</span>
+
+<span class="sd">        from pythainlp.tokenize import Tokenizer</span>
+<span class="sd">        from pythainlp.tokenize import Tokenizer, dict_trie</span>
+<span class="sd">        from pythainlp.corpus.common import thai_words</span>
+
+<span class="sd">        custom_words_list = set(thai_words())</span>
+<span class="sd">        custom_words_list.add(&#39;อะเฟเซีย&#39;)</span>
+<span class="sd">        custom_words_list.add(&#39;Aphasia&#39;)</span>
+<span class="sd">        trie = dict_trie(dict_source=custom_words_list)</span>
+
+<span class="sd">        text = &quot;อะเฟเซีย (Aphasia*) เป็นอาการผิดปกติของการพูด&quot;</span>
+<span class="sd">        _tokenizer = Tokenizer(custom_dict=trie, engine=&#39;newmm&#39;)</span>
+<span class="sd">        # output: [&#39;อะเฟเซีย&#39;, &#39; &#39;, &#39;(&#39;, &#39;Aphasia&#39;, &#39;)&#39;, &#39; &#39;, &#39;เป็น&#39;, &#39;อาการ&#39;,</span>
+<span class="sd">        &#39;ผิดปกติ&#39;, &#39;ของ&#39;, &#39;การ&#39;, &#39;พูด&#39;]</span>
+
+<span class="sd">    Tokenizer object instantiated with a list of words::</span>
+
+<span class="sd">        text = &quot;อะเฟเซีย (Aphasia) เป็นอาการผิดปกติของการพูด&quot;</span>
+<span class="sd">        _tokenizer = Tokenizer(custom_dict=list(thai_words()), engine=&#39;newmm&#39;)</span>
+<span class="sd">        _tokenizer.word_tokenize(text)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;อะ&#39;, &#39;เฟเซีย&#39;, &#39; &#39;, &#39;(&#39;, &#39;Aphasia&#39;, &#39;)&#39;, &#39; &#39;, &#39;เป็น&#39;, &#39;อาการ&#39;,</span>
+<span class="sd">        #   &#39;ผิดปกติ&#39;, &#39;ของ&#39;, &#39;การ&#39;, &#39;พูด&#39;]</span>
+
+<span class="sd">    Tokenizer object instantiated with a file path containing list of</span>
+<span class="sd">    word separated with *newline* and explicitly set a new tokenizer</span>
+<span class="sd">    after initiation::</span>
+
+<span class="sd">        PATH_TO_CUSTOM_DICTIONARY = &#39;./custom_dictionary.txtt&#39;</span>
+
+<span class="sd">        # write a file</span>
+<span class="sd">        with open(PATH_TO_CUSTOM_DICTIONARY, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:</span>
+<span class="sd">            f.write(&#39;อะเฟเซีย\\nAphasia\\nผิด\\nปกติ&#39;)</span>
+
+<span class="sd">        text = &quot;อะเฟเซีย (Aphasia) เป็นอาการผิดปกติของการพูด&quot;</span>
+
+<span class="sd">        # initate an object from file with `attacut` as tokenizer</span>
+<span class="sd">        _tokenizer = Tokenizer(custom_dict=PATH_TO_CUSTOM_DICTIONARY, \\</span>
+<span class="sd">            engine=&#39;attacut&#39;)</span>
+
+<span class="sd">        _tokenizer.word_tokenize(text)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;อะเฟเซีย&#39;, &#39; &#39;, &#39;(&#39;, &#39;Aphasia&#39;, &#39;)&#39;, &#39; &#39;, &#39;เป็น&#39;, &#39;อาการ&#39;, &#39;ผิด&#39;,</span>
+<span class="sd">        #   &#39;ปกติ&#39;, &#39;ของ&#39;, &#39;การ&#39;, &#39;พูด&#39;]</span>
+
+<span class="sd">        # change tokenizer to `newmm`</span>
+<span class="sd">        _tokenizer.set_tokenizer_engine(engine=&#39;newmm&#39;)</span>
+<span class="sd">        _tokenizer.word_tokenize(text)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [&#39;อะเฟเซีย&#39;, &#39; &#39;, &#39;(&#39;, &#39;Aphasia&#39;, &#39;)&#39;, &#39; &#39;, &#39;เป็นอาการ&#39;, &#39;ผิด&#39;,</span>
+<span class="sd">        #   &#39;ปกติ&#39;, &#39;ของการพูด&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Trie</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize tokenizer object</span>
+<span class="sd">        :param str: a file path, a list of vocaburaies* to be</span>
+<span class="sd">                    used to create a trie, or an instantiated</span>
+<span class="sd">                    :class:`pythainlp.tokenize.Trie` object.</span>
+<span class="sd">        :param str engine: choose between different options of engine to token</span>
+<span class="sd">                           (i.e.  *newmm*, *longest*, *attacut*)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__trie_dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__engine</span> <span class="o">=</span> <span class="n">engine</span>
+        <span class="k">if</span> <span class="n">custom_dict</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__trie_dict</span> <span class="o">=</span> <span class="n">dict_trie</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__trie_dict</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_TRIE</span>
+
+<div class="viewcode-block" id="Tokenizer.word_tokenize"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.Tokenizer.word_tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param str text: text to be tokenized</span>
+<span class="sd">        :return: list of words, tokenized from the text</span>
+<span class="sd">        :rtype: list[str]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__trie_dict</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__engine</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Tokenizer.set_tokenize_engine"><a class="viewcode-back" href="../../api/tokenize.html#pythainlp.tokenize.Tokenizer.set_tokenize_engine">[docs]</a>    <span class="k">def</span> <span class="nf">set_tokenize_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the tokenizer</span>
+<span class="sd">        :param str engine: choose between different options of engine to token</span>
+<span class="sd">                           (i.e. *newmm*, *longest*, *attacut*)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__engine</span> <span class="o">=</span> <span class="n">engine</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

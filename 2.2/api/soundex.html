@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.soundex &mdash; PyThaiNLP v2.2.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.spell" href="spell.html" />
+    <link rel="prev" title="pythainlp.corpus" href="corpus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2 (v2.2.6) <br /> Published date: 2020-12-13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.soundex</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pythainlp.soundex</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/soundex.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pythainlp-soundex">
+<h1>pythainlp.soundex<a class="headerlink" href="#pythainlp-soundex" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">pythainlp.soundex</span></code> is soundex for Thai.</p>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pythainlp.soundex.soundex">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.soundex.</span></code><code class="sig-name descname"><span class="pre">soundex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'udom83'</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><a class="reference internal" href="../_modules/pythainlp/soundex/core.html#soundex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.soundex.soundex" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts Thai text into phonetic code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – word</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – soundex engine</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Soundex code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+<dt class="field-even">Options for engine</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>udom83</em> (default) - Thai soundex algorithm proposed
+by Vichit Lorchirachoonkul <a class="footnote-reference brackets" href="#udom83" id="id1">2</a></p></li>
+<li><p><em>lk82</em> - Thai soundex algorithm proposed by
+Wannee Udompanich <a class="footnote-reference brackets" href="#lk82" id="id2">3</a></p></li>
+<li><p><em>metasound</em> - Thai soundex algorithm based on a combination
+of Metaphone and Soundex proposed by Snae &amp; Brückner <a class="footnote-reference brackets" href="#metasound" id="id3">1</a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.soundex</span> <span class="kn">import</span> <span class="n">soundex</span>
+
+<span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">),</span> <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;lk82&#39;</span><span class="p">),</span> \
+    <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;metasound&#39;</span><span class="p">)</span>
+<span class="c1"># output: (&#39;ร100000&#39;, &#39;ร1000&#39;, &#39;ล100&#39;)</span>
+
+<span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">),</span> <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;lk82&#39;</span><span class="p">),</span> \
+    <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;metasound&#39;</span><span class="p">)</span>
+<span class="c1"># output: (&#39;ร100000&#39;, &#39;ร1000&#39;, &#39;ร100&#39;)</span>
+
+<span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">),</span> <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;lk82&#39;</span><span class="p">),</span> \
+    <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;metasound&#39;</span><span class="p">)</span>
+<span class="c1"># output: (&#39;ร100000&#39;, &#39;ร1000&#39;, &#39;ร100&#39;)</span>
+
+<span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">),</span> <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;lk82&#39;</span><span class="p">),</span> \
+    <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;metasound&#39;</span><span class="p">)</span>
+<span class="c1"># output: (&#39;บ931900&#39;, &#39;บE419&#39;, &#39;บ551&#39;)</span>
+
+<span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ปัจจุบัน&quot;</span><span class="p">),</span> <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ปัจจุบัน&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;lk82&#39;</span><span class="p">),</span> \
+    <span class="n">soundex</span><span class="p">(</span><span class="s2">&quot;ปัจจุบัน&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;metasound&#39;</span><span class="p">)</span>
+<span class="c1"># output: (&#39;ป775300&#39;, &#39;ป3E54&#39;, &#39;ป223&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.soundex.lk82">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.soundex.</span></code><code class="sig-name descname"><span class="pre">lk82</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><a class="reference internal" href="../_modules/pythainlp/soundex/lk82.html#lk82"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.soundex.lk82" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts Thai text into phonetic code with the a
+Thai soundex algorithm named <strong>LK82</strong> <a class="footnote-reference brackets" href="#lk82" id="id4">3</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Thai word</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>LK82 soundex of the given Thai word</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.soundex</span> <span class="kn">import</span> <span class="n">lk82</span>
+
+<span class="n">lk82</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร1000&#39;</span>
+
+<span class="n">lk82</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร1000&#39;</span>
+
+<span class="n">lk82</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร1000&#39;</span>
+
+<span class="n">lk82</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;บE419&#39;</span>
+
+<span class="n">lk82</span><span class="p">(</span><span class="s2">&quot;ปัจจุบัน&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ป3E54&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.soundex.udom83">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.soundex.</span></code><code class="sig-name descname"><span class="pre">udom83</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><a class="reference internal" href="../_modules/pythainlp/soundex/udom83.html#udom83"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.soundex.udom83" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts Thai text into phonetic code with the
+Thai soundex algorithm named <strong>Udom83</strong> <a class="footnote-reference brackets" href="#udom83" id="id5">2</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Thai word</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Udom83 soundex</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.soundex</span> <span class="kn">import</span> <span class="n">udom83</span>
+
+<span class="n">udom83</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">)</span>
+<span class="c1"># output : &#39;ล100&#39;</span>
+
+<span class="n">udom83</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร100&#39;</span>
+
+<span class="n">udom83</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร100&#39;</span>
+
+<span class="n">udom83</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;บ5515&#39;</span>
+
+<span class="n">udom83</span><span class="p">(</span><span class="s2">&quot;ปัจจุบัน&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ป775300&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.soundex.metasound">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.soundex.</span></code><code class="sig-name descname"><span class="pre">metasound</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><a class="reference internal" href="../_modules/pythainlp/soundex/metasound.html#metasound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.soundex.metasound" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts Thai text into phonetic code with the
+mactching technique called <strong>MetaSound</strong>
+<a class="footnote-reference brackets" href="#metasound" id="id6">1</a> (combination between Soundex and Metaphone algorithms).
+MetaSound algorithm was developed specifically for Thai language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Thai text</p></li>
+<li><p><strong>length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – preferred length of the MetaSound code (default is 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>MetaSound for the given text</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.metasound</span> <span class="kn">import</span> <span class="n">metasound</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;ลัก&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ล100&#39;</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;รัก&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร100&#39;</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;รักษ์&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ร100&#39;</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># output: &#39;บ5515&#39;</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># output: &#39;บ55150&#39;</span>
+
+<span class="n">metasound</span><span class="p">(</span><span class="s2">&quot;บูรณการ&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1"># output: &#39;บ551&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="metasound"><span class="brackets">1</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>Snae &amp; Brückner. (2009). <a class="reference external" href="https://pdfs.semanticscholar.org/3983/963e87ddc6dfdbb291099aa3927a0e3e4ea6.pdf">Novel Phonetic Name Matching Algorithm with a Statistical
+Ontology for Analysing Names Given in Accordance with Thai Astrology</a>.</p>
+</dd>
+<dt class="label" id="udom83"><span class="brackets">2</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id5">2</a>)</span></dt>
+<dd><p>Wannee Udompanich (1983). Search Thai sound-alike string using homonymic approach.
+Master Thesis. Chulalongkorn University, Thailand.</p>
+</dd>
+<dt class="label" id="lk82"><span class="brackets">3</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>วิชิต หล่อจีระชุณห์กุล และ เจริญ คุวินทร์พันธุ์. <a class="reference external" href="http://guru.sanook.com/1520/">โปรแกรมการสืบค้นคำไทยตามเสียงอ่าน (Thai Soundex)</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="spell.html" class="btn btn-neutral float-right" title="pythainlp.spell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="corpus.html" class="btn btn-neutral float-left" title="pythainlp.corpus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

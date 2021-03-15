@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.util.thai_time &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.util.thai_time</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.util.thai_time</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">thai_time() - Spell out time to Thai words</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.util.numtoword</span> <span class="kn">import</span> <span class="n">num_to_thaiword</span>
+
+<span class="n">_TIME_FORMAT_WITH_SEC</span> <span class="o">=</span> <span class="s2">&quot;%H:%M:%S&quot;</span>
+<span class="n">_TIME_FORMAT_WITHOUT_SEC</span> <span class="o">=</span> <span class="s2">&quot;%H:%M&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_format_6h</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai time (6-hour clock)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;เที่ยงคืน&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;ตี&quot;</span> <span class="o">+</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;โมงเช้า&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;เที่ยง&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">13</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;บ่ายโมง&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;บ่าย&quot;</span> <span class="o">+</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;โมง&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;หกโมงเย็น&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">18</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ทุ่ม&quot;</span>
+
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span> <span class="nf">_format_m6h</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai time (modified 6-hour clock)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;เที่ยงคืน&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;ตี&quot;</span> <span class="o">+</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;โมง&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;เที่ยง&quot;</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">19</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;โมง&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">18</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ทุ่ม&quot;</span>
+
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span> <span class="nf">_format_24h</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai time (24-hour clock)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;นาฬิกา&quot;</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span> <span class="nf">_format</span><span class="p">(</span>
+    <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;24h&quot;</span><span class="p">,</span>
+    <span class="n">precision</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;6h&quot;</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_format_6h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;m6h&quot;</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_format_m6h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;24h&quot;</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_format_24h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">precision</span> <span class="o">==</span> <span class="s2">&quot;m&quot;</span> <span class="ow">or</span> <span class="n">precision</span> <span class="o">==</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">m</span> <span class="o">==</span> <span class="mi">30</span>
+            <span class="ow">and</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">precision</span> <span class="o">==</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;6h&quot;</span> <span class="ow">or</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;m6h&quot;</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;ครึ่ง&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;นาที&quot;</span>
+            <span class="k">if</span> <span class="n">precision</span> <span class="o">==</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;วินาที&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;6h&quot;</span> <span class="ow">or</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s2">&quot;m6h&quot;</span><span class="p">):</span>
+                <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot;ครึ่ง&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;นาที&quot;</span>
+        <span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;วินาที&quot;</span>
+
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<div class="viewcode-block" id="thai_time"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thai_time">[docs]</a><span class="k">def</span> <span class="nf">thai_time</span><span class="p">(</span>
+    <span class="n">time_data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">time</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">fmt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;24h&quot;</span><span class="p">,</span>
+    <span class="n">precision</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Spell out time to Thai words.</span>
+
+<span class="sd">    :param str time_data: time input, can be a datetime.time object \</span>
+<span class="sd">        or a datetime.datetime object \</span>
+<span class="sd">        or a string (in H:M or H:M:S format, using 24-hour clock)</span>
+<span class="sd">    :param str fmt: time output format</span>
+<span class="sd">        * *24h* - 24-hour clock (default)</span>
+<span class="sd">        * *6h* - 6-hour clock</span>
+<span class="sd">        * *m6h* - Modified 6-hour clock</span>
+<span class="sd">    :param str precision: precision of the spell out</span>
+<span class="sd">        * *m* - always spell out to minute level</span>
+<span class="sd">        * *s* - always spell out to second level</span>
+<span class="sd">        * None - spell out only non-zero parts</span>
+<span class="sd">    :return: Time spell out in Thai words</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        thai_time(&quot;8:17&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # แปดนาฬิกาสิบเจ็ดนาที</span>
+
+<span class="sd">        thai_time(&quot;8:17&quot;, &quot;6h&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # สองโมงเช้าสิบเจ็ดนาที</span>
+
+<span class="sd">        thai_time(&quot;8:17&quot;, &quot;m6h&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # แปดโมงสิบเจ็ดนาที</span>
+
+<span class="sd">        thai_time(&quot;18:30&quot;, fmt=&quot;m6h&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # หกโมงครึ่ง</span>
+
+<span class="sd">        thai_time(datetime.time(12, 3, 0))</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # สิบสองนาฬิกาสามนาที</span>
+
+<span class="sd">        thai_time(datetime.time(12, 3, 0), precision=&quot;s&quot;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # สิบสองนาฬิกาสามนาทีศูนย์วินาที</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_time</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="n">_time</span> <span class="o">=</span> <span class="n">time_data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Time data must be a datetime.time object, a datetime.datetime object, or a string.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">time_data</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Time string cannot be empty.&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="n">_TIME_FORMAT_WITH_SEC</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="n">_TIME_FORMAT_WITHOUT_SEC</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_time</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Time string &#39;</span><span class="si">{</span><span class="n">time_data</span><span class="si">}</span><span class="s2">&#39; does not match H:M or H:M:S format.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_format</span><span class="p">(</span><span class="n">_time</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">_time</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">_time</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

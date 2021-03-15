@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.corpus &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.corpus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.corpus</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NoReturn</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tools</span> <span class="kn">import</span> <span class="n">get_full_data_path</span><span class="p">,</span> <span class="n">get_pythainlp_path</span>
+<span class="kn">from</span> <span class="nn">requests.exceptions</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">Query</span><span class="p">,</span> <span class="n">TinyDB</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># Remote and local corpus databases</span>
+
+<span class="n">_CORPUS_DIRNAME</span> <span class="o">=</span> <span class="s2">&quot;corpus&quot;</span>
+<span class="n">_CORPUS_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_pythainlp_path</span><span class="p">(),</span> <span class="n">_CORPUS_DIRNAME</span><span class="p">)</span>
+
+<span class="n">_CORPUS_DB_URL</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/&quot;</span>
+    <span class="o">+</span> <span class="s2">&quot;PyThaiNLP/pythainlp-corpus/&quot;</span>
+    <span class="o">+</span> <span class="s2">&quot;2.1/db.json&quot;</span>
+<span class="p">)</span>
+
+<span class="n">_CORPUS_DB_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;db.json&quot;</span>
+<span class="n">_CORPUS_DB_PATH</span> <span class="o">=</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">_CORPUS_DB_FILENAME</span><span class="p">)</span>
+
+<span class="c1"># Create a local corpus database if it does not already exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_CORPUS_DB_PATH</span><span class="p">):</span>
+    <span class="n">TinyDB</span><span class="p">(</span><span class="n">_CORPUS_DB_PATH</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">corpus_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_CORPUS_PATH</span>
+
+
+<span class="k">def</span> <span class="nf">corpus_db_url</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_CORPUS_DB_URL</span>
+
+
+<span class="k">def</span> <span class="nf">corpus_db_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_CORPUS_DB_PATH</span>
+
+
+<span class="k">def</span> <span class="nf">get_corpus_db_detail</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">res</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="get_corpus"><a class="viewcode-back" href="../../api/corpus.html#pythainlp.corpus.get_corpus">[docs]</a><span class="k">def</span> <span class="nf">get_corpus</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read corpus from file and return a frozenset (Please see the filename from</span>
+<span class="sd">    `this file</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp-corpus/blob/master/db.json&gt;`_</span>
+
+<span class="sd">    :param string filename: filename of the corpus to be read</span>
+
+<span class="sd">    :return: :mod:`frozenset` consist of lines in the file</span>
+<span class="sd">    :rtype: :mod:`frozenset`</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.corpus import get_corpus</span>
+
+<span class="sd">        get_corpus(&#39;negations_th.txt&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # frozenset({&#39;แต่&#39;, &#39;ไม่&#39;})</span>
+
+<span class="sd">        get_corpus(&#39;ttc_freq.txt&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # frozenset({&#39;โดยนัยนี้\\t1&#39;,</span>
+<span class="sd">        #    &#39;ตัวบท\\t10&#39;,</span>
+<span class="sd">        #    &#39;หยิบยื่น\\t3&#39;,</span>
+<span class="sd">        #    &#39;เอย\\t555&#39;,</span>
+<span class="sd">        #    &#39;ค้าน\\t69&#39;,</span>
+<span class="sd">        #    &#39;เหนี่ยง\\t3&#39;,</span>
+<span class="sd">        #    &#39;ชงฆ์\\t3&#39;,</span>
+<span class="sd">        #     ...})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">corpus_path</span><span class="p">(),</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_corpus_path"><a class="viewcode-back" href="../../api/corpus.html#pythainlp.corpus.get_corpus_path">[docs]</a><span class="k">def</span> <span class="nf">get_corpus_path</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get corpus path</span>
+
+<span class="sd">    :param string name: corpus name</span>
+<span class="sd">    :return: path to the corpus or **None** of the corpus doesn&#39;t</span>
+<span class="sd">             exist in the device</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    If the corpus already exists::</span>
+
+<span class="sd">        from pythainlp.corpus import get_corpus_path</span>
+
+<span class="sd">        print(get_corpus_path(&#39;ttc&#39;))</span>
+<span class="sd">        # output: /root/pythainlp-data/ttc_freq.txt</span>
+
+<span class="sd">    If the corpus has not been downloaded yet::</span>
+
+<span class="sd">        from pythainlp.corpus import download, get_corpus_path</span>
+
+<span class="sd">        print(get_corpus_path(&#39;wiki_lm_lstm&#39;))</span>
+<span class="sd">        # output: None</span>
+
+<span class="sd">        download(&#39;wiki_lm_lstm&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # Download: wiki_lm_lstm</span>
+<span class="sd">        # wiki_lm_lstm 0.32</span>
+<span class="sd">        # thwiki_lm.pth?dl=1: 1.05GB [00:25, 41.5MB/s]</span>
+<span class="sd">        # /root/pythainlp-data/thwiki_model_lstm.pth</span>
+
+<span class="sd">        print(get_corpus_path(&#39;wiki_lm_lstm&#39;))</span>
+<span class="sd">        # output: /root/pythainlp-data/thwiki_model_lstm.pth</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;file&quot;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">download</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+<span class="k">def</span> <span class="nf">_download</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    @param: url to download file</span>
+<span class="sd">    @param: dst place to put the file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">64</span>
+
+    <span class="n">file_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">dst</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="n">_CHUNK_SIZE</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+                <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">))</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">file_size</span>
+
+
+<span class="k">def</span> <span class="nf">_check_hash</span><span class="p">(</span><span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">md5</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    @param: dst place to put the file</span>
+<span class="sd">    @param: md5 place to hash the file (MD5)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">md5</span> <span class="ow">and</span> <span class="n">md5</span> <span class="o">!=</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">dst</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">file_md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">md5</span> <span class="o">!=</span> <span class="n">file_md5</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Hash does not match expected.&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="download"><a class="viewcode-back" href="../../api/corpus.html#pythainlp.corpus.download">[docs]</a><span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download corpus.</span>
+<span class="sd">    The available corpus names can be seen in this file:</span>
+<span class="sd">    https://github.com/PyThaiNLP/pythainlp-corpus/blob/master/db.json</span>
+
+<span class="sd">    :param string name: corpus name</span>
+<span class="sd">    :param bool force: force download</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.corpus import download</span>
+
+<span class="sd">        download(&#39;wiki_lm_lstm&#39;, force=True)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # Corpus: wiki_lm_lstm</span>
+<span class="sd">        # - Downloading: wiki_lm_lstm 0.1</span>
+<span class="sd">        # thwiki_lm.pth:  26%|██▌       | 114k/434k [00:00&lt;00:00, 690kB/s]</span>
+
+<span class="sd">    By default, downloaded corpus and model will be saved in ``$HOME/pythainlp-data/``</span>
+<span class="sd">    (e.g. ``/Users/bact/pythainlp-data/wiki_lm_lstm.pth``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">corpus_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">corpus_db_url</span><span class="p">())</span>
+    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">http_err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot download corpus data from: </span><span class="si">{</span><span class="n">corpus_db_url</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HTTP error occurred: </span><span class="si">{</span><span class="n">http_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot download corpus data from: </span><span class="si">{</span><span class="n">corpus_db_url</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Non-HTTP error occurred: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">corpus_data</span> <span class="o">=</span> <span class="n">corpus_data</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">corpus_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="n">corpus</span> <span class="o">=</span> <span class="n">corpus_data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="n">local_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># If not found in local, download</span>
+        <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Downloading: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">corpus</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">_download</span><span class="p">(</span><span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;download&quot;</span><span class="p">],</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;file_name&quot;</span><span class="p">])</span>
+            <span class="n">_check_hash</span><span class="p">(</span><span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;file_name&quot;</span><span class="p">],</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;md5&quot;</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">local_db</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]},</span> <span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">local_db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;file_name&quot;</span><span class="p">],</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">local_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+                <span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">query</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="c1"># Already has the same version</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Already up to date.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Has the corpus but different version</span>
+                <span class="n">current_ver</span> <span class="o">=</span> <span class="n">local_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Existing version: </span><span class="si">{</span><span class="n">current_ver</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- New version available: </span><span class="si">{</span><span class="n">corpus</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Use download(data_name, force=True) to update&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus not found:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="n">local_db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="remove"><a class="viewcode-back" href="../../api/corpus.html#pythainlp.corpus.remove">[docs]</a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove corpus</span>
+
+<span class="sd">    :param string name: corpus name</span>
+<span class="sd">    :return: **True** if the corpus is found and succesfully removed.</span>
+<span class="sd">             Otherwise, it returns **False**.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.corpus import remove, get_corpus_path, get_corpus</span>
+
+<span class="sd">        print(remove(&#39;ttc&#39;))</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">        print(get_corpus_path(&#39;ttc&#39;))</span>
+<span class="sd">        # output: None</span>
+
+<span class="sd">        get_corpus(&#39;ttc&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # FileNotFoundError: [Errno 2] No such file or directory:</span>
+<span class="sd">        # &#39;/usr/local/lib/python3.6/dist-packages/pythainlp/corpus/ttc&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">get_corpus_path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<span class="kn">from</span> <span class="nn">pythainlp.corpus.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">countries</span><span class="p">,</span>
+    <span class="n">provinces</span><span class="p">,</span>
+    <span class="n">thai_female_names</span><span class="p">,</span>
+    <span class="n">thai_male_names</span><span class="p">,</span>
+    <span class="n">thai_negations</span><span class="p">,</span>
+    <span class="n">thai_stopwords</span><span class="p">,</span>
+    <span class="n">thai_syllables</span><span class="p">,</span>
+    <span class="n">thai_words</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;corpus_path&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;corpus_db_path&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;corpus_db_url&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;countries&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;download&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_corpus&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_corpus_path&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;provinces&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;remove&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_female_names&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_male_names&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_negations&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_stopwords&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_syllables&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_words&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_corpus_db_detail&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

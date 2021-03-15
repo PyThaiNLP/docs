@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.util.normalize &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.util.normalize</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.util.normalize</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Text normalization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_tonemarks</span>
+
+<span class="n">_NORMALIZE_RULE1</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;ะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ั&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;็&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ิ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ี&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ึ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ํ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ุ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ู&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ใ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;โ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ื&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;๋&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;๊&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ึ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;์&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;๋&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ำ&quot;</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># เก็บพวกสระ วรรณยุกต์ที่ซ้ำกันแล้วมีปัญหา</span>
+
+
+<span class="n">_NORMALIZE_RULE2</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;เเ&quot;</span><span class="p">,</span> <span class="s2">&quot;แ&quot;</span><span class="p">),</span>  <span class="c1"># เ เ -&gt; แ</span>
+    <span class="p">(</span><span class="s2">&quot;ํ(t)า&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ำ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ํา(t)&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ำ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;([่-๋])([ัิ-ื])&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">2</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;([่-๋])([ูุ])&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">2</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ำ([่-๋])&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ำ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;(์)([ัิ-ู])&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">2</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">),</span>
+<span class="p">]</span>  <span class="c1"># เก็บพวก พิมพ์ลำดับผิดหรือผิดแป้นแต่กลับแสดงผลถูกต้อง ให้ไปเป็นแป้นที่ถูกต้อง เช่น เ + เ ไปเป็น แ</span>
+
+
+<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function normalize thai text with normalizing rules as follows:</span>
+
+<span class="sd">        * Remove redudant symbol of tones and vowels.</span>
+<span class="sd">        * Subsitute [&quot;เ&quot;, &quot;เ&quot;] to &quot;แ&quot;.</span>
+
+<span class="sd">    :param str text: thai text to be normalized</span>
+<span class="sd">    :return: normalized Thai text according to the fules</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import normalize</span>
+
+<span class="sd">        normalize(&#39;สระะน้ำ&#39;)</span>
+<span class="sd">        # output: สระน้ำ</span>
+
+<span class="sd">        normalize(&#39;เเปลก&#39;)</span>
+<span class="sd">        # output: แปลก</span>
+
+<span class="sd">        normalize(&#39;นานาาา&#39;)</span>
+<span class="sd">        # output: นานา</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">_NORMALIZE_RULE2</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;[่้๊๋]&quot;</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">_NORMALIZE_RULE1</span><span class="p">,</span> <span class="n">_NORMALIZE_RULE1</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;[่้๊๋]&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="delete_tone"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.delete_tone">[docs]</a><span class="k">def</span> <span class="nf">delete_tone</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function removes Thai tonemarks from the text.</span>
+<span class="sd">    There are 4 tonemarks indicating 4 tones as follows:</span>
+
+<span class="sd">        * Down tone (Thai: ไม้เอก  _่ )</span>
+<span class="sd">        * Falling tone  (Thai: ไม้โท  _้ )</span>
+<span class="sd">        * High tone (Thai: ไม้ตรี  ​_๊ )</span>
+<span class="sd">        * Rising tone (Thai: ไม้จัตวา _๋ )</span>
+
+<span class="sd">    :param str text: text in Thai language</span>
+<span class="sd">    :return: text without Thai tonemarks</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import delete_tone</span>
+
+<span class="sd">        delete_tone(&#39;สองพันหนึ่งร้อยสี่สิบเจ็ดล้านสี่แสนแปดหมื่นสามพันหกร้อยสี่สิบเจ็ด&#39;)</span>
+<span class="sd">        # output: สองพันหนึงรอยสีสิบเจ็ดลานสีแสนแปดหมืนสามพันหกรอยสีสิบเจ็ด</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">chars</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">thai_tonemarks</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">deletetone</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;deletetone is deprecated, use delete_tone instead&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">delete_tone</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

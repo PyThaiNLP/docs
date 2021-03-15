@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.ulmfit &mdash; PyThaiNLP v2.2.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.util" href="util.html" />
+    <link rel="prev" title="pythainlp.transliterate" href="transliterate.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2 (v2.2.6) <br /> Published date: 2020-12-13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.ulmfit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pythainlp.ulmfit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/ulmfit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pythainlp-ulmfit">
+<h1>pythainlp.ulmfit<a class="headerlink" href="#pythainlp-ulmfit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pythainlp.ulmfit.ThaiTokenizer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></code><code class="sig-name descname"><span class="pre">ThaiTokenizer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'th'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/tokenizer.html#ThaiTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.ThaiTokenizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper around a frozen newmm tokenizer to make it a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">fastai.BaseTokenizer</span></code>.
+(see: <a class="reference external" href="https://docs.fast.ai/text.transform#BaseTokenizer">https://docs.fast.ai/text.transform#BaseTokenizer</a>)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.ulmfit.document_vector">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></code><code class="sig-name descname"><span class="pre">document_vector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">learn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#document_vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.document_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function vectorize Thai input text into a 400 dimension vector using
+<code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model and data bunch.</p>
+<dl class="field-list">
+<dt class="field-odd">Meth</dt>
+<dd class="field-odd"><p><cite>document_vector</cite> get document vector using fastai language model
+and data bunch</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – text to be vectorized with <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model.</p></li>
+<li><p><strong>learn</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model learner</p></li>
+<li><p><strong>data</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> data bunch</p></li>
+<li><p><strong>agg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – name of aggregation methods for word embeddings
+The avialable methods are “mean” and “sum”</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.array</span></code> of document vector sized 400 based on
+the encoder of the model</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray((1,</span> <span class="pre">400))</span></code></p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">document_vectorr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fastai</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fastai.text</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load Data Bunch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">,</span> <span class="s1">&#39;thwiki_lm_data.pkl&#39;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initialize language_model_learner</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">emb_sz</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">n_hid</span><span class="o">=</span><span class="mi">1550</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pad_token</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="go">     qrnn=False, tie_weights=True, out_bias=True, output_p=0.25,</span>
+<span class="go">     hidden_p=0.1, input_p=0.2, embed_p=0.02, weight_p=0.15)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trn_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">drop_mult</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+<span class="go">                                   pretrained=False, **trn_args)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">document_vector</span><span class="p">(</span><span class="s1">&#39;วันนี้วันดีปีใหม่&#39;</span><span class="p">,</span> <span class="n">learn</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">See Also</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>A notebook showing how to train <cite>ulmfit</cite> language model and its
+usage, <a class="reference external" href="https://github.com/cstorm125/thai2fit/blob/master/thwiki_lm/word2vec_examples.ipynb">Jupyter Notebook</a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.ulmfit.merge_wgts">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></code><code class="sig-name descname"><span class="pre">merge_wgts</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">em_sz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wgts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itos_pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itos_new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#merge_wgts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.merge_wgts" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is to insert new vocab into an existing model named <cite>wgts</cite>
+and update the model’s weights for new vocab with the average embedding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Meth</dt>
+<dd class="field-odd"><p><cite>merge_wgts</cite> insert pretrained weights and vocab into a new set
+of weights and vocab; use average if vocab not in pretrained vocab</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>em_sz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – embedding size</p></li>
+<li><p><strong>wgts</strong> – torch model weights</p></li>
+<li><p><strong>itos_pre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – pretrained list of vocab</p></li>
+<li><p><strong>itos_new</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – list of new vocab</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>merged torch model weights</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pythainlp.ulmfit.process_thai">
+<code class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></code><code class="sig-name descname"><span class="pre">process_thai</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">text:</span> <span class="pre">str,</span> <span class="pre">pre_rules:</span> <span class="pre">Collection</span> <span class="pre">=</span> <span class="pre">[&lt;function</span> <span class="pre">fix_html&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">reorder_vowels&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">spec_add_spaces&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_useless_spaces&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_useless_newlines&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_brackets&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_url&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_rep_nonum&gt;],</span> <span class="pre">tok_func:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">Tokenizer.word_tokenize</span> <span class="pre">of</span> <span class="pre">&lt;pythainlp.tokenize.core.Tokenizer</span> <span class="pre">object&gt;&gt;,</span> <span class="pre">post_rules:</span> <span class="pre">Collection</span> <span class="pre">=</span> <span class="pre">[&lt;function</span> <span class="pre">ungroup_emoji&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">lowercase_all&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_wrep_post_nonum&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">remove_space&gt;]</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Collection</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#process_thai"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.process_thai" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process Thai texts for models (with sparse features as default)</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – text to be cleaned</p></li>
+<li><p><strong>pre_rules</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><em>func</em><em>]</em>) – rules to apply before tokenization.</p></li>
+<li><p><strong>tok_func</strong> (<em>func</em>) – tokenization function (by default, <strong>tok_func</strong> is
+<a class="reference internal" href="tokenize.html#pythainlp.tokenize.word_tokenize" title="pythainlp.tokenize.word_tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.word_tokenize()</span></code></a>)</p></li>
+<li><p><strong>post_rules</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>[</em><em>func</em><em>]</em>) – rules to apply after tokenizations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of cleaned tokenized texts</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>The default <strong>pre-rules</strong> consists of <code class="xref py py-func docutils literal notranslate"><span class="pre">fix_html()</span></code>,
+<a class="reference internal" href="util.html#pythainlp.util.normalize" title="pythainlp.util.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.util.normalize()</span></code></a>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">spec_add_spaces()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_useless_spaces()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_useless_newlines()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_brackets()</span></code>
+and <code class="xref py py-func docutils literal notranslate"><span class="pre">replace_rep_nonum()</span></code>.</p></li>
+<li><p>The default <strong>post-rules</strong> consists of <code class="xref py py-func docutils literal notranslate"><span class="pre">ungroup_emoji()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">lowercase_all()</span></code>,  <code class="xref py py-func docutils literal notranslate"><span class="pre">replace_wrep_post_nonum()</span></code>,
+and <code class="xref py py-func docutils literal notranslate"><span class="pre">remove_space()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><ol class="arabic simple">
+<li><p>Use default pre-rules and post-rules:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">process_thai</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process_thai</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go">[บ้าน&#39;, &#39;xxrep&#39;, &#39;   &#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="go">&#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;pythainlp&#39;, &#39;&amp;&#39;]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Modify pre_rules and post_rules arugments with
+rules provided in <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythainlp.ulmfit</span></code>:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="go">    process_thai,</span>
+<span class="go">    replace_rep_after,</span>
+<span class="go">    fix_html,</span>
+<span class="go">    ungroup_emoji,</span>
+<span class="go">    replace_wrep_post,</span>
+<span class="go">    remove_space)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process_thai</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
+<span class="go">                 pre_rules=[replace_rep_after, fix_html],</span>
+<span class="go">                 post_rules=[ungroup_emoji,</span>
+<span class="go">                             replace_wrep_post,</span>
+<span class="go">                             remove_space]</span>
+<span class="go">                )</span>
+<span class="go">[&#39;บ้าน&#39;, &#39;xxrep&#39;, &#39;5&#39;, &#39;()&#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;2&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="go"> &#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;PyThaiNLP&#39;, &#39;&amp;&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">members</dt>
+<dd class="field-odd"><p>tokenizer</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="util.html" class="btn btn-neutral float-right" title="pythainlp.util" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="transliterate.html" class="btn btn-neutral float-left" title="pythainlp.transliterate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

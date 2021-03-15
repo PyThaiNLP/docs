@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.corpus.common &mdash; PyThaiNLP v2.2.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2 (v2.2.6) <br /> Published date: 2020-12-13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.corpus.common</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.corpus.common</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Common list of words.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;countries&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;provinces&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_family_names&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_female_names&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_male_names&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_negations&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_stopwords&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_syllables&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thai_words&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">get_corpus</span>
+
+<span class="n">_THAI_COUNTRIES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_COUNTRIES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;countries_th.txt&quot;</span>
+
+<span class="n">_THAI_THAILAND_PROVINCES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_THAILAND_PROVINCES_DETAILS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">_THAI_THAILAND_PROVINCES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;thailand_provinces_th.csv&quot;</span>
+
+<span class="n">_THAI_SYLLABLES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_SYLLABLES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;syllables_th.txt&quot;</span>
+
+<span class="n">_THAI_WORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_WORDS_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;words_th.txt&quot;</span>
+
+<span class="n">_THAI_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_STOPWORDS_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;stopwords_th.txt&quot;</span>
+
+<span class="n">_THAI_NEGATIONS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_NEGATIONS_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;negations_th.txt&quot;</span>
+
+<span class="n">_THAI_FAMLIY_NAMES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_FAMLIY_NAMES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;family_names_th.txt&quot;</span>
+<span class="n">_THAI_FEMALE_NAMES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_FEMALE_NAMES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;person_names_female_th.txt&quot;</span>
+<span class="n">_THAI_MALE_NAMES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_THAI_MALE_NAMES_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;person_names_male_th.txt&quot;</span>
+
+
+<div class="viewcode-block" id="countries"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.countries">[docs]</a><span class="k">def</span> <span class="nf">countries</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of country names in Thai such as &quot;แคนาดา&quot;, &quot;โรมาเนีย&quot;,</span>
+<span class="sd">    &quot;แอลจีเรีย&quot;, and &quot;ลาว&quot;.</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/countries_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/countries_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing countries names in Thai</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_COUNTRIES</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_COUNTRIES</span><span class="p">:</span>
+        <span class="n">_THAI_COUNTRIES</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_COUNTRIES_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_COUNTRIES</span></div>
+
+
+<div class="viewcode-block" id="provinces"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.provinces">[docs]</a><span class="k">def</span> <span class="nf">provinces</span><span class="p">(</span><span class="n">details</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">frozenset</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thailand province names in Thai such as &quot;กระบี่&quot;,</span>
+<span class="sd">    &quot;กรุงเทพมหานคร&quot;, &quot;กาญจนบุรี&quot;, and &quot;อุบลราชธานี&quot;.</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/thailand_provinces_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/thailand_provinces_th.txt&gt;`_)</span>
+
+<span class="sd">    :param bool details: return details of provinces or not</span>
+
+<span class="sd">    :return: :class:`frozenset` containing province names of Thailand \</span>
+<span class="sd">    (if details is False) or :class:`list` containing :class:`dict` of \</span>
+<span class="sd">    province names and details such as \</span>
+<span class="sd">    [{&#39;name_th&#39;: &#39;นนทบุรี&#39;, &#39;abbr_th&#39;: &#39;นบ&#39;, &#39;name_en&#39;: &#39;Nonthaburi&#39;, \</span>
+<span class="sd">    &#39;abbr_en&#39;: &#39;NBI&#39;}].</span>
+<span class="sd">    :rtype: :class:`frozenset` or :class:`list`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_THAILAND_PROVINCES</span><span class="p">,</span> <span class="n">_THAI_THAILAND_PROVINCES_DETAILS</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_THAILAND_PROVINCES</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">_THAI_THAILAND_PROVINCES_DETAILS</span><span class="p">:</span>
+        <span class="n">provs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">prov_details</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_THAILAND_PROVINCES_FILENAME</span><span class="p">,</span> <span class="n">as_is</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+            <span class="n">prov</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="n">prov</span><span class="p">[</span><span class="s2">&quot;name_th&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">prov</span><span class="p">[</span><span class="s2">&quot;abbr_th&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">prov</span><span class="p">[</span><span class="s2">&quot;name_en&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">prov</span><span class="p">[</span><span class="s2">&quot;abbr_en&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+            <span class="n">provs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">prov</span><span class="p">[</span><span class="s2">&quot;name_th&quot;</span><span class="p">])</span>
+            <span class="n">prov_details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prov</span><span class="p">)</span>
+
+        <span class="n">_THAI_THAILAND_PROVINCES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">provs</span><span class="p">)</span>
+        <span class="n">_THAI_THAILAND_PROVINCES_DETAILS</span> <span class="o">=</span> <span class="n">prov_details</span>
+
+    <span class="k">if</span> <span class="n">details</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_THAI_THAILAND_PROVINCES_DETAILS</span>
+
+    <span class="k">return</span> <span class="n">_THAI_THAILAND_PROVINCES</span></div>
+
+
+<div class="viewcode-block" id="thai_syllables"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_syllables">[docs]</a><span class="k">def</span> <span class="nf">thai_syllables</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai syllables such as &quot;กรอบ&quot;, &quot;ก็&quot;, &quot;๑&quot;, &quot;โมบ&quot;,</span>
+<span class="sd">    &quot;โมน&quot;, &quot;โม่ง&quot;, &quot;กา&quot;, &quot;ก่า&quot;, and, &quot;ก้า&quot;.</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/syllables_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/syllables_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing syllables in Thai language.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_SYLLABLES</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_SYLLABLES</span><span class="p">:</span>
+        <span class="n">_THAI_SYLLABLES</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_SYLLABLES_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_SYLLABLES</span></div>
+
+
+<div class="viewcode-block" id="thai_words"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_words">[docs]</a><span class="k">def</span> <span class="nf">thai_words</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai words such as &quot;กติกา&quot;, &quot;กดดัน&quot;, &quot;พิษ&quot;,</span>
+<span class="sd">    and &quot;พิษภัย&quot;. \n(See: `dev/pythainlp/corpus/words_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/words_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing words in Thai language.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_WORDS</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_WORDS</span><span class="p">:</span>
+        <span class="n">_THAI_WORDS</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_WORDS_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_WORDS</span></div>
+
+
+<div class="viewcode-block" id="thai_stopwords"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_stopwords">[docs]</a><span class="k">def</span> <span class="nf">thai_stopwords</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai stopwords such as &quot;มี&quot;, &quot;ไป&quot;, &quot;ไง&quot;, &quot;ขณะ&quot;,</span>
+<span class="sd">    &quot;การ&quot;, and &quot;ประการหนึ่ง&quot;. \n(See: `dev/pythainlp/corpus/stopwords_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/stopwords_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing stopwords.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_STOPWORDS</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_STOPWORDS</span><span class="p">:</span>
+        <span class="n">_THAI_STOPWORDS</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_STOPWORDS_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_STOPWORDS</span></div>
+
+
+<div class="viewcode-block" id="thai_negations"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_negations">[docs]</a><span class="k">def</span> <span class="nf">thai_negations</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai negation words including &quot;ไม่&quot; and &quot;แต่&quot;.</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/negations_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/negations_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing negations in Thai language.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_NEGATIONS</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_NEGATIONS</span><span class="p">:</span>
+        <span class="n">_THAI_NEGATIONS</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_NEGATIONS_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_NEGATIONS</span></div>
+
+
+<div class="viewcode-block" id="thai_family_names"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_family_names">[docs]</a><span class="k">def</span> <span class="nf">thai_family_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai family names</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/family_names_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/family_names_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing Thai family names.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_FAMLIY_NAMES</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_FAMLIY_NAMES</span><span class="p">:</span>
+        <span class="n">_THAI_FAMLIY_NAMES</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_FAMLIY_NAMES_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_FAMLIY_NAMES</span></div>
+
+
+<div class="viewcode-block" id="thai_female_names"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_female_names">[docs]</a><span class="k">def</span> <span class="nf">thai_female_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai female names</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/person_names_female_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/person_names_female_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing Thai female names.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_FEMALE_NAMES</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_FEMALE_NAMES</span><span class="p">:</span>
+        <span class="n">_THAI_FEMALE_NAMES</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_FEMALE_NAMES_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_FEMALE_NAMES</span></div>
+
+
+<div class="viewcode-block" id="thai_male_names"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.thai_male_names">[docs]</a><span class="k">def</span> <span class="nf">thai_male_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a frozenset of Thai male names</span>
+<span class="sd">    \n(See: `dev/pythainlp/corpus/person_names_male_th.txt\</span>
+<span class="sd">    &lt;https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/person_names_male_th.txt&gt;`_)</span>
+
+<span class="sd">    :return: :class:`frozenset` containing Thai male names.</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_THAI_MALE_NAMES</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_THAI_MALE_NAMES</span><span class="p">:</span>
+        <span class="n">_THAI_MALE_NAMES</span> <span class="o">=</span> <span class="n">get_corpus</span><span class="p">(</span><span class="n">_THAI_MALE_NAMES_FILENAME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_THAI_MALE_NAMES</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

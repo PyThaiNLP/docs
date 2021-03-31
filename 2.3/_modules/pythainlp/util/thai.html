@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.util.thai &mdash; PyThaiNLP v2.2.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                add-ner-thai2transformers (v2.2.6) <br /> Published date: 2021-03-11
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.util.thai</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.util.thai</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Check if it is Thai text</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_above_vowels</span><span class="p">,</span> <span class="n">thai_tonemarks</span>
+
+<span class="n">_DEFAULT_IGNORE_CHARS</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">whitespace</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="n">_TH_FIRST_CHAR_ASCII</span> <span class="o">=</span> <span class="mi">3584</span>
+<span class="n">_TH_LAST_CHAR_ASCII</span> <span class="o">=</span> <span class="mi">3711</span>
+
+<div class="viewcode-block" id="isthaichar"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.isthaichar">[docs]</a><span class="k">def</span> <span class="nf">isthaichar</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function checks if the input character is a Thai character.</span>
+
+<span class="sd">    :param str ch: input character</span>
+
+<span class="sd">    :return: returns **True** if the input character is a Thai characttr,</span>
+<span class="sd">             otherwise returns **False**</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import isthaichar</span>
+
+<span class="sd">        isthaichar(&quot;ก&quot;) # THAI CHARACTER KO KAI</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">        isthaichar(&quot;๐&quot;) # THAI DIGIT ZERO</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">        isthaichar(&quot;๕&quot;) # THAI DIGIT FIVE</span>
+<span class="sd">        # output: True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ch_val</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ch_val</span> <span class="o">&gt;=</span> <span class="n">_TH_FIRST_CHAR_ASCII</span> <span class="ow">and</span> <span class="n">ch_val</span> <span class="o">&lt;=</span> <span class="n">_TH_LAST_CHAR_ASCII</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="isthai"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.isthai">[docs]</a><span class="k">def</span> <span class="nf">isthai</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function checks if all character in the input string</span>
+<span class="sd">    are Thai character.</span>
+
+<span class="sd">    :param str word: input text</span>
+<span class="sd">    :param str ignore_chars: string characters to be ignored</span>
+<span class="sd">                             (i.e. will be considered as Thai)</span>
+
+<span class="sd">    :return: returns **True** if the input text all contains Thai characters,</span>
+<span class="sd">             otherwise returns **False**</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Check if all character is Thai character. By default,</span>
+<span class="sd">    it ignores only full stop (&quot;.&quot;)::</span>
+
+<span class="sd">        from pythainlp.util import isthai</span>
+
+<span class="sd">        isthai(&quot;กาลเวลา&quot;)</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">        isthai(&quot;กาลเวลา.&quot;)</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">    Explicitly ignore digits, whitespace, and the following characters</span>
+<span class="sd">    (&quot;-&quot;, &quot;.&quot;, &quot;$&quot;, &quot;,&quot;)::</span>
+
+<span class="sd">        from pythainlp.util import isthai</span>
+
+<span class="sd">        isthai(&quot;กาลเวลา, การเวลา-ก,  3.75$&quot;, ignore_chars=&quot;1234567890.-,$ &quot;)</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_chars</span><span class="p">:</span>
+        <span class="n">ignore_chars</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore_chars</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isthaichar</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="countthai"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.countthai">[docs]</a><span class="k">def</span> <span class="nf">countthai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">_DEFAULT_IGNORE_CHARS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function calculates percentage of Thai characters in the text</span>
+<span class="sd">    with an option to ignored some characters.</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :param str ignore_chars: string of characters to ignore from counting.</span>
+<span class="sd">                             By default, the ignored characters are whitespace,</span>
+<span class="sd">                             newline, digits, and punctuation.</span>
+
+<span class="sd">    :return: percentage of Thai characters in the text</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Find the percentage of Thai characters in the textt with default</span>
+<span class="sd">    ignored characters set (whitespace, newline character,</span>
+<span class="sd">    punctuation and digits)::</span>
+
+<span class="sd">        from pythainlp.util import countthai</span>
+
+<span class="sd">        countthai(&quot;ดอนัลด์ จอห์น ทรัมป์ English: Donald John Trump&quot;)</span>
+<span class="sd">        # output: 45.0</span>
+
+<span class="sd">        countthai(&quot;(English: Donald John Trump)&quot;)</span>
+<span class="sd">        # output: 0.0</span>
+
+<span class="sd">    Find the percentage of Thai characters in the text while ignoring</span>
+<span class="sd">    only punctuation but not whitespace, newline character and digits::</span>
+
+<span class="sd">        import string</span>
+
+<span class="sd">        string.punctuation</span>
+<span class="sd">        # output: !&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~</span>
+
+<span class="sd">        countthai(&quot;ดอนัลด์ จอห์น ทรัมป์ English: Donald John Trump&quot;, \\</span>
+<span class="sd">            ignore_chars=string.punctuation)</span>
+<span class="sd">        # output: 39.130434782608695</span>
+
+<span class="sd">        countthai(&quot;ดอนัลด์ จอห์น ทรัมป์ (English: Donald John Trump)&quot;, \\</span>
+<span class="sd">            ignore_chars=string.punctuation)</span>
+<span class="sd">        # output: 0.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_chars</span><span class="p">:</span>
+        <span class="n">ignore_chars</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">num_thai</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num_ignore</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">ignore_chars</span><span class="p">:</span>
+            <span class="n">num_ignore</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">isthaichar</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="n">num_thai</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">num_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_ignore</span>
+
+    <span class="k">if</span> <span class="n">num_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">num_thai</span> <span class="o">/</span> <span class="n">num_count</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span></div>
+
+
+<div class="viewcode-block" id="display_thai_char"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.display_thai_char">[docs]</a><span class="k">def</span> <span class="nf">display_thai_char</span><span class="p">(</span><span class="n">char</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function adds a underscore (_) prefix to high-position vowels and tone</span>
+<span class="sd">    marks to ease readability</span>
+
+<span class="sd">    :param str character:</span>
+
+<span class="sd">    :return: returns **True** if the input text all contains Thai characters,</span>
+<span class="sd">             otherwise returns **False**</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    display_thai_char(&quot;้&quot;)</span>
+<span class="sd">    # output: &quot;_้&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">thai_above_vowels</span> <span class="ow">or</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">thai_tonemarks</span> \
+       <span class="ow">or</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;</span><span class="se">\u0e33\u0e4c\u0e4d\u0e4e</span><span class="s1">&#39;</span><span class="p">:</span>
+        <span class="c1"># last condition is Sra Aum, Thanthakhat, Nikhahit, Yamakkan</span>
+        <span class="k">return</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">char</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">char</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

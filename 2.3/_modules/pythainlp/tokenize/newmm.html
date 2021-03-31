@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pythainlp.tokenize.newmm &mdash; PyThaiNLP v2.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev (v2.3.0) <br /> Published date: 2021-03-31
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pythainlp.tokenize.newmm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pythainlp.tokenize.newmm</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dictionary-based maximal matching word segmentation, constrained with</span>
+<span class="sd">Thai Character Cluster (TCC) boundaries.</span>
+
+<span class="sd">The code is based on the notebooks created by Korakot Chaovavanich,</span>
+<span class="sd">with heuristic graph size limit added to avoid exponential wait time.</span>
+
+<span class="sd">:See Also:</span>
+<span class="sd">    * \</span>
+<span class="sd">        https://colab.research.google.com/notebook#fileId=1V1Z657_5eSWPo8rLfVRwA0A5E4vkg7SI</span>
+<span class="sd">    * \</span>
+<span class="sd">        https://colab.research.google.com/drive/14Ibg-ngZXj15RKwjNwoZlOT32fQBOrBx#scrollTo=MYZ7NzAR7Dmw</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">DEFAULT_WORD_DICT_TRIE</span>
+<span class="kn">from</span> <span class="nn">pythainlp.util</span> <span class="kn">import</span> <span class="n">Trie</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize.tcc</span> <span class="kn">import</span> <span class="n">tcc_pos</span>
+
+<span class="c1"># match non-Thai tokens</span>
+<span class="n">_PAT_NONTHAI</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?x)</span>
+<span class="sd">[-a-zA-Z]+|   # Latin characters</span>
+<span class="sd">\d[\d,\.]*|   # number</span>
+<span class="sd">[ \t]+|       # space</span>
+<span class="sd">\r?\n         # newline</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># match 2-consonant Thai tokens</span>
+<span class="n">_PAT_THAI_TWOCHARS</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;[ก-ฮ]{,2}$&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># maximum graph size before cutoff</span>
+<span class="n">_MAX_GRAPH_SIZE</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># window size for safe mode</span>
+<span class="n">_TEXT_SCAN_POINT</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">_TEXT_SCAN_LEFT</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">_TEXT_SCAN_RIGHT</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">_TEXT_SCAN_BEGIN</span> <span class="o">=</span> <span class="n">_TEXT_SCAN_POINT</span> <span class="o">-</span> <span class="n">_TEXT_SCAN_LEFT</span>
+<span class="n">_TEXT_SCAN_END</span> <span class="o">=</span> <span class="n">_TEXT_SCAN_POINT</span> <span class="o">+</span> <span class="n">_TEXT_SCAN_RIGHT</span>
+<span class="k">del</span> <span class="n">_TEXT_SCAN_POINT</span>
+<span class="k">del</span> <span class="n">_TEXT_SCAN_LEFT</span>
+<span class="k">del</span> <span class="n">_TEXT_SCAN_RIGHT</span>
+
+
+<span class="k">def</span> <span class="nf">_bfs_paths_graph</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">goal</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">])]</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="n">goal</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">pos</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="n">pos</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">_onecut</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Trie</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="c1"># main data structure:</span>
+    <span class="c1"># - key is begin position (int)</span>
+    <span class="c1"># - value is possible end positions (List[int])</span>
+    <span class="c1"># if key is not found, value is empty list</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="n">graph_size</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># keep track of graph size, if too big will force cutoff</span>
+
+    <span class="n">valid_poss</span> <span class="o">=</span> <span class="n">tcc_pos</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># breaking positions that are TCC-valid</span>
+
+    <span class="n">len_text</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">pos_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># priority queue of possible breaking positions</span>
+    <span class="n">end_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">pos_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">len_text</span><span class="p">:</span>
+        <span class="n">begin_pos</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pos_list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">custom_dict</span><span class="o">.</span><span class="n">prefixes</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">:]):</span>
+            <span class="n">end_pos_candidate</span> <span class="o">=</span> <span class="n">begin_pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">end_pos_candidate</span> <span class="ow">in</span> <span class="n">valid_poss</span><span class="p">:</span>
+                <span class="n">graph</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_pos_candidate</span><span class="p">)</span>
+                <span class="n">graph_size</span> <span class="o">=</span> <span class="n">graph_size</span> <span class="o">+</span> <span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">end_pos_candidate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pos_list</span><span class="p">:</span>
+                    <span class="n">heappush</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">end_pos_candidate</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">graph_size</span> <span class="o">&gt;</span> <span class="n">_MAX_GRAPH_SIZE</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+        <span class="n">len_pos_list</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos_list</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">len_pos_list</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># one candidate, no longer ambiguous</span>
+            <span class="n">end_pos_candidates</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                <span class="n">_bfs_paths_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">,</span> <span class="n">pos_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="n">graph_size</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">end_pos_candidates</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="k">yield</span> <span class="n">text</span><span class="p">[</span><span class="n">end_pos</span><span class="p">:</span><span class="n">pos</span><span class="p">]</span>
+                <span class="n">end_pos</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="k">elif</span> <span class="n">len_pos_list</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># no candidate, deal with non-dictionary word</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">_PAT_NONTHAI</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">m</span><span class="p">:</span>  <span class="c1"># non-Thai token, skip to the end</span>
+                <span class="n">end_pos</span> <span class="o">=</span> <span class="n">begin_pos</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># Thai token, find minimum skip</span>
+                <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin_pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">len_text</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">valid_poss</span><span class="p">:</span>
+                        <span class="n">prefix</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
+                        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="n">word</span>
+                            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">custom_dict</span><span class="o">.</span><span class="n">prefixes</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="p">(</span>
+                                <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">in</span> <span class="n">valid_poss</span><span class="p">)</span>
+                                <span class="ow">and</span> <span class="ow">not</span> <span class="n">_PAT_THAI_TWOCHARS</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+                            <span class="p">)</span>
+                        <span class="p">]</span>
+                        <span class="k">if</span> <span class="n">words</span><span class="p">:</span>  <span class="c1"># is a Thai token that longer than 2 chars</span>
+                            <span class="n">end_pos</span> <span class="o">=</span> <span class="n">pos</span>
+                            <span class="k">break</span>
+
+                        <span class="c1"># is a non-Thai token</span>
+                        <span class="k">if</span> <span class="n">_PAT_NONTHAI</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+                            <span class="n">end_pos</span> <span class="o">=</span> <span class="n">pos</span>
+                            <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_pos</span> <span class="o">=</span> <span class="n">len_text</span>
+
+            <span class="n">graph</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_pos</span><span class="p">)</span>
+            <span class="n">graph_size</span> <span class="o">=</span> <span class="n">graph_size</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">yield</span> <span class="n">text</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span>
+            <span class="n">heappush</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="segment"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.newmm.segment">[docs]</a><span class="k">def</span> <span class="nf">segment</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Trie</span> <span class="o">=</span> <span class="n">DEFAULT_WORD_DICT_TRIE</span><span class="p">,</span>
+    <span class="n">safe_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dictionary-based maximal matching word segmentation, constrained with</span>
+<span class="sd">    Thai Character Cluster boundaries.</span>
+
+<span class="sd">    :param str text: text to be tokenized to words</span>
+<span class="sd">    :param pythainlp.util.Trie custom_dict: dictionary for tokenization</span>
+<span class="sd">    :param bool safe_mode: True to help avoid long wait for text with long\</span>
+<span class="sd">        and continuous ambiguous breaking points. Long wait may still able\</span>
+<span class="sd">        to occur. Default is False.</span>
+<span class="sd">    :return: list of words, tokenized from the text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">custom_dict</span><span class="p">:</span>
+        <span class="n">custom_dict</span> <span class="o">=</span> <span class="n">DEFAULT_WORD_DICT_TRIE</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">safe_mode</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">_TEXT_SCAN_END</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_onecut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">))</span>
+
+    <span class="c1"># if the text is longer than the limit,</span>
+    <span class="c1"># breaks them into smaller chunks then tokenizes each chunk</span>
+    <span class="n">text_parts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">_TEXT_SCAN_END</span><span class="p">:</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">_TEXT_SCAN_BEGIN</span><span class="p">:</span><span class="n">_TEXT_SCAN_END</span><span class="p">]</span>
+
+        <span class="c1"># find possible break positions</span>
+        <span class="n">cut_pos</span> <span class="o">=</span> <span class="n">_TEXT_SCAN_END</span>
+
+        <span class="c1"># try to break by space first</span>
+        <span class="n">space_idx</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">space_idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">cut_pos</span> <span class="o">=</span> <span class="n">space_idx</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_onecut</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">))</span>
+            <span class="n">token_max_idx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+                <span class="n">token_max_len</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">token_max_len</span><span class="p">:</span>
+                    <span class="n">token_max_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+                    <span class="n">token_max_idx</span> <span class="o">=</span> <span class="n">i</span>
+
+            <span class="c1"># choose the position that covers longest token</span>
+            <span class="n">cut_pos</span> <span class="o">=</span> <span class="n">_TEXT_SCAN_BEGIN</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">token_max_idx</span><span class="p">):</span>
+                <span class="n">cut_pos</span> <span class="o">=</span> <span class="n">cut_pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">text_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="n">cut_pos</span><span class="p">])</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">cut_pos</span><span class="p">:]</span>
+
+    <span class="c1"># append remaining text</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="n">text_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># tokenizes each text parts</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">text_part</span> <span class="ow">in</span> <span class="n">text_parts</span><span class="p">:</span>
+        <span class="n">tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_onecut</span><span class="p">(</span><span class="n">text_part</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">tokens</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017-2021, PyThaiNLP (Apache Software License 2.0).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

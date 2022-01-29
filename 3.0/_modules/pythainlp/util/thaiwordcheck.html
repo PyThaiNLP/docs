@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.thaiwordcheck &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.util.thaiwordcheck</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.thaiwordcheck</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Check if a word is a &quot;native Thai word&quot;</span>
+
+<span class="sd">Adapted from</span>
+<span class="sd">https://github.com/wannaphongcom/open-thai-nlp-document/blob/master/check_thai_word.md</span>
+
+<span class="sd">References</span>
+<span class="sd">- ทีมงานทรูปลูกปัญญา 2015. ลักษณะของคำไทยแท้ http://www.trueplookpanya.com/learning/detail/30589-043067</span>
+<span class="sd">- วารุณี บำรุงรส 2010. คำไทยแท้ https://www.gotoknow.org/posts/377619</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">_THANTHAKHAT_CHAR</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u0e4c</span><span class="s2">&quot;</span>  <span class="c1"># Thanthakhat (cancellation of sound)</span>
+
+<span class="c1"># Non-native Thai characters</span>
+<span class="n">_TH_NON_NATIVE_CHARS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ฆ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ณ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฌ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฎ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฏ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฐ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฑ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฒ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ธ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ศ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ษ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฬ&quot;</span><span class="p">,</span>
+    <span class="n">_THANTHAKHAT_CHAR</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Native Thai final consonants</span>
+<span class="n">_TH_NATIVE_FINALS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ก&quot;</span><span class="p">,</span> <span class="s2">&quot;ด&quot;</span><span class="p">,</span> <span class="s2">&quot;บ&quot;</span><span class="p">,</span> <span class="s2">&quot;น&quot;</span><span class="p">,</span> <span class="s2">&quot;ง&quot;</span><span class="p">,</span> <span class="s2">&quot;ม&quot;</span><span class="p">,</span> <span class="s2">&quot;ย&quot;</span><span class="p">,</span> <span class="s2">&quot;ว&quot;</span><span class="p">}</span>
+
+<span class="c1"># Known native Thai words (exceptions)</span>
+<span class="n">_TH_NATIVE_WORDS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ฆ่า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เฆี่ยน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ศึก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ศอก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เศิก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เศร้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ธ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ณ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฯพณฯ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ใหญ่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หญ้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ควาย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ความ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;กริ่งเกรง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ผลิ&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Diphthong prefixes (can starts native Thai word)</span>
+<span class="n">_TH_PREFIX_DIPHTHONG</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;กะ&quot;</span><span class="p">,</span> <span class="s2">&quot;กระ&quot;</span><span class="p">,</span> <span class="s2">&quot;ปะ&quot;</span><span class="p">,</span> <span class="s2">&quot;ประ&quot;</span><span class="p">}</span>
+
+<span class="c1"># Thai consonant filter</span>
+<span class="c1"># O ANG (U+0E2D) is omitted, as it can be considered as vowel</span>
+<span class="n">_TH_CONSONANTS_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[ก-ฬฮ]&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_native_thai"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.is_native_thai">[docs]</a><span class="k">def</span> <span class="nf">is_native_thai</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if a word is an &quot;native Thai word&quot; (Thai: &quot;คำไทยแท้&quot;)</span>
+<span class="sd">    This function based on a simple heuristic algorithm</span>
+<span class="sd">    and cannot be entirely reliable.</span>
+
+<span class="sd">    :param str word: word</span>
+<span class="sd">    :return: True or False</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    English word::</span>
+
+<span class="sd">        from pythainlp.util import is_native_thai</span>
+
+<span class="sd">        is_native_thai(&quot;Avocado&quot;)</span>
+<span class="sd">        # output: False</span>
+
+<span class="sd">    Native Thai word::</span>
+
+<span class="sd">        is_native_thai(&quot;มะม่วง&quot;)</span>
+<span class="sd">        # output: True</span>
+<span class="sd">        is_native_thai(&quot;ตะวัน&quot;)</span>
+<span class="sd">        # output: True</span>
+
+<span class="sd">    Non-native Thai word::</span>
+
+<span class="sd">        is_native_thai(&quot;สามารถ&quot;)</span>
+<span class="sd">        # output: False</span>
+<span class="sd">        is_native_thai(&quot;อิสริยาภรณ์&quot;)</span>
+<span class="sd">        # output: False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># Known native Thai words (exceptions)</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">_TH_NATIVE_WORDS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># If a word contains non-Thai char, it is not a native Thai</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">_TH_NON_NATIVE_CHARS</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># If does not contain any Thai consonants -&gt; cannot be Thai</span>
+    <span class="n">chs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">_TH_CONSONANTS_PATTERN</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">chs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># If there&#39;s only one Thai consonant -&gt; it can be a native Thai</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># If a word ends with native final, it can be a native Thai</span>
+    <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">_TH_NATIVE_FINALS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Note: This will not work, as it check the whole word, not the prefix.</span>
+    <span class="c1"># Prefix-sentitive tokenization is required in order to able to check this.</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">_TH_PREFIX_DIPHTHONG</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

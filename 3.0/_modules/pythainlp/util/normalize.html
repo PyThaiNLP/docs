@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.normalize &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.util.normalize</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.normalize</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Text normalization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_above_vowels</span> <span class="k">as</span> <span class="n">above_v</span>
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_below_vowels</span> <span class="k">as</span> <span class="n">below_v</span>
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_follow_vowels</span> <span class="k">as</span> <span class="n">follow_v</span>
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_lead_vowels</span> <span class="k">as</span> <span class="n">lead_v</span>
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_tonemarks</span> <span class="k">as</span> <span class="n">tonemarks</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+
+<span class="n">_DANGLING_CHARS</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">above_v</span><span class="si">}{</span><span class="n">below_v</span><span class="si">}{</span><span class="n">tonemarks</span><span class="si">}</span><span class="se">\u0e3a\u0e4c\u0e4d\u0e4e</span><span class="s2">&quot;</span>
+<span class="n">_RE_REMOVE_DANGLINGS</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;^[</span><span class="si">{</span><span class="n">_DANGLING_CHARS</span><span class="si">}</span><span class="s2">]+&quot;</span><span class="p">)</span>
+
+<span class="n">_ZERO_WIDTH_CHARS</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u200b\u200c</span><span class="s2">&quot;</span>  <span class="c1"># ZWSP, ZWNJ</span>
+
+<span class="n">_REORDER_PAIRS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;</span><span class="se">\u0e40\u0e40</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\u0e41</span><span class="s2">&quot;</span><span class="p">),</span>  <span class="c1"># Sara E + Sara E -&gt; Sara Ae</span>
+    <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;([</span><span class="si">{</span><span class="n">tonemarks</span><span class="si">}</span><span class="se">\u0e4c</span><span class="s2">]+)([</span><span class="si">{</span><span class="n">above_v</span><span class="si">}{</span><span class="n">below_v</span><span class="si">}</span><span class="s2">]+)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">2</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span>
+    <span class="p">),</span>  <span class="c1"># TONE/Thanthakhat + ABV/BLW VOWEL -&gt; ABV/BLW VOWEL + TONE/Thanthakhat</span>
+    <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\u0e4d</span><span class="s2">([</span><span class="si">{</span><span class="n">tonemarks</span><span class="si">}</span><span class="s2">]*)</span><span class="se">\u0e32</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1</span><span class="se">\u0e33</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">),</span>  <span class="c1"># Nikhahit + TONEMARK + Sara Aa -&gt; TONEMARK + Sara Am</span>
+    <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;([</span><span class="si">{</span><span class="n">follow_v</span><span class="si">}</span><span class="s2">]+)([</span><span class="si">{</span><span class="n">tonemarks</span><span class="si">}</span><span class="s2">]+)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">2</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span>
+    <span class="p">),</span>  <span class="c1"># FOLLOW VOWEL + TONEMARK+ -&gt; TONEMARK + FOLLOW VOWEL</span>
+<span class="p">]</span>
+
+<span class="c1"># VOWELS + Phinthu, Thanthakhat, Nikhahit, Yamakkan</span>
+<span class="n">_NOREPEAT_CHARS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">follow_v</span><span class="si">}{</span><span class="n">lead_v</span><span class="si">}{</span><span class="n">above_v</span><span class="si">}{</span><span class="n">below_v</span><span class="si">}</span><span class="se">\u0e3a\u0e4c\u0e4d\u0e4e</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">_NOREPEAT_PAIRS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">[ ]*)+</span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">_NOREPEAT_CHARS</span><span class="p">],</span> <span class="n">_NOREPEAT_CHARS</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">_RE_TONEMARKS</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tonemarks</span><span class="si">}</span><span class="s2">]+&quot;</span><span class="p">)</span>
+
+<span class="n">_RE_REMOVE_NEWLINES</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;[ </span><span class="se">\n</span><span class="s2">]*</span><span class="se">\n</span><span class="s2">[ </span><span class="se">\n</span><span class="s2">]*&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_last_char</span><span class="p">(</span><span class="n">matchobj</span><span class="p">):</span>  <span class="c1"># to be used with _RE_NOREPEAT_TONEMARKS</span>
+    <span class="k">return</span> <span class="n">matchobj</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="remove_dangling"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_dangling">[docs]</a><span class="k">def</span> <span class="nf">remove_dangling</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove Thai non-base characters at the beginning of text.</span>
+
+<span class="sd">    This is a common &quot;typo&quot;, especially for input field in a form,</span>
+<span class="sd">    as these non-base characters can be visually hidden from user</span>
+<span class="sd">    who may accidentally typed them in.</span>
+
+<span class="sd">    A character to be removed should be both:</span>
+
+<span class="sd">        * tone mark, above vowel, below vowel, or non-base sign AND</span>
+<span class="sd">        * located at the beginning of the text</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text without dangling Thai characters at the beginning</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import remove_dangling</span>
+
+<span class="sd">        remove_dangling(&#39;๊ก&#39;)</span>
+<span class="sd">        # output: &#39;ก&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_RE_REMOVE_DANGLINGS</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="remove_dup_spaces"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_dup_spaces">[docs]</a><span class="k">def</span> <span class="nf">remove_dup_spaces</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove duplicate spaces. Replace multiple spaces with one space.</span>
+
+<span class="sd">    Multiple newline characters and empty lines will be replaced</span>
+<span class="sd">    with one newline character.</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text without duplicated spaces and newlines</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import remove_dup_spaces</span>
+
+<span class="sd">        remove_dup_spaces(&#39;ก    ข    ค&#39;)</span>
+<span class="sd">        # output: &#39;ก ข ค&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="s2">&quot;  &quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_RE_REMOVE_NEWLINES</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="remove_tonemark"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_tonemark">[docs]</a><span class="k">def</span> <span class="nf">remove_tonemark</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove all Thai tone marks from the text.</span>
+
+<span class="sd">    Thai script has four tone marks indicating four tones as follows:</span>
+
+<span class="sd">        * Down tone (Thai: ไม้เอก  _่ )</span>
+<span class="sd">        * Falling tone  (Thai: ไม้โท  _้ )</span>
+<span class="sd">        * High tone (Thai: ไม้ตรี  ​_๊ )</span>
+<span class="sd">        * Rising tone (Thai: ไม้จัตวา _๋ )</span>
+
+<span class="sd">    Putting wrong tone mark is a common mistake in Thai writing.</span>
+<span class="sd">    By removing tone marks from the string, it could be used to</span>
+<span class="sd">    for a approximate string matching</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text without Thai tone marks</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import delete_tone</span>
+
+<span class="sd">        delete_tone(&#39;สองพันหนึ่งร้อยสี่สิบเจ็ดล้านสี่แสนแปดหมื่นสามพันหกร้อยสี่สิบเจ็ด&#39;)</span>
+<span class="sd">        # output: สองพันหนึงรอยสีสิบเจ็ดลานสีแสนแปดหมืนสามพันหกรอยสีสิบเจ็ด</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">tonemarks</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="remove_zw"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_zw">[docs]</a><span class="k">def</span> <span class="nf">remove_zw</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove zero-width characters.</span>
+
+<span class="sd">    These non-visible characters may cause unexpected result from the</span>
+<span class="sd">    user&#39;s point of view. Removing them can make string matching more robust.</span>
+
+<span class="sd">    Characters to be removed:</span>
+
+<span class="sd">        * Zero-width space (ZWSP)</span>
+<span class="sd">        * Zero-width non-joiner (ZWJP)</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text without zero-width characters</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">_ZERO_WIDTH_CHARS</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="reorder_vowels"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.reorder_vowels">[docs]</a><span class="k">def</span> <span class="nf">reorder_vowels</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reorder vowels and tone marks to the standard logical order/spelling.</span>
+
+<span class="sd">    Characters in input text will be reordered/transformed,</span>
+<span class="sd">    according to these rules:</span>
+
+<span class="sd">        * Sara E + Sara E -&gt; Sara Ae</span>
+<span class="sd">        * Nikhahit + Sara Aa -&gt; Sara Am</span>
+<span class="sd">        * tone mark + non-base vowel -&gt; non-base vowel + tone mark</span>
+<span class="sd">        * follow vowel + tone mark -&gt; tone mark + follow vowel</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text with vowels and tone marks in the standard logical order</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">_REORDER_PAIRS</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="remove_repeat_vowels"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_repeat_vowels">[docs]</a><span class="k">def</span> <span class="nf">remove_repeat_vowels</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove repeating vowels, tone marks, and signs.</span>
+
+<span class="sd">    This function will call reorder_vowels() first, to make sure that</span>
+<span class="sd">    double Sara E will be converted to Sara Ae and not be removed.</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: text without repeating Thai vowels, tone marks, and signs</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">reorder_vowels</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">_NOREPEAT_PAIRS</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># remove repeating tone marks, use last tone mark</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_RE_TONEMARKS</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_last_char</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Normalize and clean Thai text with normalizing rules as follows:</span>
+
+<span class="sd">        * Remove zero-width spaces</span>
+<span class="sd">        * Remove duplicate spaces</span>
+<span class="sd">        * Reorder tone marks and vowels to standard order/spelling</span>
+<span class="sd">        * Remove duplicate vowels and signs</span>
+<span class="sd">        * Remove duplicate tone marks</span>
+<span class="sd">        * Remove dangling non-base characters at the beginning of text</span>
+
+<span class="sd">    normalize() simply call remove_zw(), remove_dup_spaces(),</span>
+<span class="sd">    remove_repeat_vowels(), and remove_dangling(), in that order.</span>
+
+<span class="sd">    If a user wants to customize the selection or the order of rules</span>
+<span class="sd">    to be applied, they can choose to call those functions by themselves.</span>
+
+<span class="sd">    Note: for Unicode normalization, see unicodedata.normalize().</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: normalized text according to the fules</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import normalize</span>
+
+<span class="sd">        normalize(&#39;เเปลก&#39;)  # starts with two Sara E</span>
+<span class="sd">        # output: แปลก</span>
+
+<span class="sd">        normalize(&#39;นานาาา&#39;)</span>
+<span class="sd">        # output: นานา</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_zw</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_dup_spaces</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_repeat_vowels</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_dangling</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+
+
+<span class="k">def</span> <span class="nf">delete_tone</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DEPRECATED: Please use remove_tonemark().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;delete_tone is deprecated, use remove_tonemark instead&quot;</span><span class="p">,</span>
+        <span class="ne">DeprecationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">remove_tonemark</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="maiyamok"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.maiyamok">[docs]</a><span class="k">def</span> <span class="nf">maiyamok</span><span class="p">(</span><span class="n">sent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai MaiYaMok</span>
+
+<span class="sd">    MaiYaMok (ๆ) is the mark of duplicate word in Thai language.</span>
+<span class="sd">    This function is preprocessing MaiYaMok in Thai sentence.</span>
+
+<span class="sd">    :param Union[str, List[str]] sent: input sentence (list or str)</span>
+<span class="sd">    :return: List of words</span>
+<span class="sd">    :rtype: List[str]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import maiyamok</span>
+
+<span class="sd">        maiyamok(&quot;เด็กๆชอบไปโรงเรียน&quot;)</span>
+<span class="sd">        # output: [&#39;เด็ก&#39;, &#39;เด็ก&#39;, &#39;ชอบ&#39;, &#39;ไป&#39;, &#39;โรงเรียน&#39;]</span>
+
+<span class="sd">        maiyamok([&quot;ทำไม&quot;,&quot;คน&quot;,&quot;ดี&quot;,&quot; &quot;,&quot;ๆ&quot;,&quot;ๆ&quot;,&quot; &quot;,&quot;ถึง&quot;,&quot;ทำ&quot;,&quot;ไม่ได้&quot;])</span>
+<span class="sd">        # output: [&#39;ทำไม&#39;, &#39;คน&#39;, &#39;ดี&#39;, &#39;ดี&#39;, &#39;ดี&#39;, &#39; &#39;, &#39;ถึง&#39;, &#39;ทำ&#39;, &#39;ไม่ได้&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">sent</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+    <span class="n">_list_word</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sent</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span> <span class="ow">and</span> <span class="s2">&quot;ๆ&quot;</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="s2">&quot; ๆ&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; ๆ&quot;</span><span class="p">,</span> <span class="s2">&quot;ๆ&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;ๆ&quot;</span> <span class="o">==</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">_list_word</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s2">&quot;ๆ&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ๆ&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">_list_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">_list_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">_list_word</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.numtoword &mdash; PyThaiNLP &lt;unknown&gt; documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (<unknown>) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.util.numtoword</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.numtoword</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Convert number value to Thai read out</span>
+
+<span class="sd">Adapted from</span>
+<span class="sd">http://justmindthought.blogspot.com/2012/12/code-php.html</span>
+<span class="sd">https://suksit.com/post/writing-bahttext-in-php/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bahttext&quot;</span><span class="p">,</span> <span class="s2">&quot;num_to_thaiword&quot;</span><span class="p">]</span>
+
+<span class="n">_VALUES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หนึ่ง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;สอง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;สาม&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;สี่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ห้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เจ็ด&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;แปด&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เก้า&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">_PLACES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;สิบ&quot;</span><span class="p">,</span> <span class="s2">&quot;ร้อย&quot;</span><span class="p">,</span> <span class="s2">&quot;พัน&quot;</span><span class="p">,</span> <span class="s2">&quot;หมื่น&quot;</span><span class="p">,</span> <span class="s2">&quot;แสน&quot;</span><span class="p">,</span> <span class="s2">&quot;ล้าน&quot;</span><span class="p">]</span>
+<span class="n">_EXCEPTIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;หนึ่งสิบ&quot;</span><span class="p">:</span> <span class="s2">&quot;สิบ&quot;</span><span class="p">,</span> <span class="s2">&quot;สองสิบ&quot;</span><span class="p">:</span> <span class="s2">&quot;ยี่สิบ&quot;</span><span class="p">,</span> <span class="s2">&quot;สิบหนึ่ง&quot;</span><span class="p">:</span> <span class="s2">&quot;สิบเอ็ด&quot;</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="bahttext"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.bahttext">[docs]</a><span class="k">def</span> <span class="nf">bahttext</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function converts a number to Thai text and adds</span>
+<span class="sd">    a suffix &quot;บาท&quot; (Baht).</span>
+<span class="sd">    The precision will be fixed at two decimal places (0.00)</span>
+<span class="sd">    to fits &quot;สตางค์&quot; (Satang) unit.</span>
+<span class="sd">    This function works similar to `BAHTTEXT` function in Microsoft Excel.</span>
+
+<span class="sd">    :param float number: number to be converted into Thai Baht currency format</span>
+<span class="sd">    :return: text representing the amount of money in the format</span>
+<span class="sd">             of Thai currency</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import bahttext</span>
+
+<span class="sd">        bahttext(1)</span>
+<span class="sd">        # output: หนึ่งบาทถ้วน</span>
+
+<span class="sd">        bahttext(21)</span>
+<span class="sd">        # output: ยี่สิบเอ็ดบาทถ้วน</span>
+
+<span class="sd">        bahttext(200)</span>
+<span class="sd">        # output: สองร้อยบาทถ้วน</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">number</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;ศูนย์บาทถ้วน&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_int</span><span class="p">,</span> <span class="n">num_dec</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">num_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_int</span><span class="p">)</span>
+        <span class="n">num_dec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_dec</span><span class="p">)</span>
+
+        <span class="n">baht</span> <span class="o">=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">num_int</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">baht</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ret</span><span class="p">,</span> <span class="n">baht</span><span class="p">,</span> <span class="s2">&quot;บาท&quot;</span><span class="p">])</span>
+
+        <span class="n">satang</span> <span class="o">=</span> <span class="n">num_to_thaiword</span><span class="p">(</span><span class="n">num_dec</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">satang</span> <span class="ow">and</span> <span class="n">satang</span> <span class="o">!=</span> <span class="s2">&quot;ศูนย์&quot;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ret</span><span class="p">,</span> <span class="n">satang</span><span class="p">,</span> <span class="s2">&quot;สตางค์&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ret</span><span class="p">,</span> <span class="s2">&quot;ถ้วน&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="num_to_thaiword"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.num_to_thaiword">[docs]</a><span class="k">def</span> <span class="nf">num_to_thaiword</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function convert number to Thai text</span>
+
+<span class="sd">    :param int number: an integer number to be converted to Thai text</span>
+<span class="sd">    :return: text representing the number in Thai</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import num_to_thaiword</span>
+
+<span class="sd">        num_to_thaiword(1)</span>
+<span class="sd">        # output: หนึ่ง</span>
+
+<span class="sd">        num_to_thaiword(11)</span>
+<span class="sd">        # output: สิบเอ็ด</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">number_temp</span> <span class="o">=</span> <span class="n">number</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;ศูนย์&quot;</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">place</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">number</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="n">place</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">place</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">_PLACES</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">output</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">_VALUES</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)]</span> <span class="o">+</span> <span class="n">_PLACES</span><span class="p">[</span><span class="n">place</span> <span class="o">%</span> <span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">output</span>
+
+    <span class="k">for</span> <span class="n">search</span><span class="p">,</span> <span class="n">replac</span> <span class="ow">in</span> <span class="n">_EXCEPTIONS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="n">replac</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">number_temp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;ลบ&quot;</span> <span class="o">+</span> <span class="n">output</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

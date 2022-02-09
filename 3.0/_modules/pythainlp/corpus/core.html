@@ -111,6 +111,9 @@
 <span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">__version__</span>
 
 
+<span class="n">_CHECK_MODE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PYTHAINLP_READ_MODE&quot;</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="get_corpus_db"><a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_db">[docs]</a><span class="k">def</span> <span class="nf">get_corpus_db</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get corpus catalog from server.</span>
@@ -136,7 +139,10 @@
 <span class="sd">    :return: details about a corpus</span>
 <span class="sd">    :rtype: dict</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">_CHECK_MODE</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="n">access_mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="n">access_mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">local_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
@@ -448,6 +454,9 @@
 <span class="sd">    ``$HOME/pythainlp-data/``</span>
 <span class="sd">    (e.g. ``/Users/bact/pythainlp-data/wiki_lm_lstm.pth``).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_CHECK_MODE</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyThaiNLP is read-only mode. It can&#39;t download.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">corpus_db_url</span><span class="p">()</span>
 
@@ -547,6 +556,9 @@
 <span class="sd">        # FileNotFoundError: [Errno 2] No such file or directory:</span>
 <span class="sd">        # &#39;/usr/local/lib/python3.6/dist-packages/pythainlp/corpus/ttc&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_CHECK_MODE</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyThaiNLP is read-only mode. It can&#39;t remove corpus.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
     <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>

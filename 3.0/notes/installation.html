@@ -173,6 +173,12 @@ within the home directory.</p>
 <p>Type <cite>thainlp data path</cite> at command line to see current PYTHAINLP_DATA_DIR.</p>
 </dd></dl>
 
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_READ_MODE">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_READ_MODE</span></span><a class="headerlink" href="#envvar-PYTHAINLP_READ_MODE" title="Permalink to this definition"></a></dt>
+<dd><p>This environment variable specifies config PyThaiNLP to read-only mode. (0 = False, 1 = True)</p>
+</dd></dl>
+
 </section>
 </section>
 <section id="faq">
@@ -181,6 +187,8 @@ within the home directory.</p>
 A: For Python 3.10+, We have python-crfsuite problem in pythainlp, so you can read about <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/626">python-crfsuite dependency fails to build under python 3.10</a>.</p>
 <p>Q: How to set the environment variables of each executor node in a distributed environment?
 A: You can read <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/475">PermissionError: [Errno 13] Permission denied: /home/pythainlp-data</a>.</p>
+<p>Q: How to fixed PyThaiNLP to read-only mode?
+A: You can config PYTHAINLP_READ_MODE.</p>
 </section>
 
 

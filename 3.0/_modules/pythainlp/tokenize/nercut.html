@@ -94,7 +94,7 @@
   <h1>Source code for pythainlp.tokenize.nercut</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">nercut 0.1</span>
+<span class="sd">nercut 0.2</span>
 
 <span class="sd">Dictionary-based maximal matching word segmentation, constrained with</span>
 <span class="sd">Thai Character Cluster (TCC) boundaries, and combining tokens that are</span>
@@ -104,9 +104,9 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span>
 
-<span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">ThaiNameTagger</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">NER</span>
 
-<span class="n">_thainer</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="p">()</span>
+<span class="n">_thainer</span> <span class="o">=</span> <span class="n">NER</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thainer&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="segment"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.nercut.segment">[docs]</a><span class="k">def</span> <span class="nf">segment</span><span class="p">(</span>
@@ -133,7 +133,7 @@
         <span class="k">return</span> <span class="p">[]</span>
 
     <span class="k">global</span> <span class="n">_thainer</span>
-    <span class="n">tagged_words</span> <span class="o">=</span> <span class="n">_thainer</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">tagged_words</span> <span class="o">=</span> <span class="n">_thainer</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">combining_word</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>

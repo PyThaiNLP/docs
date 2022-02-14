@@ -142,7 +142,7 @@
     <span class="k">if</span> <span class="n">_CHECK_MODE</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
         <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="n">access_mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="n">access_mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">local_db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">())</span>
     <span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">local_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>

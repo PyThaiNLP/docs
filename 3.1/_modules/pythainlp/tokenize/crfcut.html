@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tokenize.crfcut &mdash; PyThaiNLP 3.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (3.1.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.tokenize.crfcut</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tokenize.crfcut</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CRFCut - Thai sentence segmenter.</span>
+
+<span class="sd">Thai sentence segmentation using conditional random field,</span>
+<span class="sd">default model trained on TED dataset</span>
+
+<span class="sd">Performance:</span>
+<span class="sd">- ORCHID - space-correct accuracy 87% vs 95% state-of-the-art</span>
+<span class="sd">  (Zhou et al, 2016; https://www.aclweb.org/anthology/C16-1031.pdf)</span>
+<span class="sd">- TED dataset - space-correct accuracy 82%</span>
+
+<span class="sd">See development notebooks at https://github.com/vistec-AI/ted_crawler;</span>
+<span class="sd">POS features are not used due to unreliable POS tagging available</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">pycrfsuite</span>
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">corpus_path</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">_ENDERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ending honorifics</span>
+    <span class="s2">&quot;ครับ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ค่ะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;คะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;นะคะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;นะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;จ้ะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;จ้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;จ๋า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฮะ&quot;</span><span class="p">,</span>
+    <span class="c1"># enders</span>
+    <span class="s2">&quot;ๆ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ได้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;แล้ว&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ด้วย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เลย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;มาก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;น้อย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;กัน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เช่นกัน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เท่านั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;อยู่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ลง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ขึ้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;มา&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไป&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไว้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เอง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;อีก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ใหม่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;จริงๆ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;บ้าง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หมด&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ทีเดียว&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เดียว&quot;</span><span class="p">,</span>
+    <span class="c1"># demonstratives</span>
+    <span class="s2">&quot;นั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;นี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เหล่านี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เหล่านั้น&quot;</span><span class="p">,</span>
+    <span class="c1"># questions</span>
+    <span class="s2">&quot;อย่างไร&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ยังไง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หรือไม่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;มั้ย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไหน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไหม&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;อะไร&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ทำไม&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เมื่อไหร่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เมื่อไร&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_STARTERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># pronouns</span>
+    <span class="s2">&quot;ผม&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฉัน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ดิฉัน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ชั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;คุณ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;มัน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เขา&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เค้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เธอ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เรา&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;พวกเรา&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;พวกเขา&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;กู&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;มึง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;แก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ข้าพเจ้า&quot;</span><span class="p">,</span>
+    <span class="c1"># connectors</span>
+    <span class="s2">&quot;และ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;หรือ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;แต่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เมื่อ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ถ้า&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ใน&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ด้วย&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เพราะ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เนื่องจาก&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ซึ่ง&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ไม่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ตอนนี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ทีนี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ดังนั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เพราะฉะนั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ฉะนั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ตั้งแต่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ในที่สุด&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ก็&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;กับ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;แก่&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ต่อ&quot;</span><span class="p">,</span>
+    <span class="c1"># demonstratives</span>
+    <span class="s2">&quot;นั้น&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;นี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เหล่านี้&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;เหล่านั้น&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="extract_features"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.crfcut.extract_features">[docs]</a><span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span>
+    <span class="n">doc</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">window</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">max_n_gram</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract features for CRF by sliding `max_n_gram` of tokens</span>
+<span class="sd">    for +/- `window` from the current token</span>
+
+<span class="sd">    :param List[str] doc: tokens from which features are to be extracted from</span>
+<span class="sd">    :param int window: size of window before and after the current token</span>
+<span class="sd">    :param int max_n_gram: create n_grams from 1-gram to `max_n_gram`-gram \</span>
+<span class="sd">    within the `window`</span>
+<span class="sd">    :return: list of lists of features to be fed to CRF</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">doc_features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;xxpad&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window</span><span class="p">)]</span>
+        <span class="o">+</span> <span class="n">doc</span>
+        <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;xxpad&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># add enders and starters</span>
+    <span class="n">doc_ender</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">doc_starter</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">_ENDERS</span><span class="p">:</span>
+            <span class="n">doc_ender</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;ender&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">doc_ender</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">_STARTERS</span><span class="p">:</span>
+            <span class="n">doc_starter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;starter&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">doc_starter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span>
+
+    <span class="c1"># for each word</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="o">-</span> <span class="n">window</span><span class="p">):</span>
+        <span class="c1"># bias term</span>
+        <span class="n">word_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bias&quot;</span><span class="p">]</span>
+        <span class="c1"># ngram features</span>
+        <span class="k">for</span> <span class="n">n_gram</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_n_gram</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">window</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">window</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">n_gram</span><span class="p">):</span>
+                <span class="n">feature_position</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_gram</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">n_gram</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">word_</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="n">n_gram</span><span class="p">)])</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">word_features</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;word_</span><span class="si">{</span><span class="n">feature_position</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">word_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+                <span class="n">ender_</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc_ender</span><span class="p">[</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="n">n_gram</span><span class="p">)])</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">word_features</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ender_</span><span class="si">{</span><span class="n">feature_position</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">ender_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+                <span class="n">starter_</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc_starter</span><span class="p">[</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="n">n_gram</span><span class="p">)])</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">word_features</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;starter_</span><span class="si">{</span><span class="n">feature_position</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">starter_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+        <span class="c1"># append to feature per word</span>
+        <span class="n">doc_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word_features</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">doc_features</span></div>
+
+
+<span class="n">_CRFCUT_DATA_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;sentenceseg_crfcut.model&quot;</span>
+<span class="n">_tagger</span> <span class="o">=</span> <span class="n">pycrfsuite</span><span class="o">.</span><span class="n">Tagger</span><span class="p">()</span>
+<span class="n">_tagger</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">corpus_path</span><span class="p">(),</span> <span class="n">_CRFCUT_DATA_FILENAME</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="segment"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.crfcut.segment">[docs]</a><span class="k">def</span> <span class="nf">segment</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CRF-based sentence segmentation.</span>
+
+<span class="sd">    :param str text: text to be tokenized to sentences</span>
+<span class="sd">    :return: list of words, tokenized from the text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">toks</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">toks</span> <span class="o">=</span> <span class="n">text</span>
+    <span class="n">feat</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">toks</span><span class="p">)</span>
+    <span class="n">labs</span> <span class="o">=</span> <span class="n">_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">feat</span><span class="p">)</span>
+    <span class="n">labs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;E&quot;</span>  <span class="c1"># make sure it cuts the last sentence</span>
+
+    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toks</span><span class="p">):</span>
+        <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span> <span class="o">+</span> <span class="n">w</span>
+        <span class="k">if</span> <span class="n">labs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span>
+            <span class="n">sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">sentences</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

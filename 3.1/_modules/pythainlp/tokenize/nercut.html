@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tokenize.nercut &mdash; PyThaiNLP 3.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (3.1.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.tokenize.nercut</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tokenize.nercut</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">nercut 0.2</span>
+
+<span class="sd">Dictionary-based maximal matching word segmentation, constrained with</span>
+<span class="sd">Thai Character Cluster (TCC) boundaries, and combining tokens that are</span>
+<span class="sd">parts of the same named-entity.</span>
+
+<span class="sd">Code by Wannaphong Phatthiyaphaibun</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">NER</span>
+
+<span class="n">_thainer</span> <span class="o">=</span> <span class="n">NER</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thainer&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="segment"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.nercut.segment">[docs]</a><span class="k">def</span> <span class="nf">segment</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">taglist</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;ORGANIZATION&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PERSON&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PHONE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EMAIL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;DATE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TIME&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">tagger</span><span class="o">=</span><span class="n">_thainer</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dictionary-based maximal matching word segmentation, constrained with</span>
+<span class="sd">    Thai Character Cluster (TCC) boundaries, and combining tokens that are</span>
+<span class="sd">    parts of the same named-entity.</span>
+
+<span class="sd">    :param str text: text to be tokenized to words</span>
+<span class="sd">    :parm list taglist: a list of named-entity tags to be used</span>
+<span class="sd">    :parm class tagger: ner tagger engine</span>
+<span class="sd">    :return: list of words, tokenized from the text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">tagged_words</span> <span class="o">=</span> <span class="n">tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">combining_word</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_word</span><span class="p">,</span> <span class="n">curr_tag</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tagged_words</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">curr_tag</span> <span class="o">!=</span> <span class="s2">&quot;O&quot;</span><span class="p">:</span>
+            <span class="n">tag</span> <span class="o">=</span> <span class="n">curr_tag</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;O&quot;</span>
+
+        <span class="k">if</span> <span class="n">curr_tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;B-&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">taglist</span><span class="p">:</span>
+            <span class="n">combining_word</span> <span class="o">=</span> <span class="n">curr_word</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">curr_tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;I-&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">combining_word</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+            <span class="ow">and</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">taglist</span>
+        <span class="p">):</span>
+            <span class="n">combining_word</span> <span class="o">+=</span> <span class="n">curr_word</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">curr_tag</span> <span class="o">==</span> <span class="s2">&quot;O&quot;</span>
+            <span class="ow">and</span> <span class="n">combining_word</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">):</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combining_word</span><span class="p">)</span>
+            <span class="n">combining_word</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_word</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># if tag is O</span>
+            <span class="n">combining_word</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_word</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tagged_words</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">curr_tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;B-&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">combining_word</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combining_word</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">curr_tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;I-&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">combining_word</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">combining_word</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">words</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

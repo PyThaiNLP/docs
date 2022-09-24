@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; PyThaiNLP 3.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (3.1.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-configurations">Runtime Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notes/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>For stable version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pythainlp</span>
+</pre></div>
+</div>
+<p>For development version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">pre</span> <span class="n">pythainlp</span>
+</pre></div>
+</div>
+<p>For some functionalities, like named entity recognition, extra packages may be needed. Install them with these install options:</p>
+<blockquote>
+<div><p>pip install pythainlp[extra1,extra2,…]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>where <code class="docutils literal notranslate"><span class="pre">extras</span></code> can be</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">attacut</span></code> (to support attacut, a fast and accurate tokenizer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">benchmarks</span></code> (to support benchmarks)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icu</span></code> (for ICU, International Components for Unicode, support in transliteration and tokenization)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipa</span></code> (for IPA, International Phonetic Alphabet, support in transliteration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ml</span></code> (to support ULMFiT models for classification)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssg</span></code> (to support ssg for syllable tokenizer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thai2fit</span></code> (for Thai word vector)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thai2rom</span></code> (for machine-learnt romanization)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> (to support translate)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wangchanberta</span></code> (to support wangchanberta models)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mt5</span></code> (to mt5 models for Thai text summarizer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wordnet</span></code> (to support wordnet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spell</span></code> (to support phunspell &amp; symspellpy)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate</span></code> (to support text generate with umlfit or thai2fit)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tltk</span></code> (to support tltk)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">textaugment</span></code> (to support text augmentation)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oskut</span></code> (to support OSKUT)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nlpo3</span></code> (to support nlpo3 engine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spacy_thai</span></code> (to support spacy_thai engine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">esupar</span></code> (to support esupar engine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transformers_ud</span></code> (to support transformers_ud engine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dependency_parsing</span></code> (to support dependency parsing with all engine)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full</span></code> (install everything)</p></li>
+</ul>
+</dd>
+</dl>
+<p>For dependency details, look at <cite>extras</cite> variable in <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/setup.py">setup.py</a>.</p>
+<p>Note for installation on Windows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PyICU</span></code> libraries may required. You have two options to get them installed on Windows.</p></li>
+<li><dl class="simple">
+<dt>Option 1 (recommended):</dt><dd><ul>
+<li><p>Find a pre-built package (“wheel”) from <a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p></li>
+<li><p>Download a suitable wheel for your Python version (3.5, 3.6, etc.) and CPU architecture (“win32” for 32-bit Windows and “amd64” for 64-bit Windows)</p></li>
+<li><p>Install them with pip. For example: <cite>pip install PyICU-xxx‑cp36‑cp36m‑win32.whl</cite></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Option 2 (advanced):</dt><dd><ul>
+<li><p>You can also try to install them with a command: <cite>pip install pyicu</cite></p></li>
+<li><p>With this, pip will try to build the libraries directly from source files.</p></li>
+<li><p>This will take some time and need a set of build tools to be installed in your system, for example Microsoft Visual C++ Compiler. It also requires some technical skills on how things are getting built on Windows system, as you may need to configure some environment variables to accommodate the build process.</p></li>
+<li><p>For PyICU, before the installation, you have to set <code class="docutils literal notranslate"><span class="pre">ICU_VERSION</span></code> environment variable to ICU version in your system. For example, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">ICU_VERSION=62.1</span></code>.</p></li>
+<li><p>This approach is obviously take more time and effort, but the good side is the library will be optimized for your system. This could mean a better performance.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="runtime-configurations">
+<h2>Runtime Configurations<a class="headerlink" href="#runtime-configurations" title="Permalink to this heading"></a></h2>
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_DATA_DIR">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_DATA_DIR</span></span><a class="headerlink" href="#envvar-PYTHAINLP_DATA_DIR" title="Permalink to this definition"></a></dt>
+<dd><p>This environment variable specifies the location where the downloaded data
+and the corpus database information are stored. If this directory
+does not exist, PyThaiNLP will automatically create a new one.</p>
+<p>By default, it is specified to the directory called <code class="docutils literal notranslate"><span class="pre">pythainlp-data</span></code>
+within the home directory.</p>
+<p>Type <cite>thainlp data path</cite> at command line to see current PYTHAINLP_DATA_DIR.</p>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_READ_MODE">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_READ_MODE</span></span><a class="headerlink" href="#envvar-PYTHAINLP_READ_MODE" title="Permalink to this definition"></a></dt>
+<dd><p>This environment variable specifies config PyThaiNLP to read-only mode. (0 = False, 1 = True)</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
+<p>Q: How to install pythainlp in Python 3.10+?
+A: For Python 3.10+, We have python-crfsuite problem in pythainlp, so you can read about <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/626">python-crfsuite dependency fails to build under python 3.10</a>.</p>
+<p>Q: How to set the environment variables of each executor node in a distributed environment?
+A: You can read <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/475">PermissionError: [Errno 13] Permission denied: /home/pythainlp-data</a>.</p>
+<p>Q: How to fixed PyThaiNLP to read-only mode?
+A: You can config PYTHAINLP_READ_MODE.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

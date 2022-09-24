@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tokenize.thaisumcut &mdash; PyThaiNLP 3.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (3.1.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pythainlp.tokenize.thaisumcut</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tokenize.thaisumcut</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The implementation of sentence segmentator from Nakhun Chumpolsathien, 2020</span>
+<span class="sd">original code from: https://github.com/nakhunchumpolsathien/ThaiSum</span>
+
+<span class="sd">Cite:</span>
+
+<span class="sd">@mastersthesis{chumpolsathien_2020,</span>
+<span class="sd">    title={Using Knowledge Distillation from Keyword Extraction to Improve the Informativeness of Neural Cross-lingual Summarization},</span>
+<span class="sd">    author={Chumpolsathien, Nakhun},</span>
+<span class="sd">    year={2020},</span>
+<span class="sd">    school={Beijing Institute of Technology}</span>
+
+<span class="sd">**ThaiSum License**</span>
+
+<span class="sd">   Copyright [2020 [Nakhun Chumpolsathien]</span>
+
+<span class="sd">   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="sd">   you may not use this file except in compliance with the License.</span>
+<span class="sd">   You may obtain a copy of the License at</span>
+
+<span class="sd">       http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="sd">   Unless required by applicable law or agreed to in writing, software</span>
+<span class="sd">   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="sd">   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="sd">   See the License for the specific language governing permissions and</span>
+<span class="sd">   limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+
+<div class="viewcode-block" id="list_to_string"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.list_to_string">[docs]</a><span class="k">def</span> <span class="nf">list_to_string</span><span class="p">(</span><span class="nb">list</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">string</span></div>
+
+
+<div class="viewcode-block" id="middle_cut"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.middle_cut">[docs]</a><span class="k">def</span> <span class="nf">middle_cut</span><span class="p">(</span><span class="n">sentences</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">new_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="n">sentence_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+                <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[:</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+                    <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[:</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:]</span>
+
+        <span class="n">fixed_text_lenth</span> <span class="o">=</span> <span class="mi">20</span>
+
+        <span class="k">if</span> <span class="n">sentence_size</span> <span class="o">&gt;</span> <span class="n">fixed_text_lenth</span><span class="p">:</span>
+            <span class="n">partition</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">sentence_size</span> <span class="o">/</span> <span class="n">fixed_text_lenth</span><span class="p">)</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">partition</span><span class="p">):</span>
+                <span class="n">middle_space</span> <span class="o">=</span> <span class="p">(</span><span class="n">sentence_size</span> <span class="o">/</span> <span class="p">(</span><span class="n">partition</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">white_space_index</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">white_space_diff</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)):</span>
+                    <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+                        <span class="n">white_space_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">white_space</span> <span class="ow">in</span> <span class="n">white_space_index</span><span class="p">:</span>
+                    <span class="n">white_space_diff</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">white_space</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">white_space</span> <span class="o">-</span> <span class="n">middle_space</span><span class="p">)})</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">white_space_diff</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">min_diff</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">white_space_diff</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">min_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">min_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="n">new_text</span> <span class="o">=</span> <span class="n">new_text</span> <span class="o">+</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_text</span> <span class="o">=</span> <span class="n">new_text</span> <span class="o">+</span> <span class="n">sentence</span> <span class="o">+</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span>
+
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">new_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span> 
+        <span class="n">sentences</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;nan&#39;</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span> 
+        <span class="n">sentences</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+
+    <span class="n">sentences</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">sentences</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sentences</span></div>
+
+
+<div class="viewcode-block" id="ThaiSentenceSegmentor"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.ThaiSentenceSegmentor">[docs]</a><span class="k">class</span> <span class="nc">ThaiSentenceSegmentor</span><span class="p">:</span>
+
+<div class="viewcode-block" id="ThaiSentenceSegmentor.split_into_sentences"><a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.ThaiSentenceSegmentor.split_into_sentences">[docs]</a>    <span class="k">def</span> <span class="nf">split_into_sentences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">isMiddleCut</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="c1"># Declare Variables</span>
+        <span class="n">th_alphabets</span> <span class="o">=</span> <span class="s2">&quot;([ก-๙])&quot;</span>
+        <span class="n">th_conjunction</span> <span class="o">=</span> <span class="s2">&quot;(ทำให้|โดย|เพราะ|นอกจากนี้|แต่|กรณีที่|หลังจากนี้|ต่อมา|ภายหลัง|นับตั้งแต่|หลังจาก|ซึ่งเหตุการณ์|ผู้สื่อข่าวรายงานอีก|ส่วนที่|ส่วนสาเหตุ|ฉะนั้น|เพราะฉะนั้น|เพื่อ|เนื่องจาก|จากการสอบสวนทราบว่า|จากกรณี|จากนี้|อย่างไรก็ดี)&quot;</span>
+        <span class="n">th_cite</span> <span class="o">=</span> <span class="s2">&quot;(กล่าวว่า|เปิดเผยว่า|รายงานว่า|ให้การว่า|เผยว่า|บนทวิตเตอร์ว่า|แจ้งว่า|พลเมืองดีว่า|อ้างว่า)&quot;</span>
+        <span class="n">th_ka_krub</span> <span class="o">=</span> <span class="s2">&quot;(ครับ|ค่ะ)&quot;</span>
+        <span class="n">th_stop_after</span> <span class="o">=</span> <span class="s2">&quot;(หรือไม่|โดยเร็ว|แล้ว|อีกด้วย)&quot;</span>
+        <span class="n">th_stop_before</span> <span class="o">=</span> <span class="s2">&quot;(ล่าสุด|เบื้องต้น|ซึ่ง|ทั้งนี้|แม้ว่า|เมื่อ|แถมยัง|ตอนนั้น|จนเป็นเหตุให้|จากนั้น|อย่างไรก็ตาม|และก็|อย่างใดก็ตาม|เวลานี้|เช่น|กระทั่ง)&quot;</span>
+        <span class="n">degit</span> <span class="o">=</span> <span class="s2">&quot;([0-9])&quot;</span>
+        <span class="n">th_title</span> <span class="o">=</span> <span class="s2">&quot;(นาย|นาง|นางสาว|เด็กชาย|เด็กหญิง|น.ส.|ด.ช.|ด.ญ.)&quot;</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยเร็ว&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_Doeirew&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพื่อน&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_friend&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่ง&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_but&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยสาร&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_passenger&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แล้วแต่&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_leawtea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือเปล่า&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_repraw&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือไม่&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_remai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จึงรุ่งเรืองกิจ&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_tanatorn_lastname&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ตั้งแต่&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_tangtea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่ละ&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_teala&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;วิตแล้ว&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_chiwitleaw&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยประ&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_doipra&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่หลังจากนั้น&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_tealangjaknan&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;พรรคเพื่อ&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;for_party&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่เนื่อง&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_teaneung&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพื่อทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;เพื่อ&lt;rth_tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ทำเพื่อ&quot;</span><span class="p">,</span> <span class="s2">&quot;ทำ&lt;rth_for&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จึงทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;จึง&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;มาโดยตลอด&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;madoitalod&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่อย่างใด&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;teayangdaikptam&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่หลังจาก&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่&lt;langjak&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;คงทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_kongtamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่ทั้งนี้&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่&lt;tangni&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;มีแต่&quot;</span><span class="p">,</span> <span class="s2">&quot;มี&lt;tea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เหตุที่ทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;hedteetamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยหลังจาก&quot;</span><span class="p">,</span> <span class="s2">&quot;โดย&lt;langjak&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่งหลังจาก&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่ง&lt;langjak&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ตั้งโดย&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_tangdoi&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยตรง&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_doitong&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;นั้นหรือ&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;rth_nanhlor&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่งต้องทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่งต้อง&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ชื่อต่อมา&quot;</span><span class="p">,</span> <span class="s2">&quot;ชื่อ&lt;tomar&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยเร่งด่วน&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;doi&gt;เร่งด่วน&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ไม่ได้ทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;ไม่ได้&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จะทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;จะ&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จนทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;จน&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เว้นแต่&quot;</span><span class="p">,</span> <span class="s2">&quot;เว้น&lt;rth_tea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ก็ทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;ก็&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; ณ ตอนนั้น&quot;</span><span class="p">,</span> <span class="s2">&quot; ณ &lt;tonnan&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;บางส่วน&quot;</span><span class="p">,</span> <span class="s2">&quot;บาง&lt;rth_suan&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือแม้แต่&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือ&lt;rth_meatea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;โดย&lt;tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือเพราะ&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือ&lt;rth_orbecause&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;มาแต่&quot;</span><span class="p">,</span> <span class="s2">&quot;มา&lt;rth_tea&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่ไม่ทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่&lt;maitamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ฉะนั้นเมื่อ&quot;</span><span class="p">,</span> <span class="s2">&quot;ฉะนั้น&lt;rth_moe&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพราะฉะนั้น&quot;</span><span class="p">,</span> <span class="s2">&quot;เพราะ&lt;rth_chanan&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพราะหลังจาก&quot;</span><span class="p">,</span> <span class="s2">&quot;เพราะ&lt;rth_langjak&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;สามารถทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;สามารถ&lt;rth_tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อาจทำ&quot;</span><span class="p">,</span> <span class="s2">&quot;อาจ&lt;rth_tam&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จะทำ&quot;</span><span class="p">,</span> <span class="s2">&quot;จะ&lt;rth_tam&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;และนอกจากนี้&quot;</span><span class="p">,</span> <span class="s2">&quot;นอกจากนี้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อีกทั้งเพื่อ&quot;</span><span class="p">,</span> <span class="s2">&quot;อีกทั้ง&lt;rth_for&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ทั้งนี้เพื่อ&quot;</span><span class="p">,</span> <span class="s2">&quot;ทั้งนี้&lt;rth_for&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เวลาต่อมา&quot;</span><span class="p">,</span> <span class="s2">&quot;เวลา&lt;rth_toma&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อย่างไรก็ตาม&quot;</span><span class="p">,</span> <span class="s2">&quot;อย่างไรก็ตาม&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อย่างไรก็ตามหลังจาก&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;อย่างไรก็ตาม&lt;rth_langjak&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่งทำให้&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่ง&lt;rth_tamhai&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยประมาท&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;doi&gt;ประมาท&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยธรรม&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;doi&gt;ธรรม&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดยสัจจริง&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;doi&gt;สัจจริง&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;และ&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">and_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">last_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+            <span class="n">pop_split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;และ&quot;</span><span class="p">:</span>
+                    <span class="n">and_position</span> <span class="o">=</span> <span class="n">i</span>
+
+                <span class="k">if</span> <span class="n">and_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">and_position</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="ow">and</span> <span class="n">nearest_space_position</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="n">and_position</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="n">i</span>
+
+                <span class="k">if</span> <span class="n">and_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">last_position</span> <span class="o">-</span> <span class="n">and_position</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_position</span><span class="p">)</span>
+                    <span class="n">and_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">-</span> <span class="n">and_position</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+                        <span class="n">pop_split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nearest_space_position</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">and_position</span><span class="p">)</span>
+                    <span class="n">and_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pop_split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">split</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;หรือ&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">or_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">last_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+            <span class="n">pop_split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;หรือ&quot;</span><span class="p">:</span>
+                    <span class="n">or_position</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="k">if</span> <span class="n">or_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">or_position</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="ow">and</span> <span class="n">nearest_space_position</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="n">or_position</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="n">i</span>
+
+                <span class="k">if</span> <span class="n">or_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">last_position</span> <span class="o">-</span> <span class="n">or_position</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_position</span><span class="p">)</span>
+                    <span class="n">or_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">-</span> <span class="n">or_position</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+                        <span class="n">pop_split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nearest_space_position</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">or_position</span><span class="p">)</span>
+                    <span class="n">or_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pop_split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">split</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;จึง&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">cung_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">pop_split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">last_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+            <span class="n">split_position</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;จึง&quot;</span><span class="p">:</span>
+                    <span class="n">cung_position</span> <span class="o">=</span> <span class="n">i</span>
+
+                <span class="k">if</span> <span class="n">cung_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">cung_position</span> <span class="ow">and</span> <span class="n">nearest_space_position</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="n">cung_position</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="n">i</span>
+
+                <span class="k">if</span> <span class="n">cung_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">last_position</span> <span class="o">-</span> <span class="n">cung_position</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_position</span><span class="p">)</span>
+                    <span class="n">cung_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">nearest_space_position</span> <span class="o">-</span> <span class="n">cung_position</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="n">pop_split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nearest_space_position</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">split_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cung_position</span><span class="p">)</span>
+                    <span class="n">cung_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="n">nearest_space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+            <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pop_split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">split_position</span><span class="p">:</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">split</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+
+            <span class="n">text</span> <span class="o">=</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">th_stop_before</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">th_ka_krub</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&lt;stop&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">th_conjunction</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">th_cite</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&lt;stop&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">degit</span> <span class="o">+</span> <span class="s2">&quot;[.]&quot;</span> <span class="o">+</span> <span class="n">th_title</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1.</span><span class="se">\\</span><span class="s2">2&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">degit</span> <span class="o">+</span> <span class="n">degit</span> <span class="o">+</span> <span class="s2">&quot;[.]&quot;</span> <span class="o">+</span> <span class="n">th_title</span><span class="p">,</span> <span class="s2">&quot;&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">2.</span><span class="se">\\</span><span class="s2">3&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">th_alphabets</span> <span class="o">+</span> <span class="n">th_stop_after</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">2&lt;stop&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;”&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span> 
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.”&quot;</span><span class="p">,</span> <span class="s2">&quot;”.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span> 
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;!&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span> 
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;!</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;?&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span> 
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;?</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">?&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_Doeirew&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยเร็ว&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_friend&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เพื่อน&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_but&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่ง&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_passenger&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยสาร&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_leawtea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แล้วแต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_repraw&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือเปล่า&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_remai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือไม่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_tanatorn_lastname&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;จึงรุ่งเรืองกิจ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_tangtea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ตั้งแต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_teala&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่ละ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_chiwitleaw&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;วิตแล้ว&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_doipra&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยประ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_tealangjaknan&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่หลังจากนั้น&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;for_party&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;พรรคเพื่อ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_teaneung&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่เนื่อง&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพื่อ&lt;rth_tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เพื่อทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ทำ&lt;rth_for&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ทำเพื่อ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จึง&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;จึงทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;madoitalod&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;มาโดยตลอด&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่&lt;langjak&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่หลังจาก&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่&lt;tangni&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่ทั้งนี้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;มี&lt;tea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;มีแต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;teayangdaikptam&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่อย่างใด&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_kongtamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;คงทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;hedteetamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เหตุที่ทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดย&lt;langjak&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยหลังจาก&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่ง&lt;langjak&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่งหลังจาก&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_tangdoi&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ตั้งโดย&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_doitong&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยตรง&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;rth_nanhlor&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;นั้นหรือ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่งต้อง&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่งต้องทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ชื่อ&lt;tomar&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ชื่อต่อมา&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;doi&gt;เร่งด่วน&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยเร่งด่วน&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ไม่ได้&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ไม่ได้ทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จะ&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;จะทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จน&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;จนทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เว้น&lt;rth_tea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เว้นแต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ก็&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ก็ทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; ณ &lt;tonnan&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot; ณ ตอนนั้น&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;บาง&lt;rth_suan&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;บางส่วน&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือ&lt;rth_meatea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือแม้แต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;โดย&lt;tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หรือ&lt;rth_orbecause&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;หรือเพราะ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;มา&lt;rth_tea&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;มาแต่&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;แต่&lt;maitamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;แต่ไม่ทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ฉะนั้น&lt;rth_moe&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ฉะนั้นเมื่อ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพราะ&lt;rth_chanan&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เพราะฉะนั้น&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เพราะ&lt;rth_langjak&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เพราะหลังจาก&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;สามารถ&lt;rth_tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;สามารถทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อาจ&lt;rth_tam&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;อาจทำ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;จะ&lt;rth_tam&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;จะทำ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อีกทั้ง&lt;rth_for&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;อีกทั้งเพื่อ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ทั้งนี้&lt;rth_for&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ทั้งนี้เพื่อ&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;เวลา&lt;rth_toma&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;เวลาต่อมา&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อย่างไรก็ตาม&lt;rth_langjak&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;อย่างไรก็ตามหลังจาก&quot;</span><span class="p">,</span> <span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ซึ่ง&lt;rth_tamhai&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;ซึ่งทำให้&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;doi&gt;ประมาท&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยประมาท&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;doi&gt;ธรรม&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยธรรม&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;doi&gt;สัจจริง&quot;</span><span class="p">,</span> <span class="s2">&quot;โดยสัจจริง&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;?&lt;stop&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;!&lt;stop&gt;&quot;</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;prd&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;stop&gt;&quot;</span><span class="p">)</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span> 
+            <span class="n">sentences</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;nan&#39;</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span> 
+            <span class="n">sentences</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+
+        <span class="n">sentences</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">sentences</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">isMiddleCut</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">middle_cut</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sentences</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

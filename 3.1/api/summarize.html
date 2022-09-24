@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.summarize &mdash; PyThaiNLP 3.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.tag" href="tag.html" />
+    <link rel="prev" title="pythainlp.spell" href="spell.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (3.1.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.summarize</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>pythainlp.summarize</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/summarize.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-summarize">
+<h1>pythainlp.summarize<a class="headerlink" href="#pythainlp-summarize" title="Permalink to this heading"></a></h1>
+<p>The <a class="reference internal" href="#pythainlp.summarize.summarize" title="pythainlp.summarize.summarize"><code class="xref py py-class docutils literal notranslate"><span class="pre">summarize</span></code></a> is Thai text summarizer.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.summarize.summarize">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.summarize.</span></span><span class="sig-name descname"><span class="pre">summarize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'frequency'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'newmm'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/summarize/core.html#summarize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.summarize.summarize" title="Permalink to this definition"></a></dt>
+<dd><p>This function summarizes text based on frequency of words.</p>
+<p>Under the hood, this function first tokenize sentence from the given
+text with <a class="reference internal" href="tokenize.html#pythainlp.tokenize.sent_tokenize" title="pythainlp.tokenize.sent_tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.sent_tokenize()</span></code></a>.
+Then, computes frequencies of tokenized words
+(with <a class="reference internal" href="tokenize.html#pythainlp.tokenize.word_tokenize" title="pythainlp.tokenize.word_tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.word_tokenize()</span></code></a>) in all sentences
+and normalized with maximum word frequency. The words with normalized
+frequncy that are less than 0.1 or greater than 0.9 will be
+filtered out from frequency dictionary. Finally, it picks <em>n</em> sentences
+with highest sum of normalized frequency from all words
+in the sentence and also appear in the frequency dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – text to be summarized</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of sentences to be included in the summary
+By default, n is <em>1</em> (effective for frequency engine only)</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – text summarization engine (By default: <em>frequency</em>).</p></li>
+<li><p><strong>tokenizer</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – word tokenizer engine name (refer to
+<a class="reference internal" href="tokenize.html#pythainlp.tokenize.word_tokenize" title="pythainlp.tokenize.word_tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.word_tokenize()</span></code></a>).
+By default, tokenizer is <em>newmm</em>
+(effective for frequency engine only)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of selected sentences</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Options for engine</strong></dt><dd><ul class="simple">
+<li><p><em>frequency</em> (default) - frequency of words</p></li>
+<li><p><em>mt5</em> - mT5-small model</p></li>
+<li><p><em>mt5-small</em> - mT5-small model</p></li>
+<li><p><em>mt5-base</em> - mT5-base model</p></li>
+<li><p><em>mt5-large</em> - mT5-large model</p></li>
+<li><p><em>mt5-xl</em> - mT5-xl model</p></li>
+<li><p><em>mt5-xxl</em> - mT5-xxl model</p></li>
+<li><p><em>mt5-cpe-kmutt-thai-sentence-sum</em> - mT5 Thai sentence summarization by CPE KMUTT</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.summarize</span> <span class="kn">import</span> <span class="n">summarize</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        ทำเนียบท่าช้าง หรือ วังถนนพระอาทิตย์</span>
+<span class="s1">        ตั้งอยู่บนถนนพระอาทิตย์ เขตพระนคร กรุงเทพมหานคร</span>
+<span class="s1">        เดิมเป็นบ้านของเจ้าพระยามหาโยธา (ทอเรียะ คชเสนี)</span>
+<span class="s1">        บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์ (พญาเจ่ง)</span>
+<span class="s1">        ต้นสกุลคชเสนี เชื้อสายมอญ เจ้าพระยามหาโยธา (ทอเรีย)</span>
+<span class="s1">        เป็นปู่ของเจ้าจอมมารดากลิ่นในพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว</span>
+<span class="s1">        และเป็นมรดกตกทอดมาถึง พระเจ้าบรมวงศ์เธอ กรมพระนเรศรวรฤทธิ์</span>
+<span class="s1">        (พระองค์เจ้ากฤดาภินิหาร)</span>
+<span class="s1">        ต่อมาในรัชสมัยพระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัวโปรดเกล้าฯ</span>
+<span class="s1">        ให้สร้างตำหนัก 2 ชั้น</span>
+<span class="s1">        เป็นที่ประทับของพระเจ้าบรมวงศ์เธอ</span>
+<span class="s1">        กรมพระนเรศวรฤทิธิ์และเจ้าจอมมารดา</span>
+<span class="s1">        ต่อมาเรียกอาคารหลักนี้ว่า ตำหนักเดิม</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+<span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># output: [&#39;บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์&#39;]</span>
+
+<span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># output: [&#39;บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์&#39;,</span>
+<span class="c1"># &#39;เดิมเป็นบ้านของเจ้าพระยามหาโยธา&#39;,</span>
+<span class="c1"># &#39;เจ้าพระยามหาโยธา&#39;]</span>
+
+<span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;mt5-small&quot;</span><span class="p">)</span>
+<span class="c1"># output: [&#39;&lt;extra_id_0&gt; ท่าช้าง หรือ วังถนนพระอาทิตย์</span>
+<span class="c1"># เขตพระนคร กรุงเทพมหานคร ฯลฯ ดังนี้:</span>
+<span class="c1"># ที่อยู่ - ศิลปวัฒนธรรม&#39;]</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;ถ้าพูดถึงขนมหวานในตำนานที่ชื่นใจที่สุดแล้วละก็ต้องไม่พ้น น้ำแข็งใส แน่ๆ เพราะว่าเป็นอะไรที่ชื่นใจสุดๆ&quot;</span>
+<span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;mt5-cpe-kmutt-thai-sentence-sum&quot;</span><span class="p">)</span>
+<span class="c1"># output: [&#39;น้ําแข็งใสเป็นอะไรที่ชื่นใจที่สุด&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spell.html" class="btn btn-neutral float-left" title="pythainlp.spell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tag.html" class="btn btn-neutral float-right" title="pythainlp.tag" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

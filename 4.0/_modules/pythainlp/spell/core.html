@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.spell.core &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.spell.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.spell.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Spell checking functions</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.spell</span> <span class="kn">import</span> <span class="n">DEFAULT_SPELL_CHECKER</span>
+
+
+<div class="viewcode-block" id="spell"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.spell">[docs]</a><span class="k">def</span> <span class="nf">spell</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;pn&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provides a list of possible correct spelling of the given word.</span>
+<span class="sd">    The list of words are from the words in the dictionary</span>
+<span class="sd">    that incurs an edit distance value of 1 or 2.</span>
+<span class="sd">    The result is a list of words sorted by their occurrences</span>
+<span class="sd">    in the spelling dictionary in descending order.</span>
+
+<span class="sd">    :param str word: Word to spell check</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *pn* - Peter Norvig&#39;s algorithm [#norvig_spellchecker]_ (default)</span>
+<span class="sd">        * *phunspell* - A spell checker utilizing spylls a port of Hunspell.</span>
+<span class="sd">        * *symspellpy* - symspellpy is a Python port of SymSpell v6.5.</span>
+<span class="sd">        * *tltk* - wrapper for `TLTK &lt;https://pypi.org/project/tltk/&gt;`_.</span>
+
+<span class="sd">    :return: list of possible correct words within 1 or 2 edit distance and</span>
+<span class="sd">             sorted by frequency of word occurrences in the spelling dictionary</span>
+<span class="sd">             in descending order.</span>
+<span class="sd">    :rtype: list[str]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.spell import spell</span>
+
+<span class="sd">        spell(&quot;เส้นตรบ&quot;,  engine=&quot;pn&quot;)</span>
+<span class="sd">        # output: [&#39;เส้นตรง&#39;]</span>
+
+<span class="sd">        spell(&quot;เส้นตรบ&quot;)</span>
+<span class="sd">        # output: [&#39;เส้นตรง&#39;]</span>
+
+<span class="sd">        spell(&quot;เส้นตรบ&quot;,  engine=&quot;tltk&quot;)</span>
+<span class="sd">        # output: [&#39;เส้นตรง&#39;]</span>
+
+<span class="sd">        spell(&quot;ครัช&quot;)</span>
+<span class="sd">        # output: [&#39;ครับ&#39;, &#39;ครัว&#39;, &#39;รัช&#39;, &#39;ครัม&#39;, &#39;ครัน&#39;, &#39;วรัช&#39;, &#39;ครัส&#39;,</span>
+<span class="sd">        # &#39;ปรัช&#39;, &#39;บรัช&#39;, &#39;ครัง&#39;, &#39;คัช&#39;, &#39;คลัช&#39;, &#39;ครัย&#39;, &#39;ครัด&#39;]</span>
+
+<span class="sd">        spell(&quot;กระปิ&quot;)</span>
+<span class="sd">        # output: [&#39;กะปิ&#39;, &#39;กระบิ&#39;]</span>
+
+<span class="sd">        spell(&quot;สังเกตุ&quot;)</span>
+<span class="sd">        # output:  [&#39;สังเกต&#39;]</span>
+
+<span class="sd">        spell(&quot;เหตการณ&quot;)</span>
+<span class="sd">        # output:  [&#39;เหตุการณ์&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;phunspell&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.phunspell</span> <span class="kn">import</span> <span class="n">spell</span> <span class="k">as</span> <span class="n">SPELL_CHECKER</span>
+
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">SPELL_CHECKER</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;symspellpy&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.symspellpy</span> <span class="kn">import</span> <span class="n">spell</span> <span class="k">as</span> <span class="n">SPELL_CHECKER</span>
+
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">SPELL_CHECKER</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.tltk</span> <span class="kn">import</span> <span class="n">spell</span> <span class="k">as</span> <span class="n">SPELL_CHECKER</span>
+
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">SPELL_CHECKER</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">DEFAULT_SPELL_CHECKER</span><span class="o">.</span><span class="n">spell</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text_correct</span></div>
+
+
+<div class="viewcode-block" id="correct"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.correct">[docs]</a><span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;pn&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corrects the spelling of the given word by returning</span>
+<span class="sd">    the correctly spelled word.</span>
+
+<span class="sd">    :param str word: word to correct spelling</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *pn* - Peter Norvig&#39;s algorithm [#norvig_spellchecker]_ (default)</span>
+<span class="sd">        * *phunspell* - A spell checker utilizing spylls a port of Hunspell.</span>
+<span class="sd">        * *symspellpy* - symspellpy is a Python port of SymSpell v6.5.</span>
+<span class="sd">    :return: the corrected word</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.spell import correct</span>
+
+<span class="sd">        correct(&quot;เส้นตรบ&quot;)</span>
+<span class="sd">        # output: &#39;เส้นตรง&#39;</span>
+
+<span class="sd">        correct(&quot;ครัช&quot;)</span>
+<span class="sd">        # output: &#39;ครับ&#39;</span>
+
+<span class="sd">        correct(&quot;สังเกตุ&quot;)</span>
+<span class="sd">        # output: &#39;สังเกต&#39;</span>
+
+<span class="sd">        correct(&quot;กระปิ&quot;)</span>
+<span class="sd">        # output: &#39;กะปิ&#39;</span>
+
+<span class="sd">        correct(&quot;เหตการณ&quot;)</span>
+<span class="sd">        # output: &#39;เหตุการณ์&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;phunspell&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.phunspell</span> <span class="kn">import</span> <span class="n">correct</span> <span class="k">as</span> <span class="n">SPELL_CHECKER</span>
+
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">SPELL_CHECKER</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;symspellpy&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.symspellpy</span> <span class="kn">import</span> <span class="n">correct</span> <span class="k">as</span> <span class="n">SPELL_CHECKER</span>
+
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">SPELL_CHECKER</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text_correct</span> <span class="o">=</span> <span class="n">DEFAULT_SPELL_CHECKER</span><span class="o">.</span><span class="n">correct</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text_correct</span></div>
+
+
+<div class="viewcode-block" id="spell_sent"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.spell_sent">[docs]</a><span class="k">def</span> <span class="nf">spell_sent</span><span class="p">(</span><span class="n">list_words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;pn&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provides a list of possible correct spelling of sentence</span>
+
+<span class="sd">    :param List[str] list_words: list word of sentence</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *pn* - Peter Norvig&#39;s algorithm [#norvig_spellchecker]_ (default)</span>
+<span class="sd">        * *phunspell* - A spell checker utilizing spylls a port of Hunspell.</span>
+<span class="sd">        * *symspellpy* - symspellpy is a Python port of SymSpell v6.5.</span>
+<span class="sd">    :return: list of possible correct words</span>
+<span class="sd">    :rtype: List[List[str]]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.spell import spell_sent</span>
+
+<span class="sd">        spell_sent([&quot;เด็&quot;,&quot;อินอร์เน็ต&quot;,&quot;แรง&quot;],engine=&#39;symspellpy&#39;)</span>
+<span class="sd">        # output: [[&#39;เด็ก&#39;, &#39;อินเทอร์เน็ต&#39;, &#39;แรง&#39;]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;symspellpy&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.spell.symspellpy</span> <span class="kn">import</span> <span class="n">spell_sent</span> <span class="k">as</span> <span class="n">symspellpy_spell</span>
+
+        <span class="n">list_new</span> <span class="o">=</span> <span class="n">symspellpy_spell</span><span class="p">(</span><span class="n">list_words</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+            <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">spell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_words</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="n">list_new</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_temp</span><span class="p">:</span>
+            <span class="n">_temp2</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+                <span class="n">_temp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">list_new</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_temp2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">list_new</span></div>
+
+
+<div class="viewcode-block" id="correct_sent"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.correct_sent">[docs]</a><span class="k">def</span> <span class="nf">correct_sent</span><span class="p">(</span><span class="n">list_words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;pn&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corrects the spelling of the given sentence by returning</span>
+
+<span class="sd">    :param List[str] list_words: list word of sentence</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *pn* - Peter Norvig&#39;s algorithm [#norvig_spellchecker]_ (default)</span>
+<span class="sd">        * *phunspell* - A spell checker utilizing spylls a port of Hunspell.</span>
+<span class="sd">        * *symspellpy* - symspellpy is a Python port of SymSpell v6.5.</span>
+<span class="sd">    :return: the corrected list sentences of word</span>
+<span class="sd">    :rtype: List[str]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.spell import correct_sent</span>
+
+<span class="sd">        correct_sent([&quot;เด็&quot;,&quot;อินอร์เน็ต&quot;,&quot;แรง&quot;],engine=&#39;symspellpy&#39;)</span>
+<span class="sd">        # output: [&#39;เด็ก&#39;, &#39;อินเทอร์เน็ต&#39;, &#39;แรง&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">spell_sent</span><span class="p">(</span><span class="n">list_words</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

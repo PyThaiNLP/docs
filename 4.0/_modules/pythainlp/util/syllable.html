@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.syllable &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.syllable</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.syllable</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Syllable tools</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_consonants</span><span class="p">,</span> <span class="n">thai_tonemarks</span>
+
+<span class="n">spelling_class</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;กง&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ง&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;กม&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ม&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;เกย&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ย&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;เกอว&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ว&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;กน&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;นญณรลฬ&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;กก&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;กขคฆ&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;กด&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ดจชซฎฏฐฑฒตถทธศษส&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;กบ&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;บปภพฟ&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">thai_consonants_all</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)</span>
+<span class="n">thai_consonants_all</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">)</span>
+
+<span class="n">_temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spelling_class</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">spelling_class</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="p">)</span>
+<span class="n">not_spelling_class</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">thai_consonants_all</span> <span class="k">if</span> <span class="n">j</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_temp</span><span class="p">]</span>
+
+<span class="c1"># vowel&#39;s short sound</span>
+<span class="n">short</span> <span class="o">=</span> <span class="s2">&quot;ะัิึุ&quot;</span>
+<span class="n">re_short</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;เ(.*)ะ|แ(.*)ะ|เ(.*)อะ|โ(.*)ะ|เ(.*)าะ&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;เ(.*)า&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">U</span><span class="p">)</span>  <span class="c1"># เ-า is live syllable</span>
+
+<span class="n">_check_1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># these spelling consonant are live syllable.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;กง&quot;</span><span class="p">,</span> <span class="s2">&quot;กน&quot;</span><span class="p">,</span> <span class="s2">&quot;กม&quot;</span><span class="p">,</span> <span class="s2">&quot;เกย&quot;</span><span class="p">,</span> <span class="s2">&quot;เกอว&quot;</span><span class="p">]:</span>
+    <span class="n">_check_1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">spelling_class</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="c1"># these spelling consonant are dead syllable.</span>
+<span class="n">_check_2</span> <span class="o">=</span> <span class="n">spelling_class</span><span class="p">[</span><span class="s2">&quot;กก&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">spelling_class</span><span class="p">[</span><span class="s2">&quot;กบ&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">spelling_class</span><span class="p">[</span><span class="s2">&quot;กด&quot;</span><span class="p">]</span>
+
+<span class="n">thai_low_sonorants</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;งนมยรลว&quot;</span><span class="p">)</span>
+<span class="n">thai_low_aspirates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;คชซทพฟฮ&quot;</span><span class="p">)</span>
+<span class="n">thai_low_irregular</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ฆญณธภฅฌฑฒฬ&quot;</span><span class="p">)</span>
+
+<span class="n">thai_mid_plains</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;กจดตบปอฎฏ&quot;</span><span class="p">)</span>
+
+<span class="n">thai_high_aspirates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ขฉถผฝสห&quot;</span><span class="p">)</span>
+<span class="n">thai_high_irregular</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ศษฃฐ&quot;</span><span class="p">)</span>
+<span class="n">thai_initial_consonant_type</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">thai_low_sonorants</span> <span class="o">+</span> <span class="n">thai_low_aspirates</span> <span class="o">+</span> <span class="n">thai_low_irregular</span><span class="p">,</span>
+    <span class="s2">&quot;mid&quot;</span><span class="p">:</span> <span class="n">thai_mid_plains</span><span class="p">,</span>
+    <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">thai_high_aspirates</span> <span class="o">+</span> <span class="n">thai_high_irregular</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">thai_initial_consonant_to_type</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">thai_initial_consonant_type</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+        <span class="n">thai_initial_consonant_to_type</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+
+
+<div class="viewcode-block" id="sound_syllable"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.sound_syllable">[docs]</a><span class="k">def</span> <span class="nf">sound_syllable</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sound syllable classification</span>
+
+<span class="sd">    This function is sound syllable classification.</span>
+<span class="sd">    It is live syllable or dead syllable.</span>
+
+<span class="sd">    :param str syllable: Thai syllable</span>
+<span class="sd">    :return: syllable&#39;s type (live or dead)</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import sound_syllable</span>
+
+<span class="sd">        print(sound_syllable(&quot;มา&quot;))</span>
+<span class="sd">        # output: live</span>
+
+<span class="sd">        print(sound_syllable(&quot;เลข&quot;))</span>
+<span class="sd">        # output: dead</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get consonants</span>
+    <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants_all</span><span class="p">)]</span>
+    <span class="c1"># get spelling consonants</span>
+    <span class="n">spelling_consonant</span> <span class="o">=</span> <span class="n">consonants</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># if len of syllable &lt; 2</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">spelling_consonant</span> <span class="ow">in</span> <span class="n">_check_2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;าีืแูาเโ&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+        <span class="ow">and</span> <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;ำใไ&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+        <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">True</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+    <span class="k">elif</span> <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;าีืแูาโ&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">):</span>  <span class="c1"># in syllable:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">spelling_consonant</span> <span class="ow">in</span> <span class="n">_check_1</span>
+            <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">True</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;live&quot;</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">spelling_consonant</span> <span class="o">!=</span> <span class="n">syllable</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">True</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;live&quot;</span>
+        <span class="k">elif</span> <span class="n">spelling_consonant</span> <span class="ow">in</span> <span class="n">_check_2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+        <span class="k">elif</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">short</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;live&quot;</span>
+    <span class="k">elif</span> <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;ำใไ&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;live&quot;</span>  <span class="c1"># if these vowel&#39;s long sound are live syllable</span>
+    <span class="k">elif</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">)):</span>  <span class="c1"># if it is เ-า</span>
+        <span class="k">return</span> <span class="s2">&quot;live&quot;</span>
+    <span class="k">elif</span> <span class="n">spelling_consonant</span> <span class="ow">in</span> <span class="n">_check_1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nb">bool</span><span class="p">(</span><span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">short</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">)</span>
+        <span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;live&quot;</span>
+    <span class="k">elif</span> <span class="nb">bool</span><span class="p">(</span>
+        <span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+    <span class="p">)</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span>  <span class="c1"># if found vowel&#39;s short sound</span>
+        <span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">short</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span>
+    <span class="p">):</span>  <span class="c1"># consonant in short</span>
+        <span class="k">return</span> <span class="s2">&quot;dead&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;dead&quot;</span></div>
+
+
+<div class="viewcode-block" id="syllable_open_close_detector"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.syllable_open_close_detector">[docs]</a><span class="k">def</span> <span class="nf">syllable_open_close_detector</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai syllable open/close detector</span>
+
+<span class="sd">    This function is use for find Thai syllable that open or closed sound.</span>
+
+<span class="sd">    :param str syllable: Thai syllable</span>
+<span class="sd">    :return: open / close</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import syllable_open_close_detector</span>
+
+<span class="sd">        print(syllable_open_close_detector(&quot;มาก&quot;))</span>
+<span class="sd">        # output: close</span>
+
+<span class="sd">        print(syllable_open_close_detector(&quot;คะ&quot;))</span>
+<span class="sd">        # output: open</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;open&quot;</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">consonants</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;อ&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;open&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;close&quot;</span></div>
+
+
+<div class="viewcode-block" id="syllable_length"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.syllable_length">[docs]</a><span class="k">def</span> <span class="nf">syllable_length</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai syllable length</span>
+
+<span class="sd">    This function is use for find syllable&#39;s length. (long or short)</span>
+
+<span class="sd">    :param str syllable: Thai syllable</span>
+<span class="sd">    :return: syllable&#39;s length (long or short)</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import syllable_length</span>
+
+<span class="sd">        print(syllable_length(&quot;มาก&quot;))</span>
+<span class="sd">        # output: long</span>
+
+<span class="sd">        print(syllable_length(&quot;คะ&quot;))</span>
+<span class="sd">        # output: short</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">((</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">short</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">syllable</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;short&quot;</span>
+    <span class="k">elif</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re_short</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">syllable</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="s2">&quot;short&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;long&quot;</span></div>
+
+
+<span class="k">def</span> <span class="nf">_tone_mark_detector</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">tone_mark</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_tonemarks</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tone_mark</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_check_sonorant_syllable</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">_sonorant</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thai_low_sonorants</span><span class="p">]</span>
+    <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">_sonorant</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">consonants</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">_sonorant</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">consonants</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="tone_detector"><a class="viewcode-back" href="../../../api/util.html#pythainlp.util.tone_detector">[docs]</a><span class="k">def</span> <span class="nf">tone_detector</span><span class="p">(</span><span class="n">syllable</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai tone detector for syllables</span>
+
+<span class="sd">    :param str syllable: Thai syllable</span>
+<span class="sd">    :return: syllable&#39;s tone (l, m, h, r, f or empty if it cannot detector)</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import tone_detector</span>
+
+<span class="sd">        print(tone_detector(&quot;มา&quot;))</span>
+<span class="sd">        # output: m</span>
+
+<span class="sd">        print(tone_detector(&quot;ไม้&quot;))</span>
+<span class="sd">        # output: h</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sound_syllable</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+    <span class="c1"># get consonants</span>
+    <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">syllable</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)]</span>
+    <span class="n">initial_consonant</span> <span class="o">=</span> <span class="n">consonants</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tone_mark</span> <span class="o">=</span> <span class="n">_tone_mark_detector</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+    <span class="n">syllable_check</span> <span class="o">=</span> <span class="n">syllable_open_close_detector</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+    <span class="n">syllable_check_lenght</span> <span class="o">=</span> <span class="n">syllable_length</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+    <span class="n">initial_consonant_type</span> <span class="o">=</span> <span class="n">thai_initial_consonant_to_type</span><span class="p">[</span><span class="n">initial_consonant</span><span class="p">]</span>
+    <span class="c1"># r for store value</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;อ&quot;</span> <span class="ow">or</span> <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;ห&quot;</span>
+    <span class="p">):</span>
+        <span class="n">consonant_ending</span> <span class="o">=</span> <span class="n">_check_sonorant_syllable</span><span class="p">(</span><span class="n">syllable</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;อ&quot;</span>
+            <span class="ow">and</span> <span class="n">consonant_ending</span>
+            <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span>
+            <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span>
+        <span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+        <span class="k">elif</span> <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;อ&quot;</span> <span class="ow">and</span> <span class="n">consonant_ending</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;ห&quot;</span>
+            <span class="ow">and</span> <span class="n">consonant_ending</span>
+            <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span>
+            <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span>
+        <span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;ห&quot;</span>
+            <span class="ow">and</span> <span class="n">consonant_ending</span>
+            <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span>
+            <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;้&quot;</span>
+        <span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+        <span class="k">elif</span> <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;ห&quot;</span> <span class="ow">and</span> <span class="n">consonant_ending</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+        <span class="k">elif</span> <span class="n">initial_consonant</span> <span class="o">==</span> <span class="s2">&quot;ห&quot;</span> <span class="ow">and</span> <span class="n">consonant_ending</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check_lenght</span> <span class="o">==</span> <span class="s2">&quot;short&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check</span> <span class="o">==</span> <span class="s2">&quot;close&quot;</span>
+        <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span>
+    <span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;h&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check_lenght</span> <span class="o">==</span> <span class="s2">&quot;long&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check</span> <span class="o">==</span> <span class="s2">&quot;close&quot;</span>
+        <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span>
+    <span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check_lenght</span> <span class="o">==</span> <span class="s2">&quot;short&quot;</span>
+        <span class="ow">and</span> <span class="n">syllable_check</span> <span class="o">==</span> <span class="s2">&quot;open&quot;</span>
+    <span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;h&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;้&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;h&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;๋&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;๊&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;h&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;้&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span> <span class="ow">and</span> <span class="n">tone_mark</span> <span class="o">==</span> <span class="s2">&quot;้&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;dead&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+    <span class="k">elif</span> <span class="n">initial_consonant_type</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;live&quot;</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+    <span class="k">return</span> <span class="n">r</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

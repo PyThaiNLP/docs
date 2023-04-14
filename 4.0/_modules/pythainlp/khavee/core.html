@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.khavee.core &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.khavee.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.khavee.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">subword_tokenize</span>
+<span class="kn">from</span> <span class="nn">pythainlp.util</span> <span class="kn">import</span> <span class="n">sound_syllable</span>
+
+
+<div class="viewcode-block" id="KhaveeVerifier"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier">[docs]</a><span class="k">class</span> <span class="nc">KhaveeVerifier</span><span class="p">:</span>
+<div class="viewcode-block" id="KhaveeVerifier.__init__"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        KhaveeVerifier: Thai Poetry verifier</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="KhaveeVerifier.check_sara"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_sara">[docs]</a>    <span class="k">def</span> <span class="nf">check_sara</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the vowels in the Thai word.</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: name vowel of the word.</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.khavee import KhaveeVerifier</span>
+
+<span class="sd">            kv = KhaveeVerifier()</span>
+
+<span class="sd">            print(kv.check_sara(&#39;เริง&#39;))</span>
+<span class="sd">            # output: &#39;เออ&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">countoa</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># In case การันย์</span>
+        <span class="k">if</span> <span class="s1">&#39;์&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="c1"># In case สระเดี่ยว</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ะ&#39;</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ั&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อะ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ิ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อิ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ุ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อุ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ึ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อึ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ี&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อี&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ู&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อู&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ื&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อือ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;เ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;แ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;แอ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;า&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อา&#39;</span><span class="p">)</span> 
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;โ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;โอ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ำ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อำ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;อ&#39;</span><span class="p">:</span>
+                <span class="n">countoa</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ั&#39;</span> <span class="ow">and</span> <span class="s1">&#39;ว&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อัว&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ไ&#39;</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;ใ&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ไอ&#39;</span><span class="p">)</span> 
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;็&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;รร&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;กม&#39;</span><span class="p">:</span>
+                    <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อำ&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อะ&#39;</span><span class="p">)</span>
+        <span class="c1"># Incase ออ</span>
+        <span class="k">if</span> <span class="n">countoa</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s1">&#39;อ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="s1">&#39;เ&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+        <span class="c1"># In case เอ เอ </span>
+        <span class="n">countA</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;เอ&#39;</span><span class="p">:</span>
+                <span class="n">countA</span> <span class="o">=</span> <span class="n">countA</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">countA</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;แ&#39;</span><span class="p">)</span>
+        <span class="c1"># In case สระประสม</span>
+        <span class="k">if</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อะ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อะ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอะ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;แอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อะ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;แอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อะ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;แอะ&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;เอะ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;ออ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอะ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เออะ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อิ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อิ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เออ&#39;</span><span class="p">)</span>        
+        <span class="k">elif</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;ออ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เออ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;โอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อะ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span> 
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;โอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อะ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;โอะ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อี&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span> 
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อี&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอีย&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อือ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span> 
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อือ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อัว&#39;</span><span class="p">)</span>   
+        <span class="k">elif</span> <span class="s1">&#39;เอ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;อา&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span> 
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อา&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอา&#39;</span><span class="p">)</span> 
+        <span class="k">elif</span> <span class="s1">&#39;เ&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s1">&#39;า&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s1">&#39;ะ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอาะ&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;อือ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s1">&#39;เออ&#39;</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span> 
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;เออ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;อือ&#39;</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอือ&#39;</span><span class="p">)</span>  
+        <span class="k">elif</span> <span class="s1">&#39;ออ&#39;</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>        
+        <span class="k">elif</span> <span class="s1">&#39;ว&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อัว&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ั&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;กา&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ไอ&#39;</span><span class="p">)</span>
+        <span class="c1"># In case อ</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เออะ&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เออะ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เออ&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เออ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เอ&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เอะ&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอะ&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เอา&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอา&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;เอาะ&#39;</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;เอาะ&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ฤา&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s1">&#39;ฦา&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อือ&#39;</span><span class="p">)</span> 
+        <span class="k">elif</span> <span class="s1">&#39;ฤ&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s1">&#39;ฦ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;อึ&#39;</span><span class="p">)</span> 
+        <span class="c1"># In case กน</span>
+        <span class="k">if</span> <span class="n">sara</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;ร&#39;</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;โอะ&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span> 
+        <span class="k">elif</span> <span class="n">sara</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span> 
+        
+        <span class="c1"># incase บ่ </span>
+        <span class="k">if</span> <span class="s1">&#39;บ่&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ออ&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sara</span> <span class="o">==</span> <span class="p">[]:</span>  
+            <span class="k">return</span> <span class="s1">&#39;Cant find Sara in this word&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sara</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.check_marttra"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_marttra">[docs]</a>    <span class="k">def</span> <span class="nf">check_marttra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the Thai spelling Section in the Thai word.</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: name spelling Section of the word.</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.khavee import KhaveeVerifier</span>
+
+<span class="sd">            kv = KhaveeVerifier()</span>
+
+<span class="sd">            print(kv.check_marttra(&#39;สาว&#39;))</span>
+<span class="sd">            # output: &#39;เกอว&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ร&#39;</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ต&#39;</span><span class="p">,</span><span class="s1">&#39;ท&#39;</span><span class="p">]</span> <span class="p">:</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;์&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="s1">&#39;ิ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;ุ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;ำ&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;ํ&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s1">&#39;า&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;ไ&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s1">&#39;ใ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;า&#39;</span><span class="p">,</span><span class="s1">&#39;ะ&#39;</span><span class="p">,</span><span class="s1">&#39;ิ&#39;</span><span class="p">,</span><span class="s1">&#39;ี&#39;</span><span class="p">,</span><span class="s1">&#39;ุ&#39;</span><span class="p">,</span><span class="s1">&#39;ู&#39;</span><span class="p">,</span><span class="s1">&#39;อ&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;ี&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s1">&#39;ย&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;ื&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s1">&#39;อ&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ง&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;กง&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ม&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;กม&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ย&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="s1">&#39;ั&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;กา&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;เกย&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ว&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;เกอว&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ก&#39;</span><span class="p">,</span><span class="s1">&#39;ข&#39;</span><span class="p">,</span><span class="s1">&#39;ค&#39;</span><span class="p">,</span><span class="s1">&#39;ฆ&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;กก&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;จ&#39;</span><span class="p">,</span><span class="s1">&#39;ช&#39;</span><span class="p">,</span><span class="s1">&#39;ซ&#39;</span><span class="p">,</span><span class="s1">&#39;ฎ&#39;</span><span class="p">,</span><span class="s1">&#39;ฏ&#39;</span><span class="p">,</span><span class="s1">&#39;ฐ&#39;</span><span class="p">,</span><span class="s1">&#39;ฑ&#39;</span><span class="p">,</span><span class="s1">&#39;ฒ&#39;</span><span class="p">,</span><span class="s1">&#39;ด&#39;</span><span class="p">,</span><span class="s1">&#39;ต&#39;</span><span class="p">,</span><span class="s1">&#39;ถ&#39;</span><span class="p">,</span><span class="s1">&#39;ท&#39;</span><span class="p">,</span><span class="s1">&#39;ธ&#39;</span><span class="p">,</span><span class="s1">&#39;ศ&#39;</span><span class="p">,</span><span class="s1">&#39;ษ&#39;</span><span class="p">,</span><span class="s1">&#39;ส&#39;</span><span class="p">]</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;กด&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ญ&#39;</span><span class="p">,</span><span class="s1">&#39;, ณ&#39;</span> <span class="p">,</span><span class="s1">&#39;น&#39;</span> <span class="p">,</span><span class="s1">&#39;ร&#39;</span> <span class="p">,</span><span class="s1">&#39;ล&#39;</span> <span class="p">,</span><span class="s1">&#39;ฬ&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;กน&#39;</span>
+        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;บ&#39;</span><span class="p">,</span> <span class="s1">&#39;ป&#39;</span><span class="p">,</span> <span class="s1">&#39;พ&#39;</span><span class="p">,</span> <span class="s1">&#39;ฟ&#39;</span><span class="p">,</span> <span class="s1">&#39;ภ&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;กบ&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="k">if</span> <span class="s1">&#39;็&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+               <span class="k">return</span> <span class="s1">&#39;กา&#39;</span>
+           <span class="k">else</span><span class="p">:</span>
+               <span class="k">return</span> <span class="s1">&#39;Cant find Marttra in this word&#39;</span></div>
+           
+
+<div class="viewcode-block" id="KhaveeVerifier.is_sumpus"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.is_sumpus">[docs]</a>    <span class="k">def</span> <span class="nf">is_sumpus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the rhyme between two words.</span>
+
+<span class="sd">        :param str word1: Thai word</span>
+<span class="sd">        :param str word2: Thai word</span>
+<span class="sd">        :return: boolen</span>
+<span class="sd">        :rtype: bool</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.khavee import KhaveeVerifier</span>
+
+<span class="sd">            kv = KhaveeVerifier()</span>
+
+<span class="sd">            print(kv.is_sumpus(&#39;สรร&#39;,&#39;อัน&#39;))</span>
+<span class="sd">            # output: True</span>
+
+<span class="sd">            print(kv.is_sumpus(&#39;สรร&#39;,&#39;แมว&#39;))</span>
+<span class="sd">            # output: False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">marttra1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+        <span class="n">marttra2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+        <span class="n">sara1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+        <span class="n">sara2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sara1</span> <span class="o">==</span> <span class="s1">&#39;อะ&#39;</span> <span class="ow">and</span> <span class="n">marttra1</span> <span class="o">==</span> <span class="s1">&#39;เกย&#39;</span><span class="p">:</span>
+            <span class="n">sara1</span> <span class="o">=</span> <span class="s1">&#39;ไอ&#39;</span>
+            <span class="n">marttra1</span> <span class="o">=</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">elif</span> <span class="n">sara2</span> <span class="o">==</span> <span class="s1">&#39;อะ&#39;</span> <span class="ow">and</span> <span class="n">marttra2</span> <span class="o">==</span> <span class="s1">&#39;เกย&#39;</span><span class="p">:</span>
+            <span class="n">sara2</span> <span class="o">=</span> <span class="s1">&#39;ไอ&#39;</span>
+            <span class="n">marttra2</span> <span class="o">=</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">if</span> <span class="n">sara1</span> <span class="o">==</span> <span class="s1">&#39;อำ&#39;</span> <span class="ow">and</span> <span class="n">marttra1</span> <span class="o">==</span> <span class="s1">&#39;กม&#39;</span><span class="p">:</span>
+            <span class="n">sara1</span> <span class="o">=</span> <span class="s1">&#39;อำ&#39;</span>
+            <span class="n">marttra1</span> <span class="o">=</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">elif</span> <span class="n">sara2</span> <span class="o">==</span> <span class="s1">&#39;อำ&#39;</span> <span class="ow">and</span> <span class="n">marttra2</span> <span class="o">==</span> <span class="s1">&#39;กม&#39;</span><span class="p">:</span>
+            <span class="n">sara2</span> <span class="o">=</span> <span class="s1">&#39;อำ&#39;</span>
+            <span class="n">marttra2</span> <span class="o">=</span> <span class="s1">&#39;กา&#39;</span>
+        <span class="k">if</span> <span class="n">marttra1</span> <span class="o">==</span> <span class="n">marttra2</span> <span class="ow">and</span> <span class="n">sara1</span> <span class="o">==</span> <span class="n">sara2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+        
+<div class="viewcode-block" id="KhaveeVerifier.check_karu_lahu"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_karu_lahu">[docs]</a>    <span class="k">def</span> <span class="nf">check_karu_lahu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;กา&#39;</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;กา&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;อา&#39;</span><span class="p">,</span><span class="s1">&#39;อี&#39;</span><span class="p">,</span> <span class="s1">&#39;อือ&#39;</span><span class="p">,</span> <span class="s1">&#39;อู&#39;</span><span class="p">,</span> <span class="s1">&#39;เอ&#39;</span><span class="p">,</span> <span class="s1">&#39;แอ&#39;</span><span class="p">,</span> <span class="s1">&#39;โอ&#39;</span><span class="p">,</span> <span class="s1">&#39;ออ&#39;</span><span class="p">,</span> <span class="s1">&#39;เออ&#39;</span><span class="p">,</span> <span class="s1">&#39;เอีย&#39;</span><span class="p">,</span> <span class="s1">&#39;เอือ&#39;</span> <span class="p">,</span><span class="s1">&#39;อัว&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;อำ&#39;</span><span class="p">,</span><span class="s1">&#39;ไอ&#39;</span><span class="p">,</span><span class="s1">&#39;เอา&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">text</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;บ่&#39;</span><span class="p">,</span><span class="s1">&#39;ณ&#39;</span><span class="p">,</span><span class="s1">&#39;ธ&#39;</span><span class="p">,</span><span class="s1">&#39;ก็&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">&#39;karu&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;lahu&#39;</span></div>
+        
+<div class="viewcode-block" id="KhaveeVerifier.check_klon"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_klon">[docs]</a>    <span class="k">def</span> <span class="nf">check_klon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="n">k_type</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the suitability of the poem according to Thai principles.</span>
+
+<span class="sd">        :param str text: Thai poem</span>
+<span class="sd">        :param int k_type: Type of Thai poem</span>
+<span class="sd">        :return: the check of the suitability of the poem according to Thai principles.</span>
+<span class="sd">        :rtype: Union[List[str], str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.khavee import KhaveeVerifier</span>
+
+<span class="sd">            kv = KhaveeVerifier()</span>
+
+<span class="sd">            print(kv.check_klon(&#39;&#39;&#39;ฉันชื่อหมูกรอบ ฉันชอบกินไก่ แล้วก็วิ่งไล่ หมาชื่อนํ้าทอง ลคคนเก่ง เอ๋งเอ๋งคะนอง มีคนจับจอง เขาชื่อน้องเธียร&#39;&#39;&#39;, k_type=4))</span>
+<span class="sd">            # output: The poem is correct according to the principle.</span>
+
+<span class="sd">            print(kv.check_klon(&#39;&#39;&#39;ฉันชื่อหมูกรอบ ฉันชอบกินไก่ แล้วก็วิ่งไล่ หมาชื่อนํ้าทอง ลคคนเก่ง เอ๋งเอ๋งเสียงหมา มีคนจับจอง เขาชื่อน้องเธียร&#39;&#39;&#39;,k_type=4))</span>
+<span class="sd">            # # -&gt; [&quot;Cant find rhyme between paragraphs (&#39;หมา&#39;, &#39;จอง&#39;)in paragraph 2&quot;, &quot;Cant find rhyme between paragraphs (&#39;หมา&#39;, &#39;ทอง&#39;)in paragraph 2&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">k_type</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent1</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent2h</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent2l</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent3</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent4</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sent</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()):</span>
+                    <span class="n">sub_sent</span> <span class="o">=</span> <span class="n">subword_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dict&#39;</span><span class="p">)</span>
+                    <span class="c1"># print(i)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                        <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;In the sentence&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;there are more than 10 words.&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent2h</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span>
+                        <span class="n">list_sumpus_sent2l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2h</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2h</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent3</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent3</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent4</span><span class="p">)</span>  <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent4</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="s1">&#39;The poem does not complete 4 sentences.&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">)):</span>
+                        <span class="n">countwrong</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">list_sumpus_sent2h</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                                    <span class="n">countwrong</span> <span class="o">+=</span><span class="mi">1</span>
+                        <span class="k">if</span>  <span class="n">countwrong</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+                            <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent2h</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                            <span class="c1"># print(sumpus_sent2l,sumpus_sent3)</span>
+                            <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent3</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent4</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                                <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent4</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">error</span> <span class="o">==</span> <span class="p">[]:</span>
+                        <span class="k">return</span> <span class="s1">&#39;The poem is correct according to the principle.&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">error</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;Something went wrong Make sure you enter it in correct form of klon 8.&#39;</span>
+        <span class="k">elif</span> <span class="n">k_type</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent1</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent2h</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent2l</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent3</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">list_sumpus_sent4</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sent</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()):</span>
+                    <span class="n">sub_sent</span> <span class="o">=</span> <span class="n">subword_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dict&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+                        <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;In the sentence&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;there are more than 4 words.&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="c1"># print([sub_sent[1],sub_sent[2]])</span>
+                        <span class="n">list_sumpus_sent2h</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">sub_sent</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                        <span class="n">list_sumpus_sent2l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">list_sumpus_sent4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_sent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2h</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2h</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent3</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent3</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent4</span><span class="p">)</span>  <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent4</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="s1">&#39;The poem does not complete 4 sentences.&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">)):</span>
+                        <span class="n">countwrong</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">list_sumpus_sent2h</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                            <span class="c1"># print(list_sumpus_sent1[i],j)</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                                    <span class="n">countwrong</span> <span class="o">+=</span><span class="mi">1</span>
+                        <span class="k">if</span>  <span class="n">countwrong</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent2h</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                            <span class="c1"># print(sumpus_sent2l,sumpus_sent3)</span>
+                            <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent3</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent4</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                                <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Cant find rhyme between paragraphs &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">((</span><span class="n">list_sumpus_sent2l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">list_sumpus_sent4</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;in paragraph &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">error</span> <span class="o">==</span> <span class="p">[]:</span>
+                        <span class="k">return</span> <span class="s1">&#39;The poem is correct according to the principle.&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">error</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">&#39;Something went wrong Make sure you enter it in correct form.&#39;</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;Something went wrong Make sure you enter it in correct form.&#39;</span></div>
+        
+<div class="viewcode-block" id="KhaveeVerifier.check_aek_too"><a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_aek_too">[docs]</a>    <span class="k">def</span> <span class="nf">check_aek_too</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">dead_syllable_as_aek</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Thai tonal word checker</span>
+
+<span class="sd">        :param Union[List[str], str] text: Thai word or list of Thai words</span>
+<span class="sd">        :param bool dead_syllable_as_aek: if True, dead syllable will be considered as aek</span>
+<span class="sd">        :return: the check if the word is aek or too or False(not both) or list of the check if input is list</span>
+<span class="sd">        :rtype: Union[List[bool], List[str], bool, str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.khavee import KhaveeVerifier</span>
+
+<span class="sd">            kv = KhaveeVerifier()</span>
+
+<span class="sd">            # การเช็คคำเอกโท</span>
+<span class="sd">            print(kv.check_aek_too(&#39;เอง&#39;), kv.check_aek_too(&#39;เอ่ง&#39;), kv.check_aek_too(&#39;เอ้ง&#39;))</span>
+<span class="sd">            ## -&gt; False, aek, too</span>
+<span class="sd">            print(kv.check_aek_too([&#39;เอง&#39;, &#39;เอ่ง&#39;, &#39;เอ้ง&#39;])) # ใช้ List ได้เหมือนกัน</span>
+<span class="sd">            ## -&gt; [False, &#39;aek&#39;, &#39;too&#39;]</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">check_aek_too</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dead_syllable_as_aek</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;text must be str or iterable list[str]&#39;</span><span class="p">)</span>
+
+        <span class="n">word_characters</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">text</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;่&#39;</span> <span class="ow">in</span> <span class="n">word_characters</span> <span class="ow">and</span> <span class="ow">not</span> <span class="s1">&#39;้&#39;</span> <span class="ow">in</span> <span class="n">word_characters</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;aek&#39;</span>
+        <span class="k">elif</span> <span class="s1">&#39;้&#39;</span> <span class="ow">in</span> <span class="n">word_characters</span> <span class="ow">and</span> <span class="ow">not</span> <span class="s1">&#39;่&#39;</span> <span class="ow">in</span> <span class="n">word_characters</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;too&#39;</span>
+        <span class="k">if</span> <span class="n">dead_syllable_as_aek</span> <span class="ow">and</span> <span class="n">sound_syllable</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;dead&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;aek&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

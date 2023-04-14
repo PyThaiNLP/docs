@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.summarize.core &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.summarize.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.summarize.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Text summarization and Keyword extraction</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.summarize</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DEFAULT_SUMMARIZE_ENGINE</span><span class="p">,</span>
+    <span class="n">CPE_KMUTT_THAI_SENTENCE_SUM</span><span class="p">,</span>
+    <span class="n">DEFAULT_KEYWORD_EXTRACTION_ENGINE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pythainlp.summarize.freq</span> <span class="kn">import</span> <span class="n">FrequencySummarizer</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span>
+
+
+<div class="viewcode-block" id="summarize"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.summarize">[docs]</a><span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_SUMMARIZE_ENGINE</span><span class="p">,</span>
+    <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function summarizes text based on frequency of words.</span>
+
+<span class="sd">    Under the hood, this function first tokenize sentence from the given</span>
+<span class="sd">    text with :func:`pythainlp.tokenize.sent_tokenize`.</span>
+<span class="sd">    Then, computes frequencies of tokenized words</span>
+<span class="sd">    (with :func:`pythainlp.tokenize.word_tokenize`) in all sentences</span>
+<span class="sd">    and normalized with maximum word frequency. The words with normalized</span>
+<span class="sd">    frequncy that are less than 0.1 or greater than 0.9 will be</span>
+<span class="sd">    filtered out from frequency dictionary. Finally, it picks *n* sentences</span>
+<span class="sd">    with highest sum of normalized frequency from all words</span>
+<span class="sd">    in the sentence and also appear in the frequency dictionary.</span>
+
+<span class="sd">    :param str text: text to be summarized</span>
+<span class="sd">    :param int n: number of sentences to be included in the summary</span>
+<span class="sd">                  By default, n is *1* (effective for frequency engine only)</span>
+<span class="sd">    :param str engine: text summarization engine (By default: *frequency*).</span>
+<span class="sd">    :param str tokenizer: word tokenizer engine name (refer to</span>
+<span class="sd">                          :func:`pythainlp.tokenize.word_tokenize`).</span>
+<span class="sd">                          By default, tokenizer is *newmm*</span>
+<span class="sd">                          (effective for frequency engine only)</span>
+
+<span class="sd">    :return: list of selected sentences</span>
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *frequency* (default) - frequency of words</span>
+<span class="sd">        * *mt5* - mT5-small model</span>
+<span class="sd">        * *mt5-small* - mT5-small model</span>
+<span class="sd">        * *mt5-base* - mT5-base model</span>
+<span class="sd">        * *mt5-large* - mT5-large model</span>
+<span class="sd">        * *mt5-xl* - mT5-xl model</span>
+<span class="sd">        * *mt5-xxl* - mT5-xxl model</span>
+<span class="sd">        * *mt5-cpe-kmutt-thai-sentence-sum* - mT5 Thai sentence summarization by CPE KMUTT</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.summarize import summarize</span>
+
+<span class="sd">        text = &#39;&#39;&#39;</span>
+<span class="sd">                ทำเนียบท่าช้าง หรือ วังถนนพระอาทิตย์</span>
+<span class="sd">                ตั้งอยู่บนถนนพระอาทิตย์ เขตพระนคร กรุงเทพมหานคร</span>
+<span class="sd">                เดิมเป็นบ้านของเจ้าพระยามหาโยธา (ทอเรียะ คชเสนี)</span>
+<span class="sd">                บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์ (พญาเจ่ง)</span>
+<span class="sd">                ต้นสกุลคชเสนี เชื้อสายมอญ เจ้าพระยามหาโยธา (ทอเรีย)</span>
+<span class="sd">                เป็นปู่ของเจ้าจอมมารดากลิ่นในพระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว</span>
+<span class="sd">                และเป็นมรดกตกทอดมาถึง พระเจ้าบรมวงศ์เธอ กรมพระนเรศรวรฤทธิ์</span>
+<span class="sd">                (พระองค์เจ้ากฤดาภินิหาร)</span>
+<span class="sd">                ต่อมาในรัชสมัยพระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัวโปรดเกล้าฯ</span>
+<span class="sd">                ให้สร้างตำหนัก 2 ชั้น</span>
+<span class="sd">                เป็นที่ประทับของพระเจ้าบรมวงศ์เธอ</span>
+<span class="sd">                กรมพระนเรศวรฤทิธิ์และเจ้าจอมมารดา</span>
+<span class="sd">                ต่อมาเรียกอาคารหลักนี้ว่า ตำหนักเดิม</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+
+<span class="sd">        summarize(text, n=1)</span>
+<span class="sd">        # output: [&#39;บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์&#39;]</span>
+
+<span class="sd">        summarize(text, n=3)</span>
+<span class="sd">        # output: [&#39;บุตรเจ้าพระยามหาโยธานราธิบดีศรีพิชัยณรงค์&#39;,</span>
+<span class="sd">        # &#39;เดิมเป็นบ้านของเจ้าพระยามหาโยธา&#39;,</span>
+<span class="sd">        # &#39;เจ้าพระยามหาโยธา&#39;]</span>
+
+<span class="sd">        summarize(text, engine=&quot;mt5-small&quot;)</span>
+<span class="sd">        # output: [&#39;&lt;extra_id_0&gt; ท่าช้าง หรือ วังถนนพระอาทิตย์</span>
+<span class="sd">        # เขตพระนคร กรุงเทพมหานคร ฯลฯ ดังนี้:</span>
+<span class="sd">        # ที่อยู่ - ศิลปวัฒนธรรม&#39;]</span>
+
+<span class="sd">        text = &quot;ถ้าพูดถึงขนมหวานในตำนานที่ชื่นใจที่สุดแล้วละก็ต้องไม่พ้น น้ำแข็งใส แน่ๆ เพราะว่าเป็นอะไรที่ชื่นใจสุดๆ&quot;</span>
+<span class="sd">        summarize(text, engine=&quot;mt5-cpe-kmutt-thai-sentence-sum&quot;)</span>
+<span class="sd">        # output: [&#39;น้ําแข็งใสเป็นอะไรที่ชื่นใจที่สุด&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">sents</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="n">DEFAULT_SUMMARIZE_ENGINE</span><span class="p">:</span>
+        <span class="n">sents</span> <span class="o">=</span> <span class="n">FrequencySummarizer</span><span class="p">()</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="n">CPE_KMUTT_THAI_SENTENCE_SUM</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.mt5</span> <span class="kn">import</span> <span class="n">mT5Summarizer</span>
+
+        <span class="n">sents</span> <span class="o">=</span> <span class="n">mT5Summarizer</span><span class="p">(</span>
+            <span class="n">pretrained_mt5_model_name</span><span class="o">=</span><span class="n">CPE_KMUTT_THAI_SENTENCE_SUM</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">5</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;mt5-&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;mt5&quot;</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;mt5-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">.mt5</span> <span class="kn">import</span> <span class="n">mT5Summarizer</span>
+
+        <span class="n">sents</span> <span class="o">=</span> <span class="n">mT5Summarizer</span><span class="p">(</span><span class="n">model_size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># if engine not found, return first n sentences</span>
+        <span class="n">sents</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;whitespace+newline&quot;</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">sents</span></div>
+
+
+<div class="viewcode-block" id="extract_keywords"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.extract_keywords">[docs]</a><span class="k">def</span> <span class="nf">extract_keywords</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">keyphrase_ngram_range</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="n">max_keywords</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">min_df</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_KEYWORD_EXTRACTION_ENGINE</span><span class="p">,</span>
+    <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="n">stop_words</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns most-relevant keywords (and/or keyphrases) from the input document.</span>
+<span class="sd">    Each algorithm may produce completely different keywords from each other,</span>
+<span class="sd">    so please be careful when choosing the algorithm.</span>
+
+<span class="sd">    *Note*: Calling :func: `extract_keywords()` is expensive. For repetitive use of KeyBERT (the default engine),</span>
+<span class="sd">    creating KeyBERT object is highly recommended.</span>
+
+<span class="sd">    :param str text: text to be summarized</span>
+<span class="sd">    :param Tuple[int, int] keyphrase_ngram_range: Number of token units to be defined as keyword.</span>
+<span class="sd">                            The token unit varies w.r.t. `tokenizer_engine`.</span>
+<span class="sd">                            For instance, (1, 1) means each token (unigram) can be a keyword (e.g. &quot;เสา&quot;, &quot;ไฟฟ้า&quot;),</span>
+<span class="sd">                            (1, 2) means one and two consecutive tokens (unigram and bigram) can be keywords</span>
+<span class="sd">                            (e.g. &quot;เสา&quot;, &quot;ไฟฟ้า&quot;, &quot;เสาไฟฟ้า&quot;)  (default: (1, 2))</span>
+<span class="sd">    :param int max_keywords: Number of maximum keywords to be returned. (default: 5)</span>
+<span class="sd">    :param int min_df: Minimum frequency required to be a keyword. (default: 1)</span>
+<span class="sd">    :param str engine: Name of algorithm to use for keyword extraction. (default: &#39;keybert&#39;)</span>
+<span class="sd">    :param str tokenizer: Name of tokenizer engine to use.</span>
+<span class="sd">                            Refer to options in :func: `pythainlp.tokenize.word_tokenizer() (default: &#39;newmm&#39;)</span>
+<span class="sd">    :param Optional[Iterable[str]] stop_words: A list of stop words (a.k.a words to be ignored).</span>
+<span class="sd">                            If not specified, :func:`pythainlp.corpus.thai_stopwords` is used. (default: None)</span>
+
+<span class="sd">    :return: list of keywords</span>
+
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *keybert* (default) - KeyBERT keyword extraction algorithm</span>
+<span class="sd">        * *frequency* - frequency of words</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.summarize import extract_keywords</span>
+
+<span class="sd">        text = &#39;&#39;&#39;</span>
+<span class="sd">            อาหาร หมายถึง ของแข็งหรือของเหลว</span>
+<span class="sd">            ที่กินหรือดื่มเข้าสู่ร่างกายแล้ว</span>
+<span class="sd">            จะทำให้เกิดพลังงานและความร้อนแก่ร่างกาย</span>
+<span class="sd">            ทำให้ร่างกายเจริญเติบโต</span>
+<span class="sd">            ซ่อมแซมส่วนที่สึกหรอ ควบคุมการเปลี่ยนแปลงต่างๆ ในร่างกาย</span>
+<span class="sd">            ช่วยทำให้อวัยวะต่างๆ ทำงานได้อย่างปกติ</span>
+<span class="sd">            อาหารจะต้องไม่มีพิษและไม่เกิดโทษต่อร่างกาย</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        keywords = extract_keywords(text)</span>
+
+<span class="sd">        # output: [&#39;อวัยวะต่างๆ&#39;,</span>
+<span class="sd">        # &#39;ซ่อมแซมส่วน&#39;,</span>
+<span class="sd">        # &#39;เจริญเติบโต&#39;,</span>
+<span class="sd">        # &#39;ควบคุมการเปลี่ยนแปลง&#39;,</span>
+<span class="sd">        # &#39;มีพิษ&#39;]</span>
+
+<span class="sd">        keywords = extract_keywords(text, max_keywords=10)</span>
+
+<span class="sd">        # output: [&#39;อวัยวะต่างๆ&#39;,</span>
+<span class="sd">        # &#39;ซ่อมแซมส่วน&#39;,</span>
+<span class="sd">        # &#39;เจริญเติบโต&#39;,</span>
+<span class="sd">        # &#39;ควบคุมการเปลี่ยนแปลง&#39;,</span>
+<span class="sd">        # &#39;มีพิษ&#39;,</span>
+<span class="sd">        # &#39;ทำให้ร่างกาย&#39;,</span>
+<span class="sd">        # &#39;ร่างกายเจริญเติบโต&#39;,</span>
+<span class="sd">        # &#39;จะทำให้เกิด&#39;,</span>
+<span class="sd">        # &#39;มีพิษและ&#39;,</span>
+<span class="sd">        # &#39;เกิดโทษ&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">rank_by_frequency</span><span class="p">(</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">max_keywords</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">min_df</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+        <span class="n">stop_words</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.util.keywords</span> <span class="kn">import</span> <span class="n">rank</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">use_custom_stop_words</span> <span class="o">=</span> <span class="n">stop_words</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">use_custom_stop_words</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+        <span class="n">word_rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">exclude_stopwords</span><span class="o">=</span><span class="ow">not</span> <span class="n">use_custom_stop_words</span><span class="p">)</span>
+
+        <span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">kw</span>
+            <span class="k">for</span> <span class="n">kw</span><span class="p">,</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">word_rank</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">max_keywords</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;=</span> <span class="n">min_df</span>
+        <span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">keywords</span>
+
+    <span class="n">engines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keybert&quot;</span><span class="p">,</span> <span class="s2">&quot;frequency&quot;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;keybert&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.keybert</span> <span class="kn">import</span> <span class="n">KeyBERT</span>
+
+        <span class="n">keywords</span> <span class="o">=</span> <span class="n">KeyBERT</span><span class="p">()</span><span class="o">.</span><span class="n">extract_keywords</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">,</span>
+            <span class="n">keyphrase_ngram_range</span><span class="o">=</span><span class="n">keyphrase_ngram_range</span><span class="p">,</span>
+            <span class="n">max_keywords</span><span class="o">=</span><span class="n">max_keywords</span><span class="p">,</span>
+            <span class="n">min_df</span><span class="o">=</span><span class="n">min_df</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">return_similarity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">stop_words</span><span class="o">=</span><span class="n">stop_words</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;frequency&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rank_by_frequency</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">,</span>
+            <span class="n">max_keywords</span><span class="o">=</span><span class="n">max_keywords</span><span class="p">,</span>
+            <span class="n">min_df</span><span class="o">=</span><span class="n">min_df</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">stop_words</span><span class="o">=</span><span class="n">stop_words</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># currently not supported</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Keyword extractor </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span><span class="si">}</span><span class="s2"> is currently not supported. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Use one of </span><span class="si">{</span><span class="n">engines</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">keywords</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

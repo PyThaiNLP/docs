@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tag.thainer &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.tag.thainer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tag.thainer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Named-entity recognizer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ThaiNameTagger&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">get_corpus_path</span><span class="p">,</span> <span class="n">thai_stopwords</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">pythainlp.util</span> <span class="kn">import</span> <span class="n">isthai</span>
+
+<span class="n">_CORPUS_NAME</span> <span class="o">=</span> <span class="s2">&quot;thainer&quot;</span>
+<span class="n">_TOKENIZER_ENGINE</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span>  <span class="c1"># should be the same as one used in training data</span>
+
+
+<span class="k">def</span> <span class="nf">_is_stopword</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>  <span class="c1"># เช็คว่าเป็นคำฟุ่มเฟือย</span>
+    <span class="k">return</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">thai_stopwords</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_doc2features</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">postag</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Features from current word</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;word.word&quot;</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span>
+        <span class="s2">&quot;word.stopword&quot;</span><span class="p">:</span> <span class="n">_is_stopword</span><span class="p">(</span><span class="n">word</span><span class="p">),</span>
+        <span class="s2">&quot;word.isthai&quot;</span><span class="p">:</span> <span class="n">isthai</span><span class="p">(</span><span class="n">word</span><span class="p">),</span>
+        <span class="s2">&quot;word.isspace&quot;</span><span class="p">:</span> <span class="n">word</span><span class="o">.</span><span class="n">isspace</span><span class="p">(),</span>
+        <span class="s2">&quot;postag&quot;</span><span class="p">:</span> <span class="n">postag</span><span class="p">,</span>
+        <span class="s2">&quot;word.isdigit&quot;</span><span class="p">:</span> <span class="n">word</span><span class="o">.</span><span class="n">isdigit</span><span class="p">(),</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">features</span><span class="p">[</span><span class="s2">&quot;word.islen5&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Features from previous word</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prevword</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">prevpostag</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">prev_features</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;word.prevword&quot;</span><span class="p">:</span> <span class="n">prevword</span><span class="p">,</span>
+            <span class="s2">&quot;word.previsspace&quot;</span><span class="p">:</span> <span class="n">prevword</span><span class="o">.</span><span class="n">isspace</span><span class="p">(),</span>
+            <span class="s2">&quot;word.previsthai&quot;</span><span class="p">:</span> <span class="n">isthai</span><span class="p">(</span><span class="n">prevword</span><span class="p">),</span>
+            <span class="s2">&quot;word.prevstopword&quot;</span><span class="p">:</span> <span class="n">_is_stopword</span><span class="p">(</span><span class="n">prevword</span><span class="p">),</span>
+            <span class="s2">&quot;word.prevpostag&quot;</span><span class="p">:</span> <span class="n">prevpostag</span><span class="p">,</span>
+            <span class="s2">&quot;word.prevwordisdigit&quot;</span><span class="p">:</span> <span class="n">prevword</span><span class="o">.</span><span class="n">isdigit</span><span class="p">(),</span>
+        <span class="p">}</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prev_features</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">features</span><span class="p">[</span><span class="s2">&quot;BOS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Special &quot;Beginning of Sequence&quot; tag</span>
+
+    <span class="c1"># Features from next word</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">nextword</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nextpostag</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">next_features</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;word.nextword&quot;</span><span class="p">:</span> <span class="n">nextword</span><span class="p">,</span>
+            <span class="s2">&quot;word.nextisspace&quot;</span><span class="p">:</span> <span class="n">nextword</span><span class="o">.</span><span class="n">isspace</span><span class="p">(),</span>
+            <span class="s2">&quot;word.nextpostag&quot;</span><span class="p">:</span> <span class="n">nextpostag</span><span class="p">,</span>
+            <span class="s2">&quot;word.nextisthai&quot;</span><span class="p">:</span> <span class="n">isthai</span><span class="p">(</span><span class="n">nextword</span><span class="p">),</span>
+            <span class="s2">&quot;word.nextstopword&quot;</span><span class="p">:</span> <span class="n">_is_stopword</span><span class="p">(</span><span class="n">nextword</span><span class="p">),</span>
+            <span class="s2">&quot;word.nextwordisdigit&quot;</span><span class="p">:</span> <span class="n">nextword</span><span class="o">.</span><span class="n">isdigit</span><span class="p">(),</span>
+        <span class="p">}</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">next_features</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">features</span><span class="p">[</span><span class="s2">&quot;EOS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Special &quot;End of Sequence&quot; tag</span>
+
+    <span class="k">return</span> <span class="n">features</span>
+
+
+<div class="viewcode-block" id="ThaiNameTagger"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.thainer.ThaiNameTagger">[docs]</a><span class="k">class</span> <span class="nc">ThaiNameTagger</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai named-entity recognizer or Thai NER.</span>
+<span class="sd">    This function support Thai NER 1.4 and 1.5 only.</span>
+<span class="sd">    :param str version: Thai NER version.</span>
+<span class="sd">        It&#39;s support Thai NER 1.4 &amp; 1.5.</span>
+<span class="sd">        The defualt value is `1.4</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.tag.named_entity import ThaiNameTagger</span>
+
+<span class="sd">        thainer14 = ThaiNameTagger(version=&quot;1.4&quot;)</span>
+<span class="sd">        thainer14.get_ner(&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ThaiNameTagger.__init__"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.thainer.ThaiNameTagger.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;1.4&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Thai named-entity recognizer.</span>
+
+<span class="sd">        :param str version: Thai NER version.</span>
+<span class="sd">                            It&#39;s support Thai NER 1.4 &amp; 1.5.</span>
+<span class="sd">                            The defualt value is `1.4`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">pycrfsuite</span> <span class="kn">import</span> <span class="n">Tagger</span> <span class="k">as</span> <span class="n">CRFTagger</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">crf</span> <span class="o">=</span> <span class="n">CRFTagger</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;1.4&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">crf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;thainer-1.4&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.4&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_tag_name</span> <span class="o">=</span> <span class="s2">&quot;orchid_ud&quot;</span>
+        <span class="k">elif</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;1.5&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">crf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;thainer&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_tag_name</span> <span class="o">=</span> <span class="s2">&quot;blackboard&quot;</span></div>
+
+<div class="viewcode-block" id="ThaiNameTagger.get_ner"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.thainer.ThaiNameTagger.get_ner">[docs]</a>    <span class="k">def</span> <span class="nf">get_ner</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function tags named-entitiy from text in IOB format.</span>
+
+<span class="sd">        :param str text: text in Thai to be tagged</span>
+<span class="sd">        :param bool pos: To include POS tags in the results (`True`) or</span>
+<span class="sd">                            exclude (`False`). The defualt value is `True`</span>
+<span class="sd">        :param bool tag: output like html tag.</span>
+<span class="sd">        :return: a list of tuple associated with tokenized word, NER tag,</span>
+<span class="sd">                 POS tag (if the parameter `pos` is specified as `True`),</span>
+<span class="sd">                 and output like html tag (if the parameter `tag` is</span>
+<span class="sd">                 specified as `True`).</span>
+<span class="sd">                 Otherwise, return a list of tuple associated with tokenized</span>
+<span class="sd">                 word and NER tag</span>
+<span class="sd">        :rtype: Union[list[tuple[str, str]], list[tuple[str, str, str]]], str</span>
+
+<span class="sd">        :Note:</span>
+<span class="sd">            * For the POS tags to be included in the results, this function</span>
+<span class="sd">              uses :func:`pythainlp.tag.pos_tag` with engine as `perceptron`</span>
+<span class="sd">              and corpus as orchid_ud`.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.tag.named_entity import ThaiNameTagger</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; ner = ThaiNameTagger()</span>
+<span class="sd">            &gt;&gt;&gt; ner.get_ner(&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;)</span>
+<span class="sd">            [(&#39;วันที่&#39;, &#39;NOUN&#39;, &#39;O&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;15&#39;, &#39;NUM&#39;, &#39;B-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-DATE&#39;),</span>
+<span class="sd">            (&#39;ก.ย.&#39;, &#39;NOUN&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-DATE&#39;),</span>
+<span class="sd">            (&#39;61&#39;, &#39;NUM&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;ทดสอบ&#39;, &#39;VERB&#39;, &#39;O&#39;), (&#39;ระบบ&#39;, &#39;NOUN&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;เวลา&#39;, &#39;NOUN&#39;, &#39;O&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;14&#39;, &#39;NOUN&#39;, &#39;B-TIME&#39;), (&#39;:&#39;, &#39;PUNCT&#39;, &#39;I-TIME&#39;),</span>
+<span class="sd">            (&#39;49&#39;, &#39;NUM&#39;, &#39;I-TIME&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-TIME&#39;),</span>
+<span class="sd">            (&#39;น.&#39;, &#39;NOUN&#39;, &#39;I-TIME&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; ner.get_ner(&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;,</span>
+<span class="sd">                            pos=False)</span>
+<span class="sd">            [(&#39;วันที่&#39;, &#39;O&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;15&#39;, &#39;B-DATE&#39;), (&#39; &#39;, &#39;I-DATE&#39;),</span>
+<span class="sd">            (&#39;ก.ย.&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;I-DATE&#39;),</span>
+<span class="sd">            (&#39;61&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;ทดสอบ&#39;, &#39;O&#39;), (&#39;ระบบ&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;เวลา&#39;, &#39;O&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;14&#39;, &#39;B-TIME&#39;), (&#39;:&#39;, &#39;I-TIME&#39;),</span>
+<span class="sd">            (&#39;49&#39;, &#39;I-TIME&#39;), (&#39; &#39;, &#39;I-TIME&#39;),</span>
+<span class="sd">            (&#39;น.&#39;, &#39;I-TIME&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt; ner.get_ner(&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;,</span>
+<span class="sd">                            tag=True)</span>
+<span class="sd">            &#39;วันที่ &lt;DATE&gt;15 ก.ย. 61&lt;/DATE&gt; ทดสอบระบบเวลา &lt;TIME&gt;</span>
+<span class="sd">            14:49 น.&lt;/TIME&gt;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">_TOKENIZER_ENGINE</span><span class="p">)</span>
+        <span class="n">pos_tags</span> <span class="o">=</span> <span class="n">pos_tag</span><span class="p">(</span>
+            <span class="n">tokens</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;perceptron&quot;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pos_tag_name</span>
+        <span class="p">)</span>
+        <span class="n">x_test</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="o">.</span><span class="n">__extract_features</span><span class="p">(</span><span class="n">pos_tags</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crf</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+        <span class="n">sent_ner</span> <span class="o">=</span> <span class="p">[(</span><span class="n">pos_tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">tag</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">sent</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">ner</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sent_ner</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">ner</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;B-&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                    <span class="n">sent</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/&quot;</span> <span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="n">ner</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+                    <span class="n">sent</span> <span class="o">+=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+                <span class="k">elif</span> <span class="n">ner</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;B-&quot;</span><span class="p">):</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="n">ner</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+                    <span class="n">sent</span> <span class="o">+=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+                <span class="k">elif</span> <span class="n">ner</span> <span class="o">==</span> <span class="s2">&quot;O&quot;</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                    <span class="n">sent</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/&quot;</span> <span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">sent</span> <span class="o">+=</span> <span class="n">word</span>
+
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">sent_ner</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                    <span class="n">sent</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/&quot;</span> <span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+
+            <span class="k">return</span> <span class="n">sent</span>
+
+        <span class="k">if</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="p">(</span><span class="n">pos_tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos_tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">sent_ner</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__extract_features</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_doc2features</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">))]</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

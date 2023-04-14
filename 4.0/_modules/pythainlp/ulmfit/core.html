@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.ulmfit.core &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.ulmfit.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.ulmfit.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Universal Language Model Fine-tuning for Text Classification (ULMFiT).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Collection</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">get_corpus_path</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">THAI2FIT_TOKENIZER</span>
+<span class="kn">from</span> <span class="nn">pythainlp.ulmfit.preprocess</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">fix_html</span><span class="p">,</span>
+    <span class="n">lowercase_all</span><span class="p">,</span>
+    <span class="n">remove_space</span><span class="p">,</span>
+    <span class="n">replace_rep_after</span><span class="p">,</span>
+    <span class="n">replace_rep_nonum</span><span class="p">,</span>
+    <span class="n">replace_url</span><span class="p">,</span>
+    <span class="n">replace_wrep_post</span><span class="p">,</span>
+    <span class="n">replace_wrep_post_nonum</span><span class="p">,</span>
+    <span class="n">rm_brackets</span><span class="p">,</span>
+    <span class="n">rm_useless_newlines</span><span class="p">,</span>
+    <span class="n">rm_useless_spaces</span><span class="p">,</span>
+    <span class="n">spec_add_spaces</span><span class="p">,</span>
+    <span class="n">ungroup_emoji</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pythainlp.util</span> <span class="kn">import</span> <span class="n">reorder_vowels</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+<span class="n">_MODEL_NAME_LSTM</span> <span class="o">=</span> <span class="s2">&quot;wiki_lm_lstm&quot;</span>
+<span class="n">_ITOS_NAME_LSTM</span> <span class="o">=</span> <span class="s2">&quot;wiki_itos_lstm&quot;</span>
+
+
+<span class="c1"># Pretrained model paths</span>
+<span class="n">THWIKI_LSTM</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">wgts_fname</span><span class="o">=</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="n">_MODEL_NAME_LSTM</span><span class="p">),</span>
+    <span class="n">itos_fname</span><span class="o">=</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="n">_ITOS_NAME_LSTM</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Preprocessing rules for Thai text</span>
+<span class="c1"># dense features</span>
+<span class="n">pre_rules_th</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">replace_rep_after</span><span class="p">,</span>
+    <span class="n">fix_html</span><span class="p">,</span>
+    <span class="n">reorder_vowels</span><span class="p">,</span>
+    <span class="n">spec_add_spaces</span><span class="p">,</span>
+    <span class="n">rm_useless_spaces</span><span class="p">,</span>
+    <span class="n">rm_useless_newlines</span><span class="p">,</span>
+    <span class="n">rm_brackets</span><span class="p">,</span>
+    <span class="n">replace_url</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">post_rules_th</span> <span class="o">=</span> <span class="p">[</span><span class="n">replace_wrep_post</span><span class="p">,</span> <span class="n">ungroup_emoji</span><span class="p">,</span> <span class="n">lowercase_all</span><span class="p">]</span>
+
+<span class="c1"># sparse features</span>
+<span class="n">pre_rules_th_sparse</span> <span class="o">=</span> <span class="n">pre_rules_th</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="n">replace_rep_nonum</span><span class="p">]</span>
+<span class="n">post_rules_th_sparse</span> <span class="o">=</span> <span class="n">post_rules_th</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">replace_wrep_post_nonum</span><span class="p">,</span>
+    <span class="n">remove_space</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="process_thai"><a class="viewcode-back" href="../../../api/ulmfit.html#pythainlp.ulmfit.process_thai">[docs]</a><span class="k">def</span> <span class="nf">process_thai</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">pre_rules</span><span class="p">:</span> <span class="n">Collection</span> <span class="o">=</span> <span class="n">pre_rules_th_sparse</span><span class="p">,</span>
+    <span class="n">tok_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">THAI2FIT_TOKENIZER</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">,</span>
+    <span class="n">post_rules</span><span class="p">:</span> <span class="n">Collection</span> <span class="o">=</span> <span class="n">post_rules_th_sparse</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Collection</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Process Thai texts for models (with sparse features as default)</span>
+
+<span class="sd">    :param str text: text to be cleaned</span>
+<span class="sd">    :param list[func] pre_rules: rules to apply before tokenization.</span>
+<span class="sd">    :param func tok_func: tokenization function (by default, **tok_func** is</span>
+<span class="sd">                          :func:`pythainlp.tokenize.word_tokenize`)</span>
+
+<span class="sd">    :param list[func]  post_rules: rules to apply after tokenizations</span>
+
+<span class="sd">    :return: a list of cleaned tokenized texts</span>
+<span class="sd">    :rtype: list[str]</span>
+
+
+<span class="sd">    :Note:</span>
+<span class="sd">      - The default **pre-rules** consists of :func:`fix_html`,</span>
+<span class="sd">        :func:`pythainlp.util.normalize`,</span>
+<span class="sd">        :func:`spec_add_spaces`,</span>
+<span class="sd">        :func:`rm_useless_spaces`,</span>
+<span class="sd">        :func:`rm_useless_newlines`,</span>
+<span class="sd">        :func:`rm_brackets`</span>
+<span class="sd">        and :func:`replace_rep_nonum`.</span>
+
+<span class="sd">      - The default **post-rules** consists of :func:`ungroup_emoji`,</span>
+<span class="sd">        :func:`lowercase_all`,  :func:`replace_wrep_post_nonum`,</span>
+<span class="sd">        and :func:`remove_space`.</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        1. Use default pre-rules and post-rules:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.ulmfit import process_thai</span>
+<span class="sd">        &gt;&gt;&gt; text = &quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="sd">        &gt;&gt;&gt; process_thai(text)</span>
+<span class="sd">        [บ้าน&#39;, &#39;xxrep&#39;, &#39;   &#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="sd">        &#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;pythainlp&#39;, &#39;&amp;&#39;]</span>
+
+<span class="sd">        2. Modify pre_rules and post_rules arugments with</span>
+<span class="sd">           rules provided in :mod:`pythainlp.ulmfit`:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.ulmfit import (</span>
+<span class="sd">            process_thai,</span>
+<span class="sd">            replace_rep_after,</span>
+<span class="sd">            fix_html,</span>
+<span class="sd">            ungroup_emoji,</span>
+<span class="sd">            replace_wrep_post,</span>
+<span class="sd">            remove_space)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; text = &quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="sd">        &gt;&gt;&gt; process_thai(text,</span>
+<span class="sd">                         pre_rules=[replace_rep_after, fix_html],</span>
+<span class="sd">                         post_rules=[ungroup_emoji,</span>
+<span class="sd">                                     replace_wrep_post,</span>
+<span class="sd">                                     remove_space]</span>
+<span class="sd">                        )</span>
+<span class="sd">        [&#39;บ้าน&#39;, &#39;xxrep&#39;, &#39;5&#39;, &#39;()&#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;2&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="sd">         &#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;PyThaiNLP&#39;, &#39;&amp;&#39;]</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">pre_rules</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">tok_func</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">post_rules</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="document_vector"><a class="viewcode-back" href="../../../api/ulmfit.html#pythainlp.ulmfit.document_vector">[docs]</a><span class="k">def</span> <span class="nf">document_vector</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">learn</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">agg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function vectorize Thai input text into a 400 dimension vector using</span>
+<span class="sd">    :class:`fastai` language model and data bunch.</span>
+
+<span class="sd">    :meth: `document_vector` get document vector using fastai language model</span>
+<span class="sd">           and data bunch</span>
+<span class="sd">    :param str text: text to be vectorized with :class:`fastai` language model.</span>
+<span class="sd">    :param learn: :class:`fastai` language model learner</span>
+<span class="sd">    :param data: :class:`fastai` data bunch</span>
+<span class="sd">    :param str agg: name of aggregation methods for word embeddings</span>
+<span class="sd">                    The avialable methods are &quot;mean&quot; and &quot;sum&quot;</span>
+
+<span class="sd">    :return: :class:`numpy.array` of document vector sized 400 based on</span>
+<span class="sd">             the encoder of the model</span>
+<span class="sd">    :rtype: :class:`numpy.ndarray((1, 400))`</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.ulmfit import document_vectorr</span>
+<span class="sd">        &gt;&gt;&gt; from fastai import *</span>
+<span class="sd">        &gt;&gt;&gt; from fastai.text import *</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # Load Data Bunch</span>
+<span class="sd">        &gt;&gt;&gt; data = load_data(MODEL_PATH, &#39;thwiki_lm_data.pkl&#39;)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # Initialize language_model_learner</span>
+<span class="sd">        &gt;&gt;&gt; config = dict(emb_sz=400, n_hid=1550, n_layers=4, pad_token=1,</span>
+<span class="sd">             qrnn=False, tie_weights=True, out_bias=True, output_p=0.25,</span>
+<span class="sd">             hidden_p=0.1, input_p=0.2, embed_p=0.02, weight_p=0.15)</span>
+<span class="sd">        &gt;&gt;&gt; trn_args = dict(drop_mult=0.9, clip=0.12, alpha=2, beta=1)</span>
+<span class="sd">        &gt;&gt;&gt; learn = language_model_learner(data, AWD_LSTM, config=config,</span>
+<span class="sd">                                           pretrained=False, **trn_args)</span>
+<span class="sd">        &gt;&gt;&gt; document_vector(&#39;วันนี้วันดีปีใหม่&#39;, learn, data)</span>
+
+<span class="sd">    :See Also:</span>
+<span class="sd">        * A notebook showing how to train `ulmfit` language model and its</span>
+<span class="sd">          usage, `Jupyter Notebook \</span>
+<span class="sd">          &lt;https://github.com/cstorm125/thai2fit/blob/master/thwiki_lm/word2vec_examples.ipynb&gt;`_</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">s</span> <span class="o">=</span> <span class="n">THAI2FIT_TOKENIZER</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">numericalize</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span>
+        <span class="n">device</span>
+    <span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">agg</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">agg</span> <span class="o">==</span> <span class="s2">&quot;sum&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Aggregate by mean or sum&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="merge_wgts"><a class="viewcode-back" href="../../../api/ulmfit.html#pythainlp.ulmfit.merge_wgts">[docs]</a><span class="k">def</span> <span class="nf">merge_wgts</span><span class="p">(</span><span class="n">em_sz</span><span class="p">,</span> <span class="n">wgts</span><span class="p">,</span> <span class="n">itos_pre</span><span class="p">,</span> <span class="n">itos_new</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is to insert new vocab into an existing model named `wgts`</span>
+<span class="sd">    and update the model&#39;s weights for new vocab with the average embedding.</span>
+
+<span class="sd">    :meth: `merge_wgts` insert pretrained weights and vocab into a new set</span>
+<span class="sd">           of weights and vocab; use average if vocab not in pretrained vocab</span>
+<span class="sd">    :param int em_sz: embedding size</span>
+<span class="sd">    :param wgts: torch model weights</span>
+<span class="sd">    :param list itos_pre: pretrained list of vocab</span>
+<span class="sd">    :param list itos_new: list of new vocab</span>
+
+<span class="sd">    :return: merged torch model weights</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.ulmfit import merge_wgts</span>
+<span class="sd">        import torch</span>
+
+<span class="sd">        wgts = {&#39;0.encoder.weight&#39;: torch.randn(5,3)}</span>
+<span class="sd">        itos_pre = [&quot;แมว&quot;, &quot;คน&quot;, &quot;หนู&quot;]</span>
+<span class="sd">        itos_new = [&quot;ปลา&quot;, &quot;เต่า&quot;, &quot;นก&quot;]</span>
+<span class="sd">        em_sz = 3</span>
+
+<span class="sd">        merge_wgts(em_sz, wgts, itos_pre, itos_new)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # {&#39;0.encoder.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011]]),</span>
+<span class="sd">        # &#39;0.encoder_dp.emb.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011]]),</span>
+<span class="sd">        # &#39;1.decoder.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011],</span>
+<span class="sd">        # [0.5952, 0.4453, 0.0011]])}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">itos_new</span><span class="p">)</span>
+    <span class="n">enc_wgts</span> <span class="o">=</span> <span class="n">wgts</span><span class="p">[</span><span class="s2">&quot;0.encoder.weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="c1"># Average weight of encoding</span>
+    <span class="n">row_m</span> <span class="o">=</span> <span class="n">enc_wgts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">stoi_pre</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span>
+        <span class="k">lambda</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">itos_pre</span><span class="p">)}</span>
+    <span class="p">)</span>
+
+    <span class="c1"># New embedding based on classification dataset</span>
+    <span class="n">new_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">em_sz</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">itos_new</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">stoi_pre</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
+        <span class="c1"># Use pretrianed embedding if present; else use the average</span>
+        <span class="n">new_w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">enc_wgts</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">row_m</span>
+
+    <span class="n">wgts</span><span class="p">[</span><span class="s2">&quot;0.encoder.weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">new_w</span><span class="p">)</span>
+    <span class="n">wgts</span><span class="p">[</span><span class="s2">&quot;0.encoder_dp.emb.weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">new_w</span><span class="p">))</span>
+    <span class="n">wgts</span><span class="p">[</span><span class="s2">&quot;1.decoder.weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">new_w</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">wgts</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

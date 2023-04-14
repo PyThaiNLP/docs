@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tag &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.tokenize" href="tokenize.html" />
+    <link rel="prev" title="pythainlp.summarize" href="summarize.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.tag</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.pos_tag"><code class="docutils literal notranslate"><span class="pre">pos_tag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.pos_tag_sents"><code class="docutils literal notranslate"><span class="pre">pos_tag_sents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.tag_provinces"><code class="docutils literal notranslate"><span class="pre">tag_provinces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.chunk_parse"><code class="docutils literal notranslate"><span class="pre">chunk_parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.NER"><code class="docutils literal notranslate"><span class="pre">NER</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NER.__init__"><code class="docutils literal notranslate"><span class="pre">NER.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NER.load_engine"><code class="docutils literal notranslate"><span class="pre">NER.load_engine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NER.tag"><code class="docutils literal notranslate"><span class="pre">NER.tag()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.NNER"><code class="docutils literal notranslate"><span class="pre">NNER</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NNER.__init__"><code class="docutils literal notranslate"><span class="pre">NNER.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NNER.load_engine"><code class="docutils literal notranslate"><span class="pre">NNER.load_engine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.NNER.tag"><code class="docutils literal notranslate"><span class="pre">NNER.tag()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.thainer.ThaiNameTagger"><code class="docutils literal notranslate"><span class="pre">ThaiNameTagger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.thainer.ThaiNameTagger.__init__"><code class="docutils literal notranslate"><span class="pre">ThaiNameTagger.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.tag.thainer.ThaiNameTagger.get_ner"><code class="docutils literal notranslate"><span class="pre">ThaiNameTagger.get_ner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.tag.tltk.get_ner"><code class="docutils literal notranslate"><span class="pre">get_ner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tagger-engines">Tagger Engines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#perceptron">perceptron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unigram">unigram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.tag</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/tag.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-tag">
+<h1>pythainlp.tag<a class="headerlink" href="#pythainlp-tag" title="Permalink to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">pythainlp.tag</span></code> contains functions that are used to mark linguistic and other annotation to different parts of a text including
+part-of-speech (POS) tag and named entity (NE) tag.</p>
+<p>For POS tags, there are three set of available tags: <a class="reference external" href="https://universaldependencies.org/">Universal POS tags</a>, ORCHID POS tags <a class="footnote-reference brackets" href="#sornlertlamvanich-2000" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, and LST20 POS tags <a class="footnote-reference brackets" href="#prachya-2020" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>The following table shows Universal POS tags as used in Universal Dependencies (UD):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Abbreviation</p></th>
+<th class="head"><p>Part-of-Speech tag</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADJ</p></td>
+<td><p>Adjective</p></td>
+<td><p>ใหม่, พิเศษ , ก่อน, มาก, สูง</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADP</p></td>
+<td><p>Adposition</p></td>
+<td><p>แม้, ว่า, เมื่อ, ของ, สำหรับ</p></td>
+</tr>
+<tr class="row-even"><td><p>ADV</p></td>
+<td><p>Adverb</p></td>
+<td><p>ก่อน, ก็, เล็กน้อย, เลย, สุด</p></td>
+</tr>
+<tr class="row-odd"><td><p>AUX</p></td>
+<td><p>Auxiliary</p></td>
+<td><p>เป็น, ใช่, คือ, คล้าย</p></td>
+</tr>
+<tr class="row-even"><td><p>CCONJ</p></td>
+<td><p>Coordinating conjunction</p></td>
+<td><p>แต่, และ, หรือ</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Determiner</p></td>
+<td><p>ที่, นี้, ซึ่ง, ทั้ง, ทุก, หลาย</p></td>
+</tr>
+<tr class="row-even"><td><p>INTJ</p></td>
+<td><p>Interjection</p></td>
+<td><p>อุ้ย, โอ้ย</p></td>
+</tr>
+<tr class="row-odd"><td><p>NOUN</p></td>
+<td><p>Noun</p></td>
+<td><p>กำมือ, พวก, สนาม, กีฬา, บัญชี</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM</p></td>
+<td><p>Numeral</p></td>
+<td><p>5,000, 103.7, 2004, หนึ่ง, ร้อย</p></td>
+</tr>
+<tr class="row-odd"><td><p>PART</p></td>
+<td><p>Particle</p></td>
+<td><p>มา ขึ้น ไม่ ได้ เข้า</p></td>
+</tr>
+<tr class="row-even"><td><p>PRON</p></td>
+<td><p>Pronoun</p></td>
+<td><p>เรา, เขา, ตัวเอง, ใคร, เธอ</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROPN</p></td>
+<td><p>Proper noun</p></td>
+<td><p>โอบามา, แคปิตอลฮิล, จีโอพี, ไมเคิล</p></td>
+</tr>
+<tr class="row-even"><td><p>PUNCT</p></td>
+<td><p>Punctuation</p></td>
+<td><p>(, ), “, ‘, :</p></td>
+</tr>
+<tr class="row-odd"><td><p>SCONJ</p></td>
+<td><p>Subordinating conjunction</p></td>
+<td><p>หาก</p></td>
+</tr>
+<tr class="row-even"><td><p>VERB</p></td>
+<td><p>Verb</p></td>
+<td><p>เปิด, ให้, ใช้, เผชิญ, อ่าน</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following table shows POS tags as used in ORCHID:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Abbreviation</p></th>
+<th class="head"><p>Part-of-Speech tag</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NPRP</p></td>
+<td><p>Proper noun</p></td>
+<td><p>วินโดวส์ 95, โคโรน่า, โค้ก</p></td>
+</tr>
+<tr class="row-odd"><td><p>NCNM</p></td>
+<td><p>Cardinal number</p></td>
+<td><p>หนึ่ง, สอง, สาม, 1, 2, 10</p></td>
+</tr>
+<tr class="row-even"><td><p>NONM</p></td>
+<td><p>Ordinal number</p></td>
+<td><p>ที่หนึ่ง, ที่สอง, ที่สาม, ที่1, ที่2</p></td>
+</tr>
+<tr class="row-odd"><td><p>NLBL</p></td>
+<td><p>Label noun</p></td>
+<td><p>1, 2, 3, 4, ก, ข, a, b</p></td>
+</tr>
+<tr class="row-even"><td><p>NCMN</p></td>
+<td><p>Common noun</p></td>
+<td><p>หนังสือ, อาหาร, อาคาร, คน</p></td>
+</tr>
+<tr class="row-odd"><td><p>NTTL</p></td>
+<td><p>Title noun</p></td>
+<td><p>ครู, พลเอก</p></td>
+</tr>
+<tr class="row-even"><td><p>PPRS</p></td>
+<td><p>Personal pronoun</p></td>
+<td><p>คุณ, เขา, ฉัน</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDMN</p></td>
+<td><p>Demonstrative pronoun</p></td>
+<td><p>นี่, นั้น, ที่นั่น, ที่นี่</p></td>
+</tr>
+<tr class="row-even"><td><p>PNTR</p></td>
+<td><p>Interrogative pronoun</p></td>
+<td><p>ใคร, อะไร, อย่างไร</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREL</p></td>
+<td><p>Relative pronoun</p></td>
+<td><p>ที่, ซึ่ง, อัน, ผู้</p></td>
+</tr>
+<tr class="row-even"><td><p>VACT</p></td>
+<td><p>Active verb</p></td>
+<td><p>ทำงาน, ร้องเพลง, กิน</p></td>
+</tr>
+<tr class="row-odd"><td><p>VSTA</p></td>
+<td><p>Stative verb</p></td>
+<td><p>เห็น, รู้, คือ</p></td>
+</tr>
+<tr class="row-even"><td><p>VATT</p></td>
+<td><p>Attributive verb</p></td>
+<td><p>อ้วน, ดี, สวย</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVBM</p></td>
+<td><p>Pre-verb auxiliary, before negator “ไม่”</p></td>
+<td><p>เกิด, เกือบ, กำลัง</p></td>
+</tr>
+<tr class="row-even"><td><p>XVAM</p></td>
+<td><p>Pre-verb auxiliary, after negator “ไม่”</p></td>
+<td><p>ค่อย, น่า, ได้</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVMM</p></td>
+<td><p>Pre-verb, before or after negator “ไม่”</p></td>
+<td><p>ควร, เคย, ต้อง</p></td>
+</tr>
+<tr class="row-even"><td><p>XVBB</p></td>
+<td><p>Pre-verb auxiliary, in imperative mood</p></td>
+<td><p>กรุณา, จง, เชิญ, อย่า, ห้าม</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVAE</p></td>
+<td><p>Post-verb auxiliary</p></td>
+<td><p>ไป, มา, ขึ้น</p></td>
+</tr>
+<tr class="row-even"><td><p>DDAN</p></td>
+<td><div class="line-block">
+<div class="line">Definite determiner, after noun without</div>
+<div class="line">classifier in between</div>
+</div>
+</td>
+<td><p>ยี่, นั่น, โน่น, ทั้งหมด</p></td>
+</tr>
+<tr class="row-odd"><td><p>DDAC</p></td>
+<td><div class="line-block">
+<div class="line">Definite determiner, allowing classifier</div>
+<div class="line">in between</div>
+</div>
+</td>
+<td><p>นี้, นั้น, โน้น, นู้น</p></td>
+</tr>
+<tr class="row-even"><td><p>DDBQ</p></td>
+<td><div class="line-block">
+<div class="line">Definite determiner, between noun and</div>
+<div class="line">classifier or preceding quantitative expression</div>
+</div>
+</td>
+<td><p>ทั้ง, อีก, เพียง</p></td>
+</tr>
+<tr class="row-odd"><td><p>DDAQ</p></td>
+<td><div class="line-block">
+<div class="line">Definite determiner,</div>
+<div class="line">following quantitative expression</div>
+</div>
+</td>
+<td><p>พอดี, ถ้วน</p></td>
+</tr>
+<tr class="row-even"><td><p>DIAC</p></td>
+<td><div class="line-block">
+<div class="line">Indefinite determiner, following noun; allowing</div>
+<div class="line">classifier in between</div>
+</div>
+</td>
+<td><p>ไหน, อื่น, ต่างๆ</p></td>
+</tr>
+<tr class="row-odd"><td><p>DIBQ</p></td>
+<td><div class="line-block">
+<div class="line">Indefinite determiner, between noun and</div>
+<div class="line">classifier or preceding quantitative expression</div>
+</div>
+</td>
+<td><p>บาง, ประมาณ, เกือบ</p></td>
+</tr>
+<tr class="row-even"><td><p>DIAQ</p></td>
+<td><div class="line-block">
+<div class="line">Indefinite determiner,</div>
+<div class="line">following quantitative expression</div>
+</div>
+</td>
+<td><p>กว่า, เศษ</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCNM</p></td>
+<td><p>Determiner, cardinal number expression</p></td>
+<td><p><strong>หนึ่ง</strong>คน, เสือ, <strong>2</strong> ตัว</p></td>
+</tr>
+<tr class="row-even"><td><p>DONM</p></td>
+<td><p>Determiner, ordinal number expression</p></td>
+<td><p>ที่หนึ่ง, ที่สอง, ที่สุดท้สย</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADVN</p></td>
+<td><p>Adverb with normal form</p></td>
+<td><p>เก่ง, เร็ว, ช้า, สม่ำเสมอ</p></td>
+</tr>
+<tr class="row-even"><td><p>ADVI</p></td>
+<td><p>Adverb with iterative form</p></td>
+<td><p>เร็วๆ, เสทอๆ, ช้าๆ</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADVP</p></td>
+<td><p>Adverb with prefixed form</p></td>
+<td><p>โดยเร็ว</p></td>
+</tr>
+<tr class="row-even"><td><p>ADVS</p></td>
+<td><p>Sentential adverb</p></td>
+<td><p>โดยปกติ, ธรรมดา</p></td>
+</tr>
+<tr class="row-odd"><td><p>CNIT</p></td>
+<td><p>Unit classifier</p></td>
+<td><p>ตัว, คน, เล่ม</p></td>
+</tr>
+<tr class="row-even"><td><p>CLTV</p></td>
+<td><p>Collective classifier</p></td>
+<td><div class="line-block">
+<div class="line">คู่, กลุ่ม, ฝูง, เชิง, ทาง,</div>
+<div class="line">ด้าน, แบบ, รุ่น</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CMTR</p></td>
+<td><p>Measurement classifier</p></td>
+<td><p>กิโลกรัม, แก้ว, ชั่วโมง</p></td>
+</tr>
+<tr class="row-even"><td><p>CFQC</p></td>
+<td><p>Frequency classifier</p></td>
+<td><p>ครั้ง, เที่ยว</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVBL</p></td>
+<td><p>Verbal classifier</p></td>
+<td><p>ม้วน, มัด</p></td>
+</tr>
+<tr class="row-even"><td><p>JCRG</p></td>
+<td><p>Coordinating conjunction</p></td>
+<td><p>และ, หรือ, แต่</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCMP</p></td>
+<td><p>Comparative conjunction</p></td>
+<td><p>กว่า, เหมือนกับ, เท่ากับ</p></td>
+</tr>
+<tr class="row-even"><td><p>JSBR</p></td>
+<td><p>Subordinating conjunction</p></td>
+<td><p>เพราะว่า, เนื่องจาก ที่, แม้ว่า, ถ้า</p></td>
+</tr>
+<tr class="row-odd"><td><p>RPRE</p></td>
+<td><p>Preposition</p></td>
+<td><p>จาก, ละ, ของ, ใต้, บน</p></td>
+</tr>
+<tr class="row-even"><td><p>INT</p></td>
+<td><p>Interjection</p></td>
+<td><p>โอ้บ, โอ้, เออ, เอ๋, อ๋อ</p></td>
+</tr>
+<tr class="row-odd"><td><p>FIXN</p></td>
+<td><p>Nominal prefix</p></td>
+<td><p><strong>การ</strong>ทำงาน, <strong>ความ</strong>สนุนสนาน</p></td>
+</tr>
+<tr class="row-even"><td><p>FIXV</p></td>
+<td><p>Adverbial prefix</p></td>
+<td><p><strong>อย่าง</strong>เร็ว</p></td>
+</tr>
+<tr class="row-odd"><td><p>EAFF</p></td>
+<td><p>Ending for affirmative sentence</p></td>
+<td><p>จ๊ะ, จ้ะ, ค่ะ, ครับ, นะ, น่า, เถอะ</p></td>
+</tr>
+<tr class="row-even"><td><p>EITT</p></td>
+<td><p>Ending for interrogative sentence</p></td>
+<td><p>หรือ, เหรอ, ไหม, มั้ย</p></td>
+</tr>
+<tr class="row-odd"><td><p>NEG</p></td>
+<td><p>Negator</p></td>
+<td><p>ไม่, มิได้, ไม่ได้, มิ</p></td>
+</tr>
+<tr class="row-even"><td><p>PUNC</p></td>
+<td><p>Punctuation</p></td>
+<td><p>(, ), “, ,, ;</p></td>
+</tr>
+</tbody>
+</table>
+<p>ORCHID corpus uses different set of POS tags. Thus, we make UD POS tags version for ORCHID corpus.</p>
+<p>The following table shows the mapping of POS tags from ORCHID to UD:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ORCHID POS tags</p></th>
+<th class="head"><p>Coresponding UD POS tag</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NOUN</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-odd"><td><p>NCMN</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>NTTL</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-odd"><td><p>CNIT</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>CLTV</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-odd"><td><p>CMTR</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>CFQC</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVBL</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>VACT</p></td>
+<td><p>VERB</p></td>
+</tr>
+<tr class="row-odd"><td><p>VSTA</p></td>
+<td><p>VERB</p></td>
+</tr>
+<tr class="row-even"><td><p>PROPN</p></td>
+<td><p>PROPN</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPRP</p></td>
+<td><p>PROPN</p></td>
+</tr>
+<tr class="row-even"><td><p>ADJ</p></td>
+<td><p>ADJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>NONM</p></td>
+<td><p>ADJ</p></td>
+</tr>
+<tr class="row-even"><td><p>VATT</p></td>
+<td><p>ADJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>DONM</p></td>
+<td><p>ADJ</p></td>
+</tr>
+<tr class="row-even"><td><p>ADV</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADVN</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-even"><td><p>ADVI</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADVP</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-even"><td><p>ADVS</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-odd"><td><p>INT</p></td>
+<td><p>INTJ</p></td>
+</tr>
+<tr class="row-even"><td><p>PRON</p></td>
+<td><p>PRON</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPRS</p></td>
+<td><p>PRON</p></td>
+</tr>
+<tr class="row-even"><td><p>PDMN</p></td>
+<td><p>PRON</p></td>
+</tr>
+<tr class="row-odd"><td><p>PNTR</p></td>
+<td><p>PRON</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-odd"><td><p>DDAN</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-even"><td><p>DDAC</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-odd"><td><p>DDBQ</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-even"><td><p>DDAQ</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-odd"><td><p>DIAC</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-even"><td><p>DIBQ</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-odd"><td><p>DIAQ</p></td>
+<td><p>DET</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM</p></td>
+<td><p>NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>NCNM</p></td>
+<td><p>NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>NLBL</p></td>
+<td><p>NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCNM</p></td>
+<td><p>NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>AUX</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVBM</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-even"><td><p>XVAM</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVMM</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-even"><td><p>XVBB</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-odd"><td><p>XVAE</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-even"><td><p>ADP</p></td>
+<td><p>ADP</p></td>
+</tr>
+<tr class="row-odd"><td><p>RPRE</p></td>
+<td><p>ADP</p></td>
+</tr>
+<tr class="row-even"><td><p>CCONJ</p></td>
+<td><p>CCONJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCRG</p></td>
+<td><p>CCONJ</p></td>
+</tr>
+<tr class="row-even"><td><p>SCONJ</p></td>
+<td><p>SCONJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREL</p></td>
+<td><p>SCONJ</p></td>
+</tr>
+<tr class="row-even"><td><p>JSBR</p></td>
+<td><p>SCONJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCMP</p></td>
+<td><p>SCONJ</p></td>
+</tr>
+<tr class="row-even"><td><p>PART</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-odd"><td><p>FIXN</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-even"><td><p>FIXV</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-odd"><td><p>EAFF</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-even"><td><p>EITT</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-odd"><td><p>NEG</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-even"><td><p>PUNCT</p></td>
+<td><p>PUNCT</p></td>
+</tr>
+<tr class="row-odd"><td><p>PUNC</p></td>
+<td><p>PUNCT</p></td>
+</tr>
+</tbody>
+</table>
+<p>Details about LST20 POS tags are available in <a class="footnote-reference brackets" href="#prachya-2020" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>The following table shows the mapping of POS tags from LST20 to UD:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>LST20 POS tags</p></th>
+<th class="head"><p>Coresponding UD POS tag</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AJ</p></td>
+<td><p>ADJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>AV</p></td>
+<td><p>ADV</p></td>
+</tr>
+<tr class="row-even"><td><p>AX</p></td>
+<td><p>AUX</p></td>
+</tr>
+<tr class="row-odd"><td><p>CC</p></td>
+<td><p>CCONJ</p></td>
+</tr>
+<tr class="row-even"><td><p>CL</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-odd"><td><p>FX</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>IJ</p></td>
+<td><p>INTJ</p></td>
+</tr>
+<tr class="row-odd"><td><p>NN</p></td>
+<td><p>NOUN</p></td>
+</tr>
+<tr class="row-even"><td><p>NU</p></td>
+<td><p>NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>PA</p></td>
+<td><p>PART</p></td>
+</tr>
+<tr class="row-even"><td><p>PR</p></td>
+<td><p>PROPN</p></td>
+</tr>
+<tr class="row-odd"><td><p>PS</p></td>
+<td><p>ADP</p></td>
+</tr>
+<tr class="row-even"><td><p>PU</p></td>
+<td><p>PUNCT</p></td>
+</tr>
+<tr class="row-odd"><td><p>VV</p></td>
+<td><p>VERB</p></td>
+</tr>
+<tr class="row-even"><td><p>XX</p></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+<p>For the NE, we use <a class="reference external" href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)">Inside-outside-beggining (IOB)</a> format to tag NE for each word.</p>
+<p><em>B-</em> prefix indicates the begining token of the chunk. <em>I-</em> prefix indicates the intermediate token within the chunk. <em>O</em> indicates that the token does not belong to any NE chunk.</p>
+<p>For instance, given a sentence “บารัค โอบามาเป็นประธานธิปดี”, it would tag the tokens “บารัค”, “โอบามา”, “เป็น”, “ประธานาธิปดี” with “B-PERSON”, “I-PERSON”, “O”, and “O” respectively.</p>
+<p>The following table shows named entity (NE) tags as used PyThaiNLP:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Named Entity tag</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DATE</p></td>
+<td><p>2/21/2004, 16 ก.พ., จันทร์</p></td>
+</tr>
+<tr class="row-odd"><td><p>TIME</p></td>
+<td><p>16.30 น., 5 วัน, 1-3 ปี</p></td>
+</tr>
+<tr class="row-even"><td><p>EMAIL</p></td>
+<td><p><a class="reference external" href="mailto:info&#37;&#52;&#48;nrpsc&#46;ac&#46;th">info<span>&#64;</span>nrpsc<span>&#46;</span>ac<span>&#46;</span>th</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>LEN</p></td>
+<td><p>30 กิโลเมตร, 5 กม.</p></td>
+</tr>
+<tr class="row-even"><td><p>LOCATION</p></td>
+<td><p>ไทย, จ.ปราจีนบุรี, กำแพงเพชร</p></td>
+</tr>
+<tr class="row-odd"><td><p>ORGANIZATION</p></td>
+<td><p>กรมวิทยาศาสตร์การแพทย์, อย.</p></td>
+</tr>
+<tr class="row-even"><td><p>PERSON</p></td>
+<td><p>น.พ.จรัล, นางประนอม ทองจันทร์</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHONE</p></td>
+<td><p>1200, 0 2670 8888</p></td>
+</tr>
+<tr class="row-even"><td><p>URL</p></td>
+<td><p><a class="reference external" href="http://www.bangkokhealth.com/">http://www.bangkokhealth.com/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ZIP</p></td>
+<td><p>10400, 11130</p></td>
+</tr>
+<tr class="row-even"><td><p>Money</p></td>
+<td><p>2.7 ล้านบาท, 2,000 บาท</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAW</p></td>
+<td><p>พ.ร.บ.โรคระบาด พ.ศ.2499, รัฐธรรมนูญ</p></td>
+</tr>
+</tbody>
+</table>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.tag.pos_tag">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">pos_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'perceptron'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'orchid'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/pos_tag.html#pos_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.pos_tag" title="Permalink to this definition"></a></dt>
+<dd><p>Marks words with part-of-speech (POS) tags, such as ‘NOUN’ and ‘VERB’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – a list of tokenized words</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – <ul>
+<li><p><em>perceptron</em> - perceptron tagger (default)</p></li>
+<li><p><em>unigram</em> - unigram tagger</p></li>
+<li><p><em>wangchanberta</em> - wangchanberta model.</p></li>
+<li><p><em>tltk</em> - TLTK: Thai Language Toolkit (support TNC corpus only.            if you choose other corpus, It’s change to TNC corpus.)</p></li>
+</ul>
+</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – the corpus that used to create the language model for tagger
+* <em>orchid</em> - <a class="reference external" href="https://www.academia.edu/9127599/Thai_Treebank">ORCHID</a> corpus,             text from Thai academic articles (default)
+* <em>orchid_ud</em> - ORCHID text, with tags mapped to Universal POS tags
+* <em>blackboard</em> - <a class="reference external" href="https://bitbucket.org/kaamanita/blackboard-treebank/src/master/">blackboard treebank</a>
+* <em>blackboard_ud</em> - blackboard text, with tags mapped to Universal POS tag             from <cite>Universal Dependencies &lt;https://universaldependencies.org/&gt;</cite>
+* <em>pud</em> - <a class="reference external" href="https://github.com/UniversalDependencies/UD_Thai-PUD">Parallel Universal Dependencies (PUD)</a>             treebanks, natively use Universal POS tags
+* <em>tnc</em> - Thai National Corpus (support tltk engine only)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuples (word, POS tag)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<p>Tag words with corpus <cite>orchid</cite> (default):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PPRS&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;ชีวิต&#39;, &#39;NCMN&#39;), (&#39;รอด&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ใน&#39;, &#39;RPRE&#39;), (&#39;อาคาร&#39;, &#39;NCMN&#39;), (&#39;หลบภัย&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ของ&#39;, &#39;RPRE&#39;), (&#39;นายก&#39;, &#39;NCMN&#39;), (&#39;เชอร์ชิล&#39;, &#39;NCMN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with corpus <cite>orchid_ud</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;orchid_ud&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;รอด&#39;, &#39;NOUN&#39;), (&#39;ใน&#39;, &#39;ADP&#39;),  (&#39;อาคาร&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;หลบภัย&#39;, &#39;NOUN&#39;), (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;เชอร์ชิล&#39;, &#39;NOUN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with corpus <cite>pud</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ฉัน&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;ชีวิต&#39;</span><span class="p">,</span><span class="s1">&#39;รอด&#39;</span><span class="p">,</span><span class="s1">&#39;ใน&#39;</span><span class="p">,</span><span class="s1">&#39;อาคาร&#39;</span><span class="p">,</span><span class="s1">&#39;หลบภัย&#39;</span><span class="p">,</span><span class="s1">&#39;ของ&#39;</span><span class="p">,</span> \
+    <span class="s1">&#39;นายก&#39;</span><span class="p">,</span> <span class="s1">&#39;เชอร์ชิล&#39;</span><span class="p">]</span>
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;pud&#39;</span><span class="p">)</span>
+<span class="c1"># [(&#39;ฉัน&#39;, &#39;PRON&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;), (&#39;รอด&#39;, &#39;VERB&#39;),</span>
+<span class="c1">#   (&#39;ใน&#39;, &#39;ADP&#39;), (&#39;อาคาร&#39;, &#39;NOUN&#39;), (&#39;หลบภัย&#39;, &#39;NOUN&#39;),</span>
+<span class="c1">#   (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;), (&#39;เชอร์ชิล&#39;, &#39;PROPN&#39;)]</span>
+</pre></div>
+</div>
+<p>Tag words with different engines including <em>perceptron</em> and <em>unigram</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;เก้าอี้&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;จำนวน&#39;</span><span class="p">,</span><span class="s1">&#39;ขา&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;perceptron&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;orchid&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;เก้าอี้&#39;, &#39;NCMN&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;จำนวน&#39;, &#39;NCMN&#39;),</span>
+<span class="c1">#   (&#39;ขา&#39;, &#39;NCMN&#39;), (&#39; &#39;, &#39;PUNC&#39;),</span>
+<span class="c1">#   (&#39;=&#39;, &#39;PUNC&#39;), (&#39;3&#39;, &#39;NCNM&#39;)]</span>
+
+<span class="n">pos_tag</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;unigram&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;pud&#39;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [(&#39;เก้าอี้&#39;, None), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;จำนวน&#39;, &#39;NOUN&#39;), (&#39;ขา&#39;, None),</span>
+<span class="c1">#   (&#39;&lt;space&gt;&#39;, None), (&#39;&lt;equal&gt;&#39;, None), (&#39;3&#39;, &#39;NUM&#39;)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.tag.pos_tag_sents">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">pos_tag_sents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'perceptron'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'orchid'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/pos_tag.html#pos_tag_sents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.pos_tag_sents" title="Permalink to this definition"></a></dt>
+<dd><p>Marks sentences with part-of-speech (POS) tags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sentences</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – a list of lists of tokenized words</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – <ul>
+<li><p><em>perceptron</em> - perceptron tagger (default)</p></li>
+<li><p><em>unigram</em> - unigram tagger</p></li>
+<li><p><em>tltk</em> - TLTK: Thai Language Toolkit (support TNC corpus only.            if you choose other corpus, It’s change to TNC corpus.)</p></li>
+</ul>
+</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – <p>the corpus that used to create the language model for tagger
+* <em>orchid</em> - <a class="reference external" href="https://www.academia.edu/9127599/Thai_Treebank">ORCHID</a> corpus,             text from Thai academic articles (default)
+* <em>orchid_ud</em> - ORCHID text, with tags mapped to Universal POS tags
+* <em>blackboard</em> - <a class="reference external" href="https://bitbucket.org/kaamanita/blackboard-treebank/src/master/">blackboard treebank</a>
+* <em>blackboard_ud</em> - blackboard text, with tags mapped to Universal POS tag             from <cite>Universal Dependencies &lt;https://universaldependencies.org/&gt;</cite>
+* <em>pud</em> - <a class="reference external" href="https://github.com/UniversalDependencies/UD_Thai-PUD">Parallel Universal Dependencies (PUD)</a>             treebanks, natively use Universal POS tags
+* <em>tnc</em> - Thai National Corpus (support tltk engine only)</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of lists of tuples (word, POS tag)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]]]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<p>Labels POS for two sentences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">pos_tag_sents</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;เก้าอี้&#39;</span><span class="p">,</span><span class="s1">&#39;มี&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;ขา&#39;</span><span class="p">],</span> \
+                    <span class="p">[</span><span class="s1">&#39;นก&#39;</span><span class="p">,</span> <span class="s1">&#39;บิน&#39;</span><span class="p">,</span> <span class="s1">&#39;กลับ&#39;</span><span class="p">,</span> <span class="s1">&#39;รัง&#39;</span><span class="p">]]</span>
+<span class="n">pos_tag_sents</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s1">&#39;pud)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [[(&#39;เก้าอี้&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;3&#39;, &#39;NUM&#39;),</span>
+<span class="c1">#   (&#39;ขา&#39;, &#39;NOUN&#39;)], [(&#39;นก&#39;, &#39;NOUN&#39;), (&#39;บิน&#39;, &#39;VERB&#39;),</span>
+<span class="c1">#   (&#39;กลับ&#39;, &#39;VERB&#39;), (&#39;รัง&#39;, &#39;NOUN&#39;)]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.tag.tag_provinces">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">tag_provinces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/locations.html#tag_provinces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.tag_provinces" title="Permalink to this definition"></a></dt>
+<dd><p>This function recognize Thailand provinces in text.</p>
+<p>Note that it uses exact match and considers no context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tokens</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – a list of words</p>
+</dd>
+<dt class="field-even">Reutrn<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple indicating NER for <cite>LOCATION</cite> in IOB format</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">tag_provinces</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;หนองคาย&#39;</span><span class="p">,</span> <span class="s1">&#39;น่าอยู่&#39;</span><span class="p">]</span>
+<span class="n">tag_provinces</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># output: [(&#39;หนองคาย&#39;, &#39;B-LOCATION&#39;), (&#39;น่าอยู่&#39;, &#39;O&#39;)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.tag.chunk_parse">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">chunk_parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'crf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'orchidpp'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/chunk.html#chunk_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.chunk_parse" title="Permalink to this definition"></a></dt>
+<dd><p>This function parse thai sentence to phrase structure in IOB format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sent</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – list [(word,part-of-speech)]</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – chunk parse engine (now, it has crf only)</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – chunk parse corpus (now, it has orchidpp only)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple (word,part-of-speech,chunking)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">chunk_parse</span><span class="p">,</span> <span class="n">pos_tag</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ผม&quot;</span><span class="p">,</span> <span class="s2">&quot;รัก&quot;</span><span class="p">,</span> <span class="s2">&quot;คุณ&quot;</span><span class="p">]</span>
+<span class="n">tokens_pos</span> <span class="o">=</span> <span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;perceptron&quot;</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;orchid&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">chunk_parse</span><span class="p">(</span><span class="n">tokens_pos</span><span class="p">))</span>
+<span class="c1"># output: [&#39;B-NP&#39;, &#39;B-VP&#39;, &#39;I-VP&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.tag.NER">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">NER</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thainer'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NER"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NER" title="Permalink to this definition"></a></dt>
+<dd><p>Named-entity recognizer class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Named-entity recognizer engine</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – corpus</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Options for engine</strong></dt><dd><ul class="simple">
+<li><p><em>thainer</em> - Thai NER engine</p></li>
+<li><p><em>tltk</em> - wrapper for <a class="reference external" href="https://pypi.org/project/tltk/">TLTK</a>.</p></li>
+<li><p><em>thainer-v2</em> - Thai NER engine v2.0 for Thai NER 2.0</p></li>
+</ul>
+</dd>
+<dt><strong>Options for corpus</strong></dt><dd><ul class="simple">
+<li><p><em>thainer</em> - Thai NER corpus</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Note</strong>: for tltk engine, It’s support ner model from tltk only.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NER.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thainer'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NER.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NER.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NER.load_engine">
+<span class="sig-name descname"><span class="pre">load_engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NER.load_engine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NER.load_engine" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NER.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NER.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NER.tag" title="Permalink to this definition"></a></dt>
+<dd><p>This function tags named-entitiy from text in IOB format.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – text in Thai to be tagged</p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – output with part-of-speech tag.            (wangchanberta is not support)</p></li>
+<li><p><strong>tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – output like html tag.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple associated with tokenized word, NER tag,
+POS tag (if the parameter <cite>pos</cite> is specified as <cite>True</cite>),
+and output like html tag (if the parameter <cite>tag</cite> is
+specified as <cite>True</cite>).
+Otherwise, return a list of tuple associated with tokenized
+word and NER tag</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[List[Tuple[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]], List[Tuple[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">NER</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span> <span class="o">=</span> <span class="n">NER</span><span class="p">(</span><span class="s2">&quot;thainer&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;ทดสอบนายวรรณพงษ์ ภัททิยไพบูลย์&quot;</span><span class="p">)</span>
+<span class="go">[(&#39;ทดสอบ&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;นาย&#39;, &#39;B-PERSON&#39;),</span>
+<span class="go">(&#39;วรรณ&#39;, &#39;I-PERSON&#39;),</span>
+<span class="go">(&#39;พงษ์&#39;, &#39;I-PERSON&#39;),</span>
+<span class="go">(&#39; &#39;, &#39;I-PERSON&#39;),</span>
+<span class="go">(&#39;ภัททิย&#39;, &#39;I-PERSON&#39;),</span>
+<span class="go">(&#39;ไพบูลย์&#39;, &#39;I-PERSON&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;ทดสอบนายวรรณพงษ์ ภัททิยไพบูลย์&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;ทดสอบ&lt;PERSON&gt;นายวรรณพงษ์ ภัททิยไพบูลย์&lt;/PERSON&gt;&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.tag.NNER">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythainlp.tag.</span></span><span class="sig-name descname"><span class="pre">NNER</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thai_nner'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NNER"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NNER" title="Permalink to this definition"></a></dt>
+<dd><p>Nested Named Entity Recognition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Nested Named entity recognizer engine</p></li>
+<li><p><strong>corpus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – corpus</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Options for engine</strong></dt><dd><ul class="simple">
+<li><p><em>thai_nner</em> - Thai NER engine</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NNER.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thai_nner'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NNER.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NNER.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NNER.load_engine">
+<span class="sig-name descname"><span class="pre">load_engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thai_nner'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NNER.load_engine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NNER.load_engine" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.NNER.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/named_entity.html#NNER.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.NNER.tag" title="Permalink to this definition"></a></dt>
+<dd><p>This function tags nested named-entitiy.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – text in Thai to be tagged</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple associated with tokenized word, NNER tag.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>], List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a>]]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">NNER</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nner</span> <span class="o">=</span> <span class="n">NNER</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nner</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;แมวทำอะไรตอนห้าโมงเช้า&quot;</span><span class="p">)</span>
+<span class="go">([</span>
+<span class="go">    &#39;&lt;s&gt;&#39;,</span>
+<span class="go">    &#39;&#39;,</span>
+<span class="go">    &#39;แมว&#39;,</span>
+<span class="go">    &#39;ทํา&#39;,</span>
+<span class="go">    &#39;&#39;,</span>
+<span class="go">    &#39;อะไร&#39;,</span>
+<span class="go">    &#39;ตอน&#39;,</span>
+<span class="go">    &#39;&#39;,</span>
+<span class="go">    &#39;ห้า&#39;,</span>
+<span class="go">    &#39;&#39;,</span>
+<span class="go">    &#39;โมง&#39;,</span>
+<span class="go">    &#39;&#39;,</span>
+<span class="go">    &#39;เช้า&#39;,</span>
+<span class="go">    &#39;&lt;/s&gt;&#39;</span>
+<span class="go">],</span>
+<span class="go">[</span>
+<span class="go">    {</span>
+<span class="go">        &#39;text&#39;: [&#39;&#39;, &#39;ห้า&#39;],</span>
+<span class="go">        &#39;span&#39;: [7, 9],</span>
+<span class="go">        &#39;entity_type&#39;: &#39;cardinal&#39;</span>
+<span class="go">    },</span>
+<span class="go">    {</span>
+<span class="go">        &#39;text&#39;: [&#39;&#39;, &#39;ห้า&#39;, &#39;&#39;, &#39;โมง&#39;],</span>
+<span class="go">        &#39;span&#39;: [7, 11],</span>
+<span class="go">        &#39;entity_type&#39;: &#39;time&#39;</span>
+<span class="go">    },</span>
+<span class="go">    {</span>
+<span class="go">        &#39;text&#39;: [&#39;&#39;, &#39;โมง&#39;],</span>
+<span class="go">        &#39;span&#39;: [9, 11],</span>
+<span class="go">        &#39;entity_type&#39;: &#39;unit&#39;</span>
+<span class="go">    }</span>
+<span class="go">])</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.tag.thainer.ThaiNameTagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythainlp.tag.thainer.</span></span><span class="sig-name descname"><span class="pre">ThaiNameTagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1.4'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/tag/thainer.html#ThaiNameTagger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.thainer.ThaiNameTagger" title="Permalink to this definition"></a></dt>
+<dd><p>Thai named-entity recognizer or Thai NER.
+This function support Thai NER 1.4 and 1.5 only.
+:param str version: Thai NER version.</p>
+<blockquote>
+<div><p>It’s support Thai NER 1.4 &amp; 1.5.
+The defualt value is <a href="#id7"><span class="problematic" id="id8">`</span></a>1.4</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">ThaiNameTagger</span>
+
+<span class="n">thainer14</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.4&quot;</span><span class="p">)</span>
+<span class="n">thainer14</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.thainer.ThaiNameTagger.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1.4'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/thainer.html#ThaiNameTagger.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.thainer.ThaiNameTagger.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Thai named-entity recognizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Thai NER version.
+It’s support Thai NER 1.4 &amp; 1.5.
+The defualt value is <cite>1.4</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.tag.thainer.ThaiNameTagger.get_ner">
+<span class="sig-name descname"><span class="pre">get_ner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/tag/thainer.html#ThaiNameTagger.get_ner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.thainer.ThaiNameTagger.get_ner" title="Permalink to this definition"></a></dt>
+<dd><p>This function tags named-entitiy from text in IOB format.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – text in Thai to be tagged</p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – To include POS tags in the results (<cite>True</cite>) or
+exclude (<cite>False</cite>). The defualt value is <cite>True</cite></p></li>
+<li><p><strong>tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – output like html tag.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple associated with tokenized word, NER tag,
+POS tag (if the parameter <cite>pos</cite> is specified as <cite>True</cite>),
+and output like html tag (if the parameter <cite>tag</cite> is
+specified as <cite>True</cite>).
+Otherwise, return a list of tuple associated with tokenized
+word and NER tag</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+<dt class="field-even">Note<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>For the POS tags to be included in the results, this function
+uses <a class="reference internal" href="#pythainlp.tag.pos_tag" title="pythainlp.tag.pos_tag"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tag.pos_tag()</span></code></a> with engine as <cite>perceptron</cite>
+and corpus as orchid_ud`.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.tag.named_entity</span> <span class="kn">import</span> <span class="n">ThaiNameTagger</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;</span><span class="p">)</span>
+<span class="go">[(&#39;วันที่&#39;, &#39;NOUN&#39;, &#39;O&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;15&#39;, &#39;NUM&#39;, &#39;B-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-DATE&#39;),</span>
+<span class="go">(&#39;ก.ย.&#39;, &#39;NOUN&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-DATE&#39;),</span>
+<span class="go">(&#39;61&#39;, &#39;NUM&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;ทดสอบ&#39;, &#39;VERB&#39;, &#39;O&#39;), (&#39;ระบบ&#39;, &#39;NOUN&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;เวลา&#39;, &#39;NOUN&#39;, &#39;O&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;14&#39;, &#39;NOUN&#39;, &#39;B-TIME&#39;), (&#39;:&#39;, &#39;PUNCT&#39;, &#39;I-TIME&#39;),</span>
+<span class="go">(&#39;49&#39;, &#39;NUM&#39;, &#39;I-TIME&#39;), (&#39; &#39;, &#39;PUNCT&#39;, &#39;I-TIME&#39;),</span>
+<span class="go">(&#39;น.&#39;, &#39;NOUN&#39;, &#39;I-TIME&#39;)]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;</span><span class="p">,</span>
+<span class="go">                pos=False)</span>
+<span class="go">[(&#39;วันที่&#39;, &#39;O&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;15&#39;, &#39;B-DATE&#39;), (&#39; &#39;, &#39;I-DATE&#39;),</span>
+<span class="go">(&#39;ก.ย.&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;I-DATE&#39;),</span>
+<span class="go">(&#39;61&#39;, &#39;I-DATE&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;ทดสอบ&#39;, &#39;O&#39;), (&#39;ระบบ&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;เวลา&#39;, &#39;O&#39;), (&#39; &#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;14&#39;, &#39;B-TIME&#39;), (&#39;:&#39;, &#39;I-TIME&#39;),</span>
+<span class="go">(&#39;49&#39;, &#39;I-TIME&#39;), (&#39; &#39;, &#39;I-TIME&#39;),</span>
+<span class="go">(&#39;น.&#39;, &#39;I-TIME&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ner</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;วันที่ 15 ก.ย. 61 ทดสอบระบบเวลา 14:49 น.&quot;</span><span class="p">,</span>
+<span class="go">                tag=True)</span>
+<span class="go">&#39;วันที่ &lt;DATE&gt;15 ก.ย. 61&lt;/DATE&gt; ทดสอบระบบเวลา &lt;TIME&gt;</span>
+<span class="go">14:49 น.&lt;/TIME&gt;&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.tag.tltk.get_ner">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.tag.tltk.</span></span><span class="sig-name descname"><span class="pre">get_ner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/tag/tltk.html#get_ner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.tag.tltk.get_ner" title="Permalink to this definition"></a></dt>
+<dd><p>Named-entity recognizer from <strong>TLTK</strong></p>
+<p>This function tags named-entitiy from text in IOB format.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – text in Thai to be tagged</p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – To include POS tags in the results (<cite>True</cite>) or
+exclude (<cite>False</cite>). The defualt value is <cite>True</cite></p></li>
+<li><p><strong>tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – output like html tag.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of tuple associated with tokenized word, NER tag,
+POS tag (if the parameter <cite>pos</cite> is specified as <cite>True</cite>),
+and output like html tag (if the parameter <cite>tag</cite> is
+specified as <cite>True</cite>).
+Otherwise, return a list of tuple associated with tokenized
+word and NER tag</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.tag.tltk</span> <span class="kn">import</span> <span class="n">get_ner</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;เขาเรียนที่โรงเรียนนางรอง&quot;</span><span class="p">)</span>
+<span class="go">[(&#39;เขา&#39;, &#39;PRON&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;เรียน&#39;, &#39;VERB&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;ที่&#39;, &#39;SCONJ&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;โรงเรียน&#39;, &#39;NOUN&#39;, &#39;B-L&#39;),</span>
+<span class="go">(&#39;นางรอง&#39;, &#39;VERB&#39;, &#39;I-L&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;เขาเรียนที่โรงเรียนนางรอง&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">[(&#39;เขา&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;เรียน&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;ที่&#39;, &#39;O&#39;),</span>
+<span class="go">(&#39;โรงเรียน&#39;, &#39;B-L&#39;),</span>
+<span class="go">(&#39;นางรอง&#39;, &#39;I-L&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_ner</span><span class="p">(</span><span class="s2">&quot;เขาเรียนที่โรงเรียนนางรอง&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;เขาเรียนที่&lt;L&gt;โรงเรียนนางรอง&lt;/L&gt;&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="tagger-engines">
+<h2>Tagger Engines<a class="headerlink" href="#tagger-engines" title="Permalink to this heading"></a></h2>
+<section id="perceptron">
+<h3>perceptron<a class="headerlink" href="#perceptron" title="Permalink to this heading"></a></h3>
+<p>Perceptron tagger is the part-of-speech tagging using the averaged, structured perceptron algorithm.</p>
+</section>
+<section id="unigram">
+<h3>unigram<a class="headerlink" href="#unigram" title="Permalink to this heading"></a></h3>
+<p>Unigram tagger doesn’t take the ordering of words in the list into account.</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="sornlertlamvanich-2000" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Virach Sornlertlamvanich, Naoto Takahashi and Hitoshi Isahara. (2000).
+Building a Thai Part-Of-Speech Tagged Corpus (ORCHID).
+The Journal of the Acoustical Society of Japan (E), Vol.20, No.3, pp 189-198, May 1999.</p>
+</aside>
+<aside class="footnote brackets" id="prachya-2020" role="note">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Prachya Boonkwan and Vorapon Luantangsrisuk and Sitthaa Phaholphinyo and Kanyanat Kriengket and Dhanon Leenoi and Charun Phrombut and Monthika Boriboon and Krit Kosawat and Thepchai Supnithi. (2020).
+The Annotation Guideline of LST20 Corpus.
+arXiv:2008.05055</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="summarize.html" class="btn btn-neutral float-left" title="pythainlp.summarize" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tokenize.html" class="btn btn-neutral float-right" title="pythainlp.tokenize" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

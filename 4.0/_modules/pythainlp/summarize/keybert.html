@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.summarize.keybert &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.summarize.keybert</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.summarize.keybert</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Minimal re-implementation of KeyBERT.</span>
+
+<span class="sd">KeyBERT is a minimal and easy-to-use keyword extraction technique</span>
+<span class="sd">that leverages BERT embeddings to create keywords and keyphrases</span>
+<span class="sd">that are most similar to a document.</span>
+
+<span class="sd">https://github.com/MaartenGr/KeyBERT</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">thai_stopwords</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+
+<div class="viewcode-block" id="KeyBERT"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.keybert.KeyBERT">[docs]</a><span class="k">class</span> <span class="nc">KeyBERT</span><span class="p">:</span>
+<div class="viewcode-block" id="KeyBERT.__init__"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.keybert.KeyBERT.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;airesearch/wangchanberta-base-att-spm-uncased&quot;</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ft_pipeline</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+            <span class="s2">&quot;feature-extraction&quot;</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+            <span class="n">revision</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="KeyBERT.extract_keywords"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.keybert.KeyBERT.extract_keywords">[docs]</a>    <span class="k">def</span> <span class="nf">extract_keywords</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">keyphrase_ngram_range</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">max_keywords</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">min_df</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">tokenizer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+        <span class="n">return_similarity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">stop_words</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract Thai keywords and/or keyphrases with KeyBERT algorithm.</span>
+<span class="sd">        See https://github.com/MaartenGr/KeyBERT.</span>
+
+<span class="sd">        :param str text: text to be summarized</span>
+<span class="sd">        :param Tuple[int, int] keyphrase_ngram_range: Number of token units to be defined as keyword.</span>
+<span class="sd">                                The token unit varies w.r.t. `tokenizer_engine`.</span>
+<span class="sd">                                For instance, (1, 1) means each token (unigram) can be a keyword (e.g. &quot;เสา&quot;, &quot;ไฟฟ้า&quot;),</span>
+<span class="sd">                                (1, 2) means one and two consecutive tokens (unigram and bigram) can be keywords</span>
+<span class="sd">                                (e.g. &quot;เสา&quot;, &quot;ไฟฟ้า&quot;, &quot;เสาไฟฟ้า&quot;)  (default: (1, 2))</span>
+<span class="sd">        :param int max_keywords: Number of maximum keywords to be returned. (default: 5)</span>
+<span class="sd">        :param int min_df: Minimum frequency required to be a keyword. (default: 1)</span>
+<span class="sd">        :param str tokenizer: Name of tokenizer engine to use.</span>
+<span class="sd">                                Refer to options in :func: `pythainlp.tokenize.word_tokenizer() (default: &#39;newmm&#39;)</span>
+<span class="sd">        :param bool return_similarity: If `True`, return keyword scores. (default: False)</span>
+<span class="sd">        :param Optional[Iterable[str]] stop_words: A list of stop words (a.k.a words to be ignored).</span>
+<span class="sd">                                If not specified, :func:`pythainlp.corpus.thai_stopwords` is used. (default: None)</span>
+
+<span class="sd">        :return: list of keywords with score</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.summarize.keybert import KeyBERT</span>
+
+<span class="sd">            text = &#39;&#39;&#39;</span>
+<span class="sd">                อาหาร หมายถึง ของแข็งหรือของเหลว</span>
+<span class="sd">                ที่กินหรือดื่มเข้าสู่ร่างกายแล้ว</span>
+<span class="sd">                จะทำให้เกิดพลังงานและความร้อนแก่ร่างกาย</span>
+<span class="sd">                ทำให้ร่างกายเจริญเติบโต</span>
+<span class="sd">                ซ่อมแซมส่วนที่สึกหรอ ควบคุมการเปลี่ยนแปลงต่างๆ ในร่างกาย</span>
+<span class="sd">                ช่วยทำให้อวัยวะต่างๆ ทำงานได้อย่างปกติ</span>
+<span class="sd">                อาหารจะต้องไม่มีพิษและไม่เกิดโทษต่อร่างกาย</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+
+<span class="sd">            kb = KeyBERT()</span>
+
+<span class="sd">            keywords = kb.extract_keyword(text)</span>
+
+<span class="sd">            # output: [&#39;อวัยวะต่างๆ&#39;,</span>
+<span class="sd">            # &#39;ซ่อมแซมส่วน&#39;,</span>
+<span class="sd">            # &#39;เจริญเติบโต&#39;,</span>
+<span class="sd">            # &#39;ควบคุมการเปลี่ยนแปลง&#39;,</span>
+<span class="sd">            # &#39;มีพิษ&#39;]</span>
+
+<span class="sd">            keywords = kb.extract_keyword(text, max_keywords=10, return_similarity=True)</span>
+
+<span class="sd">            # output: [(&#39;อวัยวะต่างๆ&#39;, 0.3228477063109462),</span>
+<span class="sd">            # (&#39;ซ่อมแซมส่วน&#39;, 0.31320597838000375),</span>
+<span class="sd">            # (&#39;เจริญเติบโต&#39;, 0.29115434699705506),</span>
+<span class="sd">            # (&#39;ควบคุมการเปลี่ยนแปลง&#39;, 0.2678430841321016),</span>
+<span class="sd">            # (&#39;มีพิษ&#39;, 0.24996827960821494),</span>
+<span class="sd">            # (&#39;ทำให้ร่างกาย&#39;, 0.23876962942443258),</span>
+<span class="sd">            # (&#39;ร่างกายเจริญเติบโต&#39;, 0.23191285218852364),</span>
+<span class="sd">            # (&#39;จะทำให้เกิด&#39;, 0.22425422716846247),</span>
+<span class="sd">            # (&#39;มีพิษและ&#39;, 0.22162962875299588),</span>
+<span class="sd">            # (&#39;เกิดโทษ&#39;, 0.20773497763458507)]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unable to process data of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Please provide input of string type.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># generate all list of keyword / keyphrases</span>
+        <span class="n">stop_words_</span> <span class="o">=</span> <span class="n">stop_words</span> <span class="k">if</span> <span class="n">stop_words</span> <span class="k">else</span> <span class="n">thai_stopwords</span><span class="p">()</span>
+        <span class="n">kw_candidates</span> <span class="o">=</span> <span class="n">_generate_ngrams</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">,</span> <span class="n">keyphrase_ngram_range</span><span class="p">,</span> <span class="n">min_df</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">stop_words_</span>
+        <span class="p">)</span>
+
+        <span class="c1"># create document and word vectors</span>
+        <span class="n">doc_vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">kw_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">kw_candidates</span><span class="p">)</span>
+
+        <span class="c1"># rank keywords</span>
+        <span class="n">keywords</span> <span class="o">=</span> <span class="n">_rank_keywords</span><span class="p">(</span>
+            <span class="n">doc_vector</span><span class="p">,</span> <span class="n">kw_vectors</span><span class="p">,</span> <span class="n">kw_candidates</span><span class="p">,</span> <span class="n">max_keywords</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">return_similarity</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">keywords</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">kw</span> <span class="k">for</span> <span class="n">kw</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="KeyBERT.embed"><a class="viewcode-back" href="../../../api/summarize.html#pythainlp.summarize.keybert.KeyBERT.embed">[docs]</a>    <span class="k">def</span> <span class="nf">embed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create an embedding of each input in `docs` by averaging vectors from last hidden layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">embs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_pipeline</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># embed doc. return shape = [1, hidden_size]</span>
+            <span class="n">emb_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embs</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># mean of embedding of each word</span>
+            <span class="c1"># return shape = [len(docs), hidden_size]</span>
+            <span class="n">emb_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">emb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">emb</span> <span class="ow">in</span> <span class="n">embs</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">emb_mean</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_generate_ngrams</span><span class="p">(</span>
+    <span class="n">doc</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">keyphrase_ngram_range</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">min_df</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">tokenizer_engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">stop_words</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">assert</span> <span class="n">keyphrase_ngram_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;`keyphrase_ngram_range` must start from 1. &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;current value=</span><span class="si">{</span><span class="n">keyphrase_ngram_range</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">keyphrase_ngram_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">keyphrase_ngram_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;The value first argument of `keyphrase_ngram_range` must not exceed the second. &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;current value=</span><span class="si">{</span><span class="n">keyphrase_ngram_range</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_join_ngram</span><span class="p">(</span><span class="n">ngrams</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">ngrams_joined</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ng</span> <span class="ow">in</span> <span class="n">ngrams</span><span class="p">:</span>
+            <span class="n">joined</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">joined</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">joined</span><span class="p">:</span>
+                <span class="c1"># ngram must not start or end with whitespace as this may cause duplication.</span>
+                <span class="n">ngrams_joined</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">joined</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ngrams_joined</span>
+
+    <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenizer_engine</span><span class="p">)</span>
+    <span class="n">all_grams</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">keyphrase_ngram_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">keyphrase_ngram_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">ngram_range</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># filter out space</span>
+            <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ngrams_tuple</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+            <span class="n">ngrams</span> <span class="o">=</span> <span class="n">_join_ngram</span><span class="p">(</span><span class="n">ngrams_tuple</span><span class="p">)</span>
+
+        <span class="n">ngrams_cnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">ngrams</span><span class="p">)</span>
+        <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">word</span>
+            <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">ngrams_cnt</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">freq</span> <span class="o">&gt;=</span> <span class="n">min_df</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="n">all_grams</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ngrams</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">all_grams</span>
+
+
+<span class="k">def</span> <span class="nf">_rank_keywords</span><span class="p">(</span>
+    <span class="n">doc_vector</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">word_vectors</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">max_keywords</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">l2_norm</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">vec_size</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+            <span class="n">v</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">vec_size</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;Cannot normalize a vector to unit vector.&quot;</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">cosine_sim</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">doc_vector</span> <span class="o">=</span> <span class="n">l2_norm</span><span class="p">(</span><span class="n">doc_vector</span><span class="p">)</span>
+    <span class="n">word_vectors</span> <span class="o">=</span> <span class="n">l2_norm</span><span class="p">(</span><span class="n">word_vectors</span><span class="p">)</span>
+    <span class="n">cosine_sims</span> <span class="o">=</span> <span class="n">cosine_sim</span><span class="p">(</span><span class="n">doc_vector</span><span class="p">,</span> <span class="n">word_vectors</span><span class="p">)</span>
+    <span class="n">ranking_desc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">cosine_sims</span><span class="p">)</span>
+
+    <span class="n">final_ranks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">keywords</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">cosine_sims</span><span class="p">[</span><span class="n">r</span><span class="p">])</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ranking_desc</span><span class="p">[:</span><span class="n">max_keywords</span><span class="p">]</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">final_ranks</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tag.named_entity &mdash; PyThaiNLP 4.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                <unknown> (4.0.0) <br /> Published date: <unknown date>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.tag.named_entity</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tag.named_entity</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (C) 2016-2023 PyThaiNLP Project</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Named-entity recognizer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+
+<div class="viewcode-block" id="NER"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NER">[docs]</a><span class="k">class</span> <span class="nc">NER</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Named-entity recognizer class</span>
+
+<span class="sd">    :param str engine: Named-entity recognizer engine</span>
+<span class="sd">    :param str corpus: corpus</span>
+
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *thainer* - Thai NER engine</span>
+<span class="sd">        * *tltk* - wrapper for `TLTK &lt;https://pypi.org/project/tltk/&gt;`_.</span>
+<span class="sd">        * *thainer-v2* - Thai NER engine v2.0 for Thai NER 2.0</span>
+
+<span class="sd">    **Options for corpus**</span>
+<span class="sd">        * *thainer* - Thai NER corpus</span>
+
+<span class="sd">    **Note**: for tltk engine, It&#39;s support ner model from tltk only.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NER.__init__"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NER.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;thainer&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_engine</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NER.load_engine"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NER.load_engine">[docs]</a>    <span class="k">def</span> <span class="nf">load_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_engine</span> <span class="o">=</span> <span class="n">engine</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;thainer&quot;</span> <span class="ow">and</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;thainer&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.tag.thainer</span> <span class="kn">import</span> <span class="n">ThaiNameTagger</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;thainer-v2&quot;</span> <span class="ow">and</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;thainer&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.wangchanberta</span> <span class="kn">import</span> <span class="n">NamedEntityRecognition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">NamedEntityRecognition</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;pythainlp/thainer-corpus-v2-base-model&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.tag</span> <span class="kn">import</span> <span class="n">tltk</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">tltk</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;wangchanberta&quot;</span> <span class="ow">and</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;thainer&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.wangchanberta</span> <span class="kn">import</span> <span class="n">ThaiNameTagger</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">ThaiNameTagger</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;NER class not support </span><span class="si">{0}</span><span class="s2"> engine or </span><span class="si">{1}</span><span class="s2"> corpus.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="NER.tag"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NER.tag">[docs]</a>    <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function tags named-entitiy from text in IOB format.</span>
+
+<span class="sd">        :param str text: text in Thai to be tagged</span>
+<span class="sd">        :param bool pos: output with part-of-speech tag.\</span>
+<span class="sd">            (wangchanberta is not support)</span>
+<span class="sd">        :param bool tag: output like html tag.</span>
+<span class="sd">        :return: a list of tuple associated with tokenized word, NER tag,</span>
+<span class="sd">                 POS tag (if the parameter `pos` is specified as `True`),</span>
+<span class="sd">                 and output like html tag (if the parameter `tag` is</span>
+<span class="sd">                 specified as `True`).</span>
+<span class="sd">                 Otherwise, return a list of tuple associated with tokenized</span>
+<span class="sd">                 word and NER tag</span>
+<span class="sd">        :rtype: Union[List[Tuple[str, str]], List[Tuple[str, str, str]], str]</span>
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.tag import NER</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; ner = NER(&quot;thainer&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; ner.tag(&quot;ทดสอบนายวรรณพงษ์ ภัททิยไพบูลย์&quot;)</span>
+<span class="sd">            [(&#39;ทดสอบ&#39;, &#39;O&#39;),</span>
+<span class="sd">            (&#39;นาย&#39;, &#39;B-PERSON&#39;),</span>
+<span class="sd">            (&#39;วรรณ&#39;, &#39;I-PERSON&#39;),</span>
+<span class="sd">            (&#39;พงษ์&#39;, &#39;I-PERSON&#39;),</span>
+<span class="sd">            (&#39; &#39;, &#39;I-PERSON&#39;),</span>
+<span class="sd">            (&#39;ภัททิย&#39;, &#39;I-PERSON&#39;),</span>
+<span class="sd">            (&#39;ไพบูลย์&#39;, &#39;I-PERSON&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt; ner.tag(&quot;ทดสอบนายวรรณพงษ์ ภัททิยไพบูลย์&quot;, tag=True)</span>
+<span class="sd">            &#39;ทดสอบ&lt;PERSON&gt;นายวรรณพงษ์ ภัททิยไพบูลย์&lt;/PERSON&gt;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">get_ner</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="NNER"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NNER">[docs]</a><span class="k">class</span> <span class="nc">NNER</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Nested Named Entity Recognition</span>
+
+<span class="sd">    :param str engine: Nested Named entity recognizer engine</span>
+<span class="sd">    :param str corpus: corpus</span>
+
+<span class="sd">    **Options for engine**</span>
+<span class="sd">        * *thai_nner* - Thai NER engine</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NNER.__init__"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NNER.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;thai_nner&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_engine</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NNER.load_engine"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NNER.load_engine">[docs]</a>    <span class="k">def</span> <span class="nf">load_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;thai_nner&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.tag.thai_nner</span> <span class="kn">import</span> <span class="n">Thai_NNER</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">Thai_NNER</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="NNER.tag"><a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.NNER.tag">[docs]</a>    <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function tags nested named-entitiy.</span>
+
+<span class="sd">        :param str text: text in Thai to be tagged</span>
+
+<span class="sd">        :return: a list of tuple associated with tokenized word, NNER tag.</span>
+<span class="sd">        :rtype: Tuple[List[str], List[dict]]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.tag.named_entity import NNER</span>
+<span class="sd">            &gt;&gt;&gt; nner = NNER()</span>
+<span class="sd">            &gt;&gt;&gt; nner.tag(&quot;แมวทำอะไรตอนห้าโมงเช้า&quot;)</span>
+<span class="sd">            ([</span>
+<span class="sd">                &#39;&lt;s&gt;&#39;,</span>
+<span class="sd">                &#39;&#39;,</span>
+<span class="sd">                &#39;แมว&#39;,</span>
+<span class="sd">                &#39;ทํา&#39;,</span>
+<span class="sd">                &#39;&#39;,</span>
+<span class="sd">                &#39;อะไร&#39;,</span>
+<span class="sd">                &#39;ตอน&#39;,</span>
+<span class="sd">                &#39;&#39;,</span>
+<span class="sd">                &#39;ห้า&#39;,</span>
+<span class="sd">                &#39;&#39;,</span>
+<span class="sd">                &#39;โมง&#39;,</span>
+<span class="sd">                &#39;&#39;,</span>
+<span class="sd">                &#39;เช้า&#39;,</span>
+<span class="sd">                &#39;&lt;/s&gt;&#39;</span>
+<span class="sd">            ],</span>
+<span class="sd">            [</span>
+<span class="sd">                {</span>
+<span class="sd">                    &#39;text&#39;: [&#39;&#39;, &#39;ห้า&#39;],</span>
+<span class="sd">                    &#39;span&#39;: [7, 9],</span>
+<span class="sd">                    &#39;entity_type&#39;: &#39;cardinal&#39;</span>
+<span class="sd">                },</span>
+<span class="sd">                {</span>
+<span class="sd">                    &#39;text&#39;: [&#39;&#39;, &#39;ห้า&#39;, &#39;&#39;, &#39;โมง&#39;],</span>
+<span class="sd">                    &#39;span&#39;: [7, 11],</span>
+<span class="sd">                    &#39;entity_type&#39;: &#39;time&#39;</span>
+<span class="sd">                },</span>
+<span class="sd">                {</span>
+<span class="sd">                    &#39;text&#39;: [&#39;&#39;, &#39;โมง&#39;],</span>
+<span class="sd">                    &#39;span&#39;: [9, 11],</span>
+<span class="sd">                    &#39;entity_type&#39;: &#39;unit&#39;</span>
+<span class="sd">                }</span>
+<span class="sd">            ])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2023, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

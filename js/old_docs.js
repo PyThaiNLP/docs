@@ -1,6 +1,6 @@
 var options = {
     text: "Warning! You are reading an older version of this document. To read documentation for the current version, click here.!",
-    duration: 2500,
+    duration: -1,
     destination: "https://pythainlp.github.io/docs/4.0/",
     callback: function() {
     //   console.log("Toast hidden");

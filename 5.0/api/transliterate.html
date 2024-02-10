@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.transliterate &mdash; PyThaiNLP 8b696ac documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=87805c27"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.ulmfit" href="ulmfit.html" />
+    <link rel="prev" title="pythainlp.translate" href="translate.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                dev (8b696ac) <br /> Published date: 10/02/2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.transliterate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.transliterate.wunsen.WunsenTransliterate"><code class="docutils literal notranslate"><span class="pre">WunsenTransliterate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.transliterate.wunsen.WunsenTransliterate.__init__"><code class="docutils literal notranslate"><span class="pre">WunsenTransliterate.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.transliterate.wunsen.WunsenTransliterate.transliterate"><code class="docutils literal notranslate"><span class="pre">WunsenTransliterate.transliterate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transliteration-engines">Transliteration Engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.transliterate</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/transliterate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-transliterate">
+<h1>pythainlp.transliterate<a class="headerlink" href="#pythainlp-transliterate" title="Permalink to this heading"></a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythainlp.transliterate</span></code> module is dedicated to the transliteration of Thai text into romanized form, effectively spelling it out with the English alphabet. This functionality is invaluable for making Thai text more accessible to non-Thai speakers and for various language processing tasks.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">romanize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'royin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback_engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'royin'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#romanize"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This function renders Thai words in the Latin alphabet or “romanization”,
+using the Royal Thai General System of Transcription (RTGS)
+<a class="footnote-reference brackets" href="#rtgs-transcription" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. RTGS is the official system published
+by the Royal Institute of Thailand. (Thai: ถอดเสียงภาษาไทยเป็นอักษรละติน)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Thai text to be romanized</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – One of ‘royin’ (default), ‘thai2rom’, ‘thai2rom_onnx, ‘tltk’, and ‘lookup’. See more in options for engine section.</p></li>
+<li><p><strong>fallback_engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – If engine equals ‘lookup’, use <cite>fallback_engine</cite> for words that are not in the transliteration dict.
+No effect on other engines. Default to ‘royin’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string of Thai words rendered in the Latin alphabet.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Options for engines<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>royin</em> - (default) based on the Royal Thai General System of
+Transcription issued by Royal Institute of Thailand.</p></li>
+<li><p><em>thai2rom</em> - a deep learning-based Thai romanization engine
+(require PyTorch).</p></li>
+<li><p><em>thai2rom_onnx</em> - a deep learning-based Thai romanization engine with ONNX runtime</p></li>
+<li><p><em>tltk</em> - TLTK: Thai Language Toolkit</p></li>
+<li><p><em>lookup</em> - Look up on Thai-English Transliteration dictionary v1.4 compiled by Wannaphong.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.transliterate</span> <span class="kn">import</span> <span class="n">romanize</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;royin&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;samant&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thai2rom&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;samat&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;tltk&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;samat&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;royin&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;phapn&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thai2rom&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;phapphayon&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thai2rom_onnx&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;phapphayon&#39;</span>
+
+<span class="n">romanize</span><span class="p">(</span><span class="s2">&quot;ก็อปปี้&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;lookup&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;copy&#39;</span>
+</pre></div>
+</div>
+<p>The <cite>romanize</cite> function allows you to transliterate Thai text, converting it into a phonetic representation using the English alphabet. It’s a fundamental tool for rendering Thai words and phrases in a more familiar format.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">transliterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thaig2p'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#transliterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This function transliterates Thai text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Thai text to be transliterated</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – ‘icu’, ‘ipa’, or ‘thaig2p’ (default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string of phonetic alphabets indicating
+how the input text should be pronounced.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Options for engines<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>thaig2p</em> - (default) Thai Grapheme-to-Phoneme,
+output is IPA (require PyTorch)</p></li>
+<li><p><em>icu</em> - pyicu, based on International Components for Unicode (ICU)</p></li>
+<li><p><em>ipa</em> - epitran, output is International Phonetic Alphabet (IPA)</p></li>
+<li><p><em>tltk_g2p</em> - Thai Grapheme-to-Phoneme from            <a class="reference external" href="https://pypi.org/project/tltk/">TLTK</a>.,</p></li>
+<li><p><em>iso_11940</em> - Thai text into Latin characters with ISO 11940.</p></li>
+<li><p><em>tltk_ipa</em> - tltk, output is International Phonetic Alphabet (IPA)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.transliterate</span> <span class="kn">import</span> <span class="n">transliterate</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;icu&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;s̄āmārt̄h&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;ipa&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;saːmaːrot&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thaig2p&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;s aː ˩˩˦ . m aː t̚ ˥˩&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;tltk_ipa&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;saː5.maːt3&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;tltk_g2p&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;saa4~maat2&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;iso_11940&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;s̄āmārt̄h&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;icu&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;p̣hāphyntr̒&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;ipa&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;pʰaːpjanot&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;thaig2p&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;pʰ aː p̚ ˥˩ . pʰ a ˦˥ . j o n ˧&#39;</span>
+
+<span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;iso_11940&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;p̣hāphyntr&#39;</span>
+</pre></div>
+</div>
+<p>The <cite>transliterate</cite> function serves as a versatile transliteration tool, offering a range of transliteration engines to choose from. It provides flexibility and customization for your transliteration needs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">pronunciate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'w2p'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#pronunciate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This function pronunciates Thai word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Thai text to be pronunciated</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – ‘w2p’ (default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string of Thai letters indicating
+how the input text should be pronounced.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Options for engines<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>w2p</em> - Thai Word-to-Phoneme</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.transliterate</span> <span class="kn">import</span> <span class="n">pronunciate</span>
+
+<span class="n">pronunciate</span><span class="p">(</span><span class="s2">&quot;สามารถ&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;w2p&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;สา-มาด&#39;</span>
+
+<span class="n">pronunciate</span><span class="p">(</span><span class="s2">&quot;ภาพยนตร์&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;w2p&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;พาบ-พะ-ยน&#39;</span>
+</pre></div>
+</div>
+<p>This function provides assistance in generating phonetic representations of Thai words, which is particularly useful for language learning and pronunciation practice.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">puan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_pronunciation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/spoonerism.html#puan"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Thai Spoonerism</p>
+<p>This function converts Thai word to spoonerism word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Thai word to be spoonerized</p></li>
+<li><p><strong>show_pronunciation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – True (default) or False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string of Thai spoonerism word.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.transliterate</span> <span class="kn">import</span> <span class="n">puan</span>
+
+<span class="n">puan</span><span class="p">(</span><span class="s2">&quot;นาริน&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;นิน-รา&#39;</span>
+
+<span class="n">puan</span><span class="p">(</span><span class="s2">&quot;นาริน&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="c1"># output: &#39;นินรา&#39;</span>
+</pre></div>
+</div>
+<p>The <cite>puan</cite> function offers a unique transliteration feature known as “Puan.” It provides a specialized transliteration method for Thai text and is an additional option for rendering Thai text into English characters.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.transliterate.wunsen.WunsenTransliterate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.wunsen.</span></span><span class="sig-name descname"><span class="pre">WunsenTransliterate</span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/wunsen.html#WunsenTransliterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.wunsen.WunsenTransliterate" title="Permalink to this definition"></a></dt>
+<dd><p>Transliterating Japanese/Korean/Mandarin/Vietnamese romanization text
+to Thai text
+by Wunsen</p>
+<dl class="field-list simple">
+<dt class="field-odd">See Also<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cakimpei/wunsen">GitHub</a></p></li>
+</ul>
+</dd>
+</dl>
+<p>The <cite>WunsenTransliterate</cite> class represents a transliteration engine known as “Wunsen.” It offers specific transliteration methods for rendering Thai text into a phonetic English format.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.transliterate.wunsen.WunsenTransliterate.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/wunsen.html#WunsenTransliterate.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.wunsen.WunsenTransliterate.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.transliterate.wunsen.WunsenTransliterate.transliterate">
+<span class="sig-name descname"><span class="pre">transliterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">jp_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zh_sandhi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/transliterate/wunsen.html#WunsenTransliterate.transliterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.wunsen.WunsenTransliterate.transliterate" title="Permalink to this definition"></a></dt>
+<dd><p>Use Wunsen for transliteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – text to be transliterated to Thai text.</p></li>
+<li><p><strong>lang</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – source language</p></li>
+<li><p><strong>jp_input</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Japanese input method (for Japanese only)</p></li>
+<li><p><strong>zh_sandhi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Mandarin third tone sandhi option
+(for Mandarin only)</p></li>
+<li><p><strong>system</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – transliteration system (for Japanese and
+Mandarin only)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thai text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Options for lang<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>jp</em> - Japanese (from Hepburn romanization)</p></li>
+<li><p><em>ko</em> - Korean (from Revised Romanization)</p></li>
+<li><p><em>vi</em> - Vietnamese (Latin script)</p></li>
+<li><p><em>zh</em> - Mandarin (from Hanyu Pinyin)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options for jp_input<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><em>Hepburn-no diacritic</em> - Hepburn-no diacritic (without macron)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Options for zh_sandhi<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>True</em> - apply third tone sandhi rule</p></li>
+<li><p><em>False</em> - do not apply third tone sandhi rule</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Options for system<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><dl class="simple">
+<dt><em>ORS61</em> - for Japanese หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น</dt><dd><p>(สำนักงานราชบัณฑิตยสภา พ.ศ. 2561)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>RI35</em> - for Japanese หลักเกณฑ์การทับศัพท์ภาษาญี่ปุ่น</dt><dd><p>(ราชบัณฑิตยสถาน พ.ศ. 2535)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>RI49</em> - for Mandarin หลักเกณฑ์การทับศัพท์ภาษาจีน</dt><dd><p>(ราชบัณฑิตยสถาน พ.ศ. 2549)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>THC43</em> - for Mandarin เกณฑ์การถ่ายทอดเสียงภาษาจีนแมนดาริน</dt><dd><p>ด้วยอักขรวิธีไทย (คณะกรรมการสืบค้นประวัติศาสตร์ไทยในเอกสาร
+ภาษาจีน พ.ศ. 2543)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.transliterate.wunsen</span> <span class="kn">import</span> <span class="n">WunsenTransliterate</span>
+
+<span class="n">wt</span> <span class="o">=</span> <span class="n">WunsenTransliterate</span><span class="p">()</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ohayō&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;jp&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;โอฮาโย&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span>
+    <span class="s2">&quot;ohayou&quot;</span><span class="p">,</span>
+    <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;jp&quot;</span><span class="p">,</span>
+    <span class="n">jp_input</span><span class="o">=</span><span class="s2">&quot;Hepburn-no diacritic&quot;</span>
+<span class="p">)</span>
+<span class="c1"># output: &#39;โอฮาโย&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ohayō&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;jp&quot;</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="s2">&quot;RI35&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;โอะฮะโย&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;annyeonghaseyo&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;ko&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;อันนย็องฮาเซโย&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;xin chào&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;vi&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;ซีน จ่าว&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ni3 hao3&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;zh&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;หนี เห่า&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ni3 hao3&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;zh&quot;</span><span class="p">,</span> <span class="n">zh_sandhi</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># output: &#39;หนี่ เห่า&#39;</span>
+
+<span class="n">wt</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s2">&quot;ni3 hao3&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;zh&quot;</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="s2">&quot;RI49&quot;</span><span class="p">)</span>
+<span class="c1"># output: &#39;หนี ห่าว&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="transliteration-engines">
+<h2>Transliteration Engines<a class="headerlink" href="#transliteration-engines" title="Permalink to this heading"></a></h2>
+<p><strong>thai2rom</strong></p>
+<span class="target" id="module-pythainlp.transliterate.thai2rom.romanize"></span><p>The <cite>thai2rom</cite> engine specializes in transliterating Thai text into romanized form. It’s particularly useful for rendering Thai words accurately in an English phonetic format.</p>
+<p><strong>royin</strong></p>
+<span class="target" id="module-pythainlp.transliterate.royin.romanize"></span><p>Render Thai words in Latin alphabet, using RTGS</p>
+<p>Royal Thai General System of Transcription (RTGS),
+is the official system by the Royal Institute of Thailand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param text<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thai text to be romanized</p>
+</dd>
+<dt class="field-even">type text<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string of Thai words rendered in the Latin alphabet</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p>The <cite>royin</cite> engine focuses on transliterating Thai text into English characters. It provides an alternative approach to transliteration, ensuring accurate representation of Thai words.</p>
+<p><strong>Transliterate Engines</strong></p>
+<p>This section includes multiple transliteration engines designed to suit various use cases. They offer unique methods for transliterating Thai text into romanized form:</p>
+<ul class="simple">
+<li><p><strong>icu</strong>: Utilizes the ICU transliteration system for phonetic conversion.</p></li>
+<li><p><strong>ipa</strong>: Provides International Phonetic Alphabet (IPA) representation of Thai text.</p></li>
+<li><p><strong>thaig2p</strong>: Transliterates Thai text into the Grapheme-to-Phoneme (G2P) representation.</p></li>
+<li><p><strong>tltk</strong>: Utilizes the TLTK transliteration system for a specific approach to transliteration.</p></li>
+<li><p><strong>iso_11940</strong>: Focuses on the ISO 11940 transliteration standard.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="rtgs-transcription" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Nitaya Kanchanawan. (2006). <a class="reference external" href="http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf">Romanization, Transliteration, and Transcription for the Globalization of the Thai Language.</a>
+The Journal of the Royal Institute of Thailand.</p>
+</aside>
+</aside>
+<p>The <cite>pythainlp.transliterate</cite> module offers a comprehensive set of tools and engines for transliterating Thai text into Romanized form. Whether you need a simple transliteration, specific engines for accurate representation, or phonetic rendering, this module provides a wide range of options. Additionally, the module references a publication that highlights the significance of Romanization, Transliteration, and Transcription in making the Thai language accessible to a global audience.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="translate.html" class="btn btn-neutral float-left" title="pythainlp.translate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ulmfit.html" class="btn btn-neutral float-right" title="pythainlp.ulmfit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

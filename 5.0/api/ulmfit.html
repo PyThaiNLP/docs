@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.ulmfit &mdash; PyThaiNLP 8b696ac documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=87805c27"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.util" href="util.html" />
+    <link rel="prev" title="pythainlp.transliterate" href="transliterate.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                dev (8b696ac) <br /> Published date: 10/02/2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.ulmfit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.ulmfit.ThaiTokenizer"><code class="docutils literal notranslate"><span class="pre">ThaiTokenizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.ulmfit.ThaiTokenizer.__init__"><code class="docutils literal notranslate"><span class="pre">ThaiTokenizer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.ulmfit.ThaiTokenizer.tokenizer"><code class="docutils literal notranslate"><span class="pre">ThaiTokenizer.tokenizer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.ulmfit.ThaiTokenizer.add_special_cases"><code class="docutils literal notranslate"><span class="pre">ThaiTokenizer.add_special_cases()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.ulmfit</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/ulmfit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-ulmfit">
+<h1>pythainlp.ulmfit<a class="headerlink" href="#pythainlp-ulmfit" title="Permalink to this heading"></a></h1>
+<p>Welcome to the <cite>pythainlp.ulmfit</cite> module, where you’ll find powerful tools for Universal Language Model Fine-tuning for Text Classification (ULMFiT). ULMFiT is a cutting-edge technique for training deep learning models on large text corpora and then fine-tuning them for specific text classification tasks.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.ulmfit.ThaiTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">ThaiTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'th'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/tokenizer.html#ThaiTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.ThaiTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Wrapper around a frozen newmm tokenizer to make it a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">fastai.BaseTokenizer</span></code>.
+(see: <a class="reference external" href="https://docs.fast.ai/text.transform#BaseTokenizer">https://docs.fast.ai/text.transform#BaseTokenizer</a>)</p>
+<p>The <cite>ThaiTokenizer</cite> class is a critical component of ULMFiT, designed for tokenizing Thai text effectively. Tokenization is the process of breaking down text into individual tokens, and this class allows you to do so with precision and accuracy.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.ulmfit.ThaiTokenizer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'th'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/tokenizer.html#ThaiTokenizer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.ThaiTokenizer.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.ulmfit.ThaiTokenizer.tokenizer">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/tokenizer.html#ThaiTokenizer.tokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.ThaiTokenizer.tokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>This function tokenizes text using <em>newmm</em> engine and the dictionary
+specifically for <cite>ulmfit</cite> related functions
+(see: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/words_th_thai2fit_201810.txt">Dictionary file (.txt)</a>).
+:meth: tokenize text using a frozen newmm engine
+:param str text: text to tokenize
+:return: tokenized text
+:rtype: list[str]</p>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Using <a class="reference internal" href="#pythainlp.ulmfit.ThaiTokenizer.tokenizer" title="pythainlp.ulmfit.ThaiTokenizer.tokenizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.ulmfit.ThaiTokenizer.tokenizer()</span></code></a> is
+similar to <code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.word_tokenize()</span></code>
+using <em>ulmfit</em> engine.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">ThaiTokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;อาภรณ์, จินตมยปัญญา ภาวนามยปัญญา&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ThaiTokenizer</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go"> [&#39;อาภรณ์&#39;, &#39;,&#39;, &#39; &#39;, &#39;จิน&#39;, &#39;ตม&#39;, &#39;ย&#39;, &#39;ปัญญา&#39;,</span>
+<span class="go"> &#39; &#39;, &#39;ภาวนามยปัญญา&#39;]</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;ulmfit&#39;</span><span class="p">)</span>
+<span class="go">[&#39;อาภรณ์&#39;, &#39;,&#39;, &#39; &#39;, &#39;จิน&#39;, &#39;ตม&#39;, &#39;ย&#39;, &#39;ปัญญา&#39;,</span>
+<span class="go"> &#39; &#39;, &#39;ภาวนามยปัญญา&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.ulmfit.ThaiTokenizer.add_special_cases">
+<span class="sig-name descname"><span class="pre">add_special_cases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/tokenizer.html#ThaiTokenizer.add_special_cases"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.ulmfit.ThaiTokenizer.add_special_cases" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">document_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">learn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#document_vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This function vectorizes Thai input text into a 400 dimension vector using
+<code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model and data bunch.</p>
+<dl class="field-list">
+<dt class="field-odd">Meth<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>document_vector</cite> get document vector using fastai language model
+and data bunch</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – text to be vectorized with <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model.</p></li>
+<li><p><strong>learn</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> language model learner</p></li>
+<li><p><strong>data</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">fastai</span></code> data bunch</p></li>
+<li><p><strong>agg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – name of aggregation methods for word embeddings
+The available methods are “mean” and “sum”</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.array</span></code> of document vector sized 400 based on
+the encoder of the model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray((1,</span> <span class="pre">400))</span></code></p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">document_vectorr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fastai</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fastai.text</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load Data Bunch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">,</span> <span class="s1">&#39;thwiki_lm_data.pkl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initialize language_model_learner</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">emb_sz</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">n_hid</span><span class="o">=</span><span class="mi">1550</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pad_token</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="go">     qrnn=False, tie_weights=True, out_bias=True, output_p=0.25,</span>
+<span class="go">     hidden_p=0.1, input_p=0.2, embed_p=0.02, weight_p=0.15)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trn_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">drop_mult</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+<span class="go">                                   pretrained=False, **trn_args)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">document_vector</span><span class="p">(</span><span class="s1">&#39;วันนี้วันดีปีใหม่&#39;</span><span class="p">,</span> <span class="n">learn</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">See Also<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>A notebook showing how to train <cite>ulmfit</cite> language model and its
+usage, <a class="reference external" href="https://github.com/cstorm125/thai2fit/blob/master/thwiki_lm/word2vec_examples.ipynb">Jupyter Notebook</a></p></li>
+</ul>
+</dd>
+</dl>
+<p>The <cite>document_vector</cite> function is a powerful tool that computes document vectors for text data. This functionality is often used in text classification tasks where you need to represent documents as numerical vectors for machine learning models.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">fix_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#fix_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Replace HTML strings in <cite>test</cite>. (codes from <cite>fastai</cite>)</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – text to replace HTML strings in</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>text with HTML strings replaced</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">fix_html</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fix_html</span><span class="p">(</span><span class="s2">&quot;Anbsp;amp;nbsp;B @.@ &quot;</span><span class="p">)</span>
+<span class="go">A &amp; B.</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>fix_html</cite> function is a text preprocessing utility that handles HTML-specific characters, making text cleaner and more suitable for text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">lowercase_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#lowercase_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Lowercase all English words;
+English words in Thai texts don’t usually have nuances of capitalization.</p>
+<p>The <cite>lowercase_all</cite> function is a text processing utility that converts all text to lowercase. This is useful for ensuring uniformity in text data and reducing the complexity of text classification tasks.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">merge_wgts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">em_sz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wgts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itos_pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itos_new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#merge_wgts"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This function is to insert new vocab into an existing model named <cite>wgts</cite>
+and update the model’s weights for new vocab with the average embedding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Meth<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>merge_wgts</cite> insert pretrained weights and vocab into a new set
+of weights and vocab; use average if vocab not in pretrained vocab</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>em_sz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – embedding size</p></li>
+<li><p><strong>wgts</strong> – torch model weights</p></li>
+<li><p><strong>itos_pre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – pretrained list of vocab</p></li>
+<li><p><strong>itos_new</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – list of new vocab</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>merged torch model weights</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">merge_wgts</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">wgts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;0.encoder.weight&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)}</span>
+<span class="n">itos_pre</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;แมว&quot;</span><span class="p">,</span> <span class="s2">&quot;คน&quot;</span><span class="p">,</span> <span class="s2">&quot;หนู&quot;</span><span class="p">]</span>
+<span class="n">itos_new</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ปลา&quot;</span><span class="p">,</span> <span class="s2">&quot;เต่า&quot;</span><span class="p">,</span> <span class="s2">&quot;นก&quot;</span><span class="p">]</span>
+<span class="n">em_sz</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">merge_wgts</span><span class="p">(</span><span class="n">em_sz</span><span class="p">,</span> <span class="n">wgts</span><span class="p">,</span> <span class="n">itos_pre</span><span class="p">,</span> <span class="n">itos_new</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># {&#39;0.encoder.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011]]),</span>
+<span class="c1"># &#39;0.encoder_dp.emb.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011]]),</span>
+<span class="c1"># &#39;1.decoder.weight&#39;: tensor([[0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011],</span>
+<span class="c1"># [0.5952, 0.4453, 0.0011]])}</span>
+</pre></div>
+</div>
+<p>The <cite>merge_wgts</cite> function is a tool for merging weight arrays, which can be crucial for managing and fine-tuning deep learning models in ULMFiT.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">process_thai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">text:</span> <span class="pre">str,</span> <span class="pre">pre_rules:</span> <span class="pre">~typing.Collection</span> <span class="pre">=</span> <span class="pre">[&lt;function</span> <span class="pre">fix_html&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">reorder_vowels&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">spec_add_spaces&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_useless_spaces&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_useless_newlines&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">rm_brackets&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_url&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_rep_nonum&gt;],</span> <span class="pre">tok_func:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">Tokenizer.word_tokenize</span> <span class="pre">of</span> <span class="pre">&lt;pythainlp.tokenize.core.Tokenizer</span> <span class="pre">object&gt;&gt;,</span> <span class="pre">post_rules:</span> <span class="pre">~typing.Collection</span> <span class="pre">=</span> <span class="pre">[&lt;function</span> <span class="pre">ungroup_emoji&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">lowercase_all&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">replace_wrep_post_nonum&gt;,</span> <span class="pre">&lt;function</span> <span class="pre">remove_space&gt;]</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/core.html#process_thai"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Process Thai texts for models (with sparse features as default)</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – text to be cleaned</p></li>
+<li><p><strong>pre_rules</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><em>func</em><em>]</em>) – rules to apply before tokenization.</p></li>
+<li><p><strong>tok_func</strong> (<em>func</em>) – tokenization function (by default, <strong>tok_func</strong> is
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.tokenize.word_tokenize()</span></code>)</p></li>
+<li><p><strong>post_rules</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><em>func</em><em>]</em>) – rules to apply after tokenizations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of cleaned tokenized texts</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a>]</p>
+</dd>
+<dt class="field-even">Note<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>The default <strong>pre-rules</strong> consists of <code class="xref py py-func docutils literal notranslate"><span class="pre">fix_html()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.util.normalize()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">spec_add_spaces()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_useless_spaces()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_useless_newlines()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rm_brackets()</span></code>
+and <code class="xref py py-func docutils literal notranslate"><span class="pre">replace_rep_nonum()</span></code>.</p></li>
+<li><p>The default <strong>post-rules</strong> consists of <code class="xref py py-func docutils literal notranslate"><span class="pre">ungroup_emoji()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">lowercase_all()</span></code>,  <code class="xref py py-func docutils literal notranslate"><span class="pre">replace_wrep_post_nonum()</span></code>,
+and <code class="xref py py-func docutils literal notranslate"><span class="pre">remove_space()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><ol class="arabic simple">
+<li><p>Use default pre-rules and post-rules:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">process_thai</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process_thai</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go">[บ้าน&#39;, &#39;xxrep&#39;, &#39;   &#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="go">&#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;pythainlp&#39;, &#39;&amp;&#39;]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Modify pre_rules and post_rules arguments with
+rules provided in <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythainlp.ulmfit</span></code>:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="go">    process_thai,</span>
+<span class="go">    replace_rep_after,</span>
+<span class="go">    fix_html,</span>
+<span class="go">    ungroup_emoji,</span>
+<span class="go">    replace_wrep_post,</span>
+<span class="go">    remove_space)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;บ้านนนนน () อยู่นานนานนาน 😂🤣😃😄😅 PyThaiNLP amp;     &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process_thai</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
+<span class="go">                 pre_rules=[replace_rep_after, fix_html],</span>
+<span class="go">                 post_rules=[ungroup_emoji,</span>
+<span class="go">                             replace_wrep_post,</span>
+<span class="go">                             remove_space]</span>
+<span class="go">                )</span>
+<span class="go">[&#39;บ้าน&#39;, &#39;xxrep&#39;, &#39;5&#39;, &#39;()&#39;, &#39;อยู่&#39;, &#39;xxwrep&#39;, &#39;2&#39;, &#39;นาน&#39;, &#39;😂&#39;, &#39;🤣&#39;,</span>
+<span class="go"> &#39;😃&#39;, &#39;😄&#39;, &#39;😅&#39;, &#39;PyThaiNLP&#39;, &#39;&amp;&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>process_thai</cite> function is designed for preprocessing Thai text data, a vital step in preparing text for ULMFiT-based text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">rm_brackets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#rm_brackets"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Remove all empty brackets and artifacts within brackets from <cite>text</cite>.</p>
+<p>The <cite>rm_brackets</cite> function removes brackets from text, making it more suitable for text classification tasks that don’t require bracket information.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">rm_useless_newlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#rm_useless_newlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Remove multiple newlines in <cite>text</cite>.</p>
+<p>The <cite>rm_useless_newlines</cite> function eliminates unnecessary newlines in text data, ensuring that text is more compact and easier to work with in ULMFiT-based text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">rm_useless_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#rm_useless_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Remove multiple spaces in <cite>text</cite>. (codes from <cite>fastai</cite>)</p>
+<p>The <cite>rm_useless_spaces</cite> function removes extraneous spaces from text, making it cleaner and more efficient for ULMFiT-based text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">remove_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#remove_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Do not include space for bag-of-word models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>toks</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – list of tokens</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tokens where space tokens (” “) are filtered out</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a>]</p>
+</dd>
+</dl>
+<p>The <cite>remove_space</cite> function is a utility for removing space characters from text data, streamlining the text for classification purposes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">replace_rep_after</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#replace_rep_after"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Replace repetitions at the character level in <cite>text</cite> after the repeated character.
+This is to prevent cases such as ‘น้อยยยยยยยย’ becomes ‘น้อ xxrep 8 ย’
+; instead it will retain the word as ‘น้อย xxrep 8’</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – input text to replace character repetitions in</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>text with repetitive token <strong>xxrep</strong> and the counter
+after the repeated character</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">replace_rep_after</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;กาาาาาาา&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_rep_after</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go">&#39;กาxxrep7 &#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>replace_rep_after</cite> function is a text preprocessing tool for replacing repeated characters in text with a single occurrence. This step helps in standardizing text data for text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">replace_rep_nonum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#replace_rep_nonum"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Replace repetitions at the character level in <cite>text</cite> after the repetition.
+This is done to prevent such case as ‘น้อยยยยยยยย’ becoming ‘น้อ xxrep ย’;
+instead it will retain the word as ‘น้อย xxrep ‘</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – input text to replace character repetition</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>text with repetitive token <strong>xxrep</strong> after
+character repetition</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">replace_rep_nonum</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;กาาาาาาา&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_rep_nonum</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go">&#39;กา xxrep &#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>replace_rep_nonum</cite> function is similar to <cite>replace_rep_after</cite>, but it focuses on replacing repeated characters without considering numbers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">replace_wrep_post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#replace_wrep_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Replace repetitive words after tokenization;
+fastai <cite>replace_wrep</cite> does not work well with Thai.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>toks</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – list of tokens</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tokens where <strong>xxwrep</strong> token and the counter
+is added before repetitive words.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a>]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">replace_wrep_post_nonum</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">toks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;กา&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_wrep_post</span><span class="p">(</span><span class="n">toks</span><span class="p">)</span>
+<span class="go">[&#39;กา&#39;, &#39;xxwrep&#39;, &#39;3&#39;, &#39;น้ำ&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>replace_wrep_post</cite> function is used for replacing repeated words in text with a single occurrence. This function helps in reducing redundancy in text data, making it more efficient for text classification tasks.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">replace_wrep_post_nonum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#replace_wrep_post_nonum"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Replace reptitive words post tokenization;
+fastai <cite>replace_wrep</cite> does not work well with Thai.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>toks</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – list of tokens</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tokens where <strong>xxwrep</strong> token is added in front of
+repetitive words.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a>]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pythainlp.ulmfit</span> <span class="kn">import</span> <span class="n">replace_wrep_post_nonum</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">toks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;กา&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">,</span> <span class="s2">&quot;น้ำ&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_wrep_post_nonum</span><span class="p">(</span><span class="n">toks</span><span class="p">)</span>
+<span class="go">[&#39;กา&#39;, &#39;xxwrep&#39;, &#39;น้ำ&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Similar to <cite>replace_wrep_post</cite>, the <cite>replace_wrep_post_nonum</cite> function removes repeated words without considering numbers in the text.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">spec_add_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#spec_add_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add spaces around / and # in <cite>text</cite>. 
+(codes from <cite>fastai</cite>)</p>
+<p>The <cite>spec_add_spaces</cite> function is a text processing tool for adding spaces between special characters in text data. This step helps in standardizing text for ULMFiT-based text classification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.ulmfit.</span></span><span class="sig-name descname"><span class="pre">ungroup_emoji</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.12)"><span class="pre">Collection</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/ulmfit/preprocess.html#ungroup_emoji"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Ungroup Zero Width Joiner (ZVJ) Emojis</p>
+<p>See <a class="reference external" href="https://emojipedia.org/emoji-zwj-sequence/">https://emojipedia.org/emoji-zwj-sequence/</a></p>
+<p>The <cite>ungroup_emoji</cite> function is designed for ungrouping emojis in text data, which can be crucial for emoji recognition and classification tasks.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="transliterate.html" class="btn btn-neutral float-left" title="pythainlp.transliterate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="util.html" class="btn btn-neutral float-right" title="pythainlp.util" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.phayathaibert.core &mdash; PyThaiNLP 8b696ac documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=87805c27"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                dev (8b696ac) <br /> Published date: 10/02/2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.phayathaibert.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.phayathaibert.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: Copyright 2016-2024 PyThaiNLP Project</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CamembertTokenizer</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">_PAT_URL</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?&quot;</span>
+
+<span class="n">_model_name</span> <span class="o">=</span> <span class="s2">&quot;clicknext/phayathaibert&quot;</span>
+<span class="n">_tokenizer</span> <span class="o">=</span> <span class="n">CamembertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">_model_name</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ThaiTextProcessor"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor">[docs]</a><span class="k">class</span> <span class="nc">ThaiTextProcessor</span><span class="p">:</span>
+<div class="viewcode-block" id="ThaiTextProcessor.__init__"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_TK_UNK</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_TK_REP</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_TK_WREP</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_TK_URL</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_TK_END</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;&lt;unk&gt; &lt;rep&gt; &lt;wrep&gt; &lt;url&gt; &lt;/s&gt;&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SPACE_SPECIAL_TOKEN</span> <span class="o">=</span> <span class="s2">&quot;&lt;_&gt;&quot;</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.replace_url"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.replace_url">[docs]</a>    <span class="k">def</span> <span class="nf">replace_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace url in `text` with TK_URL (https://stackoverflow.com/a/6041965)</span>
+<span class="sd">        :param str text: text to replace url</span>
+<span class="sd">        :return: text where urls  are replaced</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; replace_url(&quot;go to https://github.com&quot;)</span>
+<span class="sd">            go to &lt;url&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_PAT_URL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TK_URL</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.rm_brackets"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.rm_brackets">[docs]</a>    <span class="k">def</span> <span class="nf">rm_brackets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove all empty brackets and artifacts within brackets from `text`.</span>
+<span class="sd">        :param str text: text to remove useless brackets</span>
+<span class="sd">        :return: text where all useless brackets are removed</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; rm_brackets(&quot;hey() whats[;] up{*&amp;} man(hey)&quot;)</span>
+<span class="sd">            hey whats up man(hey)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># remove empty brackets</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\(\)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\{\}&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span><span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\[\]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span><span class="p">)</span>
+        <span class="c1"># brackets with only punctuations</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\([^a-zA-Z0-9ก-๙]+\)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span><span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\{[^a-zA-Z0-9ก-๙]+\}&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span><span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\[[^a-zA-Z0-9ก-๙]+\]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span><span class="p">)</span>
+        <span class="c1"># artifiacts after (</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=\()[^a-zA-Z0-9ก-๙]+(?=[a-zA-Z0-9ก-๙])&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=\{)[^a-zA-Z0-9ก-๙]+(?=[a-zA-Z0-9ก-๙])&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=\[)[^a-zA-Z0-9ก-๙]+(?=[a-zA-Z0-9ก-๙])&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="c1"># artifacts before )</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=[a-zA-Z0-9ก-๙])[^a-zA-Z0-9ก-๙]+(?=\))&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=[a-zA-Z0-9ก-๙])[^a-zA-Z0-9ก-๙]+(?=\})&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+            <span class="sa">r</span><span class="s2">&quot;(?&lt;=[a-zA-Z0-9ก-๙])[^a-zA-Z0-9ก-๙]+(?=\])&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">new_line</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_line</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.replace_newlines"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.replace_newlines">[docs]</a>    <span class="k">def</span> <span class="nf">replace_newlines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace newlines in `text` with spaces.</span>
+<span class="sd">        :param str text: text to replace all newlines with spaces</span>
+<span class="sd">        :return: text where all newlines are replaced with spaces</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; rm_useless_spaces(&quot;hey whats\n\nup&quot;)</span>
+<span class="sd">            hey whats  up</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\n]&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.rm_useless_spaces"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.rm_useless_spaces">[docs]</a>    <span class="k">def</span> <span class="nf">rm_useless_spaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove multiple spaces in `text`. (code from `fastai`)</span>
+<span class="sd">        :param str text: text to replace useless spaces</span>
+<span class="sd">        :return: text where all spaces are reduced to one</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; rm_useless_spaces(&quot;oh         no&quot;)</span>
+<span class="sd">            oh no</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; {2,}&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.replace_spaces"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.replace_spaces">[docs]</a>    <span class="k">def</span> <span class="nf">replace_spaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">space_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&lt;_&gt;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace spaces with _</span>
+<span class="sd">        :param str text: text to replace spaces</span>
+<span class="sd">        :return: text where all spaces replaced with _</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; replace_spaces(&quot;oh no&quot;)</span>
+<span class="sd">            oh_no</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">space_token</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.replace_rep_after"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.replace_rep_after">[docs]</a>    <span class="k">def</span> <span class="nf">replace_rep_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace repetitions at the character level in `text`</span>
+<span class="sd">        :param str text: input text to replace character repetition</span>
+<span class="sd">        :return: text with repetitive tokens removed.</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; text = &quot;กาาาาาาา&quot;</span>
+<span class="sd">            &gt;&gt;&gt; replace_rep_after(text)</span>
+<span class="sd">            &#39;กา&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">_replace_rep</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="n">c</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">re_rep</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\S)(\1{3,})&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re_rep</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_replace_rep</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.replace_wrep_post"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.replace_wrep_post">[docs]</a>    <span class="k">def</span> <span class="nf">replace_wrep_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace repetitive words post tokenization;</span>
+<span class="sd">        fastai `replace_wrep` does not work well with Thai.</span>
+<span class="sd">        :param List[str] toks: list of tokens</span>
+<span class="sd">        :return: list of tokens where repetitive words are removed.</span>
+<span class="sd">        :rtype: List[str]</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; toks = [&quot;กา&quot;, &quot;น้ำ&quot;, &quot;น้ำ&quot;, &quot;น้ำ&quot;, &quot;น้ำ&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; replace_wrep_post(toks)</span>
+<span class="sd">            [&#39;กา&#39;, &#39;น้ำ&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">previous_word</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">rep_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">current_word</span> <span class="ow">in</span> <span class="n">toks</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_TK_END</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">current_word</span> <span class="o">==</span> <span class="n">previous_word</span><span class="p">:</span>
+                <span class="n">rep_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">current_word</span> <span class="o">!=</span> <span class="n">previous_word</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">rep_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="p">[</span><span class="n">previous_word</span><span class="p">]</span>
+                <span class="n">rep_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">previous_word</span><span class="p">)</span>
+            <span class="n">previous_word</span> <span class="o">=</span> <span class="n">current_word</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+<div class="viewcode-block" id="ThaiTextProcessor.remove_space"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.remove_space">[docs]</a>    <span class="k">def</span> <span class="nf">remove_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Do not include space for bag-of-word models.</span>
+<span class="sd">        :param List[str] toks: list of tokens</span>
+<span class="sd">        :return: List of tokens where space tokens (&quot; &quot;) are filtered out</span>
+<span class="sd">        :rtype: List[str]</span>
+<span class="sd">        :Example:</span>
+<span class="sd">            &gt;&gt;&gt; toks = [&quot;ฉัน&quot;, &quot;เดิน&quot;, &quot; &quot;, &quot;กลับ&quot;, &quot;บ้าน&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; remove_space(toks)</span>
+<span class="sd">            [&#39;ฉัน&#39;, &#39;เดิน&#39;, &#39;กลับ&#39;, &#39;บ้าน&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">toks</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">t</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="c1"># combine them together</span>
+<div class="viewcode-block" id="ThaiTextProcessor.preprocess"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextProcessor.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">pre_rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">rm_brackets</span><span class="p">,</span>
+            <span class="n">replace_newlines</span><span class="p">,</span>
+            <span class="n">rm_useless_spaces</span><span class="p">,</span>
+            <span class="n">replace_spaces</span><span class="p">,</span>
+            <span class="n">replace_rep_after</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">tok_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">pre_rules</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">toks</span> <span class="o">=</span> <span class="n">tok_func</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">toks</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ThaiTextAugmenter"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextAugmenter">[docs]</a><span class="k">class</span> <span class="nc">ThaiTextAugmenter</span><span class="p">:</span>
+<div class="viewcode-block" id="ThaiTextAugmenter.__init__"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextAugmenter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">AutoModelForMaskedLM</span><span class="p">,</span>
+            <span class="n">AutoTokenizer</span><span class="p">,</span>
+            <span class="n">pipeline</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">_model_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_for_masked_lm</span> <span class="o">=</span> <span class="n">AutoModelForMaskedLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+            <span class="n">_model_name</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+            <span class="s2">&quot;fill-mask&quot;</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_for_masked_lm</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processor</span> <span class="o">=</span> <span class="n">ThaiTextProcessor</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ThaiTextAugmenter.generate"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextAugmenter.generate">[docs]</a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sample_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">word_rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">sample_txt</span> <span class="o">=</span> <span class="n">sample_text</span>
+        <span class="n">final_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_length</span><span class="p">):</span>
+            <span class="nb">input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">sample_txt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sample</span><span class="p">:</span>
+                <span class="n">random_word_idx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="nb">input</span><span class="p">)[</span><span class="n">random_word_idx</span><span class="p">][</span><span class="s2">&quot;sequence&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="nb">input</span><span class="p">)[</span><span class="n">word_rank</span><span class="p">][</span><span class="s2">&quot;sequence&quot;</span><span class="p">]</span>
+            <span class="n">sample_txt</span> <span class="o">=</span> <span class="n">output</span> <span class="o">+</span> <span class="s2">&quot;&lt;mask&gt;&quot;</span>
+            <span class="n">final_text</span> <span class="o">=</span> <span class="n">sample_txt</span>
+
+        <span class="n">gen_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&lt;mask&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">final_text</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">gen_txt</span></div>
+
+<div class="viewcode-block" id="ThaiTextAugmenter.augment"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.ThaiTextAugmenter.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">num_augs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Text augmentation from PhayaThaiBERT</span>
+
+<span class="sd">        :param str text: Thai text</span>
+<span class="sd">        :param int num_augs: an amount of augmentation text needed as an output</span>
+<span class="sd">        :param bool sample: whether to sample the text as an output or not,\</span>
+<span class="sd">              true if more word diversity is needed</span>
+
+<span class="sd">        :return: list of text augment</span>
+<span class="sd">        :rtype: List[str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.augment.lm import ThaiTextAugmenter</span>
+
+<span class="sd">            aug = ThaiTextAugmenter()</span>
+<span class="sd">            aug.augment(&quot;ช้างมีทั้งหมด 50 ตัว บน&quot;, num_args=5)</span>
+
+<span class="sd">            # output = [&#39;ช้างมีทั้งหมด 50 ตัว บนโลกใบนี้ครับ.&#39;,</span>
+<span class="sd">                &#39;ช้างมีทั้งหมด 50 ตัว บนพื้นดินครับ...&#39;,</span>
+<span class="sd">                &#39;ช้างมีทั้งหมด 50 ตัว บนท้องฟ้าครับ...&#39;,</span>
+<span class="sd">                &#39;ช้างมีทั้งหมด 50 ตัว บนดวงจันทร์.‼&#39;,</span>
+<span class="sd">                &#39;ช้างมีทั้งหมด 50 ตัว บนเขาค่ะ😁&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">MAX_NUM_AUGS</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">augment_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">num_augs</span> <span class="o">&lt;=</span> <span class="n">MAX_NUM_AUGS</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_augs</span><span class="p">):</span>
+                <span class="n">gen_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+                    <span class="n">text</span><span class="p">,</span>
+                    <span class="n">rank</span><span class="p">,</span>
+                    <span class="n">sample</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">processed_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+                    <span class="s2">&quot;&lt;_&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">gen_text</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">augment_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_text</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;augmentation of more than </span><span class="si">{</span><span class="n">num_augs</span><span class="si">}</span><span class="s2"> is exceeded </span><span class="se">\</span>
+<span class="s2">                    the default limit: </span><span class="si">{</span><span class="n">MAX_NUM_AUGS</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">augment_list</span></div></div>
+
+
+<div class="viewcode-block" id="PartOfSpeechTagger"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.PartOfSpeechTagger">[docs]</a><span class="k">class</span> <span class="nc">PartOfSpeechTagger</span><span class="p">:</span>
+<div class="viewcode-block" id="PartOfSpeechTagger.__init__"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.PartOfSpeechTagger.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;lunarlist/pos_thai_phayathai&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Load model directly</span>
+        <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">AutoTokenizer</span><span class="p">,</span>
+            <span class="n">AutoModelForTokenClassification</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForTokenClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PartOfSpeechTagger.get_tag"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.PartOfSpeechTagger.get_tag">[docs]</a>    <span class="k">def</span> <span class="nf">get_tag</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;simple&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Marks sentences with part-of-speech (POS) tags.</span>
+
+<span class="sd">        :param str sentence: a list of lists of tokenized words</span>
+<span class="sd">        :return: a list of lists of tuples (word, POS tag)</span>
+<span class="sd">        :rtype: list[list[tuple[str, str]]]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        Labels POS for given sentence::</span>
+
+<span class="sd">            from pythainlp.phayathaibert.core import PartOfSpeechTagger</span>
+
+<span class="sd">            tagger = PartOfSpeechTagger()</span>
+<span class="sd">            tagger.get_tag(&quot;แมวทำอะไรตอนห้าโมงเช้า&quot;)</span>
+<span class="sd">            # output:</span>
+<span class="sd">            # [[(&#39;แมว&#39;, &#39;NOUN&#39;), (&#39;ทําอะไร&#39;, &#39;VERB&#39;), (&#39;ตอนห้าโมงเช้า&#39;, &#39;NOUN&#39;)]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TokenClassificationPipeline</span>
+
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="n">TokenClassificationPipeline</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">aggregation_strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="n">word_tags</span> <span class="o">=</span> <span class="p">[[(</span><span class="n">tag</span><span class="p">[</span><span class="s2">&quot;word&quot;</span><span class="p">],</span> <span class="n">tag</span><span class="p">[</span><span class="s2">&quot;entity_group&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">]]</span>
+
+        <span class="k">return</span> <span class="n">word_tags</span></div></div>
+
+
+<div class="viewcode-block" id="NamedEntityTagger"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.NamedEntityTagger">[docs]</a><span class="k">class</span> <span class="nc">NamedEntityTagger</span><span class="p">:</span>
+<div class="viewcode-block" id="NamedEntityTagger.__init__"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.NamedEntityTagger.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Pavarissy/phayathaibert-thainer&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">AutoTokenizer</span><span class="p">,</span>
+            <span class="n">AutoModelForTokenClassification</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForTokenClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NamedEntityTagger.get_ner"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.NamedEntityTagger.get_ner">[docs]</a>    <span class="k">def</span> <span class="nf">get_ner</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">tag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function tags named entities in text in IOB format.</span>
+
+<span class="sd">        :param str text: text in Thai to be tagged</span>
+<span class="sd">        :param bool pos: output with part-of-speech tags.\</span>
+<span class="sd">            (PhayaThaiBERT is supported in PartOfSpeechTagger)</span>
+<span class="sd">        :return: a list of tuples associated with tokenized words, NER tags,</span>
+<span class="sd">                 POS tags (if the parameter `pos` is specified as `True`),</span>
+<span class="sd">                 and output HTML-like tags (if the parameter `tag` is</span>
+<span class="sd">                 specified as `True`).</span>
+<span class="sd">                 Otherwise, return a list of tuples associated with tokenized</span>
+<span class="sd">                 words and NER tags</span>
+<span class="sd">        :rtype: Union[List[Tuple[str, str]], List[Tuple[str, str, str]], str]</span>
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.phayathaibert.core import NamedEntityTagger</span>
+<span class="sd">            &gt;&gt;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; tagger = NamedEntityTagger()</span>
+<span class="sd">            &gt;&gt;&gt; tagger.get_ner(&quot;ทดสอบนายปวริศ เรืองจุติโพธิ์พานจากประเทศไทย&quot;)</span>
+<span class="sd">            [(&#39;นายปวริศ เรืองจุติโพธิ์พานจากประเทศไทย&#39;, &#39;PERSON&#39;),</span>
+<span class="sd">            (&#39;จาก&#39;, &#39;LOCATION&#39;),</span>
+<span class="sd">            (&#39;ประเทศไทย&#39;, &#39;LOCATION&#39;)]</span>
+<span class="sd">            &gt;&gt;&gt; ner.tag(&quot;ทดสอบนายปวริศ เรืองจุติโพธิ์พานจากประเทศไทย&quot;, tag=True)</span>
+<span class="sd">            &#39;ทดสอบ&lt;PERSON&gt;นายปวริศ เรืองจุติโพธิ์พาน&lt;/PERSON&gt;\</span>
+<span class="sd">                &lt;LOCATION&gt;จาก&lt;/LOCATION&gt;&lt;LOCATION&gt;ประเทศไทย&lt;/LOCATION&gt;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TokenClassificationPipeline</span>
+
+        <span class="k">if</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;This model doesn&#39;t support output </span><span class="se">\</span>
+<span class="s2">                          postag and It doesn&#39;t output the postag.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">sample_output</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tag_text_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">current_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="n">TokenClassificationPipeline</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">aggregation_strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="n">ner_tag</span> <span class="o">=</span> <span class="n">token</span><span class="p">[</span><span class="s2">&quot;entity_group&quot;</span><span class="p">]</span>
+            <span class="n">begin_pos</span><span class="p">,</span> <span class="n">end_pos</span> <span class="o">=</span> <span class="n">token</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">],</span> <span class="n">token</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">current_pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">text_tag</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">text</span><span class="p">[:</span><span class="n">begin_pos</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">ner_tag</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+                    <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;/</span><span class="si">{</span><span class="n">ner_tag</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">text_tag</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">text</span><span class="p">[</span><span class="n">current_pos</span><span class="p">:</span><span class="n">begin_pos</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">ner_tag</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+                    <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="n">begin_pos</span><span class="p">:</span><span class="n">end_pos</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&lt;/</span><span class="si">{</span><span class="n">ner_tag</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+                <span class="p">)</span>
+            <span class="n">tag_text_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text_tag</span><span class="p">)</span>
+            <span class="n">sample_output</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">token</span><span class="p">[</span><span class="s2">&quot;word&quot;</span><span class="p">],</span> <span class="n">token</span><span class="p">[</span><span class="s2">&quot;entity_group&quot;</span><span class="p">]))</span>
+            <span class="n">current_pos</span> <span class="o">=</span> <span class="n">end_pos</span>
+
+        <span class="k">if</span> <span class="n">tag</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tag_text_list</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">sample_output</span></div></div>
+
+
+<div class="viewcode-block" id="segment"><a class="viewcode-back" href="../../../api/phayathaibert.html#pythainlp.phayathaibert.segment">[docs]</a><span class="k">def</span> <span class="nf">segment</span><span class="p">(</span><span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subword tokenize of PhayaThaiBERT, \</span>
+<span class="sd">    sentencepiece from WangchanBERTa model with vocabulary expansion.</span>
+
+<span class="sd">    :param str sentence: text to be tokenized</span>
+<span class="sd">    :return: list of subwords</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sentence</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">return</span> <span class="n">_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

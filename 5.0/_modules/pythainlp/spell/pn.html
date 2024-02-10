@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.spell.pn &mdash; PyThaiNLP 8b696ac documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=87805c27"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                dev (8b696ac) <br /> Published date: 10/02/2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.spell.pn</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.spell.pn</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Spell checker, using Peter Norvig algorithm.</span>
+<span class="sd">Spelling dictionary can be customized.</span>
+<span class="sd">Default spelling dictionary is based on Thai National Corpus.</span>
+
+<span class="sd">Based on Peter Norvig&#39;s Python code from http://norvig.com/spell-correct.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">digits</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">ItemsView</span><span class="p">,</span>
+    <span class="n">Iterable</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pythainlp</span> <span class="kn">import</span> <span class="n">thai_digits</span><span class="p">,</span> <span class="n">thai_letters</span>
+<span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">tnc</span>
+<span class="kn">from</span> <span class="nn">pythainlp.util</span> <span class="kn">import</span> <span class="n">isthaichar</span>
+
+
+<span class="k">def</span> <span class="nf">_no_filter</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">_is_thai_and_not_num</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="o">!=</span> <span class="s2">&quot;.&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isthaichar</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">thai_digits</span> <span class="ow">or</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">_keep</span><span class="p">(</span>
+    <span class="n">word_freq</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">min_freq</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">min_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dict_filter</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks whether a given word has the required minimum frequency min_freq</span>
+<span class="sd">    and its character length is between min_len and max_len (inclusive).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">word_freq</span> <span class="ow">or</span> <span class="n">word_freq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_freq</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word_freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">word</span> <span class="ow">and</span> <span class="n">min_len</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;.&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">dict_filter</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_edits1</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a set of words with an edit distance of 1 from the input word</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">splits</span> <span class="o">=</span> <span class="p">[(</span><span class="n">word</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">deletes</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="n">R</span><span class="p">]</span>
+    <span class="n">transposes</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">replaces</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="n">R</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_letters</span><span class="p">]</span>
+    <span class="n">inserts</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">R</span> <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_letters</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">deletes</span> <span class="o">+</span> <span class="n">transposes</span> <span class="o">+</span> <span class="n">replaces</span> <span class="o">+</span> <span class="n">inserts</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_edits2</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a set of words with an edit distance of 2 from the input word</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">e2</span> <span class="k">for</span> <span class="n">e1</span> <span class="ow">in</span> <span class="n">_edits1</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">e2</span> <span class="ow">in</span> <span class="n">_edits1</span><span class="p">(</span><span class="n">e1</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_custom_dict</span><span class="p">(</span>
+    <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+    <span class="p">],</span>
+    <span class="n">min_freq</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">min_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dict_filter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a custom dictionary to a list of (str, int) tuples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">custom_dict</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">custom_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">)</span>
+    <span class="n">first_member</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">first_member</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># create tuples of a word with frequency equaling 1,</span>
+        <span class="c1"># and filter word list</span>
+        <span class="n">custom_dict</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">custom_dict</span>
+            <span class="k">if</span> <span class="n">_keep</span><span class="p">((</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_len</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">dict_filter</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">first_member</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="c1"># filter word list</span>
+        <span class="n">custom_dict</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">word_freq</span>
+            <span class="k">for</span> <span class="n">word_freq</span> <span class="ow">in</span> <span class="n">custom_dict</span>
+            <span class="k">if</span> <span class="n">_keep</span><span class="p">(</span><span class="n">word_freq</span><span class="p">,</span> <span class="n">min_freq</span><span class="p">,</span> <span class="n">min_len</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">dict_filter</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;custom_dict must be either Dict[str, int], &quot;</span>
+            <span class="s2">&quot;Iterable[Tuple[str, int]], or Iterable[str]&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">custom_dict</span>
+
+
+<div class="viewcode-block" id="NorvigSpellChecker"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker">[docs]</a><span class="k">class</span> <span class="nc">NorvigSpellChecker</span><span class="p">:</span>
+<div class="viewcode-block" id="NorvigSpellChecker.__init__"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">custom_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">min_freq</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">min_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+        <span class="n">dict_filter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="n">_is_thai_and_not_num</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes Peter Norvig&#39;s spell checker object.</span>
+<span class="sd">        Spelling dictionary can be customized.</span>
+<span class="sd">        By default, spelling dictionary is from</span>
+<span class="sd">        `Thai National Corpus &lt;http://www.arts.chula.ac.th/ling/tnc/&gt;`_</span>
+
+<span class="sd">        Basically, Norvig&#39;s spell checker will choose the most likely</span>
+<span class="sd">        corrected spelling given a word by searching for candidates of</span>
+<span class="sd">        corrected words based on edit distance.</span>
+<span class="sd">        Then, it selects the candidate with</span>
+<span class="sd">        the highest word occurrence probability.</span>
+
+<span class="sd">        :param str custom_dict: A custom spelling dictionary. This can be:</span>
+<span class="sd">                                (1) a dictionary (`dict`), with words (`str`)</span>
+<span class="sd">                                    as keys and frequencies (`int`) as values;</span>
+<span class="sd">                                (2) an iterable (list, tuple, or set) of words</span>
+<span class="sd">                                    (`str`) and frequency (`int`) tuples:</span>
+<span class="sd">                                    `(str, int)`; or</span>
+<span class="sd">                                (3) an iterable of just words (`str`), without</span>
+<span class="sd">                                    frequencies -- in this case `1` will be</span>
+<span class="sd">                                    assigned to every words.</span>
+<span class="sd">                                Default is from Thai National Corpus (around</span>
+<span class="sd">                                40,000 words).</span>
+<span class="sd">        :param int min_freq: Minimum frequency of a word to keep (default = 2)</span>
+<span class="sd">        :param int min_len: Minimum length (in characters) of a word to keep</span>
+<span class="sd">                            (default = 2)</span>
+<span class="sd">        :param int max_len: Maximum length (in characters) of a word to keep</span>
+<span class="sd">                            (default = 40)</span>
+<span class="sd">        :param func dict_filter: A function to filter the dictionary.</span>
+<span class="sd">                                 Default filter removes any word</span>
+<span class="sd">                                 with numbers or non-Thai characters.</span>
+<span class="sd">                                 If no filter is required, use None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">custom_dict</span><span class="p">:</span>  <span class="c1"># default, use Thai National Corpus</span>
+            <span class="c1"># TODO: #680 change the dict</span>
+            <span class="n">custom_dict</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">tnc</span><span class="o">.</span><span class="n">word_freqs</span><span class="p">()]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dict_filter</span><span class="p">:</span>
+            <span class="n">dict_filter</span> <span class="o">=</span> <span class="n">_no_filter</span>
+
+        <span class="n">custom_dict</span> <span class="o">=</span> <span class="n">_convert_custom_dict</span><span class="p">(</span>
+            <span class="n">custom_dict</span><span class="p">,</span> <span class="n">min_freq</span><span class="p">,</span> <span class="n">min_len</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">dict_filter</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span> <span class="o">+=</span> <span class="n">Counter</span><span class="p">()</span>  <span class="c1"># remove zero and negative counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS_TOTAL</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.dictionary"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.dictionary">[docs]</a>    <span class="k">def</span> <span class="nf">dictionary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ItemsView</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the spelling dictionary currently used by this spell checker</span>
+
+<span class="sd">        :return: spelling dictionary of this instance</span>
+<span class="sd">        :rtype: list[tuple[str, int]]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            dictionary= [(&quot;หวาน&quot;, 30), (&quot;มะนาว&quot;, 2), (&quot;แอบ&quot;, 3223)]</span>
+
+<span class="sd">            checker = NorvigSpellChecker(custom_dict=dictionary)</span>
+<span class="sd">            checker.dictionary()</span>
+<span class="sd">            # output: dict_items([(&#39;หวาน&#39;, 30), (&#39;มะนาว&#39;, 2), (&#39;แอบ&#39;, 3223)])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.known"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.known">[docs]</a>    <span class="k">def</span> <span class="nf">known</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of given words found in the spelling dictionary</span>
+
+<span class="sd">        :param list[str] words: A list of words to check if they exist</span>
+<span class="sd">                                in the spelling dictionary</span>
+
+<span class="sd">        :return: intersection of the given word list and words</span>
+<span class="sd">                 in the spelling dictionary</span>
+<span class="sd">        :rtype: list[str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            checker = NorvigSpellChecker()</span>
+
+<span class="sd">            checker.known([&quot;เพยน&quot;, &quot;เพล&quot;, &quot;เพลง&quot;])</span>
+<span class="sd">            # output: [&#39;เพล&#39;, &#39;เพลง&#39;]</span>
+
+<span class="sd">            checker.known([&#39;ยกไ&#39;, &#39;ไฟล์ม&#39;])</span>
+<span class="sd">            # output: []</span>
+
+<span class="sd">            checker.known([])</span>
+<span class="sd">            # output: []</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.prob"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.prob">[docs]</a>    <span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the probability of an input word,</span>
+<span class="sd">        according to the spelling dictionary</span>
+
+<span class="sd">        :param str word: A word to check occurrence probability of</span>
+
+<span class="sd">        :return: word occurrence probability</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            checker = NorvigSpellChecker()</span>
+
+<span class="sd">            checker.prob(&quot;ครัช&quot;)</span>
+<span class="sd">            # output: 0.0</span>
+
+<span class="sd">            checker.prob(&quot;รัก&quot;)</span>
+<span class="sd">            # output: 0.0006959172792052158</span>
+
+<span class="sd">            checker.prob(&quot;น่ารัก&quot;)</span>
+<span class="sd">            # output: 9.482306849763902e-05</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS_TOTAL</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.freq"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.freq">[docs]</a>    <span class="k">def</span> <span class="nf">freq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the frequency of an input word,</span>
+<span class="sd">        according to the spelling dictionary</span>
+
+<span class="sd">        :param str word: A word to check frequency of</span>
+<span class="sd">        :return: frequency of the given word in the spelling dictionary</span>
+<span class="sd">        :rtype: int</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            checker = NorvigSpellChecker()</span>
+
+<span class="sd">            checker.freq(&quot;ปัญญา&quot;)</span>
+<span class="sd">            # output: 3639</span>
+
+<span class="sd">            checker.freq(&quot;บิญชา&quot;)</span>
+<span class="sd">            # output: 0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__WORDS</span><span class="p">[</span><span class="n">word</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.spell"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.spell">[docs]</a>    <span class="k">def</span> <span class="nf">spell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of all correctly-spelled words whose spelling</span>
+<span class="sd">        is similar to the given word by edit distance metrics.</span>
+<span class="sd">        The returned list of words will be sorted by decreasing</span>
+<span class="sd">        order of word frequencies in the word spelling dictionary.</span>
+
+<span class="sd">        First, if the input word is spelled correctly,</span>
+<span class="sd">        this method returns a list of exactly one word which is itself.</span>
+<span class="sd">        Next, this method looks for a list of all correctly spelled words</span>
+<span class="sd">        whose edit distance value is 1 from the input word.</span>
+<span class="sd">        If there is no such word, then the search expands to</span>
+<span class="sd">        a list of words whose edit distance value is 2.</span>
+<span class="sd">        And if that still fails, the list of input words is returned.</span>
+
+<span class="sd">        :param str word: A word to check spelling of</span>
+
+<span class="sd">        :return: list of possibly correct words within 1 or 2 edit distance</span>
+<span class="sd">                 and sorted by frequency of word occurrence in the</span>
+<span class="sd">                 spelling dictionary in descending order.</span>
+<span class="sd">        :rtype: list[str]</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            checker = NorvigSpellChecker()</span>
+
+<span class="sd">            checker.spell(&quot;เส้นตรบ&quot;)</span>
+<span class="sd">            # output: [&#39;เส้นตรง&#39;]</span>
+
+<span class="sd">            checker.spell(&quot;ครัช&quot;)</span>
+<span class="sd">            # output: [&#39;ครับ&#39;, &#39;ครัว&#39;, &#39;รัช&#39;, &#39;ครัม&#39;, &#39;ครัน&#39;,</span>
+<span class="sd">            # &#39;วรัช&#39;, &#39;ครัส&#39;, &#39;ปรัช&#39;, &#39;บรัช&#39;, &#39;ครัง&#39;,</span>
+<span class="sd">            #&#39;คัช&#39;, &#39;คลัช&#39;, &#39;ครัย&#39;, &#39;ครัด&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+        <span class="n">candidates</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">known</span><span class="p">([</span><span class="n">word</span><span class="p">])</span>
+            <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">known</span><span class="p">(</span><span class="n">_edits1</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">known</span><span class="p">(</span><span class="n">_edits2</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">freq</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">candidates</span></div>
+
+<div class="viewcode-block" id="NorvigSpellChecker.correct"><a class="viewcode-back" href="../../../api/spell.html#pythainlp.spell.NorvigSpellChecker.correct">[docs]</a>    <span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the most possible word, using the probability from</span>
+<span class="sd">        the spelling dictionary</span>
+
+<span class="sd">        :param str word: A word to correct spelling of</span>
+
+<span class="sd">        :return: the correct spelling of the given word</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from pythainlp.spell import NorvigSpellChecker</span>
+
+<span class="sd">            checker = NorvigSpellChecker()</span>
+
+<span class="sd">            checker.correct(&quot;ปัญชา&quot;)</span>
+<span class="sd">            # output: &#39;ปัญหา&#39;</span>
+
+<span class="sd">            checker.correct(&quot;บิญชา&quot;)</span>
+<span class="sd">            # output: &#39;บัญชา&#39;</span>
+
+<span class="sd">            checker.correct(&quot;มิตรภาบ&quot;)</span>
+<span class="sd">            # output: &#39;มิตรภาพ&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Check for numeric type</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">word</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spell</span><span class="p">(</span><span class="n">word</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.transliterate.core &mdash; PyThaiNLP 8b696ac documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=87805c27"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+              <div class="version">
+                dev (8b696ac) <br /> Published date: 10/02/2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.transliterate.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.transliterate.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: Copyright 2016-2024 PyThaiNLP Project</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="n">DEFAULT_ROMANIZE_ENGINE</span> <span class="o">=</span> <span class="s2">&quot;royin&quot;</span>
+<span class="n">DEFAULT_TRANSLITERATE_ENGINE</span> <span class="o">=</span> <span class="s2">&quot;thaig2p&quot;</span>
+<span class="n">DEFAULT_PRONUNCIATE_ENGINE</span> <span class="o">=</span> <span class="s2">&quot;w2p&quot;</span>
+
+
+<div class="viewcode-block" id="romanize"><a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.romanize">[docs]</a><span class="k">def</span> <span class="nf">romanize</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_ROMANIZE_ENGINE</span><span class="p">,</span>
+    <span class="n">fallback_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_ROMANIZE_ENGINE</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function renders Thai words in the Latin alphabet or &quot;romanization&quot;,</span>
+<span class="sd">    using the Royal Thai General System of Transcription (RTGS)</span>
+<span class="sd">    [#rtgs_transcription]_. RTGS is the official system published</span>
+<span class="sd">    by the Royal Institute of Thailand. (Thai: ถอดเสียงภาษาไทยเป็นอักษรละติน)</span>
+
+<span class="sd">    :param str text: Thai text to be romanized</span>
+<span class="sd">    :param str engine: One of &#39;royin&#39; (default), &#39;thai2rom&#39;, &#39;thai2rom_onnx, &#39;tltk&#39;, and &#39;lookup&#39;. See more in options for engine section.</span>
+<span class="sd">    :param str fallback_engine: If engine equals &#39;lookup&#39;, use `fallback_engine` for words that are not in the transliteration dict.</span>
+<span class="sd">                                No effect on other engines. Default to &#39;royin&#39;.</span>
+
+<span class="sd">    :return: A string of Thai words rendered in the Latin alphabet.</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Options for engines:</span>
+<span class="sd">        * *royin* - (default) based on the Royal Thai General System of</span>
+<span class="sd">          Transcription issued by Royal Institute of Thailand.</span>
+<span class="sd">        * *thai2rom* - a deep learning-based Thai romanization engine</span>
+<span class="sd">          (require PyTorch).</span>
+<span class="sd">        * *thai2rom_onnx* - a deep learning-based Thai romanization engine with ONNX runtime</span>
+<span class="sd">        * *tltk* - TLTK: Thai Language Toolkit</span>
+<span class="sd">        * *lookup* - Look up on Thai-English Transliteration dictionary v1.4 compiled by Wannaphong.</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.transliterate import romanize</span>
+
+<span class="sd">        romanize(&quot;สามารถ&quot;, engine=&quot;royin&quot;)</span>
+<span class="sd">        # output: &#39;samant&#39;</span>
+
+<span class="sd">        romanize(&quot;สามารถ&quot;, engine=&quot;thai2rom&quot;)</span>
+<span class="sd">        # output: &#39;samat&#39;</span>
+
+<span class="sd">        romanize(&quot;สามารถ&quot;, engine=&quot;tltk&quot;)</span>
+<span class="sd">        # output: &#39;samat&#39;</span>
+
+<span class="sd">        romanize(&quot;ภาพยนตร์&quot;, engine=&quot;royin&quot;)</span>
+<span class="sd">        # output: &#39;phapn&#39;</span>
+
+<span class="sd">        romanize(&quot;ภาพยนตร์&quot;, engine=&quot;thai2rom&quot;)</span>
+<span class="sd">        # output: &#39;phapphayon&#39;</span>
+
+<span class="sd">        romanize(&quot;ภาพยนตร์&quot;, engine=&quot;thai2rom_onnx&quot;)</span>
+<span class="sd">        # output: &#39;phapphayon&#39;</span>
+
+<span class="sd">        romanize(&quot;ก็อปปี้&quot;, engine=&quot;lookup&quot;)</span>
+<span class="sd">        # output: &#39;copy&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">select_romanize_engine</span><span class="p">(</span><span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;thai2rom&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.transliterate.thai2rom</span> <span class="kn">import</span> <span class="n">romanize</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;thai2rom_onnx&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.transliterate.thai2rom_onnx</span> <span class="kn">import</span> <span class="n">romanize</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.transliterate.tltk</span> <span class="kn">import</span> <span class="n">romanize</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># use default engine &quot;royin&quot;</span>
+            <span class="kn">from</span> <span class="nn">pythainlp.transliterate.royin</span> <span class="kn">import</span> <span class="n">romanize</span>
+
+        <span class="k">return</span> <span class="n">romanize</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;lookup&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.lookup</span> <span class="kn">import</span> <span class="n">romanize</span>
+
+        <span class="n">fallback</span> <span class="o">=</span> <span class="n">select_romanize_engine</span><span class="p">(</span><span class="n">fallback_engine</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">romanize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fallback_func</span><span class="o">=</span><span class="n">fallback</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">select_romanize_engine</span><span class="p">(</span><span class="n">engine</span><span class="p">)(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="transliterate"><a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.transliterate">[docs]</a><span class="k">def</span> <span class="nf">transliterate</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_TRANSLITERATE_ENGINE</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function transliterates Thai text.</span>
+
+<span class="sd">    :param str text: Thai text to be transliterated</span>
+<span class="sd">    :param str engine: &#39;icu&#39;, &#39;ipa&#39;, or &#39;thaig2p&#39; (default)</span>
+
+<span class="sd">    :return: A string of phonetic alphabets indicating</span>
+<span class="sd">             how the input text should be pronounced.</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Options for engines:</span>
+<span class="sd">        * *thaig2p* - (default) Thai Grapheme-to-Phoneme,</span>
+<span class="sd">          output is IPA (require PyTorch)</span>
+<span class="sd">        * *icu* - pyicu, based on International Components for Unicode (ICU)</span>
+<span class="sd">        * *ipa* - epitran, output is International Phonetic Alphabet (IPA)</span>
+<span class="sd">        * *tltk_g2p* - Thai Grapheme-to-Phoneme from\</span>
+<span class="sd">            `TLTK &lt;https://pypi.org/project/tltk/&gt;`_.,</span>
+<span class="sd">        * *iso_11940* - Thai text into Latin characters with ISO 11940.</span>
+<span class="sd">        * *tltk_ipa* - tltk, output is International Phonetic Alphabet (IPA)</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.transliterate import transliterate</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;icu&quot;)</span>
+<span class="sd">        # output: &#39;s̄āmārt̄h&#39;</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;ipa&quot;)</span>
+<span class="sd">        # output: &#39;saːmaːrot&#39;</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;thaig2p&quot;)</span>
+<span class="sd">        # output: &#39;s aː ˩˩˦ . m aː t̚ ˥˩&#39;</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;tltk_ipa&quot;)</span>
+<span class="sd">        # output: &#39;saː5.maːt3&#39;</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;tltk_g2p&quot;)</span>
+<span class="sd">        # output: &#39;saa4~maat2&#39;</span>
+
+<span class="sd">        transliterate(&quot;สามารถ&quot;, engine=&quot;iso_11940&quot;)</span>
+<span class="sd">        # output: &#39;s̄āmārt̄h&#39;</span>
+
+<span class="sd">        transliterate(&quot;ภาพยนตร์&quot;, engine=&quot;icu&quot;)</span>
+<span class="sd">        # output: &#39;p̣hāphyntr̒&#39;</span>
+
+<span class="sd">        transliterate(&quot;ภาพยนตร์&quot;, engine=&quot;ipa&quot;)</span>
+<span class="sd">        # output: &#39;pʰaːpjanot&#39;</span>
+
+<span class="sd">        transliterate(&quot;ภาพยนตร์&quot;, engine=&quot;thaig2p&quot;)</span>
+<span class="sd">        # output: &#39;pʰ aː p̚ ˥˩ . pʰ a ˦˥ . j o n ˧&#39;</span>
+
+<span class="sd">        transliterate(&quot;ภาพยนตร์&quot;, engine=&quot;iso_11940&quot;)</span>
+<span class="sd">        # output: &#39;p̣hāphyntr&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;icu&quot;</span><span class="p">,</span> <span class="s2">&quot;pyicu&quot;</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.pyicu</span> <span class="kn">import</span> <span class="n">transliterate</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;ipa&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.ipa</span> <span class="kn">import</span> <span class="n">transliterate</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk_g2p&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.tltk</span> <span class="kn">import</span> <span class="n">tltk_g2p</span> <span class="k">as</span> <span class="n">transliterate</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk_ipa&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.tltk</span> <span class="kn">import</span> <span class="n">tltk_ipa</span> <span class="k">as</span> <span class="n">transliterate</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;iso_11940&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.iso_11940</span> <span class="kn">import</span> <span class="n">transliterate</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># use default engine: &quot;thaig2p&quot;</span>
+        <span class="kn">from</span> <span class="nn">pythainlp.transliterate.thaig2p</span> <span class="kn">import</span> <span class="n">transliterate</span>
+
+    <span class="k">return</span> <span class="n">transliterate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="pronunciate"><a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.pronunciate">[docs]</a><span class="k">def</span> <span class="nf">pronunciate</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_PRONUNCIATE_ENGINE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function pronunciates Thai word.</span>
+
+<span class="sd">    :param str word: Thai text to be pronunciated</span>
+<span class="sd">    :param str engine: &#39;w2p&#39; (default)</span>
+
+<span class="sd">    :return: A string of Thai letters indicating</span>
+<span class="sd">             how the input text should be pronounced.</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Options for engines:</span>
+<span class="sd">        * *w2p* - Thai Word-to-Phoneme</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.transliterate import pronunciate</span>
+
+<span class="sd">        pronunciate(&quot;สามารถ&quot;, engine=&quot;w2p&quot;)</span>
+<span class="sd">        # output: &#39;สา-มาด&#39;</span>
+
+<span class="sd">        pronunciate(&quot;ภาพยนตร์&quot;, engine=&quot;w2p&quot;)</span>
+<span class="sd">        # output: &#39;พาบ-พะ-ยน&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="c1"># if engine == &quot;w2p&quot;:  # has only one engine</span>
+    <span class="kn">from</span> <span class="nn">pythainlp.transliterate.w2p</span> <span class="kn">import</span> <span class="n">pronunciate</span>
+
+    <span class="k">return</span> <span class="n">pronunciate</span><span class="p">(</span><span class="n">word</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

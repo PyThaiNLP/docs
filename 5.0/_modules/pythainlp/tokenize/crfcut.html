@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pythainlp.tokenize.crfcut &mdash; PyThaiNLP 8b696ac documentation</title>
+  <title>pythainlp.tokenize.crfcut &mdash; PyThaiNLP e034c54 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
@@ -15,7 +15,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=87805c27"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=e7abb781"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -35,7 +35,7 @@
             PyThaiNLP
           </a>
               <div class="version">
-                dev (8b696ac) <br /> Published date: 10/02/2024
+                dev (e034c54) <br /> Published date: 16/05/2024
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -111,7 +111,7 @@
              
   <h1>Source code for pythainlp.tokenize.crfcut</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># SPDX-FileCopyrightText: Copyright 2016-2024 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2024 PyThaiNLP Project</span>
 <span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">CRFCut - Thai sentence segmenter.</span>
@@ -311,11 +311,20 @@
     <span class="n">labs</span> <span class="o">=</span> <span class="n">_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">feat</span><span class="p">)</span>
     <span class="n">labs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;E&quot;</span>  <span class="c1"># make sure it cuts the last sentence</span>
 
+    <span class="c1"># To ensure splitting of sentences using Terminal Punctuation</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toks</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">toks</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)):</span>
+            <span class="n">labs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;E&quot;</span>
+        <span class="c1"># Spaces or empty strings would no longer be treated as end of sentence.</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">labs</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">toks</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">labs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;I&quot;</span>
+
     <span class="n">sentences</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toks</span><span class="p">):</span>
         <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span> <span class="o">+</span> <span class="n">w</span>
-        <span class="k">if</span> <span class="n">labs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span>
+        <span class="c1"># Empty strings should not be part of output.</span>
+        <span class="k">if</span> <span class="n">labs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;E&quot;</span> <span class="ow">and</span> <span class="n">sentence</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
             <span class="n">sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
             <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 

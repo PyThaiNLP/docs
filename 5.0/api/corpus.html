@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pythainlp.corpus &mdash; PyThaiNLP 8b696ac documentation</title>
+  <title>pythainlp.corpus &mdash; PyThaiNLP e034c54 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=87805c27"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e7abb781"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -39,7 +39,7 @@
             PyThaiNLP
           </a>
               <div class="version">
-                dev (8b696ac) <br /> Published date: 10/02/2024
+                dev (e034c54) <br /> Published date: 16/05/2024
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1052,26 +1052,28 @@ The remaining words will be returned.</p>
 <dt class="field-even">Example:<span class="colon">:</span></dt>
 <dd class="field-even"><p></p></dd>
 </dl>
-<p>from pythainlp.corpus import thai_words
-from pythainlp.corpus.util import revise_wordset
-from pythainlp.tokenize.longest import segment</p>
-<p>base_words = thai_words()
-more_words = {</p>
-<blockquote>
-<div><p>“ถวิล อุดล”, “ทองอินทร์ ภูริพัฒน์”, “เตียง ศิริขันธ์”, “จำลอง ดาวเรือง”</p>
-</div></blockquote>
-<p>}
-base_words = base_words.union(more_words)
-dict_trie = Trie(wordlist)</p>
-<p>tokenize = lambda text: segment(text, dict_trie)</p>
-<dl class="simple">
-<dt>training_data = [</dt><dd><p>[str, str, str. …],
-[str, str, str, str, …],
-…</p>
-</dd>
-</dl>
-<p>]</p>
-<p>revised_words = revise_wordset(tokenize, wordlist, training_data)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">thai_words</span>
+<span class="kn">from</span> <span class="nn">pythainlp.corpus.util</span> <span class="kn">import</span> <span class="n">revise_wordset</span>
+<span class="kn">from</span> <span class="nn">pythainlp.tokenize.longest</span> <span class="kn">import</span> <span class="n">segment</span>
+
+<span class="n">base_words</span> <span class="o">=</span> <span class="n">thai_words</span><span class="p">()</span>
+<span class="n">more_words</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ถวิล อุดล&quot;</span><span class="p">,</span> <span class="s2">&quot;ทองอินทร์ ภูริพัฒน์&quot;</span><span class="p">,</span> <span class="s2">&quot;เตียง ศิริขันธ์&quot;</span><span class="p">,</span> <span class="s2">&quot;จำลอง ดาวเรือง&quot;</span>
+<span class="p">}</span>
+<span class="n">base_words</span> <span class="o">=</span> <span class="n">base_words</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">more_words</span><span class="p">)</span>
+<span class="n">dict_trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+
+<span class="n">tokenize</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">dict_trie</span><span class="p">)</span>
+
+<span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="o">.</span> <span class="o">...</span><span class="p">],</span>
+    <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">revised_words</span> <span class="o">=</span> <span class="n">revise_wordset</span><span class="p">(</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">,</span> <span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

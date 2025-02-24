@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.phoneme &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.phoneme</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.phoneme</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2025 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Phonemes util</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">unicodedata</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util.trie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trie</span>
+
+<span class="n">consonants_ipa_nectec</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;kʰ&quot;</span><span class="p">,</span> <span class="s2">&quot;kh&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ŋ&quot;</span><span class="p">,</span> <span class="s2">&quot;ng&quot;</span><span class="p">,</span> <span class="s2">&quot;ng^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tɕ&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tɕʰ&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;j^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;t^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tʰ&quot;</span><span class="p">,</span> <span class="s2">&quot;th&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;n^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;p^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;pʰ&quot;</span><span class="p">,</span> <span class="s2">&quot;ph&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;w^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;z^&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="c1"># ipa, initial, final</span>
+
+<span class="n">monophthong_ipa_nectec</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɛ&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɤ&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;am&quot;</span><span class="p">,</span> <span class="s2">&quot;am^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;aj&quot;</span><span class="p">,</span> <span class="s2">&quot;aj^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;aw&quot;</span><span class="p">,</span> <span class="s2">&quot;aw^&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɔ&quot;</span><span class="p">,</span> <span class="s2">&quot;@&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ii&quot;</span><span class="p">,</span> <span class="s2">&quot;ii&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ee&quot;</span><span class="p">,</span> <span class="s2">&quot;ee&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɛɛ&quot;</span><span class="p">,</span> <span class="s2">&quot;xx&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɯɯ&quot;</span><span class="p">,</span> <span class="s2">&quot;vv&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɤɤ&quot;</span><span class="p">,</span> <span class="s2">&quot;qq&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;aa&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;uu&quot;</span><span class="p">,</span> <span class="s2">&quot;uu&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;oo&quot;</span><span class="p">,</span> <span class="s2">&quot;oo&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;@@&quot;</span><span class="p">),</span>  <span class="c1"># -อ long</span>
+<span class="p">]</span>
+
+<span class="n">diphthong_ipa_nectec</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;ia&quot;</span><span class="p">,</span> <span class="s2">&quot;ia&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɯa&quot;</span><span class="p">,</span> <span class="s2">&quot;va&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ua&quot;</span><span class="p">,</span> <span class="s2">&quot;ua&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;iia&quot;</span><span class="p">,</span> <span class="s2">&quot;iia&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ɯɯa&quot;</span><span class="p">,</span> <span class="s2">&quot;vva&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;uua&quot;</span><span class="p">,</span> <span class="s2">&quot;uua&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">tones_ipa_nectec</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;˧&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;˨˩&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;˥˩&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;˦˥&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;˩˩˦&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">dict_nectec_to_ipa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">consonants_ipa_nectec</span>
+    <span class="o">+</span> <span class="n">monophthong_ipa_nectec</span>
+    <span class="o">+</span> <span class="n">diphthong_ipa_nectec</span>
+    <span class="o">+</span> <span class="n">tones_ipa_nectec</span>
+<span class="p">}</span>
+<span class="n">dict_nectec_to_ipa</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="p">{</span><span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">consonants_ipa_nectec</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="nectec_to_ipa">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.nectec_to_ipa">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">nectec_to_ipa</span><span class="p">(</span><span class="n">pronunciation</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert NECTEC system to IPA system</span>
+
+<span class="sd">    :param str pronunciation: NECTEC phoneme</span>
+<span class="sd">    :return: IPA that is converted</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import nectec_to_ipa</span>
+
+<span class="sd">        print(nectec_to_ipa(&quot;kl-uua-j^-2&quot;))</span>
+<span class="sd">        # output : &#39;kl uua j ˥˩&#39;</span>
+
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    Pornpimon Palingoon, Sumonmas Thatphithakkul. Chapter 4 Speech processing \</span>
+<span class="sd">        and Speech corpus. In: Handbook of Thai Electronic Corpus. \</span>
+<span class="sd">        1st ed. p. 122–56.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">pronunciation</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">ipa</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">dict_nectec_to_ipa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">ipa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_nectec_to_ipa</span><span class="p">[</span><span class="n">part</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ipa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipa</span><span class="p">)</span></div>
+
+
+
+<span class="n">dict_ipa_rtgs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+    <span class="c1"># The conversion of j depends on its position in the syllable.</span>
+    <span class="c1"># But, unfortunately, the current implementation cannot handle both cases.</span>
+    <span class="c1"># To remove confusions without changing the behavior and breaking existing codes,</span>
+    <span class="c1"># it is suggested that the first key-value mapping of j be simply commented out,</span>
+    <span class="c1"># as it would be overridden by the second one and thus never take effect from the beginning.</span>
+    <span class="c1"># See #846 for a more detailed discussion: https://github.com/PyThaiNLP/pythainlp/issues/846</span>
+    <span class="c1"># &quot;j&quot;:&quot;y&quot;,</span>
+    <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kʰ&quot;</span><span class="p">:</span> <span class="s2">&quot;kh&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ŋ&quot;</span><span class="p">:</span> <span class="s2">&quot;ng&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pʰ&quot;</span><span class="p">:</span> <span class="s2">&quot;ph&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tʰ&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tɕ&quot;</span><span class="p">:</span> <span class="s2">&quot;ch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tɕʰ&quot;</span><span class="p">:</span> <span class="s2">&quot;ch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ʔ&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;j&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɛ&quot;</span><span class="p">:</span> <span class="s2">&quot;ae&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɔ&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɯ&quot;</span><span class="p">:</span> <span class="s2">&quot;ue&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɤ&quot;</span><span class="p">:</span> <span class="s2">&quot;oe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aː&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eː&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɛː&quot;</span><span class="p">:</span> <span class="s2">&quot;ae&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iː&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oː&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɔː&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uː&quot;</span><span class="p">:</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɯː&quot;</span><span class="p">:</span> <span class="s2">&quot;ue&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɤː&quot;</span><span class="p">:</span> <span class="s2">&quot;oe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ia&quot;</span><span class="p">:</span> <span class="s2">&quot;ia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ua&quot;</span><span class="p">:</span> <span class="s2">&quot;ua&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɯa&quot;</span><span class="p">:</span> <span class="s2">&quot;uea&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aj&quot;</span><span class="p">:</span> <span class="s2">&quot;ai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aw&quot;</span><span class="p">:</span> <span class="s2">&quot;ao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ew&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɛw&quot;</span><span class="p">:</span> <span class="s2">&quot;aeo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iw&quot;</span><span class="p">:</span> <span class="s2">&quot;io&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɔj&quot;</span><span class="p">:</span> <span class="s2">&quot;io&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uj&quot;</span><span class="p">:</span> <span class="s2">&quot;ui&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aːj&quot;</span><span class="p">:</span> <span class="s2">&quot;ai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aːw&quot;</span><span class="p">:</span> <span class="s2">&quot;ao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eːw&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɛːw&quot;</span><span class="p">:</span> <span class="s2">&quot;aeo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oːj&quot;</span><span class="p">:</span> <span class="s2">&quot;oi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɔːj&quot;</span><span class="p">:</span> <span class="s2">&quot;oi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɤːj&quot;</span><span class="p">:</span> <span class="s2">&quot;oei&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iaw&quot;</span><span class="p">:</span> <span class="s2">&quot;iao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uaj&quot;</span><span class="p">:</span> <span class="s2">&quot;uai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ɯaj&quot;</span><span class="p">:</span> <span class="s2">&quot;ueai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.&quot;</span><span class="p">:</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">dict_ipa_rtgs_final</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">}</span>
+<span class="n">trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dict_ipa_rtgs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_ipa_rtgs_final</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">ipa_cut</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">custom_dict</span><span class="o">=</span><span class="n">trie</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;newmm&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ipa_to_rtgs">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.ipa_to_rtgs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_to_rtgs</span><span class="p">(</span><span class="n">ipa</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert IPA system to The Royal Thai General System of Transcription (RTGS)</span>
+
+<span class="sd">    Docs: https://en.wikipedia.org/wiki/Help:IPA/Thai</span>
+
+<span class="sd">    :param str ipa: IPA phoneme</span>
+<span class="sd">    :return: The RTGS that is converted, according to rules listed in the Wikipedia page</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import ipa_to_rtgs</span>
+
+<span class="sd">        print(ipa_to_rtgs(&quot;kluaj&quot;))</span>
+<span class="sd">        # output : &#39;kluai&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rtgs_parts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">ipa_parts</span> <span class="o">=</span> <span class="n">ipa_cut</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">ipa</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ipa_part</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ipa_parts</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">ipa_parts</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ipa_part</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_ipa_rtgs_final</span><span class="p">):</span>
+            <span class="n">rtgs_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_ipa_rtgs_final</span><span class="p">[</span><span class="n">ipa_part</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">ipa_part</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_ipa_rtgs</span><span class="p">):</span>
+            <span class="n">rtgs_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_ipa_rtgs</span><span class="p">[</span><span class="n">ipa_part</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rtgs_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipa_part</span><span class="p">)</span>
+
+    <span class="n">rtgs</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rtgs_parts</span><span class="p">)</span>
+    <span class="n">rtgs</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;NFKD&quot;</span><span class="p">,</span> <span class="n">rtgs</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rtgs</span></div>
+
+
+
+<div class="viewcode-block" id="remove_tone_ipa">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.remove_tone_ipa">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_tone_ipa</span><span class="p">(</span><span class="n">ipa</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove Thai Tones from IPA system</span>
+
+<span class="sd">    :param str ipa: IPA phoneme</span>
+<span class="sd">    :return: IPA phoneme with tones removed</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import remove_tone_ipa</span>
+
+<span class="sd">        print(remove_tone_ipa(&quot;laː˦˥.sa˨˩.maj˩˩˦&quot;))</span>
+<span class="sd">        # output : laː.sa.maj</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_list_tone</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;˩˩˦&quot;</span><span class="p">,</span> <span class="s2">&quot;˥˩&quot;</span><span class="p">,</span> <span class="s2">&quot;˨˩&quot;</span><span class="p">,</span> <span class="s2">&quot;˦˥&quot;</span><span class="p">,</span> <span class="s2">&quot;˧&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">tone</span> <span class="ow">in</span> <span class="n">_list_tone</span><span class="p">:</span>
+        <span class="n">ipa</span> <span class="o">=</span> <span class="n">ipa</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tone</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ipa</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

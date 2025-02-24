@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.pronounce &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.pronounce</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.pronounce</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2025 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_words</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.khavee</span><span class="w"> </span><span class="kn">import</span> <span class="n">KhaveeVerifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">syllable_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_consonants</span><span class="p">,</span> <span class="n">thai_tonemarks</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove_tonemark</span>
+
+<span class="n">kv</span> <span class="o">=</span> <span class="n">KhaveeVerifier</span><span class="p">()</span>
+<span class="n">all_thai_words_dict</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="rhyme">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.rhyme">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rhyme</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find Thai rhyme</span>
+
+<span class="sd">    :param str word: A Thai word</span>
+<span class="sd">    :return: All list Thai rhyme words</span>
+<span class="sd">    :rtype: List[str]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import rhyme</span>
+
+<span class="sd">        print(rhyme(&quot;จีบ&quot;))</span>
+<span class="sd">        # output: [&#39;กลีบ&#39;, &#39;กีบ&#39;, &#39;ครีบ&#39;, ...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">all_thai_words_dict</span>
+    <span class="n">list_sumpus</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">all_thai_words_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">all_thai_words_dict</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">syllable_tokenize</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_thai_words_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kv</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">list_sumpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_sumpus</span><span class="p">)</span></div>
+
+
+
+<span class="n">thai_vowel</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="s2">&quot;อะ,อา,อิ,อี,อึ,อื,อุ,อู,เอะ,เอ,แอะ,แอ,เอียะ,เอีย,เอือะ,เอือ,อัวะ,อัว,โอะ,&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;โอ,เอาะ,ออ,เออะ,เออ,อำ,ใอ,ไอ,เอา,ฤ,ฤๅ,ฦ,ฦๅ&quot;</span>
+<span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">thai_vowel_all</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;([ก-ฮ])ะ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;([ก-ฮ])า&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อา&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;อิ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">),</span> <span class="s2">&quot;อิ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;อี&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">),</span> <span class="s2">&quot;อี&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;อึ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;อึ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;อื&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;อื&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;อุ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;อุ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;อู&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;อู&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อ&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;เอะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;แอะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1แอะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;แอ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1แอ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอียะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอียะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอีย&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอีย&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอือะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอือะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอือ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอือ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;อัวะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อัวะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;อัว&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อัว&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;โอะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1โอะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;โอ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1โอ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอาะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอาะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ออ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ออ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เออะ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เออะ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เออ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เออ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;อำ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อำ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ใอ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ใอ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;ไอ&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1ไอ&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;เอา&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอา&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;อั&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;อ&quot;</span><span class="p">,</span> <span class="s2">&quot;([ก-ฮ])&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1อะ&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">thai_vowel_all</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="thai_consonant_to_spelling">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thai_consonant_to_spelling">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_consonant_to_spelling</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai consonants to spelling</span>
+
+<span class="sd">    :param str c: A Thai consonant</span>
+<span class="sd">    :return: spelling</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import thai_consonant_to_spelling</span>
+
+<span class="sd">        print(tone_to_spelling(&quot;ก&quot;))</span>
+<span class="sd">        # output: กอ</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_consonants</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;อ&quot;</span>
+    <span class="k">return</span> <span class="n">c</span></div>
+
+
+
+<div class="viewcode-block" id="tone_to_spelling">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.tone_to_spelling">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tone_to_spelling</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai tonemarks to spelling</span>
+
+<span class="sd">    :param str t: A Thai tonemarks</span>
+<span class="sd">    :return: spelling</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import tone_to_spelling</span>
+
+<span class="sd">        print(tone_to_spelling(&quot;่&quot;)) # ไม้เอก</span>
+<span class="sd">        # output: ไม้เอก</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;่&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ไม้เอก&quot;</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;้&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ไม้โท&quot;</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;๊&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ไม้ตรี&quot;</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;๋&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ไม้จัตวา&quot;</span>
+    <span class="k">return</span> <span class="n">t</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">spelling</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai word to spelling</span>
+
+<span class="sd">    This funnction support Thai root word only.</span>
+
+<span class="sd">    :param str word: A Thai word</span>
+<span class="sd">    :return: spelling</span>
+<span class="sd">    :rtype: List[str]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.util import spelling</span>
+
+<span class="sd">        print(spelling(&quot;เรียน&quot;))</span>
+<span class="sd">        # output: [&#39;รอ&#39;, &#39;เอีย&#39;, &#39;นอ&#39;, &#39;เรียน&#39;]</span>
+
+<span class="sd">        print(spelling(&quot;เฝ้า)</span>
+<span class="sd">        # output: [&#39;ฝอ&#39;, &#39;เอา&#39;, &#39;เฝา&#39;, &#39;ไม้โท&#39;, &#39;เฝ้า&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">thai_vowel_tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span>
+        <span class="n">custom_dict</span><span class="o">=</span><span class="n">thai_vowel</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">),</span>
+        <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;longest&quot;</span>
+    <span class="p">)</span>
+    <span class="n">word_pre</span> <span class="o">=</span> <span class="n">remove_tonemark</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;็&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">tone</span> <span class="o">=</span> <span class="p">[</span><span class="n">tone_to_spelling</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thai_tonemarks</span><span class="p">]</span>
+    <span class="n">word_output</span> <span class="o">=</span> <span class="n">word_pre</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">thai_vowel_all</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">word_pre</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">U</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;็&quot;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">&quot;เ([ก-ฮ])&quot;</span><span class="p">:</span>
+                <span class="n">word_output</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1เอะ&quot;</span><span class="p">,</span> <span class="n">word_pre</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">word_output</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">word_pre</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="n">list_word_output</span> <span class="o">=</span> <span class="n">thai_vowel_tokenizer</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">word_output</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">thai_consonant_to_spelling</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_word_output</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;์&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">i</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="n">word_pre</span> <span class="o">==</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output</span> <span class="o">+</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">tone</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="n">output</span> <span class="o">+</span> <span class="p">[</span><span class="n">word_pre</span><span class="p">,</span> <span class="n">tone</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">word</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="s2">&quot;็&quot;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output</span> <span class="o">+</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">output</span> <span class="o">+</span> <span class="p">[</span><span class="n">word_pre</span><span class="p">,</span> <span class="n">word</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

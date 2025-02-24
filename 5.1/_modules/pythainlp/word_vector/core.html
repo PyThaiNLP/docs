@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.word_vector.core &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.word_vector.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.word_vector.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2025 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">KeyedVectors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models.keyedvectors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2VecKeyedVectors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">zeros</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_corpus_path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">THAI2FIT_TOKENIZER</span><span class="p">,</span> <span class="n">word_tokenize</span>
+
+<span class="n">WV_DIM</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># word vector dimension</span>
+
+<span class="n">_MODEL_NAME</span> <span class="o">=</span> <span class="s2">&quot;thai2fit_wv&quot;</span>
+
+<span class="n">_TK_SP</span> <span class="o">=</span> <span class="s2">&quot;xxspace&quot;</span>
+<span class="n">_TK_EOL</span> <span class="o">=</span> <span class="s2">&quot;xxeol&quot;</span>
+
+
+<div class="viewcode-block" id="WordVector">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">WordVector</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Word Vector class</span>
+
+<span class="sd">    :param str model_name: model name</span>
+
+<span class="sd">    **Options for model_name**</span>
+<span class="sd">        * *thai2fit_wv* (default) - word vector from thai2fit</span>
+<span class="sd">        * *ltw2v* - word vector from LTW2V: The Large Thai Word2Vec v0.1</span>
+<span class="sd">        * *ltw2v_v1.0_15_window* - word vector from LTW2V v1.0 and 15 window</span>
+<span class="sd">        * *ltw2v_v1.0_5_window* - word vector from LTW2V v1.0 and 5 window</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WordVector.__init__">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;thai2fit_wv&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Word Vector class</span>
+
+<span class="sd">        :param str model_name: model name</span>
+
+<span class="sd">        **Options for model_name**</span>
+<span class="sd">            * *thai2fit_wv* (default) - word vector from thai2fit</span>
+<span class="sd">            * *ltw2v* - word vector from LTW2V: The Large Thai Word2Vec</span>
+<span class="sd">            * *ltw2v_v1.0_15_window* - word2vec from LTW2V 1.0 and 15 window</span>
+<span class="sd">            * *ltw2v_v1.0_5_window* - word2vec from LTW2V v1.0 and 5 window</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_wordvector</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WordVector.load_wordvector">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.load_wordvector">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_wordvector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load word vector model.</span>
+
+<span class="sd">        :param str model_name: model name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span>
+            <span class="n">get_corpus_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">),</span>
+            <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">unicode_errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">WV_DIM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">vector_size</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">==</span> <span class="s2">&quot;thai2fit_wv&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenize</span> <span class="o">=</span> <span class="n">THAI2FIT_TOKENIZER</span><span class="o">.</span><span class="n">word_tokenize</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenize</span> <span class="o">=</span> <span class="n">word_tokenize</span></div>
+
+
+<div class="viewcode-block" id="WordVector.get_model">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.get_model">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Word2VecKeyedVectors</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get word vector model.</span>
+
+<span class="sd">        :return: `gensim` word2vec model</span>
+<span class="sd">        :rtype: gensim.models.keyedvectors.Word2VecKeyedVectors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span></div>
+
+
+<div class="viewcode-block" id="WordVector.doesnt_match">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.doesnt_match">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">doesnt_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns one word that is mostly unrelated to other words</span>
+<span class="sd">        in the list. We use the function :func:`doesnt_match`</span>
+<span class="sd">        from :mod:`gensim`.</span>
+
+<span class="sd">        :param list words: a list of words</span>
+<span class="sd">        :raises KeyError: if there is any word in `positive` or `negative` that is</span>
+<span class="sd">                          not in the vocabulary of the model.</span>
+<span class="sd">        :return: the word is that mostly unrelated</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Note:</span>
+<span class="sd">            * If a word in `words` is not in the vocabulary, :class:`KeyError`</span>
+<span class="sd">              will be raised.</span>
+
+<span class="sd">        :Example:</span>
+<span class="sd">        Pick the word &quot;พริกไทย&quot; (name of food) out of the list of meals</span>
+<span class="sd">        (&quot;อาหารเช้า&quot;, &quot;อาหารเที่ยง&quot;, &quot;อาหารเย็น&quot;).</span>
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; words = [&#39;อาหารเช้า&#39;, &#39;อาหารเที่ยง&#39;, &#39;อาหารเย็น&#39;, &#39;พริกไทย&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; wv.doesnt_match(words)</span>
+<span class="sd">        พริกไทย</span>
+
+<span class="sd">        Pick the word &quot;เรือ&quot; (name of vehicle) out of the list of words</span>
+<span class="sd">        related to occupation (&quot;ดีไซน์เนอร์&quot;, &quot;พนักงานเงินเดือน&quot;, &quot;หมอ&quot;).</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; words = [&#39;ดีไซน์เนอร์&#39;, &#39;พนักงานเงินเดือน&#39;, &#39;หมอ&#39;, &#39;เรือ&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; wv.doesnt_match(words)</span>
+<span class="sd">        เรือ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">doesnt_match</span><span class="p">(</span><span class="n">words</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WordVector.most_similar_cosmul">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.most_similar_cosmul">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">most_similar_cosmul</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">positive</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">negative</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function finds the top-10 words that are most similar with respect</span>
+<span class="sd">        to two lists of words labeled as positive and negative.</span>
+<span class="sd">        The top-10 most similar words are obtained using multiplication</span>
+<span class="sd">        combination objective from Omer Levy and Yoav Goldberg</span>
+<span class="sd">        [OmerLevy_YoavGoldberg_2014]_.</span>
+
+<span class="sd">        We use the function :func:`gensim.most_similar_cosmul` directly from</span>
+<span class="sd">        :mod:`gensim`.</span>
+
+<span class="sd">        :param list positive: a list of words to add</span>
+<span class="sd">        :param list negative: a list of words to subtract</span>
+
+<span class="sd">        :raises KeyError: if there is any word in `positive` or `negative` that is</span>
+<span class="sd">                          not in the vocabulary of the model.</span>
+<span class="sd">        :return: list of top-10 most similar words and its similarity score</span>
+<span class="sd">        :rtype:  list[tuple[str, float]]</span>
+
+<span class="sd">        :Note:</span>
+<span class="sd">            *  With a single word in the positive list, it will find the</span>
+<span class="sd">               most similar words to the word given (similar</span>
+<span class="sd">               to :func:`gensim.most_similar`)</span>
+<span class="sd">            *  If a word in `positive` or `negative` is not in the vocabulary,</span>
+<span class="sd">               :class:`KeyError` will be raised.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        Find the **top-10** most similar words to the word: &quot;แม่น้ำ&quot;.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; list_positive = [&#39;แม่น้ำ&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_negative = []</span>
+<span class="sd">        &gt;&gt;&gt; wv.most_similar_cosmul(list_positive, list_negative)</span>
+<span class="sd">        [(&#39;ลำน้ำ&#39;, 0.8206598162651062), (&#39;ทะเลสาบ&#39;, 0.775945782661438),</span>
+<span class="sd">        (&#39;ลุ่มน้ำ&#39;, 0.7490593194961548), (&#39;คลอง&#39;, 0.7471904754638672),</span>
+<span class="sd">        (&#39;ปากแม่น้ำ&#39;, 0.7354257106781006), (&#39;ฝั่งแม่น้ำ&#39;, 0.7120099067687988),</span>
+<span class="sd">        (&#39;ทะเล&#39;, 0.7030453681945801), (&#39;ริมแม่น้ำ&#39;, 0.7015200257301331),</span>
+<span class="sd">        (&#39;แหล่งน้ำ&#39;, 0.6997432112693787), (&#39;ภูเขา&#39;, 0.6960948705673218)]</span>
+
+<span class="sd">        Find the **top-10** most similar words to the words: &quot;นายก&quot;,</span>
+<span class="sd">        &quot;รัฐมนตรี&quot;, and &quot;ประเทศ&quot;.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; list_positive = [&#39;นายก&#39;, &#39;รัฐมนตรี&#39;, &#39;ประเทศ&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_negative = []</span>
+<span class="sd">        &gt;&gt;&gt; wv.most_similar_cosmul(list_positive, list_negative)</span>
+<span class="sd">        [(&#39;รองนายกรัฐมนตรี&#39;, 0.2730445861816406),</span>
+<span class="sd">        (&#39;เอกอัครราชทูต&#39;, 0.26500266790390015),</span>
+<span class="sd">        (&#39;นายกรัฐมนตรี&#39;, 0.2649088203907013),</span>
+<span class="sd">        (&#39;ผู้ว่าราชการจังหวัด&#39;, 0.25119125843048096),</span>
+<span class="sd">        (&#39;ผู้ว่าการ&#39;, 0.2510434687137604), (&#39;เลขาธิการ&#39;, 0.24824175238609314),</span>
+<span class="sd">        (&#39;ผู้ว่า&#39;, 0.2453523576259613), (&#39;ประธานกรรมการ&#39;, 0.24147476255893707),</span>
+<span class="sd">        (&#39;รองประธาน&#39;, 0.24123257398605347), (&#39;สมาชิกวุฒิสภา&#39;,</span>
+<span class="sd">        0.2405330240726471)]</span>
+
+<span class="sd">        Find the **top-10** most similar words when having **only** positive</span>
+<span class="sd">        list and **both** positive and negative lists.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; list_positive = [&#39;ประเทศ&#39;, &#39;ไทย&#39;, &#39;จีน&#39;, &#39;ญี่ปุ่น&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_negative = []</span>
+<span class="sd">        &gt;&gt;&gt; wv.most_similar_cosmul(list_positive, list_negative)</span>
+<span class="sd">        [(&#39;ประเทศจีน&#39;, 0.22022421658039093), (&#39;เกาหลี&#39;, 0.2196873426437378),</span>
+<span class="sd">        (&#39;สหรัฐอเมริกา&#39;, 0.21660110354423523),</span>
+<span class="sd">        (&#39;ประเทศญี่ปุ่น&#39;, 0.21205860376358032),</span>
+<span class="sd">        (&#39;ประเทศไทย&#39;, 0.21159221231937408), (&#39;เกาหลีใต้&#39;,</span>
+<span class="sd">        0.20321202278137207),</span>
+<span class="sd">        (&#39;อังกฤษ&#39;, 0.19610872864723206), (&#39;ฮ่องกง&#39;, 0.1928885132074356),</span>
+<span class="sd">        (&#39;ฝรั่งเศส&#39;, 0.18383873999118805), (&#39;พม่า&#39;, 0.18369348347187042)]</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; list_positive = [&#39;ประเทศ&#39;, &#39;ไทย&#39;, &#39;จีน&#39;, &#39;ญี่ปุ่น&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_negative = [&#39;อเมริกา&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; wv.most_similar_cosmul(list_positive, list_negative)</span>
+<span class="sd">        [(&#39;ประเทศไทย&#39;, 0.3278159201145172), (&#39;เกาหลี&#39;, 0.3201899230480194),</span>
+<span class="sd">        (&#39;ประเทศจีน&#39;, 0.31755179166793823), (&#39;พม่า&#39;, 0.30845439434051514),</span>
+<span class="sd">        (&#39;ประเทศญี่ปุ่น&#39;, 0.306713730096817),</span>
+<span class="sd">        (&#39;เกาหลีใต้&#39;, 0.3003999888896942),</span>
+<span class="sd">        (&#39;ลาว&#39;, 0.2995176911354065), (&#39;คนไทย&#39;, 0.2885020673274994),</span>
+<span class="sd">        (&#39;เวียดนาม&#39;, 0.2878379821777344), (&#39;ชาวไทย&#39;, 0.28480708599090576)]</span>
+
+<span class="sd">        The function returns :class:`KeyError` when the term &quot;เมนูอาหารไทย&quot;</span>
+<span class="sd">        is not in the vocabulary.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; list_positive = [&#39;เมนูอาหารไทย&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_negative = []</span>
+<span class="sd">        &gt;&gt;&gt; wv.most_similar_cosmul(list_positive, list_negative)</span>
+<span class="sd">        KeyError: &quot;word &#39;เมนูอาหารไทย&#39; not in vocabulary&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">most_similar_cosmul</span><span class="p">(</span>
+            <span class="n">positive</span><span class="o">=</span><span class="n">positive</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="n">negative</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WordVector.similarity">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.similarity">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function computes cosine similarity between two words.</span>
+
+<span class="sd">        :param str word1: first word to be compared with</span>
+<span class="sd">        :param str word2: second word to be compared with</span>
+
+<span class="sd">        :raises KeyError: if either `word1` or `word2` is not in the</span>
+<span class="sd">                          vocabulary of the model.</span>
+<span class="sd">        :return: the cosine similarity between the two word vectors</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        :Note:</span>
+<span class="sd">            *  If a word in `word1` or `word2` is not in the vocabulary,</span>
+<span class="sd">               :class:`KeyError` will be raised.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        Compute consine similarity between two words: &quot;รถไฟ&quot; and &quot;รถไฟฟ้า&quot;</span>
+<span class="sd">        (train and electric train).</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; wv.similarity(&#39;รถไฟ&#39;, &#39;รถไฟฟ้า&#39;)</span>
+<span class="sd">        0.43387136</span>
+
+
+<span class="sd">        Compute consine similarity between two words: &quot;เสือดาว&quot; and &quot;รถไฟฟ้า&quot;</span>
+<span class="sd">        (leopard and electric train).</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; wv.similarity(&#39;เสือดาว&#39;, &#39;รถไฟฟ้า&#39;)</span>
+<span class="sd">        0.04300258</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WordVector.sentence_vectorizer">
+<a class="viewcode-back" href="../../../api/word_vector.html#pythainlp.word_vector.WordVector.sentence_vectorizer">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sentence_vectorizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function converts a Thai sentence into vector.</span>
+<span class="sd">        Specifically, it first tokenizes that text and map each tokenized word</span>
+<span class="sd">        with the word vectors from the model.</span>
+<span class="sd">        Then, word vectors are aggregated into one vector of 300 dimension</span>
+<span class="sd">        by calculating either mean or summation of all word vectors.</span>
+
+<span class="sd">        :param str text: text input</span>
+<span class="sd">        :param bool use_mean: if `True` aggregate word vectors with mean of all</span>
+<span class="sd">                                 word vectors. Otherwise, aggregate with</span>
+<span class="sd">                                 summation of all word vectors</span>
+
+<span class="sd">        :return: 300-dimension vector representing the given sentence</span>
+<span class="sd">                 in form of :mod:`numpy` array</span>
+<span class="sd">        :rtype: :class:`numpy.ndarray((1,300))`</span>
+
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        Vectorize the sentence, &quot;อ้วนเสี้ยวเข้ายึดแคว้นกิจิ๋ว ในปี พ.ศ. 735&quot;,</span>
+<span class="sd">        into one sentence vector with two aggregation methods: mean</span>
+<span class="sd">        and summation.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.word_vector import WordVector</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv = WordVector()</span>
+<span class="sd">        &gt;&gt;&gt; sentence = &#39;อ้วนเสี้ยวเข้ายึดแคว้นกิจิ๋ว ในปี พ.ศ. 735&#39;</span>
+<span class="sd">        &gt;&gt;&gt; wv.sentence_vectorizer(sentence, use_mean=True)</span>
+<span class="sd">        array([[-0.00421414, -0.08881307,  0.05081136, -0.05632929,</span>
+<span class="sd">             -0.06607185, 0.03059357, -0.113882  , -0.00074836,  0.05035743,</span>
+<span class="sd">             0.02914307,</span>
+<span class="sd">             ...</span>
+<span class="sd">            0.02893357,  0.11327957,  0.04562086, -0.05015393,  0.11641257,</span>
+<span class="sd">            0.32304936, -0.05054322,  0.03639471, -0.06531371,  0.05048079]])</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; wv.sentence_vectorizer(sentence, use_mean=False)</span>
+<span class="sd">        array([[-0.05899798, -1.24338295,  0.711359  , -0.78861002,</span>
+<span class="sd">             -0.92500597, 0.42831   , -1.59434797, -0.01047703,  0.705004</span>
+<span class="sd">            ,  0.40800299,</span>
+<span class="sd">            ...</span>
+<span class="sd">            0.40506999,  1.58591403,  0.63869202, -0.702155  ,  1.62977601,</span>
+<span class="sd">            4.52269109, -0.70760502,  0.50952601, -0.914392  ,  0.70673105]])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">WV_DIM</span><span class="p">))</span>
+
+        <span class="n">words</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">len_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">len_words</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">vec</span>
+
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">==</span> <span class="s2">&quot;thai2fit_wv&quot;</span><span class="p">:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">_TK_SP</span>
+            <span class="k">elif</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">==</span> <span class="s2">&quot;thai2fit_wv&quot;</span><span class="p">:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">_TK_EOL</span>
+
+            <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">index_to_key</span><span class="p">:</span>
+                <span class="n">vec</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_vector</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">use_mean</span><span class="p">:</span>
+            <span class="n">vec</span> <span class="o">/=</span> <span class="n">len_words</span>
+
+        <span class="k">return</span> <span class="n">vec</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.parse &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.phayathaibert" href="phayathaibert.html" />
+    <link rel="prev" title="pythainlp.morpheme" href="morpheme.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.parse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-parsing">dependency_parsing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.parse.dependency_parsing"><code class="docutils literal notranslate"><span class="pre">dependency_parsing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.parse</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/parse.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-parse">
+<h1>pythainlp.parse<a class="headerlink" href="#pythainlp-parse" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">pythainlp.parse</span></code> module provides dependency parsing for the Thai language. Dependency parsing is a fundamental task in natural language processing that involves identifying the grammatical relationships between words in a sentence, which helps to analyze sentence structure and meaning.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<section id="dependency-parsing">
+<h3>dependency_parsing<a class="headerlink" href="#dependency-parsing" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.parse.dependency_parsing">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.parse.</span></span><span class="sig-name descname"><span class="pre">dependency_parsing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'str'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'esupar'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/parse/core.html#dependency_parsing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.parse.dependency_parsing" title="Link to this definition"></a></dt>
+<dd><p>Dependency Parsing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – text to apply dependency parsing to</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – model for using with engine         (for esupar and transformers_ud)</p></li>
+<li><p><strong>tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – output type (str or list)</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – the name of dependency parser</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str (conllu) or List</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[List[List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>]], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>]</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Options for engine</strong></dt><dd><ul class="simple">
+<li><p><em>esupar</em> (default) - Tokenizer, POS tagger and Dependency parser             using BERT/RoBERTa/DeBERTa models. <a class="reference external" href="https://github.com/KoichiYasuoka/esupar">GitHub</a></p></li>
+<li><p><em>spacy_thai</em> - Tokenizer, POS tagger, and dependency parser             for the Thai language, using Universal Dependencies.             <a class="reference external" href="https://github.com/KoichiYasuoka/spacy-thai">GitHub</a></p></li>
+<li><p><em>transformers_ud</em> - TransformersUD             <a class="reference external" href="https://github.com/KoichiYasuoka/">GitHub</a></p></li>
+<li><p><em>ud_goeswith</em> - POS tagging and dependency parsing             using <cite>goeswith</cite> for subwords</p></li>
+</ul>
+</dd>
+<dt><strong>Options for model (esupar engine)</strong></dt><dd><ul class="simple">
+<li><p><em>th</em> (default) - KoichiYasuoka/roberta-base-thai-spm-upos model             <a class="reference external" href="https://huggingface.co/KoichiYasuoka/roberta-base-thai-spm-upos">Huggingface</a></p></li>
+<li><p><em>KoichiYasuoka/deberta-base-thai-upos</em> - DeBERTa(V2) model             pre-trained on Thai Wikipedia texts for POS tagging and             dependency parsing <a class="reference external" href="https://huggingface.co/KoichiYasuoka/deberta-base-thai-upos">Huggingface</a></p></li>
+<li><p><em>KoichiYasuoka/roberta-base-thai-syllable-upos</em> - RoBERTa model             pre-trained on Thai Wikipedia texts for POS tagging and             dependency parsing. (syllable level) <a class="reference external" href="https://huggingface.co/KoichiYasuoka/roberta-base-thai-syllable-upos">Huggingface</a></p></li>
+<li><p><em>KoichiYasuoka/roberta-base-thai-char-upos</em> - RoBERTa model             pre-trained on Thai Wikipedia texts for POS tagging             and dependency parsing. (char level) <a class="reference external" href="https://huggingface.co/KoichiYasuoka/roberta-base-thai-char-upos">Huggingface</a></p></li>
+</ul>
+</dd>
+</dl>
+<p>If you want to train models for esupar, you can read     <a class="reference external" href="https://github.com/KoichiYasuoka/esupar">Huggingface</a></p>
+<dl class="simple">
+<dt><strong>Options for model (transformers_ud engine)</strong></dt><dd><ul class="simple">
+<li><p><em>KoichiYasuoka/deberta-base-thai-ud-head</em> (default) -             DeBERTa(V2) model pretrained on Thai Wikipedia texts             for dependency parsing (head-detection using Universal             Dependencies) and question-answering, derived from             deberta-base-thai.             trained by th_blackboard.conll. <a class="reference external" href="https://huggingface.co/KoichiYasuoka/deberta-base-thai-ud-head">Huggingface</a></p></li>
+<li><p><em>KoichiYasuoka/roberta-base-thai-spm-ud-head</em> -             roberta model pretrained on Thai Wikipedia texts             for dependency parsing. <a class="reference external" href="https://huggingface.co/KoichiYasuoka/roberta-base-thai-spm-ud-head">Huggingface</a></p></li>
+</ul>
+</dd>
+<dt><strong>Options for model (ud_goeswith engine)</strong></dt><dd><ul class="simple">
+<li><p><em>KoichiYasuoka/deberta-base-thai-ud-goeswith</em> (default) -             This is a DeBERTa(V2) model pre-trained on Thai Wikipedia             texts for POS tagging and dependency parsing (using goeswith for subwords)             <a class="reference external" href="https://huggingface.co/KoichiYasuoka/deberta-base-thai-ud-goeswith">Huggingface</a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">dependency_parsing</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dependency_parsing</span><span class="p">(</span><span class="s2">&quot;ผมเป็นคนดี&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;esupar&quot;</span><span class="p">))</span>
+<span class="c1"># output:</span>
+<span class="c1"># 1       ผม      _       PRON    _       _       3       nsubj   _       SpaceAfter=No</span>
+<span class="c1"># 2       เป็น     _       VERB    _       _       3       cop     _       SpaceAfter=No</span>
+<span class="c1"># 3       คน      _       NOUN    _       _       0       root    _       SpaceAfter=No</span>
+<span class="c1"># 4       ดี       _       VERB    _       _       3       acl     _       SpaceAfter=No</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dependency_parsing</span><span class="p">(</span><span class="s2">&quot;ผมเป็นคนดี&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;spacy_thai&quot;</span><span class="p">))</span>
+<span class="c1"># output:</span>
+<span class="c1"># 1       ผม              PRON    PPRS    _       2       nsubj   _       SpaceAfter=No</span>
+<span class="c1"># 2       เป็น             VERB    VSTA    _       0       ROOT    _       SpaceAfter=No</span>
+<span class="c1"># 3       คนดี             NOUN    NCMN    _       2       obj     _       SpaceAfter=No</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>The <cite>dependency_parsing</cite> function is the core component of the <cite>pythainlp.parse</cite> module. It offers dependency parsing capabilities for the Thai language. Given a Thai sentence as input, this function parses the sentence to identify the grammatical relationships between words, creating a dependency tree that represents the sentence’s structure.</p>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>To use the <cite>dependency_parsing</cite> function for Thai dependency parsing, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Import the <cite>pythainlp.parse</cite> module.</p></li>
+<li><p>Use the <cite>dependency_parsing</cite> function with a Thai sentence as input.</p></li>
+<li><p>The function will return the dependency parsing results, which include information about the grammatical relationships between words.</p></li>
+</ol>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p>Here’s a basic example of how to use the <cite>dependency_parsing</cite> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">dependency_parsing</span>
+
+<span class="c1"># Input Thai sentence</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;พี่น้องชาวบ้านกำลังเลี้ยงสตางค์ในสวน&quot;</span>
+
+<span class="c1"># Perform dependency parsing</span>
+<span class="n">parsing_result</span> <span class="o">=</span> <span class="n">dependency_parsing</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="c1"># Print the parsing result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsing_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="morpheme.html" class="btn btn-neutral float-left" title="pythainlp.morpheme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="phayathaibert.html" class="btn btn-neutral float-right" title="pythainlp.phayathaibert" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

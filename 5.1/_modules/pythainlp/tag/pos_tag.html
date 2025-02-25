@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tag.pos_tag &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.tag.pos_tag</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tag.pos_tag</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2025 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<div class="viewcode-block" id="pos_tag">
+<a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.pos_tag">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pos_tag</span><span class="p">(</span>
+    <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;perceptron&quot;</span><span class="p">,</span> <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;orchid&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Marks words with part-of-speech (POS) tags, such as &#39;NOUN&#39; and &#39;VERB&#39;.</span>
+
+<span class="sd">    :param list words: a list of tokenized words</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *perceptron* - perceptron tagger (default)</span>
+<span class="sd">        * *unigram* - unigram tagger</span>
+<span class="sd">        * *wangchanberta* - wangchanberta model.</span>
+<span class="sd">        * *tltk* - TLTK: Thai Language Toolkit (support TNC corpora only.\</span>
+<span class="sd">            If you choose other corpora, they will be converted to TNC corpora.)</span>
+<span class="sd">    :param str corpus: the corpus that is used to create the language model for tagger</span>
+<span class="sd">        * *orchid* - `ORCHID \</span>
+<span class="sd">            &lt;https://www.academia.edu/9127599/Thai_Treebank&gt;`_ corpus, \</span>
+<span class="sd">            text from Thai academic articles (default)</span>
+<span class="sd">        * *orchid_ud* - ORCHID text, with tags mapped to Universal POS tags</span>
+<span class="sd">        * *blackboard* - `blackboard treebank &lt;https://bitbucket.org/kaamanita/blackboard-treebank/src/master/&gt;`_</span>
+<span class="sd">        * *blackboard_ud* - blackboard text, with tags mapped to Universal POS tag \</span>
+<span class="sd">            from `Universal Dependencies &lt;https://universaldependencies.org/&gt;`</span>
+<span class="sd">        * *pud* - `Parallel Universal Dependencies (PUD)\</span>
+<span class="sd">            &lt;https://github.com/UniversalDependencies/UD_Thai-PUD&gt;`_ \</span>
+<span class="sd">            treebanks, natively use Universal POS tags</span>
+<span class="sd">        * *tdtb* - `Thai Discourse Treebank \</span>
+<span class="sd">            &lt;https://github.com/nlp-chula/thai-discourse-treebank/tree/main&gt;`_ \</span>
+<span class="sd">            , natively use Universal POS tags</span>
+<span class="sd">        * *tnc* - Thai National Corpus (support tltk engine only)</span>
+<span class="sd">        * *tdtb* - `Thai Discourse Treebank &lt;https://github.com/nlp-chula/thai-discourse-treebank&gt;`_</span>
+<span class="sd">        * *tud* - `Thai Universal Dependency Treebank (TUD)\</span>
+<span class="sd">            &lt;https://github.com/nlp-chula/TUD&gt;`_ \</span>
+<span class="sd">    :return: a list of tuples (word, POS tag)</span>
+<span class="sd">    :rtype: list[tuple[str, str]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Tag words with corpus `orchid` (default)::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PPRS&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;ชีวิต&#39;, &#39;NCMN&#39;), (&#39;รอด&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ใน&#39;, &#39;RPRE&#39;), (&#39;อาคาร&#39;, &#39;NCMN&#39;), (&#39;หลบภัย&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ของ&#39;, &#39;RPRE&#39;), (&#39;นายก&#39;, &#39;NCMN&#39;), (&#39;เชอร์ชิล&#39;, &#39;NCMN&#39;)]</span>
+
+<span class="sd">    Tag words with corpus `orchid_ud`::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words, corpus=&#39;orchid_ud&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;รอด&#39;, &#39;NOUN&#39;), (&#39;ใน&#39;, &#39;ADP&#39;),  (&#39;อาคาร&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;หลบภัย&#39;, &#39;NOUN&#39;), (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;เชอร์ชิล&#39;, &#39;NOUN&#39;)]</span>
+
+<span class="sd">    Tag words with corpus `pud`::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;ฉัน&#39;,&#39;มี&#39;,&#39;ชีวิต&#39;,&#39;รอด&#39;,&#39;ใน&#39;,&#39;อาคาร&#39;,&#39;หลบภัย&#39;,&#39;ของ&#39;, \\</span>
+<span class="sd">            &#39;นายก&#39;, &#39;เชอร์ชิล&#39;]</span>
+<span class="sd">        pos_tag(words, corpus=&#39;pud&#39;)</span>
+<span class="sd">        # [(&#39;ฉัน&#39;, &#39;PRON&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;ชีวิต&#39;, &#39;NOUN&#39;), (&#39;รอด&#39;, &#39;VERB&#39;),</span>
+<span class="sd">        #   (&#39;ใน&#39;, &#39;ADP&#39;), (&#39;อาคาร&#39;, &#39;NOUN&#39;), (&#39;หลบภัย&#39;, &#39;NOUN&#39;),</span>
+<span class="sd">        #   (&#39;ของ&#39;, &#39;ADP&#39;), (&#39;นายก&#39;, &#39;NOUN&#39;), (&#39;เชอร์ชิล&#39;, &#39;PROPN&#39;)]</span>
+
+<span class="sd">    Tag words with different engines including *perceptron* and *unigram*::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag</span>
+
+<span class="sd">        words = [&#39;เก้าอี้&#39;,&#39;มี&#39;,&#39;จำนวน&#39;,&#39;ขา&#39;, &#39; &#39;, &#39;=&#39;, &#39;3&#39;]</span>
+
+<span class="sd">        pos_tag(words, engine=&#39;perceptron&#39;, corpus=&#39;orchid&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;เก้าอี้&#39;, &#39;NCMN&#39;), (&#39;มี&#39;, &#39;VSTA&#39;), (&#39;จำนวน&#39;, &#39;NCMN&#39;),</span>
+<span class="sd">        #   (&#39;ขา&#39;, &#39;NCMN&#39;), (&#39; &#39;, &#39;PUNC&#39;),</span>
+<span class="sd">        #   (&#39;=&#39;, &#39;PUNC&#39;), (&#39;3&#39;, &#39;NCNM&#39;)]</span>
+
+<span class="sd">        pos_tag(words, engine=&#39;unigram&#39;, corpus=&#39;pud&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [(&#39;เก้าอี้&#39;, None), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;จำนวน&#39;, &#39;NOUN&#39;), (&#39;ขา&#39;, None),</span>
+<span class="sd">        #   (&#39;&lt;space&gt;&#39;, None), (&#39;&lt;equal&gt;&#39;, None), (&#39;3&#39;, &#39;NUM&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">_support_corpus</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;blackboard&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blackboard_ud&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orchid&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orchid_ud&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pud&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tdtb&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tud&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;perceptron&quot;</span> <span class="ow">and</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">_support_corpus</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tag.perceptron</span><span class="w"> </span><span class="kn">import</span> <span class="n">tag</span> <span class="k">as</span> <span class="n">tag_</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;tltk&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tag.tltk</span><span class="w"> </span><span class="kn">import</span> <span class="n">pos_tag</span> <span class="k">as</span> <span class="n">tag_</span>
+
+        <span class="n">corpus</span> <span class="o">=</span> <span class="s2">&quot;tnc&quot;</span>
+    <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;unigram&quot;</span> <span class="ow">and</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">_support_corpus</span><span class="p">:</span>  <span class="c1"># default</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tag.unigram</span><span class="w"> </span><span class="kn">import</span> <span class="n">tag</span> <span class="k">as</span> <span class="n">tag_</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;pos_tag not support </span><span class="si">{0}</span><span class="s2"> engine or </span><span class="si">{1}</span><span class="s2"> corpus.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">word_tags</span> <span class="o">=</span> <span class="n">tag_</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">word_tags</span></div>
+
+
+
+<div class="viewcode-block" id="pos_tag_sents">
+<a class="viewcode-back" href="../../../api/tag.html#pythainlp.tag.pos_tag_sents">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pos_tag_sents</span><span class="p">(</span>
+    <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;perceptron&quot;</span><span class="p">,</span>
+    <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;orchid&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Marks sentences with part-of-speech (POS) tags.</span>
+
+<span class="sd">    :param list sentences: a list of lists of tokenized words</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *perceptron* - perceptron tagger (default)</span>
+<span class="sd">        * *unigram* - unigram tagger</span>
+<span class="sd">        * *tltk* - TLTK: Thai Language Toolkit (support TNC corpus only.\</span>
+<span class="sd">            If you choose other corpora, they will be converted to TNC corpora.)</span>
+<span class="sd">    :param str corpus: the corpus that is used to create the language model for tagger</span>
+<span class="sd">        * *orchid* - `ORCHID \</span>
+<span class="sd">            &lt;https://www.academia.edu/9127599/Thai_Treebank&gt;`_ corpus, \</span>
+<span class="sd">            text from Thai academic articles (default)</span>
+<span class="sd">        * *orchid_ud* - ORCHID text, with tags mapped to Universal POS tags</span>
+<span class="sd">        * *blackboard* - `blackboard treebank &lt;https://bitbucket.org/kaamanita/blackboard-treebank/src/master/&gt;`_</span>
+<span class="sd">        * *blackboard_ud* - blackboard text, with tags mapped to Universal POS tag \</span>
+<span class="sd">            from `Universal Dependencies &lt;https://universaldependencies.org/&gt;`</span>
+<span class="sd">        * *pud* - `Parallel Universal Dependencies (PUD)\</span>
+<span class="sd">            &lt;https://github.com/UniversalDependencies/UD_Thai-PUD&gt;`_ \</span>
+<span class="sd">            treebanks, natively use Universal POS tags</span>
+<span class="sd">        * *tnc* - Thai National Corpus (support tltk engine only)</span>
+<span class="sd">    :return: a list of lists of tuples (word, POS tag)</span>
+<span class="sd">    :rtype: list[list[tuple[str, str]]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Labels POS for two sentences::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag_sents</span>
+
+<span class="sd">        sentences = [[&#39;เก้าอี้&#39;,&#39;มี&#39;,&#39;3&#39;,&#39;ขา&#39;], \\</span>
+<span class="sd">                            [&#39;นก&#39;, &#39;บิน&#39;, &#39;กลับ&#39;, &#39;รัง&#39;]]</span>
+<span class="sd">        pos_tag_sents(sentences, corpus=&#39;pud)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [[(&#39;เก้าอี้&#39;, &#39;PROPN&#39;), (&#39;มี&#39;, &#39;VERB&#39;), (&#39;3&#39;, &#39;NUM&#39;),</span>
+<span class="sd">        #   (&#39;ขา&#39;, &#39;NOUN&#39;)], [(&#39;นก&#39;, &#39;NOUN&#39;), (&#39;บิน&#39;, &#39;VERB&#39;),</span>
+<span class="sd">        #   (&#39;กลับ&#39;, &#39;VERB&#39;), (&#39;รัง&#39;, &#39;NOUN&#39;)]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pos_tag_transformers</span><span class="p">(</span>
+    <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bert&quot;</span><span class="p">,</span>
+    <span class="n">corpus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackboard&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Marks sentences with part-of-speech (POS) tags.</span>
+
+<span class="sd">    :param str sentence: a list of lists of tokenized words</span>
+<span class="sd">    :param str engine:</span>
+<span class="sd">        * *bert* -  BERT: Bidirectional Encoder Representations from Transformers (default)</span>
+<span class="sd">        * *wangchanberta* - fine-tuned version of airesearch/wangchanberta-base-att-spm-uncased on pud corpus (support PUD cotpus only)</span>
+<span class="sd">        * *phayathaibert* - fine-tuned version of clicknext/phayathaibert \</span>
+<span class="sd">            on blackboard corpus (support blackboard cotpus only)</span>
+<span class="sd">        * *mdeberta* - mDeBERTa: Multilingual Decoding-enhanced BERT with disentangled attention (support PUD corpus only)</span>
+<span class="sd">    :param str corpus: the corpus that is used to create the language model for tagger</span>
+<span class="sd">        * *blackboard* - `blackboard treebank (support bert engine only) &lt;https://bitbucket.org/kaamanita/blackboard-treebank/src/master/&gt;`_</span>
+<span class="sd">        * *pud* - `Parallel Universal Dependencies (PUD)\</span>
+<span class="sd">            &lt;https://github.com/UniversalDependencies/UD_Thai-PUD&gt;`_ \</span>
+<span class="sd">            treebanks, natively use Universal POS tags (support wangchanberta and mdeberta engine)</span>
+<span class="sd">    :return: a list of lists of tuples (word, POS tag)</span>
+<span class="sd">    :rtype: list[list[tuple[str, str]]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Labels POS for given sentence::</span>
+
+<span class="sd">        from pythainlp.tag import pos_tag_transformers</span>
+
+<span class="sd">        sentences = &quot;แมวทำอะไรตอนห้าโมงเช้า&quot;</span>
+<span class="sd">        pos_tag_transformers(sentences, engine=&quot;bert&quot;, corpus=&#39;blackboard&#39;)</span>
+<span class="sd">        # output:</span>
+<span class="sd">        # [[(&#39;แมว&#39;, &#39;NOUN&#39;), (&#39;ทําอะไร&#39;, &#39;VERB&#39;), (&#39;ตอนห้าโมงเช้า&#39;, &#39;NOUN&#39;)]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">AutoModelForTokenClassification</span><span class="p">,</span>
+            <span class="n">AutoTokenizer</span><span class="p">,</span>
+            <span class="n">TokenClassificationPipeline</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;Not found transformers! Please install transformers by pip install transformers&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sentence</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">_blackboard_support_engine</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;bert&quot;</span><span class="p">:</span> <span class="s2">&quot;lunarlist/pos_thai&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;phayathai&quot;</span><span class="p">:</span> <span class="s2">&quot;lunarlist/pos_thai_phayathai&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">_pud_support_engine</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;wangchanberta&quot;</span><span class="p">:</span> <span class="s2">&quot;Pavarissy/wangchanberta-ud-thai-pud-upos&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mdeberta&quot;</span><span class="p">:</span> <span class="s2">&quot;Pavarissy/mdeberta-v3-ud-thai-pud-upos&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;blackboard&quot;</span> <span class="ow">and</span> <span class="n">engine</span> <span class="ow">in</span> <span class="n">_blackboard_support_engine</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">base_model</span> <span class="o">=</span> <span class="n">_blackboard_support_engine</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForTokenClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">base_model</span><span class="p">)</span>
+        <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">base_model</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">corpus</span> <span class="o">==</span> <span class="s2">&quot;pud&quot;</span> <span class="ow">and</span> <span class="n">engine</span> <span class="ow">in</span> <span class="n">_pud_support_engine</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">base_model</span> <span class="o">=</span> <span class="n">_pud_support_engine</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForTokenClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">base_model</span><span class="p">)</span>
+        <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">base_model</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;pos_tag_transformers not support </span><span class="si">{0}</span><span class="s2"> engine or </span><span class="si">{1}</span><span class="s2"> corpus.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">engine</span><span class="p">,</span> <span class="n">corpus</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">TokenClassificationPipeline</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+                                           <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+                                           <span class="n">aggregation_strategy</span><span class="o">=</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+                                           <span class="p">)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="n">word_tags</span> <span class="o">=</span> <span class="p">[[(</span><span class="n">tag</span><span class="p">[</span><span class="s2">&quot;word&quot;</span><span class="p">],</span> <span class="n">tag</span><span class="p">[</span><span class="s2">&quot;entity_group&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">word_tags</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

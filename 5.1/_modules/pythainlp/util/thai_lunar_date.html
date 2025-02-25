@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.thai_lunar_date &mdash; PyThaiNLP v5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=441563d4"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/getting_started.html#tutorial-notebooks">Tutorial Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.thai_lunar_date</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.thai_lunar_date</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># SPDX-FileCopyrightText: 2016-2025 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This file is a port from</span>
+<span class="sd">&gt; https://gist.github.com/touchiep/99f4f5bb349d6b983ef78697630ab78e</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="n">_YEAR_DEV</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">1901</span><span class="p">:</span> <span class="mf">0.122733000004352</span><span class="p">,</span>
+    <span class="mi">1906</span><span class="p">:</span> <span class="mf">1.91890000045229e-02</span><span class="p">,</span>
+    <span class="mi">1911</span><span class="p">:</span> <span class="o">-</span><span class="mf">8.43549999953059e-02</span><span class="p">,</span>
+    <span class="mi">1916</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.187898999995135</span><span class="p">,</span>
+    <span class="mi">1921</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.291442999994964</span><span class="p">,</span>
+    <span class="mi">1926</span><span class="p">:</span> <span class="mf">7.44250000052413e-02</span><span class="p">,</span>
+    <span class="mi">1931</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.91189999945876e-02</span><span class="p">,</span>
+    <span class="mi">1936</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.132662999994416</span><span class="p">,</span>
+    <span class="mi">1941</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.236206999994245</span><span class="p">,</span>
+    <span class="mi">1946</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.339750999994074</span><span class="p">,</span>
+    <span class="mi">1951</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.443294999993903</span><span class="p">,</span>
+    <span class="mi">1956</span><span class="p">:</span> <span class="o">-</span><span class="mf">7.74269999936981e-02</span><span class="p">,</span>
+    <span class="mi">1961</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.180970999993527</span><span class="p">,</span>
+    <span class="mi">1966</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.284514999993356</span><span class="p">,</span>
+    <span class="mi">1971</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.388058999993185</span><span class="p">,</span>
+    <span class="mi">1976</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.491602999993014</span><span class="p">,</span>
+    <span class="mi">1981</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.595146999992842</span><span class="p">,</span>
+    <span class="mi">1986</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.698690999992671</span><span class="p">,</span>
+    <span class="mi">1991</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.332822999992466</span><span class="p">,</span>
+    <span class="mi">1996</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.436366999992295</span><span class="p">,</span>
+    <span class="mi">2001</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.539910999992124</span><span class="p">,</span>
+    <span class="mi">2006</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.643454999991953</span><span class="p">,</span>
+    <span class="mi">2011</span><span class="p">:</span> <span class="mf">0.253001000008218</span><span class="p">,</span>
+    <span class="mi">2016</span><span class="p">:</span> <span class="mf">0.149457000008389</span><span class="p">,</span>
+    <span class="mi">2021</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.484674999991406</span><span class="p">,</span>
+    <span class="mi">2026</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.588218999991235</span><span class="p">,</span>
+    <span class="mi">2031</span><span class="p">:</span> <span class="mf">0.308237000008937</span><span class="p">,</span>
+    <span class="mi">2036</span><span class="p">:</span> <span class="mf">0.204693000009108</span><span class="p">,</span>
+    <span class="mi">2041</span><span class="p">:</span> <span class="mf">0.101149000009279</span><span class="p">,</span>
+    <span class="mi">2046</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.39499999055015e-03</span><span class="p">,</span>
+    <span class="mi">2051</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.105938999990379</span><span class="p">,</span>
+    <span class="mi">2056</span><span class="p">:</span> <span class="mf">0.259929000009826</span><span class="p">,</span>
+    <span class="mi">2061</span><span class="p">:</span> <span class="mf">0.156385000009997</span><span class="p">,</span>
+    <span class="mi">2066</span><span class="p">:</span> <span class="mf">5.28410000101682e-02</span><span class="p">,</span>
+    <span class="mi">2071</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.07029999896607e-02</span><span class="p">,</span>
+    <span class="mi">2076</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.15424699998949</span><span class="p">,</span>
+    <span class="mi">2081</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.257790999989318</span><span class="p">,</span>
+    <span class="mi">2086</span><span class="p">:</span> <span class="mf">0.108077000010887</span><span class="p">,</span>
+    <span class="mi">2091</span><span class="p">:</span> <span class="mf">4.53300001105772e-03</span><span class="p">,</span>
+    <span class="mi">2096</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.90109999887712e-02</span><span class="p">,</span>
+    <span class="mi">2101</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2025549999886</span><span class="p">,</span>
+    <span class="mi">2106</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.306098999988429</span><span class="p">,</span>
+    <span class="mi">2111</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.409642999988258</span><span class="p">,</span>
+    <span class="mi">2116</span><span class="p">:</span> <span class="o">-</span><span class="mf">4.37749999880528e-02</span><span class="p">,</span>
+    <span class="mi">2121</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.147318999987882</span><span class="p">,</span>
+    <span class="mi">2126</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.250862999987711</span><span class="p">,</span>
+    <span class="mi">2131</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.354406999987539</span><span class="p">,</span>
+    <span class="mi">2136</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.457950999987368</span><span class="p">,</span>
+    <span class="mi">2141</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.561494999987197</span><span class="p">,</span>
+    <span class="mi">2146</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.665038999987026</span><span class="p">,</span>
+    <span class="mi">2151</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.299170999986821</span><span class="p">,</span>
+    <span class="mi">2156</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.40271499998665</span><span class="p">,</span>
+    <span class="mi">2161</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.506258999986479</span><span class="p">,</span>
+    <span class="mi">2166</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.609802999986308</span><span class="p">,</span>
+    <span class="mi">2171</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.713346999986137</span><span class="p">,</span>
+    <span class="mi">2176</span><span class="p">:</span> <span class="mf">0.183109000014035</span><span class="p">,</span>
+    <span class="mi">2181</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.45102299998576</span><span class="p">,</span>
+    <span class="mi">2186</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.554566999985589</span><span class="p">,</span>
+    <span class="mi">2191</span><span class="p">:</span> <span class="mf">0.341889000014582</span><span class="p">,</span>
+    <span class="mi">2196</span><span class="p">:</span> <span class="mf">0.238345000014753</span><span class="p">,</span>
+    <span class="mi">2201</span><span class="p">:</span> <span class="mf">0.134801000014924</span><span class="p">,</span>
+    <span class="mi">2206</span><span class="p">:</span> <span class="mf">3.12570000150951e-02</span><span class="p">,</span>
+    <span class="mi">2211</span><span class="p">:</span> <span class="o">-</span><span class="mf">7.22869999847338e-02</span><span class="p">,</span>
+    <span class="mi">2216</span><span class="p">:</span> <span class="mf">0.293581000015471</span><span class="p">,</span>
+    <span class="mi">2221</span><span class="p">:</span> <span class="mf">0.190037000015642</span><span class="p">,</span>
+    <span class="mi">2226</span><span class="p">:</span> <span class="mf">8.64930000158135e-02</span><span class="p">,</span>
+    <span class="mi">2231</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.70509999840154e-02</span><span class="p">,</span>
+    <span class="mi">2236</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.120594999983844</span><span class="p">,</span>
+    <span class="mi">2241</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.224138999983673</span><span class="p">,</span>
+    <span class="mi">2246</span><span class="p">:</span> <span class="mf">0.141729000016532</span><span class="p">,</span>
+    <span class="mi">2251</span><span class="p">:</span> <span class="mf">0.038185000016703</span><span class="p">,</span>
+    <span class="mi">2256</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.53589999831259e-02</span><span class="p">,</span>
+    <span class="mi">2261</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.168902999982955</span><span class="p">,</span>
+    <span class="mi">2266</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.272446999982784</span><span class="p">,</span>
+    <span class="mi">2271</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.375990999982613</span><span class="p">,</span>
+    <span class="mi">2276</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.01229999824075e-02</span><span class="p">,</span>
+    <span class="mi">2281</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.113666999982236</span><span class="p">,</span>
+    <span class="mi">2286</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.217210999982065</span><span class="p">,</span>
+    <span class="mi">2291</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.320754999981894</span><span class="p">,</span>
+    <span class="mi">2296</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.424298999981723</span><span class="p">,</span>
+    <span class="mi">2301</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.527842999981552</span><span class="p">,</span>
+    <span class="mi">2306</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.631386999981381</span><span class="p">,</span>
+    <span class="mi">2311</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.265518999981176</span><span class="p">,</span>
+    <span class="mi">2316</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.369062999981005</span><span class="p">,</span>
+    <span class="mi">2321</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.472606999980834</span><span class="p">,</span>
+    <span class="mi">2326</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.576150999980662</span><span class="p">,</span>
+    <span class="mi">2331</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.679694999980491</span><span class="p">,</span>
+    <span class="mi">2336</span><span class="p">:</span> <span class="mf">0.21676100001968</span><span class="p">,</span>
+    <span class="mi">2341</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.417370999980115</span><span class="p">,</span>
+    <span class="mi">2346</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.520914999979944</span><span class="p">,</span>
+    <span class="mi">2351</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.624458999979773</span><span class="p">,</span>
+    <span class="mi">2356</span><span class="p">:</span> <span class="mf">0.271997000020398</span><span class="p">,</span>
+    <span class="mi">2361</span><span class="p">:</span> <span class="mf">0.168453000020569</span><span class="p">,</span>
+    <span class="mi">2366</span><span class="p">:</span> <span class="mf">6.49090000207404e-02</span><span class="p">,</span>
+    <span class="mi">2371</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.86349999790885e-02</span><span class="p">,</span>
+    <span class="mi">2376</span><span class="p">:</span> <span class="mf">0.327233000021117</span><span class="p">,</span>
+    <span class="mi">2381</span><span class="p">:</span> <span class="mf">0.223689000021288</span><span class="p">,</span>
+    <span class="mi">2386</span><span class="p">:</span> <span class="mf">0.120145000021459</span><span class="p">,</span>
+    <span class="mi">2391</span><span class="p">:</span> <span class="mf">1.66010000216299e-02</span><span class="p">,</span>
+    <span class="mi">2396</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.086942999978199</span><span class="p">,</span>
+    <span class="mi">2401</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.190486999978028</span><span class="p">,</span>
+    <span class="mi">2406</span><span class="p">:</span> <span class="mf">0.175381000022177</span><span class="p">,</span>
+    <span class="mi">2411</span><span class="p">:</span> <span class="mf">7.18370000223483e-02</span><span class="p">,</span>
+    <span class="mi">2416</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.17069999774806e-02</span><span class="p">,</span>
+    <span class="mi">2421</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.135250999977309</span><span class="p">,</span>
+    <span class="mi">2426</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.238794999977138</span><span class="p">,</span>
+    <span class="mi">2431</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.342338999976967</span><span class="p">,</span>
+    <span class="mi">2436</span><span class="p">:</span> <span class="mf">2.35290000232378e-02</span><span class="p">,</span>
+    <span class="mi">2441</span><span class="p">:</span> <span class="o">-</span><span class="mf">8.00149999765911e-02</span><span class="p">,</span>
+    <span class="mi">2446</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.18355899997642</span><span class="p">,</span>
+    <span class="mi">2451</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.287102999976249</span><span class="p">,</span>
+    <span class="mi">2456</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.390646999976078</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_BEGIN_DATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1902</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1912</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1922</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1932</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1942</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1952</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1962</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1972</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2032</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2042</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2052</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2062</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2072</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2082</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2092</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2102</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2112</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2122</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2132</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2142</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2152</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2162</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2172</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2182</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2192</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2202</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2212</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2222</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2232</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2242</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2252</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2262</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2272</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2282</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2292</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2302</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2312</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2322</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2332</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2342</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2352</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2362</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2372</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2382</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2392</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2402</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2412</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2422</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2432</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2442</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="n">date</span><span class="p">(</span><span class="mi">2452</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">_DAYS_354</span> <span class="o">=</span> <span class="p">[</span><span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">_DAYS_355</span> <span class="o">=</span> <span class="p">[</span><span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">_DAYS_384</span> <span class="o">=</span> <span class="p">[</span><span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="c1"># Zodiac names in Thai, English, and Numeric representations</span>
+<span class="n">_ZODIAC</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;ชวด&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ฉลู&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ขาล&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;เถาะ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;มะโรง&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;มะเส็ง&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;มะเมีย&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;มะแม&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;วอก&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ระกา&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;จอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;กุน&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;RAT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OX&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TIGER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;RABBIT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;DRAGON&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SNAKE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;HORSE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GOAT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MONKEY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ROOSTER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;DOG&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PIG&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)),</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_calculate_f_year_f_dev</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">_YEAR_DEV</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">year</span><span class="p">,</span> <span class="n">_YEAR_DEV</span><span class="p">[</span><span class="n">year</span><span class="p">]</span>
+
+    <span class="n">nearest_lower_year</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">_YEAR_DEV</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">year</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nearest_lower_year</span><span class="p">,</span> <span class="n">_YEAR_DEV</span><span class="p">[</span><span class="n">nearest_lower_year</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">athikamas</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">athi</span> <span class="o">=</span> <span class="p">((</span><span class="n">year</span> <span class="o">-</span> <span class="mi">78</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.45222</span><span class="p">)</span> <span class="o">%</span> <span class="mf">2.7118886</span>
+    <span class="k">return</span> <span class="n">athi</span> <span class="o">&lt;</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">athikavar</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">athikamas</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">athikamas</span><span class="p">(</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">cutoff</span> <span class="o">=</span> <span class="mf">1.69501433191599e-02</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cutoff</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.42223099315486e-02</span>
+    <span class="k">return</span> <span class="n">deviation</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cutoff</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">deviation</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">curr_dev</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">last_dev</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">f_year</span><span class="p">,</span> <span class="n">f_dev</span> <span class="o">=</span> <span class="n">_calculate_f_year_f_dev</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">==</span> <span class="n">f_year</span><span class="p">:</span>
+        <span class="n">curr_dev</span> <span class="o">=</span> <span class="n">f_dev</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f_year</span> <span class="o">=</span> <span class="n">f_year</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">f_year</span><span class="p">,</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">f_year</span><span class="p">:</span>
+                <span class="n">last_dev</span> <span class="o">=</span> <span class="n">f_dev</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">last_dev</span> <span class="o">=</span> <span class="n">curr_dev</span>
+            <span class="k">if</span> <span class="n">athikamas</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">curr_dev</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.102356</span>
+            <span class="k">elif</span> <span class="n">athikavar</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">curr_dev</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.632944</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">curr_dev</span> <span class="o">=</span> <span class="mf">0.367056</span>
+            <span class="n">curr_dev</span> <span class="o">=</span> <span class="n">last_dev</span> <span class="o">+</span> <span class="n">curr_dev</span>
+
+    <span class="k">return</span> <span class="n">curr_dev</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">last_day_in_year</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">athikamas</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">384</span>
+    <span class="k">elif</span> <span class="n">athikavar</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">355</span>
+
+    <span class="k">return</span> <span class="mi">354</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">athikasurathin</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if a year is a leap year in the Thai lunar calendar</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check divisibility by 400 (divisible by 400 is always a leap year)</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Check divisibility by 100 (divisible by 100 but not 400 is not a leap</span>
+    <span class="c1"># year)</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># Check divisibility by 4 (divisible by 4 but not by 100 is a leap year)</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># All other cases are not leap years</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">number_day_in_year</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">athikasurathin</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">366</span>
+
+    <span class="k">return</span> <span class="mi">365</span>
+
+
+<div class="viewcode-block" id="th_zodiac">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.th_zodiac">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">th_zodiac</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">output_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thai Zodiac Year Name</span>
+<span class="sd">    Converts a Gregorian year to its corresponding Zodiac name.</span>
+
+<span class="sd">    :param int year: The Gregorian year. AD (Anno Domini)</span>
+<span class="sd">    :param int output_type: Output type (1 = Thai, 2 = English, 3 = Number).</span>
+
+<span class="sd">    :return: The Zodiac name or number corresponding to the input year.</span>
+<span class="sd">    :rtype: Union[str, int]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate zodiac index</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">12</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">-</span> <span class="mi">3</span>
+
+    <span class="c1"># Return the zodiac based on the output type</span>
+    <span class="k">return</span> <span class="n">_ZODIAC</span><span class="p">[</span><span class="n">output_type</span><span class="p">][</span><span class="n">result</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="to_lunar_date">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.to_lunar_date">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_lunar_date</span><span class="p">(</span><span class="n">input_date</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert the solar date to Thai Lunar Date</span>
+
+<span class="sd">    :param date input_date: date of the day.</span>
+<span class="sd">    :return: Thai text lunar date</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if date is within supported range</span>
+    <span class="k">if</span> <span class="n">input_date</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">1903</span> <span class="ow">or</span> <span class="n">input_date</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2460</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Unsupported date&quot;</span><span class="p">)</span>  <span class="c1"># Unsupported date</span>
+
+    <span class="c1"># Choose the nearest begin date</span>
+    <span class="n">c_year</span> <span class="o">=</span> <span class="n">input_date</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">begin_date</span> <span class="o">=</span> <span class="n">_BEGIN_DATES</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_date</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_BEGIN_DATES</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">c_year</span> <span class="o">&gt;</span> <span class="n">_date</span><span class="o">.</span><span class="n">year</span><span class="p">:</span>
+            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">_date</span>
+            <span class="k">break</span>
+
+    <span class="n">current_date</span> <span class="o">=</span> <span class="n">begin_date</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin_date</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input_date</span><span class="o">.</span><span class="n">year</span><span class="p">):</span>
+        <span class="n">day_in_year</span> <span class="o">=</span> <span class="n">last_day_in_year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+        <span class="n">current_date</span> <span class="o">+=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">day_in_year</span><span class="p">)</span>
+
+    <span class="n">r_day_prev</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">current_date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="n">current_date</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+    <span class="n">day_of_year</span> <span class="o">=</span> <span class="p">(</span><span class="n">input_date</span> <span class="o">-</span> <span class="n">date</span><span class="p">(</span><span class="n">input_date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">days</span>
+    <span class="n">day_from_one</span> <span class="o">=</span> <span class="n">r_day_prev</span> <span class="o">+</span> <span class="n">day_of_year</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">last_day</span> <span class="o">=</span> <span class="n">last_day_in_year</span><span class="p">(</span><span class="n">input_date</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">last_day</span> <span class="o">==</span> <span class="mi">354</span><span class="p">:</span>
+        <span class="n">days_in_month</span> <span class="o">=</span> <span class="n">_DAYS_354</span>
+    <span class="k">elif</span> <span class="n">last_day</span> <span class="o">==</span> <span class="mi">355</span><span class="p">:</span>
+        <span class="n">days_in_month</span> <span class="o">=</span> <span class="n">_DAYS_355</span>
+    <span class="k">elif</span> <span class="n">last_day</span> <span class="o">==</span> <span class="mi">384</span><span class="p">:</span>
+        <span class="n">days_in_month</span> <span class="o">=</span> <span class="n">_DAYS_384</span>
+
+    <span class="n">days_of_year</span> <span class="o">=</span> <span class="n">day_from_one</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">days_in_month</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">th_m</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">days_of_year</span> <span class="o">&lt;=</span> <span class="n">days</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">days_of_year</span> <span class="o">-=</span> <span class="n">days</span>
+
+    <span class="k">if</span> <span class="n">last_day</span> <span class="o">&lt;=</span> <span class="mi">355</span><span class="p">:</span>  <span class="c1"># 354 or 355</span>
+        <span class="k">if</span> <span class="n">th_m</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">th_m</span> <span class="o">=</span> <span class="n">th_m</span> <span class="o">-</span> <span class="mi">12</span>
+    <span class="k">elif</span> <span class="n">last_day</span> <span class="o">==</span> <span class="mi">384</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">th_m</span> <span class="o">&gt;</span> <span class="mi">13</span><span class="p">:</span>
+            <span class="n">th_m</span> <span class="o">=</span> <span class="n">th_m</span> <span class="o">-</span> <span class="mi">13</span>
+        <span class="k">if</span> <span class="n">th_m</span> <span class="o">&gt;=</span> <span class="mi">9</span> <span class="ow">and</span> <span class="n">th_m</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">:</span>
+            <span class="n">th_m</span> <span class="o">=</span> <span class="n">th_m</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">days_of_year</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="n">th_s</span> <span class="o">=</span> <span class="s2">&quot;แรม&quot;</span>
+        <span class="n">days_of_year</span> <span class="o">=</span> <span class="n">days_of_year</span> <span class="o">-</span> <span class="mi">15</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">th_s</span> <span class="o">=</span> <span class="s2">&quot;ขึ้น&quot;</span>
+
+    <span class="n">thai_lunar_date</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">th_s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">days_of_year</span><span class="si">}</span><span class="s2"> ค่ำ เดือน </span><span class="si">{</span><span class="n">th_m</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">return</span> <span class="n">thai_lunar_date</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

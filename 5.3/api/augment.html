@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.augment &mdash; PyThaiNLP ef81afc documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=761a215e"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.benchmarks" href="benchmarks.html" />
+    <link rel="prev" title="pythainlp.ancient" href="ancient.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.augment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wordnetaug-class">WordNetAug Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#word2vecaug-thai2fitaug-ltw2vaug-classes">Word2VecAug, Thai2fitAug, LTW2VAug Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fasttextaug-and-thai2transformersaug-classes">FastTextAug and Thai2transformersAug Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpembaug-class">BPEmbAug Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-functions">Additional Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.augment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/augment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-augment">
+<h1>pythainlp.augment<a class="headerlink" href="#pythainlp-augment" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>The <cite>pythainlp.augment</cite> module is a powerful toolset for text augmentation in the Thai language. Text augmentation is a process that enriches and diversifies textual data by generating alternative versions of the original text. This module is a valuable resource for improving the quality and variety of Thai language data for NLP tasks.</p>
+</section>
+<section id="wordnetaug-class">
+<h2>WordNetAug Class<a class="headerlink" href="#wordnetaug-class" title="Link to this heading"></a></h2>
+<p>The <cite>WordNetAug</cite> class is designed to perform text augmentation using WordNet, a lexical database for English. This class enables you to augment Thai text using English synonyms, offering a unique approach to text diversification. The following methods are available within this class:</p>
+</section>
+<section id="word2vecaug-thai2fitaug-ltw2vaug-classes">
+<h2>Word2VecAug, Thai2fitAug, LTW2VAug Classes<a class="headerlink" href="#word2vecaug-thai2fitaug-ltw2vaug-classes" title="Link to this heading"></a></h2>
+<p>The <cite>pythainlp.augment.word2vec</cite> package contains multiple classes for text augmentation using Word2Vec models. These classes include <cite>Word2VecAug</cite>, <cite>Thai2fitAug</cite>, and <cite>LTW2VAug</cite>. Each of these classes allows you to use Word2Vec embeddings to generate text variations. Explore the methods provided by these classes to understand their capabilities.</p>
+</section>
+<section id="fasttextaug-and-thai2transformersaug-classes">
+<h2>FastTextAug and Thai2transformersAug Classes<a class="headerlink" href="#fasttextaug-and-thai2transformersaug-classes" title="Link to this heading"></a></h2>
+<p>The <cite>pythainlp.augment.lm</cite> package offers classes for text augmentation using language models. These classes include <cite>FastTextAug</cite> and <cite>Thai2transformersAug</cite>. These classes allow you to use language model-based techniques to diversify text data. Explore their methods to understand their capabilities.</p>
+</section>
+<section id="bpembaug-class">
+<h2>BPEmbAug Class<a class="headerlink" href="#bpembaug-class" title="Link to this heading"></a></h2>
+<p>The <cite>pythainlp.augment.word2vec.bpemb_wv</cite> package contains the <cite>BPEmbAug</cite> class, which is designed for text augmentation using subword embeddings. This class is particularly useful when working with subword representations for Thai text augmentation.</p>
+</section>
+<section id="additional-functions">
+<h2>Additional Functions<a class="headerlink" href="#additional-functions" title="Link to this heading"></a></h2>
+<p>To further enhance your text augmentation tasks, the <cite>pythainlp.augment</cite> module offers the following functions:</p>
+<ul class="simple">
+<li><p><cite>postype2wordnet</cite>: This function maps part-of-speech tags to WordNet-compatible POS tags, facilitating the integration of WordNet augmentation with Thai text.</p></li>
+</ul>
+<p>These functions and classes provide diverse techniques for text augmentation in the Thai language, making this module a valuable asset for NLP researchers, developers, and practitioners.</p>
+<p>For detailed usage examples and guidelines, please refer to the official PyThaiNLP documentation. The <cite>pythainlp.augment</cite> module opens up new possibilities for enriching and diversifying Thai text data, leading to improved NLP models and applications.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ancient.html" class="btn btn-neutral float-left" title="pythainlp.ancient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="benchmarks.html" class="btn btn-neutral float-right" title="pythainlp.benchmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

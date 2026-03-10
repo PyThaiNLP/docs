@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.benchmarks.metrics &mdash; PyThaiNLP ef81afc documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=761a215e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.benchmarks.metrics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.benchmarks.metrics</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Evaluation metrics for Thai text generation tasks.</span>
+
+<span class="sd">This module provides pure Python implementations of common evaluation</span>
+<span class="sd">metrics (BLEU, ROUGE) that handle Thai text tokenization automatically.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_ngrams</span><span class="p">(</span><span class="n">tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get n-grams from a list of tokens.</span>
+
+<span class="sd">    :param list[str] tokens: list of tokens</span>
+<span class="sd">    :param int n: n-gram size</span>
+
+<span class="sd">    :return: list of n-grams</span>
+<span class="sd">    :rtype: list[tuple[str, ...]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_calculate_precision_recall_fmeasure</span><span class="p">(</span>
+    <span class="n">overlap</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">hyp_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ref_count</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate precision, recall, and F-measure.</span>
+
+<span class="sd">    :param int overlap: number of overlapping items</span>
+<span class="sd">    :param int hyp_count: number of items in hypothesis</span>
+<span class="sd">    :param int ref_count: number of items in reference</span>
+
+<span class="sd">    :return: precision, recall, and F-measure</span>
+<span class="sd">    :rtype: tuple[float, float, float]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">overlap</span> <span class="o">/</span> <span class="n">hyp_count</span> <span class="k">if</span> <span class="n">hyp_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">overlap</span> <span class="o">/</span> <span class="n">ref_count</span> <span class="k">if</span> <span class="n">ref_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+    <span class="k">if</span> <span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">fmeasure</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fmeasure</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">fmeasure</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_lcs_length</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the length of the longest common subsequence (LCS).</span>
+
+<span class="sd">    :param list[str] x: first sequence</span>
+<span class="sd">    :param list[str] y: second sequence</span>
+
+<span class="sd">    :return: length of LCS</span>
+<span class="sd">    :rtype: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="c1"># Create a 2D array to store LCS lengths</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="bleu_score">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.bleu_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bleu_score</span><span class="p">(</span>
+    <span class="n">references</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]],</span>
+    <span class="n">hypotheses</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">tokenize</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">max_ngram</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">smooth</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate BLEU score for Thai text with automatic tokenization.</span>
+
+<span class="sd">    This is a pure Python implementation of BLEU (Bilingual Evaluation</span>
+<span class="sd">    Understudy) metric that automatically tokenizes Thai text using</span>
+<span class="sd">    PyThaiNLP before calculating the score.</span>
+
+<span class="sd">    :param Union[list[str], list[list[str]]] references: reference translations.</span>
+<span class="sd">        Can be:</span>
+<span class="sd">        - A list of strings (one reference per hypothesis)</span>
+<span class="sd">        - A list of lists of strings (multiple references per hypothesis)</span>
+<span class="sd">    :param list[str] hypotheses: hypothesis translations to evaluate</span>
+<span class="sd">    :param str tokenize: tokenization engine to use (default: &quot;newmm&quot;).</span>
+<span class="sd">        See :func:`pythainlp.tokenize.word_tokenize` for available engines.</span>
+<span class="sd">    :param bool lowercase: whether to lowercase text before evaluation</span>
+<span class="sd">        (default: False)</span>
+<span class="sd">    :param int max_ngram: maximum n-gram order (default: 4)</span>
+<span class="sd">    :param bool smooth: whether to use smoothing for zero counts</span>
+<span class="sd">        (default: True)</span>
+
+<span class="sd">    :return: dictionary with ``&#39;bleu&#39;``, ``&#39;precisions&#39;``, ``&#39;bp&#39;``,</span>
+<span class="sd">        ``&#39;length_ratio&#39;``, ``&#39;hyp_length&#39;``, and ``&#39;ref_length&#39;``.</span>
+<span class="sd">        The ``&#39;precisions&#39;`` value is a ``list[float]``; all other values</span>
+<span class="sd">        are ``float``.</span>
+<span class="sd">    :rtype: dict[str, Union[float, list[float]]]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.benchmarks import bleu_score</span>
+
+<span class="sd">        references = [&quot;สวัสดีครับ วันนี้อากาศดีมาก&quot;]</span>
+<span class="sd">        hypotheses = [&quot;สวัสดีค่ะ วันนี้อากาศดี&quot;]</span>
+<span class="sd">        score = bleu_score(references, hypotheses)</span>
+<span class="sd">        print(f&quot;BLEU score: {score[&#39;bleu&#39;]:.2f}&quot;)</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        # Multiple references per hypothesis</span>
+<span class="sd">        references = [</span>
+<span class="sd">            [&quot;สวัสดีครับ&quot;, &quot;สวัสดีค่ะ&quot;],  # two refs for first hypothesis</span>
+<span class="sd">            [&quot;ลาก่อนครับ&quot;, &quot;ลาก่อนค่ะ&quot;],  # two refs for second hypothesis</span>
+<span class="sd">        ]</span>
+<span class="sd">        hypotheses = [&quot;สวัสดี&quot;, &quot;ลาก่อน&quot;]</span>
+<span class="sd">        score = bleu_score(references, hypotheses)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+    <span class="c1"># Normalize references format</span>
+    <span class="k">if</span> <span class="n">references</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">references</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">refs_normalized</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">ref</span><span class="p">]</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">cast</span><span class="p">(</span><span class="s2">&quot;list[str]&quot;</span><span class="p">,</span> <span class="n">references</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">refs_normalized</span> <span class="o">=</span> <span class="n">references</span>  <span class="c1"># type: ignore[assignment]</span>
+
+    <span class="c1"># Tokenize all texts</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tokenize_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tokenize a single text.&quot;&quot;&quot;</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lowercase</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tokens</span>
+
+    <span class="c1"># Tokenize hypotheses and references</span>
+    <span class="n">hyp_tokens_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">_tokenize_text</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span> <span class="k">for</span> <span class="n">hyp</span> <span class="ow">in</span> <span class="n">hypotheses</span><span class="p">]</span>
+    <span class="n">refs_tokens_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="n">_tokenize_text</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">refs</span><span class="p">]</span> <span class="k">for</span> <span class="n">refs</span> <span class="ow">in</span> <span class="n">refs_normalized</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Calculate BLEU</span>
+    <span class="n">total_hyp_length</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_ref_length</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">clipped_counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_ngram</span>
+    <span class="n">total_counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_ngram</span>
+
+    <span class="k">for</span> <span class="n">hyp_tokens</span><span class="p">,</span> <span class="n">ref_tokens_group</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hyp_tokens_list</span><span class="p">,</span> <span class="n">refs_tokens_list</span><span class="p">):</span>
+        <span class="n">total_hyp_length</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">)</span>
+
+        <span class="c1"># Find the reference length closest to hypothesis length</span>
+        <span class="n">ref_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">ref_tokens_group</span><span class="p">]</span>
+        <span class="n">closest_ref_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+            <span class="n">ref_lengths</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">ref_len</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ref_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">total_ref_length</span> <span class="o">+=</span> <span class="n">closest_ref_len</span>
+
+        <span class="c1"># Calculate n-gram matches for each n</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_ngram</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">hyp_ngrams</span> <span class="o">=</span> <span class="n">_get_ngrams</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="n">hyp_ngram_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">hyp_ngrams</span><span class="p">)</span>
+
+            <span class="c1"># Get maximum counts from all references</span>
+            <span class="n">max_ref_counts</span><span class="p">:</span> <span class="n">Counter</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">ref_tokens</span> <span class="ow">in</span> <span class="n">ref_tokens_group</span><span class="p">:</span>
+                <span class="n">ref_ngrams</span> <span class="o">=</span> <span class="n">_get_ngrams</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+                <span class="n">ref_ngram_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">ref_ngrams</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">ngram</span> <span class="ow">in</span> <span class="n">ref_ngram_counts</span><span class="p">:</span>
+                    <span class="n">max_ref_counts</span><span class="p">[</span><span class="n">ngram</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                        <span class="n">max_ref_counts</span><span class="p">[</span><span class="n">ngram</span><span class="p">],</span> <span class="n">ref_ngram_counts</span><span class="p">[</span><span class="n">ngram</span><span class="p">]</span>
+                    <span class="p">)</span>
+
+            <span class="c1"># Clip counts</span>
+            <span class="n">clipped_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">ngram</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">hyp_ngram_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">clipped_count</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">max_ref_counts</span><span class="p">[</span><span class="n">ngram</span><span class="p">])</span>
+
+            <span class="n">clipped_counts</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">clipped_count</span>
+            <span class="n">total_counts</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_ngrams</span><span class="p">)</span>
+
+    <span class="c1"># Calculate brevity penalty</span>
+    <span class="k">if</span> <span class="n">total_hyp_length</span> <span class="o">&lt;</span> <span class="n">total_ref_length</span><span class="p">:</span>
+        <span class="n">bp</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">total_ref_length</span> <span class="o">/</span> <span class="n">total_hyp_length</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bp</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Calculate precisions</span>
+    <span class="n">precisions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_ngram</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">total_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">smooth</span> <span class="ow">and</span> <span class="n">clipped_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Add smoothing for zero counts</span>
+                <span class="n">precision</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">total_counts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">precision</span> <span class="o">=</span> <span class="n">clipped_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">total_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">precision</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">precisions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
+
+    <span class="c1"># Calculate geometric mean of precisions</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">precisions</span><span class="p">):</span>
+        <span class="n">log_precisions</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">precisions</span><span class="p">]</span>
+        <span class="n">geo_mean</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">log_precisions</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_ngram</span><span class="p">)</span>
+        <span class="n">bleu</span> <span class="o">=</span> <span class="n">bp</span> <span class="o">*</span> <span class="n">geo_mean</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bleu</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;bleu&quot;</span><span class="p">:</span> <span class="n">bleu</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># Return as percentage</span>
+        <span class="s2">&quot;precisions&quot;</span><span class="p">:</span> <span class="n">precisions</span><span class="p">,</span>
+        <span class="s2">&quot;bp&quot;</span><span class="p">:</span> <span class="n">bp</span><span class="p">,</span>
+        <span class="s2">&quot;length_ratio&quot;</span><span class="p">:</span> <span class="n">total_hyp_length</span> <span class="o">/</span> <span class="n">total_ref_length</span>
+        <span class="k">if</span> <span class="n">total_ref_length</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="s2">&quot;hyp_length&quot;</span><span class="p">:</span> <span class="n">total_hyp_length</span><span class="p">,</span>
+        <span class="s2">&quot;ref_length&quot;</span><span class="p">:</span> <span class="n">total_ref_length</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="rouge_score">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.rouge_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rouge_score</span><span class="p">(</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">hypothesis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">tokenize</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+    <span class="n">rouge_types</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate ROUGE scores for Thai text with automatic tokenization.</span>
+
+<span class="sd">    This is a pure Python implementation of ROUGE (Recall-Oriented</span>
+<span class="sd">    Understudy for Gisting Evaluation) metric that automatically</span>
+<span class="sd">    tokenizes Thai text using PyThaiNLP.</span>
+
+<span class="sd">    Supported ROUGE types:</span>
+<span class="sd">    - rouge1: unigram-based scoring</span>
+<span class="sd">    - rouge2: bigram-based scoring</span>
+<span class="sd">    - rougeL: longest common subsequence-based scoring</span>
+
+<span class="sd">    :param str reference: reference text</span>
+<span class="sd">    :param str hypothesis: hypothesis text to evaluate</span>
+<span class="sd">    :param str tokenize: tokenization engine to use (default: &quot;newmm&quot;).</span>
+<span class="sd">        See :func:`pythainlp.tokenize.word_tokenize` for available engines.</span>
+<span class="sd">    :param Optional[list[str]] rouge_types: list of ROUGE types to calculate.</span>
+<span class="sd">        Default is [&quot;rouge1&quot;, &quot;rouge2&quot;, &quot;rougeL&quot;]</span>
+
+<span class="sd">    :return: dictionary mapping ROUGE type to (precision, recall, fmeasure)</span>
+<span class="sd">    :rtype: dict[str, tuple[float, float, float]]</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.benchmarks import rouge_score</span>
+
+<span class="sd">        reference = &quot;สวัสดีครับ วันนี้อากาศดีมาก&quot;</span>
+<span class="sd">        hypothesis = &quot;สวัสดีค่ะ วันนี้อากาศดี&quot;</span>
+<span class="sd">        scores = rouge_score(reference, hypothesis)</span>
+<span class="sd">        print(f&quot;ROUGE-1 F-measure: {scores[&#39;rouge1&#39;][2]:.4f}&quot;)</span>
+<span class="sd">        print(f&quot;ROUGE-2 F-measure: {scores[&#39;rouge2&#39;][2]:.4f}&quot;)</span>
+<span class="sd">        print(f&quot;ROUGE-L F-measure: {scores[&#39;rougeL&#39;][2]:.4f}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+    <span class="k">if</span> <span class="n">rouge_types</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rouge_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rouge1&quot;</span><span class="p">,</span> <span class="s2">&quot;rouge2&quot;</span><span class="p">,</span> <span class="s2">&quot;rougeL&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Tokenize texts</span>
+    <span class="n">ref_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span>
+        <span class="n">reference</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="n">hyp_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span>
+        <span class="n">hypothesis</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">rouge_type</span> <span class="ow">in</span> <span class="n">rouge_types</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">rouge_type</span> <span class="o">==</span> <span class="s2">&quot;rouge1&quot;</span><span class="p">:</span>
+            <span class="c1"># Unigram-based</span>
+            <span class="n">ref_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">)</span>
+            <span class="n">hyp_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">)</span>
+
+            <span class="n">overlap</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">ref_ngrams</span> <span class="o">&amp;</span> <span class="n">hyp_ngrams</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="n">ref_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">)</span>
+            <span class="n">hyp_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calculate_precision_recall_fmeasure</span><span class="p">(</span>
+                <span class="n">overlap</span><span class="p">,</span> <span class="n">hyp_count</span><span class="p">,</span> <span class="n">ref_count</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">rouge_type</span> <span class="o">==</span> <span class="s2">&quot;rouge2&quot;</span><span class="p">:</span>
+            <span class="c1"># Bigram-based</span>
+            <span class="n">ref_bigrams</span> <span class="o">=</span> <span class="n">_get_ngrams</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">hyp_bigrams</span> <span class="o">=</span> <span class="n">_get_ngrams</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">ref_bigram_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">ref_bigrams</span><span class="p">)</span>
+            <span class="n">hyp_bigram_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">hyp_bigrams</span><span class="p">)</span>
+
+            <span class="n">overlap</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">ref_bigram_counts</span> <span class="o">&amp;</span> <span class="n">hyp_bigram_counts</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="n">ref_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_bigrams</span><span class="p">)</span>
+            <span class="n">hyp_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_bigrams</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calculate_precision_recall_fmeasure</span><span class="p">(</span>
+                <span class="n">overlap</span><span class="p">,</span> <span class="n">hyp_count</span><span class="p">,</span> <span class="n">ref_count</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">rouge_type</span> <span class="o">==</span> <span class="s2">&quot;rougeL&quot;</span><span class="p">:</span>
+            <span class="c1"># Longest Common Subsequence-based</span>
+            <span class="n">lcs_len</span> <span class="o">=</span> <span class="n">_lcs_length</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">,</span> <span class="n">hyp_tokens</span><span class="p">)</span>
+            <span class="n">ref_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">)</span>
+            <span class="n">hyp_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calculate_precision_recall_fmeasure</span><span class="p">(</span>
+                <span class="n">lcs_len</span><span class="p">,</span> <span class="n">hyp_count</span><span class="p">,</span> <span class="n">ref_count</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="word_error_rate">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_error_rate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">word_error_rate</span><span class="p">(</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">hypothesis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">tokenize</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newmm&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate Word Error Rate (WER) for Thai text with automatic tokenization.</span>
+
+<span class="sd">    Word Error Rate is a common metric for evaluating speech recognition</span>
+<span class="sd">    and machine translation systems. It measures the minimum number of</span>
+<span class="sd">    word-level edits (insertions, deletions, substitutions) needed to</span>
+<span class="sd">    transform the hypothesis into the reference, normalized by the</span>
+<span class="sd">    reference length.</span>
+
+<span class="sd">    WER = (S + D + I) / N</span>
+
+<span class="sd">    where:</span>
+<span class="sd">    - S = number of substitutions</span>
+<span class="sd">    - D = number of deletions</span>
+<span class="sd">    - I = number of insertions</span>
+<span class="sd">    - N = number of words in reference</span>
+
+<span class="sd">    :param str reference: reference text</span>
+<span class="sd">    :param str hypothesis: hypothesis text to evaluate</span>
+<span class="sd">    :param str tokenize: tokenization engine to use (default: &quot;newmm&quot;).</span>
+<span class="sd">        See :func:`pythainlp.tokenize.word_tokenize` for available engines.</span>
+
+<span class="sd">    :return: word error rate as a float (0.0 = perfect, &gt;1.0 = very poor)</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.benchmarks import word_error_rate</span>
+
+<span class="sd">        reference = &quot;สวัสดีครับ วันนี้อากาศดีมาก&quot;</span>
+<span class="sd">        hypothesis = &quot;สวัสดีค่ะ วันนี้อากาศดี&quot;</span>
+<span class="sd">        wer = word_error_rate(reference, hypothesis)</span>
+<span class="sd">        print(f&quot;WER: {wer:.4f}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+    <span class="c1"># Tokenize texts</span>
+    <span class="n">ref_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span>
+        <span class="n">reference</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="n">hyp_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span>
+        <span class="n">hypothesis</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculate edit distance using dynamic programming</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_tokens</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_tokens</span><span class="p">)</span>
+
+    <span class="c1"># Create distance matrix</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+    <span class="c1"># Initialize first row and column</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+
+    <span class="c1"># Fill in the rest of the matrix</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ref_tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">hyp_tokens</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">substitution</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">insertion</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">deletion</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">substitution</span><span class="p">,</span> <span class="n">insertion</span><span class="p">,</span> <span class="n">deletion</span><span class="p">)</span>
+
+    <span class="c1"># Calculate WER</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">h</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span></div>
+
+
+
+<div class="viewcode-block" id="character_error_rate">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.character_error_rate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">character_error_rate</span><span class="p">(</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">hypothesis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate Character Error Rate (CER) for Thai text.</span>
+
+<span class="sd">    Character Error Rate is a metric for evaluating speech recognition</span>
+<span class="sd">    and optical character recognition (OCR) systems. It measures the</span>
+<span class="sd">    minimum number of character-level edits (insertions, deletions,</span>
+<span class="sd">    substitutions) needed to transform the hypothesis into the reference,</span>
+<span class="sd">    normalized by the reference length.</span>
+
+<span class="sd">    CER = (S + D + I) / N</span>
+
+<span class="sd">    where:</span>
+<span class="sd">    - S = number of substitutions</span>
+<span class="sd">    - D = number of deletions</span>
+<span class="sd">    - I = number of insertions</span>
+<span class="sd">    - N = number of characters in reference</span>
+
+<span class="sd">    :param str reference: reference text</span>
+<span class="sd">    :param str hypothesis: hypothesis text to evaluate</span>
+
+<span class="sd">    :return: character error rate as a float (0.0 = perfect, &gt;1.0 = very poor)</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.benchmarks import character_error_rate</span>
+
+<span class="sd">        reference = &quot;สวัสดีครับ&quot;</span>
+<span class="sd">        hypothesis = &quot;สวัสดีค่ะ&quot;</span>
+<span class="sd">        cer = character_error_rate(reference, hypothesis)</span>
+<span class="sd">        print(f&quot;CER: {cer:.4f}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Work with characters directly (no tokenization needed)</span>
+    <span class="n">ref_chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+    <span class="n">hyp_chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span>
+
+    <span class="c1"># Calculate edit distance using dynamic programming</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_chars</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyp_chars</span><span class="p">)</span>
+
+    <span class="c1"># Create distance matrix</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+    <span class="c1"># Initialize first row and column</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+
+    <span class="c1"># Fill in the rest of the matrix</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ref_chars</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">hyp_chars</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">substitution</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">insertion</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">deletion</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">substitution</span><span class="p">,</span> <span class="n">insertion</span><span class="p">,</span> <span class="n">deletion</span><span class="p">)</span>
+
+    <span class="c1"># Calculate CER</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">h</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 var options = {
     text: "Warning! You are reading an older version of this document. To read documentation for the current version, click here!",
     duration: -1,
-    destination: "https://pythainlp.github.io/docs/5.2/",
+    destination: "https://pythainlp.github.io/docs/5.3/",
     callback: function() {
     //   console.log("Toast hidden");
       Toastify.reposition();

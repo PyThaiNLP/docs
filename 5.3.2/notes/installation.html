@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; PyThaiNLP 0843640 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=aaef045d"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting started" href="start.html" />
+    <link rel="prev" title="PyThaiNLP documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notes-for-windows-installation">Notes for Windows installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pythainlp-in-distributed-environments">Using PyThaiNLP in distributed environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-considerations">Key considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usage-with-apache-spark">Example usage with Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-safety-considerations">Thread safety considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-configurations">Runtime configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-between-environment-variables">Interaction between environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-faq">Installation FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notes/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p>Stable release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pythainlp</span>
+</pre></div>
+</div>
+<p>Development (pre-release) version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">pre</span> <span class="n">pythainlp</span>
+</pre></div>
+</div>
+<p>Some features (for example, named entity recognition) require additional optional dependencies. Install them using the <cite>extras</cite> syntax:</p>
+<blockquote>
+<div><p>pip install pythainlp[extra1,extra2,…]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>The extras can include:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compact</span></code> — install a stable and small subset of dependencies (recommended)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full</span></code> — install all optional dependencies (may introduce large dependencies and conflicts)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abbreviation</span></code> — abbreviation expansion utilities</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attacut</span></code> — support for AttaCut (a fast and accurate tokenizer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">budoux</span></code> — support for BudouX text segmentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">benchmarks</span></code> — support for running benchmarks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coreference_resolution</span></code> — coreference resolution support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dependency_parsing</span></code> — dependency parsing support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">el</span></code> — entity linking support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">esupar</span></code> — ESuPAR parser support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate</span></code> — support for text generation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icu</span></code> — support for ICU (International Components for Unicode) used in transliteration and tokenization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipa</span></code> — support for IPA (International Phonetic Alphabet) in transliteration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ml</span></code> — support for ULMFiT models used in classification</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mt5</span></code> — mT5 models for Thai text summarization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nlpo3</span></code> — nlpo3 Thai word tokenization support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onnx</span></code> - ONNX model support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oskut</span></code> — OSKUT support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sefr_cut</span></code> — SEFR CUT Thai word tokenization support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spacy_thai</span></code> — spaCy Thai language support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spell</span></code> — support for more spell-checkers (phunspell &amp; symspellpy)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssg</span></code> — support for SSG syllable tokenizer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">textaugment</span></code> — text augmentation utilities</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thai_nner</span></code> — Thai named entity recognition support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thai2fit</span></code> — Thai word vectors (thai2fit)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thai2rom</span></code> — machine-learned romanization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transformers_ud</span></code> — transformers_ud engine support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> — machine translation support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wangchanberta</span></code> — WangchanBERTa models</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wangchanglm</span></code> — WangchangLM model support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">word_approximation</span></code> — word approximation support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wordnet</span></code> — WordNet support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wsd</span></code> — word-sense disambiguation support (pythainlp.wsd)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wtp</span></code> — Where’s the Point text segmentation support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wunsen</span></code> — Wunsen spell checker support</p></li>
+</ul>
+</dd>
+</dl>
+<p>For dependency details, see the <cite>project.optional-dependencies</cite> section in <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pyproject.toml">pyproject.toml</a>.</p>
+<section id="notes-for-windows-installation">
+<h2>Notes for Windows installation<a class="headerlink" href="#notes-for-windows-installation" title="Link to this heading"></a></h2>
+<p>Some features require the <cite>PyICU</cite> libraries on Windows. You have two options to install them.</p>
+<p>Option 1 (recommended):</p>
+<blockquote>
+<div><ul>
+<li><p>Download a pre-built wheel from <a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p></li>
+<li><p>Choose a wheel that matches your Python version and architecture (“win32” or “amd64”).</p></li>
+<li><p>Install it with pip, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PyICU</span><span class="o">-</span><span class="n">xxx</span><span class="o">-</span><span class="n">cp36</span><span class="o">-</span><span class="n">cp36m</span><span class="o">-</span><span class="n">win32</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>Option 2 (advanced):</p>
+<blockquote>
+<div><ul>
+<li><p>Attempt to build from source using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyicu</span>
+</pre></div>
+</div>
+</li>
+<li><p>Building from source requires development toolchains (for example Microsoft Visual C++ Build Tools) and may require setting environment variables such as <code class="docutils literal notranslate"><span class="pre">ICU_VERSION</span></code>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">ICU_VERSION</span><span class="o">=</span><span class="mf">62.1</span>
+</pre></div>
+</div>
+</li>
+<li><p>Building from source takes longer and requires technical knowledge, but produces a wheel optimized for your system.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="using-pythainlp-in-distributed-environments">
+<h2>Using PyThaiNLP in distributed environments<a class="headerlink" href="#using-pythainlp-in-distributed-environments" title="Link to this heading"></a></h2>
+<p>PyThaiNLP can be used in distributed computing environments such as Apache Spark. When using PyThaiNLP in these environments, you need to configure the data directory for each worker node.</p>
+<section id="key-considerations">
+<h3>Key considerations<a class="headerlink" href="#key-considerations" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Set environment variables inside distributed functions</strong>: Environment variables must be set inside the function that will be distributed to executor nodes, not in the driver program.</p></li>
+<li><p><strong>Use a writable local directory</strong>: The default data directory (<code class="docutils literal notranslate"><span class="pre">~/pythainlp-data</span></code>) may not be writable on executor nodes. Use a local directory like <code class="docutils literal notranslate"><span class="pre">./pythainlp-data</span></code> instead.</p></li>
+<li><p><strong>Set ``PYTHAINLP_DATA`` before data access</strong>: Always set the <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code> environment variable before the first call that reads or writes PyThaiNLP data on each worker.
+(<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA_DIR</span></code> is also accepted for backward compatibility but is deprecated.)</p></li>
+</ol>
+</section>
+<section id="example-usage-with-apache-spark">
+<h3>Example usage with Apache Spark<a class="headerlink" href="#example-usage-with-apache-spark" title="Link to this heading"></a></h3>
+<p>Basic example using PySpark RDD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkContext</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="s2">&quot;local[*]&quot;</span><span class="p">,</span> <span class="s2">&quot;PyThaiNLP Example&quot;</span><span class="p">)</span>
+<span class="n">thai_texts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;สวัสดีครับ&quot;</span><span class="p">,</span> <span class="s2">&quot;ภาษาไทย&quot;</span><span class="p">]</span>
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">thai_texts</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenize_thai</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHAINLP_DATA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;./pythainlp-data&#39;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">tokenized_rdd</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tokenize_thai</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">tokenized_rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example using PySpark DataFrame API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">udf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayType</span><span class="p">,</span> <span class="n">StringType</span>
+
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;PyThaiNLP&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;สวัสดีครับ&quot;</span><span class="p">)],</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="nd">@udf</span><span class="p">(</span><span class="n">returnType</span><span class="o">=</span><span class="n">ArrayType</span><span class="p">(</span><span class="n">StringType</span><span class="p">()))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenize_udf</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHAINLP_DATA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;./pythainlp-data&#39;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">result_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;tokens&quot;</span><span class="p">,</span> <span class="n">tokenize_udf</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For more comprehensive examples including error handling, production best practices, and advanced features, see the file <code class="docutils literal notranslate"><span class="pre">examples/distributed_pyspark.py</span></code> in the PyThaiNLP repository.</p>
+</section>
+<section id="thread-safety-considerations">
+<h3>Thread safety considerations<a class="headerlink" href="#thread-safety-considerations" title="Link to this heading"></a></h3>
+<p>PyThaiNLP’s core tokenization engines are thread-safe, which is important for distributed computing environments where multiple threads may process data concurrently. For detailed information about thread safety guarantees and best practices, see <a class="reference internal" href="threadsafe.html"><span class="doc">Thread safety</span></a>.</p>
+<p>Note that while the code itself is thread-safe, you still need to configure the data directory appropriately for distributed environments as described above.</p>
+</section>
+</section>
+<section id="runtime-configurations">
+<h2>Runtime configurations<a class="headerlink" href="#runtime-configurations" title="Link to this heading"></a></h2>
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_DATA">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_DATA</span></span><a class="headerlink" href="#envvar-PYTHAINLP_DATA" title="Link to this definition"></a></dt>
+<dd><p>Specifies the location where downloaded data and the corpus database are stored. If the directory does not exist, PyThaiNLP will create it.</p>
+<p>By default this is a directory named <code class="docutils literal notranslate"><span class="pre">pythainlp-data</span></code> in the user’s home directory.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">thainlp</span> <span class="pre">data</span> <span class="pre">path</span></code> at the command line to display the current data directory.</p>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_DATA_DIR">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_DATA_DIR</span></span><a class="headerlink" href="#envvar-PYTHAINLP_DATA_DIR" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Use: </span><span class="target" id="index-0"></span><a class="reference internal" href="#envvar-PYTHAINLP_DATA"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code></a> instead. Setting <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA_DIR</span></code> triggers a
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> at runtime. If both <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code> and <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA_DIR</span></code>
+are set simultaneously, PyThaiNLP raises <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_OFFLINE">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_OFFLINE</span></span><a class="headerlink" href="#envvar-PYTHAINLP_OFFLINE" title="Link to this definition"></a></dt>
+<dd><p>When set to a truthy value (<code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code>), PyThaiNLP operates in
+<em>offline mode</em>: automatic corpus downloads are disabled, and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.get_corpus_path()</span></code> raises <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a>
+for any corpus that is not already cached locally.</p>
+<p>Explicit calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.download()</span></code> or <code class="docutils literal notranslate"><span class="pre">thainlp</span> <span class="pre">data</span> <span class="pre">get</span></code>
+still work normally, because those are deliberate user actions.</p>
+<p>Use <code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.is_offline_mode()</span></code> to check the current state programmatically.</p>
+<p>This follows the same convention as <code class="docutils literal notranslate"><span class="pre">HF_HUB_OFFLINE</span></code> in <cite>huggingface_hub</cite>.</p>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_READ_ONLY">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_READ_ONLY</span></span><a class="headerlink" href="#envvar-PYTHAINLP_READ_ONLY" title="Link to this definition"></a></dt>
+<dd><p>When set to a truthy value (<code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code>), PyThaiNLP operates in
+<em>read-only mode</em>: implicit background writes to PyThaiNLP’s internal data directory
+are disabled.</p>
+<p><strong>What read-only mode blocks</strong> (implicit writes the user may not be aware of):</p>
+<ul class="simple">
+<li><p>Creating the PyThaiNLP data directory (<code class="docutils literal notranslate"><span class="pre">~/pythainlp-data</span></code> or
+as configured by <span class="target" id="index-1"></span><a class="reference internal" href="#envvar-PYTHAINLP_DATA"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code></a>).</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.download()</span></code> — corpus file downloads and catalog
+(<code class="docutils literal notranslate"><span class="pre">db.json</span></code>) updates.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.remove()</span></code> — corpus file and catalog deletions.</p></li>
+</ul>
+<p><strong>What read-only mode does NOT block</strong> (explicit user-initiated writes):</p>
+<ul class="simple">
+<li><p>Saving trained models or vocabularies to a user-specified path
+(e.g., <code class="docutils literal notranslate"><span class="pre">model.save(&quot;my_model.json&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">tagger.train(...,</span> <span class="pre">save_loc=&quot;...&quot;)</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tokenizer.save_vocabulary(&quot;my_dir/&quot;)</span></code>) — the user explicitly provided the
+destination path.</p></li>
+<li><p>CLI output files written to a user-specified location
+(e.g., <code class="docutils literal notranslate"><span class="pre">thainlp</span> <span class="pre">benchmark</span> <span class="pre">--save-details</span></code>,
+<code class="docutils literal notranslate"><span class="pre">thainlp</span> <span class="pre">misspell</span> <span class="pre">--output</span> <span class="pre">myfile.txt</span></code>).</p></li>
+</ul>
+<p>Use <code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.is_read_only_mode()</span></code> to check the current state programmatically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To disable only <em>automatic</em> background downloads while keeping explicit
+<code class="docutils literal notranslate"><span class="pre">download()</span></code> calls working, use <span class="target" id="index-2"></span><a class="reference internal" href="#envvar-PYTHAINLP_OFFLINE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code></a> instead.</p>
+</div>
+<p>If both <span class="target" id="index-3"></span><a class="reference internal" href="#envvar-PYTHAINLP_READ_ONLY"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code></a> and <span class="target" id="index-4"></span><a class="reference internal" href="#envvar-PYTHAINLP_READ_MODE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_READ_MODE</span></code></a> are set at the
+same time, PyThaiNLP raises <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHAINLP_READ_MODE">
+<span class="sig-name descname"><span class="pre">PYTHAINLP_READ_MODE</span></span><a class="headerlink" href="#envvar-PYTHAINLP_READ_MODE" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Use: </span><span class="target" id="index-5"></span><a class="reference internal" href="#envvar-PYTHAINLP_READ_ONLY"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code></a> instead. Setting <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_MODE</span></code> triggers a
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> at runtime. If both <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code> and
+<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_MODE</span></code> are set simultaneously, PyThaiNLP raises <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_MODE=1</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY=1</span></code>.</p>
+</div>
+</dd></dl>
+
+<section id="interaction-between-environment-variables">
+<h3>Interaction between environment variables<a class="headerlink" href="#interaction-between-environment-variables" title="Link to this heading"></a></h3>
+<p>The table below shows how <span class="target" id="index-6"></span><a class="reference internal" href="#envvar-PYTHAINLP_OFFLINE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code></a> and <span class="target" id="index-7"></span><a class="reference internal" href="#envvar-PYTHAINLP_READ_ONLY"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code></a>
+affect the two main corpus operations:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 32.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE=1</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY=1</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.get_corpus_path()</span></code> — corpus already cached locally</p></td>
+<td><p>Succeeds (returns path)</p></td>
+<td><p>Succeeds (no write needed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.get_corpus_path()</span></code> — corpus <strong>not</strong> cached locally</p></td>
+<td><p>Fails (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a>)</p></td>
+<td><p>Fails (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.download()</span></code> — corpus already in local catalog</p></td>
+<td><p>Succeeds (download is an explicit user action)</p></td>
+<td><p>Fails (returns <code class="docutils literal notranslate"><span class="pre">False</span></code>; all writes are blocked)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.download()</span></code> — corpus <strong>not</strong> in local catalog</p></td>
+<td><p>Succeeds (downloads the corpus)</p></td>
+<td><p>Fails (returns <code class="docutils literal notranslate"><span class="pre">False</span></code>; all writes are blocked)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Key differences:</p>
+<ul class="simple">
+<li><p><span class="target" id="index-8"></span><a class="reference internal" href="#envvar-PYTHAINLP_OFFLINE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code></a> blocks only <strong>automatic</strong> downloads.
+Explicit calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">download()</span></code> (or the
+<code class="docutils literal notranslate"><span class="pre">thainlp</span> <span class="pre">data</span> <span class="pre">get</span></code> CLI command) still work, because those are
+deliberate user actions.</p></li>
+<li><p><span class="target" id="index-9"></span><a class="reference internal" href="#envvar-PYTHAINLP_READ_ONLY"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code></a> is <strong>more restrictive</strong>: it blocks
+<em>all</em> writes to the data directory, including explicit
+<code class="xref py py-func docutils literal notranslate"><span class="pre">download()</span></code> calls.
+Use this when the data directory is on a read-only file system
+(e.g., a read-only Docker volume or a shared cluster mount).</p></li>
+<li><p><span class="target" id="index-10"></span><a class="reference internal" href="#envvar-PYTHAINLP_DATA"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code></a> sets the path of the data directory used by
+both modes.  In read-only mode the directory is not created if it
+does not already exist.</p></li>
+</ul>
+<p>Typical use cases:</p>
+<ul class="simple">
+<li><p><strong>Offline laptop / air-gapped system</strong>: set <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE=1</span></code>
+after downloading all required corpora.  You can still call
+<code class="docutils literal notranslate"><span class="pre">download()</span></code> manually if you have network access.</p></li>
+<li><p><strong>Read-only container image with pre-bundled corpora</strong>:
+set <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY=1</span></code> so that no writes occur at all.
+Any attempt to download a corpus that is missing from the image
+will return <code class="docutils literal notranslate"><span class="pre">False</span></code> instead of raising a permission error.</p></li>
+</ul>
+</section>
+</section>
+<section id="installation-faq">
+<h2>Installation FAQ<a class="headerlink" href="#installation-faq" title="Link to this heading"></a></h2>
+<p>Q: How do I set environment variables on each executor node in a distributed environment?</p>
+<p>A: When using PyThaiNLP in distributed computing environments like Apache Spark, you need to set the <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_DATA</span></code> environment variable inside the function that will be distributed to executor nodes. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize_thai</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHAINLP_DATA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;./pythainlp-data&#39;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tokenize_thai</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This ensures that each executor node uses a local data directory instead of the default home directory, which may not be writable on executor nodes.</p>
+<p>For detailed examples including PySpark DataFrame API and production best practices, see <code class="docutils literal notranslate"><span class="pre">examples/distributed_pyspark.py</span></code>.</p>
+<p>For more discussion, see <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/issues/475">PermissionError: [Errno 13] Permission denied: /home/pythainlp-data</a>.</p>
+<p>Q: How do I enable read-only mode for PyThaiNLP?</p>
+<p>A: Set the environment variable <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_ONLY</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+The legacy <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_READ_MODE=1</span></code> is still accepted but deprecated.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="PyThaiNLP documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="start.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

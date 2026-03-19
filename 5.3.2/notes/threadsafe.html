@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thread safety &mdash; PyThaiNLP 0843640 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=aaef045d"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FAQ" href="faq.html" />
+    <link rel="prev" title="Command line" href="command.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">Command line</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Thread safety</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thread-safety-implementation">Thread safety implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-in-multi-threaded-applications">Usage in multi-threaded applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-considerations">Performance considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-safe-custom-dictionary-usage">Example of safe custom dictionary usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-unsafe-usage-do-not-do-this">Example of UNSAFE usage (DO NOT DO THIS)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maintenance-notes">Maintenance notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-files">Related files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Thread safety</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notes/threadsafe.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="thread-safety">
+<h1>Thread safety<a class="headerlink" href="#thread-safety" title="Link to this heading"></a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>PyThaiNLP’s core word tokenization engines are designed with thread-safety
+in mind. Internal implementations (<code class="docutils literal notranslate"><span class="pre">mm</span></code>, <code class="docutils literal notranslate"><span class="pre">newmm</span></code>, <code class="docutils literal notranslate"><span class="pre">newmm-safe</span></code>,
+<code class="docutils literal notranslate"><span class="pre">longest</span></code>, <code class="docutils literal notranslate"><span class="pre">icu</span></code>) are thread-safe.</p>
+<p>For engines that wrap external libraries (<code class="docutils literal notranslate"><span class="pre">attacut</span></code>, <code class="docutils literal notranslate"><span class="pre">budoux</span></code>, <code class="docutils literal notranslate"><span class="pre">deepcut</span></code>,
+<code class="docutils literal notranslate"><span class="pre">nercut</span></code>, <code class="docutils literal notranslate"><span class="pre">nlpo3</span></code>, <code class="docutils literal notranslate"><span class="pre">oskut</span></code>, <code class="docutils literal notranslate"><span class="pre">sefr_cut</span></code>, <code class="docutils literal notranslate"><span class="pre">tltk</span></code>, <code class="docutils literal notranslate"><span class="pre">wtsplit</span></code>), the
+wrapper code is thread-safe, but we cannot guarantee thread-safety of the
+underlying external libraries themselves.</p>
+</section>
+<section id="thread-safety-implementation">
+<h2>Thread safety implementation<a class="headerlink" href="#thread-safety-implementation" title="Link to this heading"></a></h2>
+<p><strong>Internal implementations (fully thread-safe):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mm</span></code>, <code class="docutils literal notranslate"><span class="pre">newmm</span></code>, <code class="docutils literal notranslate"><span class="pre">newmm-safe</span></code>: Stateless implementation,
+all data is local</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">longest</span></code>: uses lock-protected check-then-act for
+the management of global cache shared across threads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icu</span></code>: each thread gets its own <code class="docutils literal notranslate"><span class="pre">BreakIterator</span></code> instance</p></li>
+</ul>
+<p><strong>External library wrappers (wrapper code is thread-safe):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">attacut</span></code>: uses lock-protected check-then-act for
+the management of global cache; underlying library thread-safety not guaranteed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">budoux</span></code>: uses lock-protected lazy initialization of parser;
+underlying library thread-safety not guaranteed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deepcut</span></code>, <code class="docutils literal notranslate"><span class="pre">nercut</span></code>, <code class="docutils literal notranslate"><span class="pre">nlpo3</span></code>, <code class="docutils literal notranslate"><span class="pre">tltk</span></code>: Stateless wrapper,
+underlying library thread-safety not guaranteed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oskut</span></code>, <code class="docutils literal notranslate"><span class="pre">sefr_cut</span></code>, <code class="docutils literal notranslate"><span class="pre">wtsplit</span></code>: use lock-protected model
+loading when switching models/engines; underlying library thread-safety not guaranteed</p></li>
+</ul>
+</section>
+<section id="usage-in-multi-threaded-applications">
+<h2>Usage in multi-threaded applications<a class="headerlink" href="#usage-in-multi-threaded-applications" title="Link to this heading"></a></h2>
+<p>Using a tokenization engine safely in multi-threaded contexts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenize_worker</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="c1"># Thread-safe for all engines</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;longest&quot;</span><span class="p">)</span>
+
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ผมรักประเทศไทย&quot;</span><span class="p">,</span> <span class="s2">&quot;วันนี้อากาศดี&quot;</span><span class="p">,</span> <span class="s2">&quot;เขาไปโรงเรียน&quot;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
+    <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tokenize_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1"># All results are correctly populated</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-considerations">
+<h2>Performance considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Lock-based synchronization</strong> (longest, attacut):</p>
+<ul class="simple">
+<li><p>Minimal overhead for cache access</p></li>
+<li><p>Cache lookups are very fast</p></li>
+<li><p>Lock contention is minimal in typical usage</p></li>
+</ul>
+</li>
+<li><p><strong>Thread-local storage</strong> (icu):</p>
+<ul class="simple">
+<li><p>Each thread maintains its own instance</p></li>
+<li><p>No synchronization overhead after initialization</p></li>
+<li><p>Slightly higher memory usage (one instance per thread)</p></li>
+</ul>
+</li>
+<li><p><strong>Stateless engines</strong> (newmm, mm):</p>
+<ul class="simple">
+<li><p>Zero synchronization overhead</p></li>
+<li><p>Best performance in multi-threaded scenarios</p></li>
+<li><p>Recommended for high-throughput applications</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="best-practices">
+<h2>Best practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>For high-throughput applications</strong>: Consider using stateless engines like
+<code class="docutils literal notranslate"><span class="pre">newmm</span></code> or <code class="docutils literal notranslate"><span class="pre">mm</span></code> for optimal performance.</p></li>
+<li><p><strong>For custom dictionaries</strong>: The <code class="docutils literal notranslate"><span class="pre">longest</span></code> engine with custom dictionaries
+maintains a cache per dictionary object. Reuse dictionary objects across
+threads to maximize cache efficiency.</p></li>
+<li><p><strong>For process pools</strong>: All engines work correctly with multiprocessing as
+each process has its own memory space.</p></li>
+<li><p><strong>IMPORTANT: Do not modify custom dictionaries during tokenization</strong>:</p>
+<ul class="simple">
+<li><p>Create your custom Trie/dictionary before starting threads</p></li>
+<li><p>Never call <code class="docutils literal notranslate"><span class="pre">trie.add()</span></code> or <code class="docutils literal notranslate"><span class="pre">trie.remove()</span></code> while tokenization is in progress</p></li>
+<li><p>If you need to update the dictionary,
+create a new Trie instance and pass it to subsequent tokenization calls</p></li>
+<li><p>The Trie data structure itself is NOT thread-safe for concurrent modifications</p></li>
+</ul>
+</li>
+</ol>
+<section id="example-of-safe-custom-dictionary-usage">
+<h3>Example of safe custom dictionary usage<a class="headerlink" href="#example-of-safe-custom-dictionary-usage" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_words</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">dict_trie</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+
+<span class="c1"># SAFE: Create dictionary once before threading</span>
+<span class="n">custom_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span>
+<span class="n">custom_words</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;คำใหม่&quot;</span><span class="p">)</span>
+<span class="n">custom_dict</span> <span class="o">=</span> <span class="n">dict_trie</span><span class="p">(</span><span class="n">custom_words</span><span class="p">)</span>
+
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ผมรักประเทศไทย&quot;</span><span class="p">,</span> <span class="s2">&quot;วันนี้อากาศดี&quot;</span><span class="p">,</span> <span class="s2">&quot;เขาไปโรงเรียน&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">):</span>
+    <span class="c1"># SAFE: Only reading from the dictionary</span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;newmm&quot;</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">custom_dict</span><span class="p">)</span>
+
+<span class="c1"># All threads share the same dictionary (read-only)</span>
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">))</span>
+    <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># Wait for all threads to finish</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="example-of-unsafe-usage-do-not-do-this">
+<h3>Example of UNSAFE usage (DO NOT DO THIS)<a class="headerlink" href="#example-of-unsafe-usage-do-not-do-this" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># UNSAFE: Modifying dictionary while threads are using it</span>
+<span class="n">custom_dict</span> <span class="o">=</span> <span class="n">dict_trie</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">unsafe_worker</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">custom_dict</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;newmm&quot;</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">custom_dict</span><span class="p">)</span>
+    <span class="c1"># DANGER: Modifying the shared dictionary</span>
+    <span class="n">custom_dict</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;คำใหม่&quot;</span><span class="p">)</span>  <span class="c1"># This is NOT thread-safe!</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<p>Comprehensive thread safety tests are available in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/core/test_tokenize_thread_safety.py</span></code></p></li>
+</ul>
+<p>The test suite includes:</p>
+<ul class="simple">
+<li><p>Concurrent tokenization with multiple threads</p></li>
+<li><p>Race condition testing with multiple dictionaries</p></li>
+<li><p>Verification of result consistency across threads</p></li>
+<li><p>Stress testing with up to 200 concurrent operations (20 threads × 10 iterations)</p></li>
+</ul>
+</section>
+<section id="maintenance-notes">
+<h2>Maintenance notes<a class="headerlink" href="#maintenance-notes" title="Link to this heading"></a></h2>
+<p>When adding new tokenization engines to PyThaiNLP:</p>
+<ol class="arabic simple">
+<li><p><strong>Avoid global mutable state</strong> whenever possible</p></li>
+<li><p>If caching is necessary, use thread-safe locks</p></li>
+<li><p>If per-thread state is needed, use <code class="docutils literal notranslate"><span class="pre">threading.local()</span></code></p></li>
+<li><p>Always add thread safety tests for new engines</p></li>
+<li><p>Document thread safety guarantees in docstrings</p></li>
+</ol>
+</section>
+<section id="related-files">
+<h2>Related files<a class="headerlink" href="#related-files" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Core implementation: <code class="docutils literal notranslate"><span class="pre">pythainlp/tokenize/core.py</span></code></p></li>
+<li><p>Engine implementations: <code class="docutils literal notranslate"><span class="pre">pythainlp/tokenize/*.py</span></code></p></li>
+<li><p>Tests: <code class="docutils literal notranslate"><span class="pre">tests/core/test_tokenize_thread_safety.py</span></code></p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> - For using PyThaiNLP in distributed computing environments
+like Apache Spark, including configuration of data directories for distributed operations</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="command.html" class="btn btn-neutral float-left" title="Command line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

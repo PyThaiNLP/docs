@@ -1,0 +1,1095 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.corpus &mdash; PyThaiNLP 0843640 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=aaef045d"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.el" href="el.html" />
+    <link rel="prev" title="pythainlp.coref" href="coref.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.corpus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#countries">countries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find-synonym">find_synonym</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus">get_corpus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus-as-is">get_corpus_as_is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus-db">get_corpus_db</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus-db-detail">get_corpus_db_detail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus-default-db">get_corpus_default_db</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-corpus-path">get_corpus_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download">download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remove">remove</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provinces">provinces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-dict">thai_dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-stopwords">thai_stopwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-wikipedia-titles">thai_wikipedia_titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-words">thai_words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-wsd-dict">thai_wsd_dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-orst-words">thai_orst_words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-synonyms">thai_synonyms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-syllables">thai_syllables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-negations">thai_negations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-family-names">thai_family_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-female-names">thai_female_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thai-male-names">thai_male_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-th-en-translit-get-transliteration-dict">pythainlp.corpus.th_en_translit.get_transliteration_dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-tnc-word-freqs">pythainlp.corpus.tnc.word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-tnc-unigram-word-freqs">pythainlp.corpus.tnc.unigram_word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-tnc-bigram-word-freqs">pythainlp.corpus.tnc.bigram_word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-tnc-trigram-word-freqs">pythainlp.corpus.tnc.trigram_word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-ttc-word-freqs">pythainlp.corpus.ttc.word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-ttc-unigram-word-freqs">pythainlp.corpus.ttc.unigram_word_freqs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#oscar">OSCAR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-oscar-word-freqs">pythainlp.corpus.oscar.word_freqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-oscar-unigram-word-freqs">pythainlp.corpus.oscar.unigram_word_freqs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#util">Util</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-util-find-badwords">pythainlp.corpus.util.find_badwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-util-revise-wordset">pythainlp.corpus.util.revise_wordset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-util-revise-newmm-default-wordset">pythainlp.corpus.util.revise_newmm_default_wordset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wordnet">WordNet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-synsets">pythainlp.corpus.wordnet.synsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-synset">pythainlp.corpus.wordnet.synset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-all-lemma-names">pythainlp.corpus.wordnet.all_lemma_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-all-synsets">pythainlp.corpus.wordnet.all_synsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-langs">pythainlp.corpus.wordnet.langs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-lemmas">pythainlp.corpus.wordnet.lemmas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-lemma">pythainlp.corpus.wordnet.lemma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-lemma-from-key">pythainlp.corpus.wordnet.lemma_from_key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-path-similarity">pythainlp.corpus.wordnet.path_similarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-lch-similarity">pythainlp.corpus.wordnet.lch_similarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-wup-similarity">pythainlp.corpus.wordnet.wup_similarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-morphy">pythainlp.corpus.wordnet.morphy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp-corpus-wordnet-custom-lemmas">pythainlp.corpus.wordnet.custom_lemmas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#synset">Synset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.corpus</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/corpus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-corpus">
+<h1>pythainlp.corpus<a class="headerlink" href="#pythainlp-corpus" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">pythainlp.corpus</span></code> module provides access to various Thai language corpora and resources that come bundled with PyThaiNLP. These resources are essential for natural language processing tasks in the Thai language.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<section id="countries">
+<h3>countries<a class="headerlink" href="#countries" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">countries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl class="simple">
+<dt>Return a frozenset of country names in Thai such as “แคนาดา”, “โรมาเนีย”,</dt><dd><p>“แอลจีเรีย”, and “ลาว”.</p>
+</dd>
+</dl>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/countries_th.txt">dev/pythainlp/corpus/countries_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing country names in Thai</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="find-synonym">
+<h3>find_synonym<a class="headerlink" href="#find-synonym" title="Link to this heading"></a></h3>
+</section>
+<section id="get-corpus">
+<h3>get_corpus<a class="headerlink" href="#get-corpus" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Read corpus data from file and return a frozenset.</p>
+<p>Each line in the file will be a member of the set.</p>
+<p>Whitespace stripped and empty values and duplicates removed.</p>
+<p>If comments is False, any text at any position after the character
+‘#’ in each line will be discarded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – filename of the corpus to be read</p></li>
+<li><p><strong>comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – keep comments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> consisting of lines in the file</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_corpus</span>
+
+<span class="c1"># input file (negations_th.txt):</span>
+<span class="c1"># แต่</span>
+<span class="c1"># ไม่</span>
+
+<span class="n">get_corpus</span><span class="p">(</span><span class="s2">&quot;negations_th.txt&quot;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># frozenset({&#39;แต่&#39;, &#39;ไม่&#39;})</span>
+
+<span class="c1"># input file (ttc_freq.txt):</span>
+<span class="c1"># ตัวบท&lt;tab&gt;10</span>
+<span class="c1"># โดยนัยนี้&lt;tab&gt;1</span>
+
+<span class="n">get_corpus</span><span class="p">(</span><span class="s2">&quot;ttc_freq.txt&quot;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># frozenset({&#39;โดยนัยนี้\t1&#39;,</span>
+<span class="c1">#    &#39;ตัวบท\t10&#39;,</span>
+<span class="c1">#     ...})</span>
+
+<span class="c1"># input file (icubrk_th.txt):</span>
+<span class="c1"># # Thai Dictionary for ICU BreakIterator</span>
+<span class="c1"># กก</span>
+<span class="c1"># กกขนาก</span>
+
+<span class="n">get_corpus</span><span class="p">(</span><span class="s2">&quot;icubrk_th.txt&quot;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># frozenset({&#39;กกขนาก&#39;,</span>
+<span class="c1">#     &#39;# Thai Dictionary for ICU BreakIterator&#39;,</span>
+<span class="c1">#     &#39;กก&#39;,</span>
+<span class="c1">#     ...})</span>
+
+<span class="n">get_corpus</span><span class="p">(</span><span class="s2">&quot;icubrk_th.txt&quot;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># frozenset({&#39;กกขนาก&#39;,</span>
+<span class="c1">#     &#39;กก&#39;,</span>
+<span class="c1">#     ...})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="get-corpus-as-is">
+<h3>get_corpus_as_is<a class="headerlink" href="#get-corpus-as-is" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus_as_is</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus_as_is"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Read corpus data from file, as it is, and return a list.</p>
+<p>Each line in the file will be a member of the list.</p>
+<p>No modifications in member values and their orders.</p>
+<p>If strip or comment removal is needed, use get_corpus() instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – filename of the corpus to be read</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> consisting of lines in the file</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_corpus</span>
+
+<span class="c1"># input file (negations_th.txt):</span>
+<span class="c1"># แต่</span>
+<span class="c1"># ไม่</span>
+
+<span class="n">get_corpus_as_is</span><span class="p">(</span><span class="s2">&quot;negations_th.txt&quot;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># [&#39;แต่&#39;, &#39;ไม่&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="get-corpus-db">
+<h3>get_corpus_db<a class="headerlink" href="#get-corpus-db" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_ResponseWrapper</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get corpus catalog from server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – URL corpus catalog</p>
+</dd>
+</dl>
+<p>Security Note: Uses HTTPS with certificate validation enabled by default
+in Python’s urllib. Only download corpus from trusted URLs.</p>
+</dd></dl>
+
+</section>
+<section id="get-corpus-db-detail">
+<h3>get_corpus_db_detail<a class="headerlink" href="#get-corpus-db-detail" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus_db_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus_db_detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get details about a corpus, using information from local catalog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – name of corpus</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>details about corpus</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="get-corpus-default-db">
+<h3>get_corpus_default_db<a class="headerlink" href="#get-corpus-default-db" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus_default_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus_default_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get model path from default_db.json</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – corpus name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>path to the corpus or <strong>None</strong> if the corpus doesn’t              exist on the device</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+<p>If you want to edit default_db.json,         you can edit pythainlp/corpus/default_db.json</p>
+</dd></dl>
+
+</section>
+<section id="get-corpus-path">
+<h3>get_corpus_path<a class="headerlink" href="#get-corpus-path" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">get_corpus_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#get_corpus_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get corpus path.</p>
+<p>The function checks the following locations in order:</p>
+<ol class="arabic simple">
+<li><p>A user-defined path override (<code class="docutils literal notranslate"><span class="pre">CUSTOMIZE</span></code> mapping).</p></li>
+<li><p>Bundled (default) corpora shipped with PyThaiNLP.</p></li>
+<li><p>The local download catalog (<code class="docutils literal notranslate"><span class="pre">~/pythainlp-data/</span></code>).</p></li>
+</ol>
+<p>When the corpus file is not present locally, the behavior depends on the
+<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code> environment variable:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code> is set to a truthy value (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>),
+a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a> is raised immediately.</p></li>
+<li><p>Otherwise, the corpus is downloaded automatically.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – corpus name</p></li>
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – corpus version (empty string means latest)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>full local path when the corpus exists,
+or <code class="docutils literal notranslate"><span class="pre">None</span></code> when the corpus cannot be found or downloaded.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – when the corpus is missing locally and
+<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code> is set to a truthy value.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>(Please see the filename in
+<a class="reference external" href="https://pythainlp.org/pythainlp-corpus/db.json">this file</a>)</p>
+<p>If the corpus already exists:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_corpus_path</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;ttc&quot;</span><span class="p">))</span>
+<span class="c1"># output: /root/pythainlp-data/ttc_freq.txt</span>
+</pre></div>
+</div>
+<p>If the corpus has not been downloaded yet (online mode):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_corpus_path</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;wiki_lm_lstm&quot;</span><span class="p">))</span>
+<span class="c1"># output: /root/pythainlp-data/thwiki_model_lstm.pth</span>
+<span class="c1"># (downloads automatically on first call)</span>
+</pre></div>
+</div>
+<p>To download manually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">download</span><span class="p">,</span> <span class="n">get_corpus_path</span>
+
+<span class="n">download</span><span class="p">(</span><span class="s2">&quot;wiki_lm_lstm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;wiki_lm_lstm&quot;</span><span class="p">))</span>
+<span class="c1"># output: /root/pythainlp-data/thwiki_model_lstm.pth</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="download">
+<h3>download<a class="headerlink" href="#download" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#download"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Download corpus.</p>
+<p>The available corpus names can be seen in this file:
+<a class="reference external" href="https://pythainlp.org/pythainlp-corpus/db.json">https://pythainlp.org/pythainlp-corpus/db.json</a></p>
+<p>This function always performs the download regardless of the
+<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code> environment variable, because an explicit call
+to <code class="docutils literal notranslate"><span class="pre">download()</span></code> is a deliberate user action.
+<code class="docutils literal notranslate"><span class="pre">PYTHAINLP_OFFLINE</span></code> only blocks the <em>automatic</em> download triggered
+by <code class="xref py py-func docutils literal notranslate"><span class="pre">pythainlp.corpus.get_corpus_path()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – corpus name</p></li>
+<li><p><strong>force</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – force downloading</p></li>
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – URL of the corpus catalog</p></li>
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – version of the corpus</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>True</strong> if the corpus is found and successfully downloaded.
+Otherwise, it returns <strong>False</strong>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">download</span>
+
+<span class="n">download</span><span class="p">(</span><span class="s2">&quot;wiki_lm_lstm&quot;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># Corpus: wiki_lm_lstm</span>
+<span class="c1"># - Downloading: wiki_lm_lstm 0.1</span>
+<span class="c1"># thwiki_lm.pth:  26%|██▌       | 114k/434k [00:00&lt;00:00, 690kB/s]</span>
+</pre></div>
+</div>
+<p>By default, downloaded corpora and models will be saved in
+<code class="docutils literal notranslate"><span class="pre">$HOME/pythainlp-data/</span></code>
+(e.g. <code class="docutils literal notranslate"><span class="pre">/Users/bact/pythainlp-data/wiki_lm_lstm.pth</span></code>).</p>
+</dd></dl>
+
+</section>
+<section id="remove">
+<h3>remove<a class="headerlink" href="#remove" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/core.html#remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Remove corpus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – corpus name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>True</strong> if the corpus is found and successfully removed.
+Otherwise, it returns <strong>False</strong>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove</span><span class="p">,</span> <span class="n">get_corpus_path</span><span class="p">,</span> <span class="n">get_corpus</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;ttc&quot;</span><span class="p">))</span>
+<span class="c1"># output: True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_corpus_path</span><span class="p">(</span><span class="s2">&quot;ttc&quot;</span><span class="p">))</span>
+<span class="c1"># output: None</span>
+
+<span class="n">get_corpus</span><span class="p">(</span><span class="s2">&quot;ttc&quot;</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># FileNotFoundError: [Errno 2] No such file or directory:</span>
+<span class="c1"># &#39;/usr/local/lib/python3.6/dist-packages/pythainlp/corpus/ttc&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="provinces">
+<h3>provinces<a class="headerlink" href="#provinces" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">provinces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#provinces"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl class="simple">
+<dt>Return a frozenset of Thailand province names in Thai such as “กระบี่”,</dt><dd><p>“กรุงเทพมหานคร”, “กาญจนบุรี”, and “อุบลราชธานี”.</p>
+</dd>
+</dl>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/thailand_provinces_th.txt">dev/pythainlp/corpus/thailand_provinces_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param bool details<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return details of provinces or not</p>
+</dd>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing province names of Thailand     (if details is False) or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> containing <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> of     province names and details such as     [{‘name_th’: ‘นนทบุรี’, ‘abbr_th’: ‘นบ’, ‘name_en’: ‘Nonthaburi’,     ‘abbr_en’: ‘NBI’}].</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-dict">
+<h3>thai_dict<a class="headerlink" href="#thai-dict" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return Thai dictionary with definition from wiktionary.</p>
+<p>(See: <a class="reference external" href="https://pythainlp.org/pythainlp-corpus/thai_dict.html">thai_dict</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thai words with part-of-speech type and definition</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-stopwords">
+<h3>thai_stopwords<a class="headerlink" href="#thai-stopwords" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_stopwords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_stopwords"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl>
+<dt>Return a frozenset of Thai stopwords such as “มี”, “ไป”, “ไง”, “ขณะ”,</dt><dd><p>“การ”, and “ประการหนึ่ง”.</p>
+</dd>
+<dt>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/stopwords_th.txt">dev/pythainlp/corpus/stopwords_th.txt</a>)</dt><dd><p>We use stopword lists by thesis’s เพ็ญศิริ ลี้ตระกูล.</p>
+<dl class="field-list simple">
+<dt class="field-odd">See Also<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>เพ็ญศิริ ลี้ตระกูล .     การเลือกประโยคสำคัญในการสรุปความภาษาไทยโดยใช้แบบจำลองแบบลำดับชั้น.     กรุงเทพมหานคร : มหาวิทยาลัยธรรมศาสตร์; 2551.</p>
+<dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing stopwords.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="thai-wikipedia-titles">
+<h3>thai_wikipedia_titles<a class="headerlink" href="#thai-wikipedia-titles" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_wikipedia_titles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/wikipedia.html#thai_wikipedia_titles"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of words from Thai Wikipedia titles corpus.
+They are mostly nouns and noun phrases,
+including event, organization, people, place, and product names.
+Commonly misspelled words are included intentionally.</p>
+<p>See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/wikipedia_titles_th.txt">dev/pythainlp/corpus/wikipedia_titles_th.txt</a></p>
+<p>More info:
+<a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/corpus_license.md">https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/corpus_license.md</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing Thai words.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="thai-words">
+<h3>thai_words<a class="headerlink" href="#thai-words" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_words</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl class="simple">
+<dt>Return a frozenset of Thai words such as “กติกา”, “กดดัน”, “พิษ”,</dt><dd><p>and “พิษภัย”.</p>
+</dd>
+</dl>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/words_th.txt">dev/pythainlp/corpus/words_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing words in the Thai language.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-wsd-dict">
+<h3>thai_wsd_dict<a class="headerlink" href="#thai-wsd-dict" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_wsd_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_wsd_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return Thai Word Sense Disambiguation dictionary with definition from wiktionary.</p>
+<p>(See: <a class="reference external" href="https://pythainlp.org/pythainlp-corpus/thai_dict.html">thai_dict</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thai words with part-of-speech type and definition</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-orst-words">
+<h3>thai_orst_words<a class="headerlink" href="#thai-orst-words" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_orst_words</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_orst_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of Thai words from Royal Society of Thailand</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/orst_words_th.txt">dev/pythainlp/corpus/thai_orst_words.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing words in the Thai language.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-synonyms">
+<h3>thai_synonyms<a class="headerlink" href="#thai-synonyms" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_synonyms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_synonyms"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return Thai synonyms.</p>
+<p>(See: <a class="reference external" href="https://pythainlp.org/pythainlp-corpus/thai_synonym.html">thai_synonym</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thai words with part-of-speech type and synonym</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-syllables">
+<h3>thai_syllables<a class="headerlink" href="#thai-syllables" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_syllables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_syllables"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><dl class="simple">
+<dt>Return a frozenset of Thai syllables such as “กรอบ”, “ก็”, “๑”, “โมบ”,</dt><dd><p>“โมน”, “โม่ง”, “กา”, “ก่า”, and, “ก้า”.</p>
+</dd>
+<dt>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/syllables_th.txt">dev/pythainlp/corpus/syllables_th.txt</a>)</dt><dd><p>We use the Thai syllable list from <a class="reference external" href="https://github.com/Thanabhat/KUCut">KUCut</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing syllables in the Thai language.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="thai-negations">
+<h3>thai_negations<a class="headerlink" href="#thai-negations" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_negations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_negations"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of Thai negation words including “ไม่” and “แต่”.</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/negations_th.txt">dev/pythainlp/corpus/negations_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing negations in the Thai language.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-family-names">
+<h3>thai_family_names<a class="headerlink" href="#thai-family-names" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_family_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_family_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of Thai family names</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/family_names_th.txt">dev/pythainlp/corpus/family_names_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing Thai family names.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-female-names">
+<h3>thai_female_names<a class="headerlink" href="#thai-female-names" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_female_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_female_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of Thai female names</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/person_names_female_th.txt">dev/pythainlp/corpus/person_names_female_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing Thai female names.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="thai-male-names">
+<h3>thai_male_names<a class="headerlink" href="#thai-male-names" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.</span></span><span class="sig-name descname"><span class="pre">thai_male_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/common.html#thai_male_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return a frozenset of Thai male names</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/person_names_male_th.txt">dev/pythainlp/corpus/person_names_male_th.txt</a>)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> containing Thai male names.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-th-en-translit-get-transliteration-dict">
+<h3>pythainlp.corpus.th_en_translit.get_transliteration_dict<a class="headerlink" href="#pythainlp-corpus-th-en-translit-get-transliteration-dict" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.th_en_translit.</span></span><span class="sig-name descname"><span class="pre">get_transliteration_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.defaultdict" title="(in Python v3.14)"><span class="pre">defaultdict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/th_en_translit.html#get_transliteration_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get Thai to English transliteration dictionary.</p>
+<p>The returned dict is in dict[str, dict[List[str], List[Optional[bool]]]] format.</p>
+</dd></dl>
+
+<p>TNC (Thai National Corpus)
+—</p>
+<p>The Thai National Corpus (TNC) is a collection of text data in the Thai language. This module provides access to word frequency data from the TNC corpus.</p>
+</section>
+<section id="pythainlp-corpus-tnc-word-freqs">
+<h3>pythainlp.corpus.tnc.word_freqs<a class="headerlink" href="#pythainlp-corpus-tnc-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.tnc.</span></span><span class="sig-name descname"><span class="pre">word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/tnc.html#word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get word frequency from Thai National Corpus (TNC)</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/tnc_freq.txt">dev/pythainlp/corpus/tnc_freq.txt</a>)</p>
+<blockquote>
+<div><p>Credit: Korakot Chaovavanich <a class="reference external" href="https://www.facebook.com/groups/thainlp/posts/434330506948445">https://www.facebook.com/groups/thainlp/posts/434330506948445</a></p>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-tnc-unigram-word-freqs">
+<h3>pythainlp.corpus.tnc.unigram_word_freqs<a class="headerlink" href="#pythainlp-corpus-tnc-unigram-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.tnc.</span></span><span class="sig-name descname"><span class="pre">unigram_word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/tnc.html#unigram_word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get unigram word frequency from Thai National Corpus (TNC)</p>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-tnc-bigram-word-freqs">
+<h3>pythainlp.corpus.tnc.bigram_word_freqs<a class="headerlink" href="#pythainlp-corpus-tnc-bigram-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.tnc.</span></span><span class="sig-name descname"><span class="pre">bigram_word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/tnc.html#bigram_word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get bigram word frequency from Thai National Corpus (TNC)</p>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-tnc-trigram-word-freqs">
+<h3>pythainlp.corpus.tnc.trigram_word_freqs<a class="headerlink" href="#pythainlp-corpus-tnc-trigram-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.tnc.</span></span><span class="sig-name descname"><span class="pre">trigram_word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/tnc.html#trigram_word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get trigram word frequency from Thai National Corpus (TNC)</p>
+</dd></dl>
+
+<p>TTC (Thai Textbook Corpus)
+—</p>
+<p>The Thai Textbook Corpus (TTC) is a collection of Thai language text data, primarily sourced from textbooks.</p>
+</section>
+<section id="pythainlp-corpus-ttc-word-freqs">
+<h3>pythainlp.corpus.ttc.word_freqs<a class="headerlink" href="#pythainlp-corpus-ttc-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.ttc.</span></span><span class="sig-name descname"><span class="pre">word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/ttc.html#word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get word frequency from Thai Textbook Corpus (TTC)</p>
+<p>(See: <a class="reference external" href="https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/ttc_freq.txt">dev/pythainlp/corpus/ttc_freq.txt</a>)</p>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-ttc-unigram-word-freqs">
+<h3>pythainlp.corpus.ttc.unigram_word_freqs<a class="headerlink" href="#pythainlp-corpus-ttc-unigram-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.ttc.</span></span><span class="sig-name descname"><span class="pre">unigram_word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/ttc.html#unigram_word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get unigram word frequency from Thai Textbook Corpus (TTC)</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="oscar">
+<h2>OSCAR<a class="headerlink" href="#oscar" title="Link to this heading"></a></h2>
+<p>OSCAR is a multilingual corpus that includes Thai text data. This module provides access to word frequency data from the OSCAR corpus.</p>
+<section id="pythainlp-corpus-oscar-word-freqs">
+<h3>pythainlp.corpus.oscar.word_freqs<a class="headerlink" href="#pythainlp-corpus-oscar-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.oscar.</span></span><span class="sig-name descname"><span class="pre">word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/oscar.html#word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get word frequency from OSCAR Corpus (words tokenized using ICU)</p>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-oscar-unigram-word-freqs">
+<h3>pythainlp.corpus.oscar.unigram_word_freqs<a class="headerlink" href="#pythainlp-corpus-oscar-unigram-word-freqs" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.oscar.</span></span><span class="sig-name descname"><span class="pre">unigram_word_freqs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/oscar.html#unigram_word_freqs"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get unigram word frequency from OSCAR Corpus (words tokenized using ICU)</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="util">
+<h2>Util<a class="headerlink" href="#util" title="Link to this heading"></a></h2>
+<p>Utilities for working with the corpus data.</p>
+<section id="pythainlp-corpus-util-find-badwords">
+<h3>pythainlp.corpus.util.find_badwords<a class="headerlink" href="#pythainlp-corpus-util-find-badwords" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.util.</span></span><span class="sig-name descname"><span class="pre">find_badwords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokenize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.14)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/util.html#find_badwords"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Find words that do not work well with the <cite>tokenize</cite> function
+for the provided <cite>training_data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokenize</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>) – a tokenize function</p></li>
+<li><p><strong>training_data</strong> (<em>Iterable</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>) – tokenized text, to be used        as a training set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>words that are considered to make <cite>tokenize</cite> perform badly</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-util-revise-wordset">
+<h3>pythainlp.corpus.util.revise_wordset<a class="headerlink" href="#pythainlp-corpus-util-revise-wordset" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.util.</span></span><span class="sig-name descname"><span class="pre">revise_wordset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokenize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orig_words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.14)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/util.html#revise_wordset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Revise a set of words that could improve tokenization performance of
+a dictionary-based <cite>tokenize</cite> function.</p>
+<p><cite>orig_words</cite> will be used as a base set for the dictionary.
+Words that do not performed well with <cite>training_data</cite> will be removed.
+The remaining words will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokenize</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>) – a tokenize function, can be        any function that takes a string as input and returns a List[str]</p></li>
+<li><p><strong>orig_words</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – words that used by the tokenize function,        will be used as a base for revision</p></li>
+<li><p><strong>training_data</strong> (<em>Iterable</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>) – tokenized text, to be used        as a training set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>words that are considered to make <cite>tokenize</cite> perform badly</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+<dt class="field-even">Example:<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_words</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">revise_wordset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize.longest</span><span class="w"> </span><span class="kn">import</span> <span class="n">segment</span>
+
+<span class="n">base_words</span> <span class="o">=</span> <span class="n">thai_words</span><span class="p">()</span>
+<span class="n">more_words</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ถวิล อุดล&quot;</span><span class="p">,</span> <span class="s2">&quot;ทองอินทร์ ภูริพัฒน์&quot;</span><span class="p">,</span> <span class="s2">&quot;เตียง ศิริขันธ์&quot;</span><span class="p">,</span> <span class="s2">&quot;จำลอง ดาวเรือง&quot;</span>
+<span class="p">}</span>
+<span class="n">base_words</span> <span class="o">=</span> <span class="n">base_words</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">more_words</span><span class="p">)</span>
+<span class="n">dict_trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+
+<span class="n">tokenize</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">segment</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">dict_trie</span><span class="p">)</span>
+
+<span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="o">.</span> <span class="o">...</span><span class="p">],</span>
+    <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">revised_words</span> <span class="o">=</span> <span class="n">revise_wordset</span><span class="p">(</span><span class="n">tokenize</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">,</span> <span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="pythainlp-corpus-util-revise-newmm-default-wordset">
+<h3>pythainlp.corpus.util.revise_newmm_default_wordset<a class="headerlink" href="#pythainlp-corpus-util-revise-newmm-default-wordset" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.corpus.util.</span></span><span class="sig-name descname"><span class="pre">revise_newmm_default_wordset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.14)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/corpus/util.html#revise_newmm_default_wordset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Revise a set of word that could improve tokenization performance of
+<cite>pythainlp.tokenize.newmm</cite>, a dictionary-based tokenizer and a default
+tokenizer for PyThaiNLP.</p>
+<p>Words from <cite>pythainlp.corpus.thai_words()</cite> will be used as a base set
+for the dictionary. Words that do not performed well with <cite>training_data</cite>
+will be removed. The remaining words will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>training_data</strong> (<em>Iterable</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>) – tokenized text, to be used        as a training set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>words that are considered to make <cite>tokenize</cite> perform badly</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="wordnet">
+<h2>WordNet<a class="headerlink" href="#wordnet" title="Link to this heading"></a></h2>
+<p>PyThaiNLP API includes the WordNet module, which is an exact copy of NLTK’s WordNet API for the Thai language. WordNet is a lexical database for English and other languages.</p>
+<p>For more details on WordNet, refer to the <a class="reference external" href="https://www.nltk.org/howto/wordnet.html">NLTK WordNet documentation</a>.</p>
+<section id="pythainlp-corpus-wordnet-synsets">
+<h3>pythainlp.corpus.wordnet.synsets<a class="headerlink" href="#pythainlp-corpus-wordnet-synsets" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-synset">
+<h3>pythainlp.corpus.wordnet.synset<a class="headerlink" href="#pythainlp-corpus-wordnet-synset" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-all-lemma-names">
+<h3>pythainlp.corpus.wordnet.all_lemma_names<a class="headerlink" href="#pythainlp-corpus-wordnet-all-lemma-names" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-all-synsets">
+<h3>pythainlp.corpus.wordnet.all_synsets<a class="headerlink" href="#pythainlp-corpus-wordnet-all-synsets" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-langs">
+<h3>pythainlp.corpus.wordnet.langs<a class="headerlink" href="#pythainlp-corpus-wordnet-langs" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-lemmas">
+<h3>pythainlp.corpus.wordnet.lemmas<a class="headerlink" href="#pythainlp-corpus-wordnet-lemmas" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-lemma">
+<h3>pythainlp.corpus.wordnet.lemma<a class="headerlink" href="#pythainlp-corpus-wordnet-lemma" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-lemma-from-key">
+<h3>pythainlp.corpus.wordnet.lemma_from_key<a class="headerlink" href="#pythainlp-corpus-wordnet-lemma-from-key" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-path-similarity">
+<h3>pythainlp.corpus.wordnet.path_similarity<a class="headerlink" href="#pythainlp-corpus-wordnet-path-similarity" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-lch-similarity">
+<h3>pythainlp.corpus.wordnet.lch_similarity<a class="headerlink" href="#pythainlp-corpus-wordnet-lch-similarity" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-wup-similarity">
+<h3>pythainlp.corpus.wordnet.wup_similarity<a class="headerlink" href="#pythainlp-corpus-wordnet-wup-similarity" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-morphy">
+<h3>pythainlp.corpus.wordnet.morphy<a class="headerlink" href="#pythainlp-corpus-wordnet-morphy" title="Link to this heading"></a></h3>
+</section>
+<section id="pythainlp-corpus-wordnet-custom-lemmas">
+<h3>pythainlp.corpus.wordnet.custom_lemmas<a class="headerlink" href="#pythainlp-corpus-wordnet-custom-lemmas" title="Link to this heading"></a></h3>
+<section id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Link to this heading"></a></h4>
+</section>
+</section>
+<section id="synset">
+<h3>Synset<a class="headerlink" href="#synset" title="Link to this heading"></a></h3>
+<p>A synset is a set of synonyms that share a common meaning. The WordNet module provides functionality to work with these synsets.</p>
+<p>This documentation is designed to help you navigate and use the various resources and modules available in the <cite>pythainlp.corpus</cite> package effectively. If you have any questions or need further assistance, please refer to the PyThaiNLP documentation or reach out to the PyThaiNLP community for support.</p>
+<p>We hope you find this documentation helpful for your natural language processing tasks in the Thai language.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coref.html" class="btn btn-neutral float-left" title="pythainlp.coref" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="el.html" class="btn btn-neutral float-right" title="pythainlp.el" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

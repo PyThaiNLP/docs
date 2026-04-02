@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.thai &mdash; PyThaiNLP 0207d40 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ec1a47bb"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.thai</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.thai</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;Check if it is Thai text&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">MappingProxyType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">thai_above_vowels</span><span class="p">,</span>
+    <span class="n">thai_below_vowels</span><span class="p">,</span>
+    <span class="n">thai_consonants</span><span class="p">,</span>
+    <span class="n">thai_digits</span><span class="p">,</span>
+    <span class="n">thai_follow_vowels</span><span class="p">,</span>
+    <span class="n">thai_lead_vowels</span><span class="p">,</span>
+    <span class="n">thai_punctuations</span><span class="p">,</span>
+    <span class="n">thai_signs</span><span class="p">,</span>
+    <span class="n">thai_tonemarks</span><span class="p">,</span>
+    <span class="n">thai_vowels</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn_deprecation</span>
+
+<span class="n">_DEFAULT_IGNORE_CHARS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">string</span><span class="o">.</span><span class="n">whitespace</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="p">)</span>
+<span class="n">_TH_FIRST_CHAR_ASCII</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3584</span>
+<span class="n">_TH_LAST_CHAR_ASCII</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3711</span>
+
+<span class="c1"># A comprehensive map of Thai characters to their descriptive names.</span>
+<span class="c1"># MappingProxyType makes this constant read-only at runtime.</span>
+<span class="n">_THAI_CHAR_NAMES</span><span class="p">:</span> <span class="n">MappingProxyType</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">MappingProxyType</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="c1"># Consonants</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">char</span><span class="p">:</span> <span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">thai_consonants</span><span class="p">},</span>
+        <span class="c1"># Vowels and Signs</span>
+        <span class="s2">&quot;</span><span class="se">\u0e24</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ฤ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e26</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ฦ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e30</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อะ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e31</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้หันอากาศ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e32</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อา&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e33</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อำ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e34</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อิ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e35</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อี&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e36</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อึ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e37</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อือ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e38</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อุ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e39</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ อู&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e40</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ เอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e41</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ แอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e42</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ โอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e43</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ ใอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e44</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;สระ ไอ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e45</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้ม้วน&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4d</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;นฤคหิต&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e47</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้ไต่คู้&quot;</span><span class="p">,</span>
+        <span class="c1"># Tone Marks</span>
+        <span class="s2">&quot;</span><span class="se">\u0e48</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้เอก&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e49</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้โท&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4a</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้ตรี&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4b</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้จัตวา&quot;</span><span class="p">,</span>
+        <span class="c1"># Other Signs</span>
+        <span class="s2">&quot;</span><span class="se">\u0e2f</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไปยาลน้อย&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e3a</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;พินทุ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e46</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ไม้ยมก&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4c</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;การันต์&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4e</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ยามักการ&quot;</span><span class="p">,</span>
+        <span class="c1"># Punctuation</span>
+        <span class="s2">&quot;</span><span class="se">\u0e4f</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;ฟองมัน&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e5a</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;อังคั่นคู่&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\u0e5b</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;โคมุต&quot;</span><span class="p">,</span>
+        <span class="c1"># Digits</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">char</span><span class="p">:</span> <span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">thai_digits</span><span class="p">},</span>
+        <span class="c1"># Symbol</span>
+        <span class="s2">&quot;</span><span class="se">\u0e3f</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;฿&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_thai_char</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if a character is a Thai character.</span>
+
+<span class="sd">    :param ch: input character</span>
+<span class="sd">    :type ch: str</span>
+<span class="sd">    :return: True if ch is a Thai character, otherwise False.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import is_thai_char</span>
+<span class="sd">        &gt;&gt;&gt; is_thai_char(&quot;ก&quot;)  # THAI CHARACTER KO KAI</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; is_thai_char(&quot;๕&quot;)  # THAI DIGIT FIVE</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ch_val</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">_TH_FIRST_CHAR_ASCII</span> <span class="o">&lt;=</span> <span class="n">ch_val</span> <span class="o">&lt;=</span> <span class="n">_TH_LAST_CHAR_ASCII</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="isthaichar">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.isthaichar">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">isthaichar</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if a character is a Thai character.</span>
+
+<span class="sd">    .. deprecated:: 5.3.2</span>
+<span class="sd">        Use :func:`is_thai_char` instead.</span>
+
+<span class="sd">    :param ch: input character</span>
+<span class="sd">    :type ch: str</span>
+<span class="sd">    :return: True if ch is a Thai character, otherwise False.</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warn_deprecation</span><span class="p">(</span>
+        <span class="s2">&quot;pythainlp.util.isthaichar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pythainlp.util.is_thai_char&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;5.3.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;6.0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">is_thai_char</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_thai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if every character in a string is a Thai character.</span>
+
+<span class="sd">    :param text: input text</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param ignore_chars: characters to be ignored, defaults to &quot;.&quot;</span>
+<span class="sd">    :type ignore_chars: str, optional</span>
+<span class="sd">    :return: True if every character in the input string is Thai,</span>
+<span class="sd">             otherwise False.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import is_thai</span>
+<span class="sd">        &gt;&gt;&gt; is_thai(&quot;กาลเวลา&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; is_thai(&quot;กาลเวลา.&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; is_thai(&quot;กาล-เวลา&quot;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; is_thai(&quot;กาล-เวลา +66&quot;, ignore_chars=&quot;01234567890+-., &quot;)</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_chars</span><span class="p">:</span>
+        <span class="n">ignore_chars</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore_chars</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_thai_char</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<div class="viewcode-block" id="isthai">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.isthai">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">isthai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if every character in a string is a Thai character.</span>
+
+<span class="sd">    .. deprecated:: 5.3.2</span>
+<span class="sd">        Use :func:`is_thai` instead.</span>
+
+<span class="sd">    :param text: input text</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param ignore_chars: characters to be ignored, defaults to &quot;.&quot;</span>
+<span class="sd">    :type ignore_chars: str, optional</span>
+<span class="sd">    :return: True if every character in the input string is Thai,</span>
+<span class="sd">             otherwise False.</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warn_deprecation</span><span class="p">(</span>
+        <span class="s2">&quot;pythainlp.util.isthai&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pythainlp.util.is_thai&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;5.3.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;6.0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">is_thai</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_thai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">_DEFAULT_IGNORE_CHARS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find proportion of Thai characters in a given text.</span>
+
+<span class="sd">    :param text: input text</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param ignore_chars: characters to be ignored, defaults to whitespace,\\</span>
+<span class="sd">        digits, and punctuation marks.</span>
+<span class="sd">    :type ignore_chars: str, optional</span>
+<span class="sd">    :return: proportion of Thai characters in the text (percentage)</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import count_thai</span>
+<span class="sd">        &gt;&gt;&gt; count_thai(&quot;ไทยเอ็นแอลพี 3.0&quot;)</span>
+<span class="sd">        100.0</span>
+<span class="sd">        &gt;&gt;&gt; count_thai(&quot;PyThaiNLP 3.0&quot;)</span>
+<span class="sd">        0.0</span>
+<span class="sd">        &gt;&gt;&gt; count_thai(&quot;ใช้งาน PyThaiNLP 3.0&quot;)</span>
+<span class="sd">        40.0</span>
+<span class="sd">        &gt;&gt;&gt; count_thai(&quot;ใช้งาน PyThaiNLP 3.0&quot;, ignore_chars=&quot;&quot;)</span>
+<span class="sd">        30.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_chars</span><span class="p">:</span>
+        <span class="n">ignore_chars</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">num_thai</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num_ignore</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">ignore_chars</span><span class="p">:</span>
+            <span class="n">num_ignore</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">is_thai_char</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="n">num_thai</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">num_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_ignore</span>
+
+    <span class="k">if</span> <span class="n">num_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">num_thai</span> <span class="o">/</span> <span class="n">num_count</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+
+<div class="viewcode-block" id="countthai">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.countthai">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">countthai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">_DEFAULT_IGNORE_CHARS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find proportion of Thai characters in a given text.</span>
+
+<span class="sd">    .. deprecated:: 5.3.2</span>
+<span class="sd">        Use :func:`count_thai` instead.</span>
+
+<span class="sd">    :param text: input text</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param ignore_chars: characters to be ignored, defaults to whitespace,\\</span>
+<span class="sd">        digits, and punctuation marks.</span>
+<span class="sd">    :type ignore_chars: str, optional</span>
+<span class="sd">    :return: proportion of Thai characters in the text (percentage)</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warn_deprecation</span><span class="p">(</span>
+        <span class="s2">&quot;pythainlp.util.countthai&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pythainlp.util.count_thai&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;5.3.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;6.0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">count_thai</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore_chars</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="display_thai_char">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.display_thai_char">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">display_thai_char</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prefix an underscore (_) to a high-position vowel or a tone mark,</span>
+<span class="sd">    to ease readability.</span>
+
+<span class="sd">    :param ch: input character</span>
+<span class="sd">    :type ch: str</span>
+<span class="sd">    :return: &quot;_&quot; + ch</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import display_thai_char</span>
+<span class="sd">        &gt;&gt;&gt; display_thai_char(&quot;้&quot;)</span>
+<span class="sd">        &#39;_้&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">ch</span> <span class="ow">in</span> <span class="n">thai_above_vowels</span>
+        <span class="ow">or</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">thai_tonemarks</span>
+        <span class="ow">or</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\u0e33\u0e4c\u0e4d\u0e4e</span><span class="s2">&quot;</span>
+    <span class="p">):</span>
+        <span class="c1"># last condition is Sra Aum, Thanthakhat, Nikhahit, Yamakkan</span>
+        <span class="k">return</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">ch</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ch</span></div>
+
+
+
+<div class="viewcode-block" id="thai_word_tone_detector">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thai_word_tone_detector">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_word_tone_detector</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Thai tone detector for word.</span>
+
+<span class="sd">    It uses pythainlp.transliterate.pronunciate for converting word to\</span>
+<span class="sd">        pronunciation.</span>
+
+<span class="sd">    :param word: Thai word, or None</span>
+<span class="sd">    :type word: str, optional</span>
+<span class="sd">    :return: list of tuples (syllable, tone) for each syllable.</span>
+<span class="sd">        Tone values: ``l`` (low), ``m`` (mid), ``h`` (high),</span>
+<span class="sd">        ``r`` (rising), ``f`` (falling), or empty string</span>
+<span class="sd">        if it cannot be detected.</span>
+<span class="sd">        Returns ``[]`` if word is None or empty.</span>
+<span class="sd">    :rtype: list[tuple[str, str]]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import thai_word_tone_detector</span>
+<span class="sd">        &gt;&gt;&gt; print(thai_word_tone_detector(&quot;คนดี&quot;))</span>
+<span class="sd">        [(&#39;คน&#39;, &#39;m&#39;), (&#39;ดี&#39;, &#39;m&#39;)]</span>
+<span class="sd">        &gt;&gt;&gt; print(thai_word_tone_detector(&quot;มือถือ&quot;))</span>
+<span class="sd">        [(&#39;มือ&#39;, &#39;m&#39;), (&#39;ถือ&#39;, &#39;r&#39;)]</span>
+<span class="sd">        &gt;&gt;&gt; print(thai_word_tone_detector(None))</span>
+<span class="sd">        []</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">pronunciate</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..util.syllable</span><span class="w"> </span><span class="kn">import</span> <span class="n">tone_detector</span>
+
+    <span class="n">_pronunciate</span> <span class="o">=</span> <span class="n">pronunciate</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">tone_detector</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;หฺ&quot;</span><span class="p">,</span> <span class="s2">&quot;ห&quot;</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_pronunciate</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="count_thai_chars">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.count_thai_chars">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">count_thai_chars</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Count Thai characters by type.</span>
+
+<span class="sd">    Count Thai characters by type: consonants, vowels, lead_vowels,</span>
+<span class="sd">    follow_vowels, above_vowels, below_vowels, tonemarks, signs,</span>
+<span class="sd">    thai_digits, punctuations, and non_thai.</span>
+
+<span class="sd">    :param str text: input text</span>
+<span class="sd">    :return: dict with counts of Thai characters by type</span>
+<span class="sd">    :rtype: dict[str, int]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import count_thai_chars</span>
+<span class="sd">        &gt;&gt;&gt; count_thai_chars(&quot;ทดสอบภาษาไทย&quot;)  # doctest: +NORMALIZE_WHITESPACE</span>
+<span class="sd">        {</span>
+<span class="sd">        &#39;vowels&#39;: 3,</span>
+<span class="sd">        &#39;lead_vowels&#39;: 1,</span>
+<span class="sd">        &#39;follow_vowels&#39;: 2,</span>
+<span class="sd">        &#39;above_vowels&#39;: 0,</span>
+<span class="sd">        &#39;below_vowels&#39;: 0,</span>
+<span class="sd">        &#39;consonants&#39;: 9,</span>
+<span class="sd">        &#39;tonemarks&#39;: 0,</span>
+<span class="sd">        &#39;signs&#39;: 0,</span>
+<span class="sd">        &#39;thai_digits&#39;: 0,</span>
+<span class="sd">        &#39;punctuations&#39;: 0,</span>
+<span class="sd">        &#39;non_thai&#39;: 0</span>
+<span class="sd">        }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;vowels&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;lead_vowels&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;follow_vowels&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;above_vowels&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;below_vowels&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;consonants&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;tonemarks&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;signs&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;thai_digits&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;punctuations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;non_thai&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_vowels</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;vowels&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_lead_vowels</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;lead_vowels&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_follow_vowels</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;follow_vowels&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_above_vowels</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;above_vowels&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_below_vowels</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;below_vowels&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_consonants</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;consonants&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_tonemarks</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;tonemarks&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_signs</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;signs&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_digits</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;thai_digits&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">thai_punctuations</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;punctuations&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_dict</span><span class="p">[</span><span class="s2">&quot;non_thai&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">_dict</span></div>
+
+
+
+<div class="viewcode-block" id="analyze_thai_text">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.analyze_thai_text">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_thai_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze Thai text and return a character count by descriptive name.</span>
+
+<span class="sd">    Process the text character by character and map each Thai character</span>
+<span class="sd">    to its descriptive name or to itself (for consonants and digits).</span>
+
+<span class="sd">    :param str text: Thai text string to be analyzed</span>
+<span class="sd">    :return: dict mapping character names to their count in the text</span>
+<span class="sd">    :rtype: dict[str, int]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import analyze_thai_text</span>
+<span class="sd">        &gt;&gt;&gt; analyze_thai_text(&quot;คนดี&quot;)</span>
+<span class="sd">        {&#39;ค&#39;: 1, &#39;น&#39;: 1, &#39;ด&#39;: 1, &#39;สระ อี&#39;: 1}</span>
+<span class="sd">        &gt;&gt;&gt; analyze_thai_text(&quot;เล่น&quot;)</span>
+<span class="sd">        {&#39;สระ เอ&#39;: 1, &#39;ล&#39;: 1, &#39;ไม้เอก&#39;: 1, &#39;น&#39;: 1}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over each character in the input string</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="c1"># Check if the character is in our mapping</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">_THAI_CHAR_NAMES</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">_THAI_CHAR_NAMES</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If the character is not a known Thai character, classify it as character</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

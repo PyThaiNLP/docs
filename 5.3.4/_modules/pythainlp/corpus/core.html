@@ -1,0 +1,1052 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.corpus.core &mdash; PyThaiNLP 0207d40 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ec1a47bb"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.corpus.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.corpus.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;Corpus related functions.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">corpus_db_path</span><span class="p">,</span> <span class="n">corpus_db_url</span><span class="p">,</span> <span class="n">corpus_path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_full_data_path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tools.path</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">is_offline_mode</span><span class="p">,</span>
+    <span class="n">is_read_only_mode</span><span class="p">,</span>
+    <span class="n">safe_path_join</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">http.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPMessage</span><span class="p">,</span> <span class="n">HTTPResponse</span>
+
+<span class="n">_USER_AGENT</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;PyThaiNLP/</span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s2"> &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;(Python/</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">minor</span><span class="si">}</span><span class="s2">; &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_ResponseWrapper</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper to provide requests.Response-like interface for urllib response.&quot;&quot;&quot;</span>
+
+    <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="n">HTTPMessage</span>
+    <span class="n">_content</span><span class="p">:</span> <span class="nb">bytes</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">HTTPResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse JSON content from response.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+                <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">,</span> <span class="ne">UnicodeDecodeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to parse JSON response: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+
+
+<div class="viewcode-block" id="get_corpus_db">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_db">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus_db</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_ResponseWrapper</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get corpus catalog from server.</span>
+
+<span class="sd">    :param str url: URL corpus catalog</span>
+
+<span class="sd">    Security Note: Uses HTTPS with certificate validation enabled by default</span>
+<span class="sd">    in Python&#39;s urllib. Only download corpus from trusted URLs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">urlopen</span>
+
+    <span class="n">corpus_db</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">_USER_AGENT</span><span class="p">})</span>
+        <span class="c1"># SSL certificate verification is enabled by default</span>
+        <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">corpus_db</span> <span class="o">=</span> <span class="n">_ResponseWrapper</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">http_err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HTTP error occurred: </span><span class="si">{</span><span class="n">http_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;URL error occurred: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error occurred: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">corpus_db</span></div>
+
+
+
+<div class="viewcode-block" id="get_corpus_db_detail">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_db_detail">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus_db_detail</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get details about a corpus, using information from local catalog.</span>
+
+<span class="sd">    :param str name: name of corpus</span>
+<span class="sd">    :return: details about corpus</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">corpus_db_path</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">local_db</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">version</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">corpus</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">version</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">corpus</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{}</span></div>
+
+
+
+<div class="viewcode-block" id="get_corpus">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">comments</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read corpus data from file and return a frozenset.</span>
+
+<span class="sd">    Each line in the file will be a member of the set.</span>
+
+<span class="sd">    Whitespace stripped and empty values and duplicates removed.</span>
+
+<span class="sd">    If comments is False, any text at any position after the character</span>
+<span class="sd">    &#39;#&#39; in each line will be discarded.</span>
+
+<span class="sd">    :param str filename: filename of the corpus to be read</span>
+<span class="sd">    :param bool comments: keep comments</span>
+
+<span class="sd">    :return: :class:`frozenset` consisting of lines in the file</span>
+<span class="sd">    :rtype: :class:`frozenset`</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import get_corpus  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus(&quot;negations_th.txt&quot;)  # doctest: +SKIP</span>
+<span class="sd">        frozenset({&#39;แต่&#39;, &#39;ไม่&#39;})</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus(&quot;ttc_freq.txt&quot;)  # doctest: +SKIP</span>
+<span class="sd">        frozenset({&#39;โดยนัยนี้\\t1&#39;, &#39;ตัวบท\\t10&#39;, ...})</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus(&quot;icubrk_th.txt&quot;)  # doctest: +SKIP</span>
+<span class="sd">        frozenset({&#39;กกขนาก&#39;, &#39;# Thai Dictionary for ICU BreakIterator&#39;, &#39;กก&#39;, ...})</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus(&quot;icubrk_th.txt&quot;, comments=False)  # doctest: +SKIP</span>
+<span class="sd">        frozenset({&#39;กกขนาก&#39;, &#39;กก&#39;, ...})</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">corpus_files</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;pythainlp.corpus&quot;</span><span class="p">)</span>
+    <span class="n">corpus_file</span> <span class="o">=</span> <span class="n">corpus_files</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">corpus_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">comments</span><span class="p">:</span>
+        <span class="c1"># if the line has a &#39;#&#39; character, take only text before the first &#39;#&#39;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">lines</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="get_corpus_as_is">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_as_is">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus_as_is</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read corpus data from file, as it is, and return a list.</span>
+
+<span class="sd">    Each line in the file will be a member of the list.</span>
+
+<span class="sd">    No modifications in member values and their orders.</span>
+
+<span class="sd">    If strip or comment removal is needed, use get_corpus() instead.</span>
+
+<span class="sd">    :param str filename: filename of the corpus to be read</span>
+
+<span class="sd">    :return: :class:`list` consisting of lines in the file</span>
+<span class="sd">    :rtype: :class:`list`</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import get_corpus_as_is  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus_as_is(&quot;negations_th.txt&quot;)  # doctest: +SKIP</span>
+<span class="sd">        [&#39;แต่&#39;, &#39;ไม่&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">corpus_files</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;pythainlp.corpus&quot;</span><span class="p">)</span>
+    <span class="n">corpus_file</span> <span class="o">=</span> <span class="n">corpus_files</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">corpus_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">lines</span></div>
+
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_default_db</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and cache the bundled default_db.json corpus catalog.&quot;&quot;&quot;</span>
+    <span class="n">corpus_files</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;pythainlp.corpus&quot;</span><span class="p">)</span>
+    <span class="n">default_db_file</span> <span class="o">=</span> <span class="n">corpus_files</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;default_db.json&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">default_db_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="get_corpus_default_db">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_default_db">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus_default_db</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get model path from default_db.json</span>
+
+<span class="sd">    :param str name: corpus name</span>
+<span class="sd">    :return: path to the corpus or **None** if the corpus doesn&#39;t \</span>
+<span class="sd">             exist on the device</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    If you want to edit default_db.json, \</span>
+<span class="sd">        you can edit pythainlp/corpus/default_db.json</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">corpus_db</span> <span class="o">=</span> <span class="n">_load_default_db</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">corpus_db</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">corpus_db</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;versions&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">safe_path_join</span><span class="p">(</span>
+                <span class="n">corpus_path</span><span class="p">(),</span>
+                <span class="n">corpus_db</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;versions&quot;</span><span class="p">][</span><span class="n">version</span><span class="p">][</span><span class="s2">&quot;filename&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">version</span><span class="p">:</span>  <span class="c1"># load latest version</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">corpus_db</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;latest_version&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">safe_path_join</span><span class="p">(</span>
+                <span class="n">corpus_path</span><span class="p">(),</span>
+                <span class="n">corpus_db</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;versions&quot;</span><span class="p">][</span><span class="n">version</span><span class="p">][</span><span class="s2">&quot;filename&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_resolve_corpus_file_path</span><span class="p">(</span>
+    <span class="n">corpus_db_detail</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve the local filesystem path for a corpus catalog entry.</span>
+
+<span class="sd">    :param dict corpus_db_detail: a corpus catalog entry from the local DB</span>
+<span class="sd">    :return: full local path to the corpus file or folder,</span>
+<span class="sd">             or ``None`` if required path information is missing</span>
+<span class="sd">    :rtype: Optional[str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">corpus_db_detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_folder&quot;</span><span class="p">):</span>
+        <span class="n">foldername</span> <span class="o">=</span> <span class="n">corpus_db_detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;foldername&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">)</span> <span class="k">if</span> <span class="n">foldername</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">corpus_db_detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">if</span> <span class="n">filename</span> <span class="k">else</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="get_corpus_path">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.get_corpus_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_corpus_path</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get corpus path.</span>
+
+<span class="sd">    The function checks the following locations in order:</span>
+
+<span class="sd">    1. A user-defined path override (``CUSTOMIZE`` mapping).</span>
+<span class="sd">    2. Bundled (default) corpora shipped with PyThaiNLP.</span>
+<span class="sd">    3. The local download catalog (``~/pythainlp-data/``).</span>
+
+<span class="sd">    When the corpus file is not present locally, the behavior depends on the</span>
+<span class="sd">    ``PYTHAINLP_OFFLINE`` environment variable:</span>
+
+<span class="sd">    - If ``PYTHAINLP_OFFLINE`` is set to a truthy value (e.g., ``&quot;1&quot;``),</span>
+<span class="sd">      a :exc:`FileNotFoundError` is raised immediately.</span>
+<span class="sd">    - Otherwise, the corpus is downloaded automatically.</span>
+
+<span class="sd">    :param str name: corpus name</span>
+<span class="sd">    :param str version: corpus version (empty string means latest)</span>
+<span class="sd">    :return: full local path when the corpus exists,</span>
+<span class="sd">             or ``None`` when the corpus cannot be found or downloaded.</span>
+<span class="sd">    :rtype: Optional[str]</span>
+
+<span class="sd">    :raises FileNotFoundError: when the corpus is missing locally and</span>
+<span class="sd">        ``PYTHAINLP_OFFLINE`` is set to a truthy value.</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    (Please see the filename in</span>
+<span class="sd">    `this file &lt;https://pythainlp.org/pythainlp-corpus/db.json&gt;`_)</span>
+
+<span class="sd">    If the corpus already exists:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import get_corpus_path  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus_path(&quot;ttc&quot;)  # doctest: +SKIP</span>
+<span class="sd">        &#39;/root/pythainlp-data/ttc_freq.txt&#39;</span>
+
+<span class="sd">    If the corpus has not been downloaded yet (online mode):</span>
+
+<span class="sd">        &gt;&gt;&gt; get_corpus_path(&quot;wiki_lm_lstm&quot;)  # doctest: +SKIP</span>
+<span class="sd">        &#39;/root/pythainlp-data/thwiki_model_lstm.pth&#39;</span>
+
+<span class="sd">    To download manually:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import download  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; download(&quot;wiki_lm_lstm&quot;)  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus_path(&quot;wiki_lm_lstm&quot;)  # doctest: +SKIP</span>
+<span class="sd">        &#39;/root/pythainlp-data/thwiki_model_lstm.pth&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CUSTOMIZE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># &quot;the corpus name&quot;:&quot;path&quot;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">CUSTOMIZE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CUSTOMIZE</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="c1"># Check bundled (default) corpora first</span>
+    <span class="n">default_path</span> <span class="o">=</span> <span class="n">get_corpus_default_db</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">default_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default_path</span>
+
+    <span class="c1"># Check the local download catalog</span>
+    <span class="n">corpus_db_detail</span> <span class="o">=</span> <span class="n">get_corpus_db_detail</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">corpus_db_detail</span><span class="p">:</span>
+        <span class="c1"># Corpus not in local catalog; download it unless in offline mode</span>
+        <span class="k">if</span> <span class="n">is_offline_mode</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;corpus-not-found name=</span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  Corpus &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; not found locally.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  PYTHAINLP_OFFLINE is set; automatic downloading is disabled.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  To download, unset PYTHAINLP_OFFLINE, then run:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;    Python: pythainlp.corpus.download(&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;    CLI:    thainlp data get </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">download</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">corpus_db_detail</span> <span class="o">=</span> <span class="n">get_corpus_db_detail</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">corpus_db_detail</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">_resolve_corpus_file_path</span><span class="p">(</span><span class="n">corpus_db_detail</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+    <span class="c1"># File is registered in catalog but missing from disk</span>
+    <span class="k">if</span> <span class="n">is_offline_mode</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;corpus-not-found name=</span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> expected-path=</span><span class="si">{</span><span class="n">path</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;  Corpus &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; expected at &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; but file not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;  PYTHAINLP_OFFLINE is set; automatic re-downloading is disabled.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;  To re-download, unset PYTHAINLP_OFFLINE, then run:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;    Python: pythainlp.corpus.download(&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, force=True)</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;    CLI:    thainlp data get </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">download</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">path</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_download</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download helper.</span>
+
+<span class="sd">    :param str url: URL for the file to download.</span>
+<span class="sd">    :param str dst: local destination path for the downloaded file.</span>
+
+<span class="sd">    Security Note: Downloads use HTTPS with SSL certificate validation.</span>
+<span class="sd">    Files are verified using MD5 checksums after download.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">64</span> <span class="o">*</span> <span class="mi">1024</span>  <span class="c1"># 64 KiB</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">urlopen</span>
+
+    <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">_USER_AGENT</span><span class="p">})</span>
+    <span class="c1"># SSL certificate verification is enabled by default</span>
+    <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">file_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">info</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">dst</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pbar</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+                <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">file_size</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="n">pbar</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="k">while</span> <span class="n">chunk</span> <span class="o">:=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">):</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pbar</span><span class="p">:</span>
+                    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">pbar</span><span class="p">:</span>
+                <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">file_size</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_hash</span><span class="p">(</span><span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">md5</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check hash helper.</span>
+
+<span class="sd">    :param str dst: local path of the file to verify.</span>
+<span class="sd">    :param str md5: expected MD5 checksum of the file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">md5</span> <span class="ow">and</span> <span class="n">md5</span> <span class="o">!=</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">dst</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="c1"># MD5 is insecure but sufficient here</span>
+            <span class="n">file_md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>  <span class="c1"># noqa: S324</span>
+
+            <span class="k">if</span> <span class="n">md5</span> <span class="o">!=</span> <span class="n">file_md5</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hash does not match expected.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_within_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if target path is within directory (prevent path traversal).</span>
+
+<span class="sd">    :param str directory: base directory path.</span>
+<span class="sd">    :param str target: target file path to check.</span>
+<span class="sd">    :return: ``True`` if target is within directory, ``False`` otherwise.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    Security Note: This function normalizes paths using os.path.abspath()</span>
+<span class="sd">    to handle relative paths and .. sequences. It does NOT follow symlinks</span>
+<span class="sd">    (unlike os.path.realpath()), because:</span>
+
+<span class="sd">    - Symlink validation is handled separately in extraction functions.</span>
+<span class="sd">    - We want to check if the path string itself is safe, not where it points.</span>
+<span class="sd">    - This prevents false negatives when symlinks don&#39;t exist yet.</span>
+
+<span class="sd">    For symlink security, use the extraction function&#39;s symlink validation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Use abspath to normalize paths but NOT realpath (which follows symlinks)</span>
+    <span class="n">abs_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+    <span class="n">abs_target</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+    <span class="c1"># Ensure directory ends with separator for proper prefix check</span>
+    <span class="c1"># This prevents /foo/bar from matching /foo/barz</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">abs_directory</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">):</span>
+        <span class="n">abs_directory</span> <span class="o">+=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+
+    <span class="k">return</span> <span class="n">abs_target</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+        <span class="n">abs_directory</span>
+    <span class="p">)</span> <span class="ow">or</span> <span class="n">abs_target</span> <span class="o">==</span> <span class="n">abs_directory</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_safe_extract_tar</span><span class="p">(</span><span class="n">tar</span><span class="p">:</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">TarFile</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely extract tar archive, preventing path traversal attacks.</span>
+
+<span class="sd">    :param tarfile.TarFile tar: tarfile object to extract.</span>
+<span class="sd">    :param str path: destination path for extraction.</span>
+
+<span class="sd">    Security Note: This function prevents path traversal attacks including:</span>
+
+<span class="sd">    - Files with ``..`` in their path.</span>
+<span class="sd">    - Symlinks pointing outside the extraction directory.</span>
+<span class="sd">    - Files extracted through malicious symlinks.</span>
+
+<span class="sd">    For Python 3.12+, uses ``tarfile.data_filter`` for additional protection.</span>
+<span class="sd">    For Python 3.9-3.11, implements custom validation of all members.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if data_filter is available (Python 3.12+)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tarfile</span><span class="p">,</span> <span class="s2">&quot;data_filter&quot;</span><span class="p">):</span>
+        <span class="c1"># Use built-in filter which handles symlinks and other security issues</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span>
+            <span class="n">tarfile</span><span class="o">.</span><span class="n">OutsideDestinationError</span><span class="p">,</span>
+            <span class="n">tarfile</span><span class="o">.</span><span class="n">LinkOutsideDestinationError</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># Re-raise as ValueError for consistency with older Python versions</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Manual validation for older Python versions</span>
+        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">tar</span><span class="o">.</span><span class="n">getmembers</span><span class="p">():</span>
+            <span class="c1"># Check the member&#39;s target path</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">safe_path_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Attempted path traversal in tar file: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+            <span class="c1"># For symlinks, also validate the link target</span>
+            <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">issym</span><span class="p">()</span> <span class="ow">or</span> <span class="n">member</span><span class="o">.</span><span class="n">islnk</span><span class="p">():</span>
+                <span class="c1"># Get the link target (can be absolute or relative)</span>
+                <span class="n">link_target</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">linkname</span>
+
+                <span class="c1"># If it&#39;s a relative symlink, resolve it relative to the member&#39;s directory.</span>
+                <span class="c1"># Pass the archive-relative dirname and link target as separate parts to</span>
+                <span class="c1"># safe_path_join, which canonicalises and validates containment in one step.</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">link_target</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">safe_path_join</span><span class="p">(</span>
+                            <span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">link_target</span>
+                        <span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Symlink </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> points outside extraction directory: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">linkname</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Absolute symlinks are dangerous - make them relative to extraction path</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">safe_path_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">link_target</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">))</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Symlink </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> points outside extraction directory: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">linkname</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
+
+        <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_safe_extract_zip</span><span class="p">(</span><span class="n">zip_file</span><span class="p">:</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely extract zip archive, preventing path traversal attacks.</span>
+
+<span class="sd">    :param zipfile.ZipFile zip_file: zipfile object to extract.</span>
+<span class="sd">    :param str path: destination path for extraction.</span>
+
+<span class="sd">    Security Note: This function prevents path traversal attacks including:</span>
+
+<span class="sd">    - Files with ``..`` in their path.</span>
+<span class="sd">    - Symlinks pointing outside the extraction directory (on Unix systems).</span>
+
+<span class="sd">    Note: ZIP format has limited symlink support. Symlinks are primarily</span>
+<span class="sd">    created by Unix-based archiving tools and may not be portable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">namelist</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">safe_path_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempted path traversal in zip file: </span><span class="si">{</span><span class="n">member</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check for potential symlinks in ZIP files</span>
+        <span class="c1"># ZIP files can contain symlinks on Unix systems (external_attr indicates this)</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">getinfo</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+        <span class="c1"># Check if this is a symlink (Unix: external_attr with S_IFLNK set)</span>
+        <span class="c1"># The high 16 bits of external_attr contain Unix file mode</span>
+        <span class="n">is_symlink</span> <span class="o">=</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">external_attr</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mo">0o170000</span> <span class="o">==</span> <span class="mo">0o120000</span>
+
+        <span class="k">if</span> <span class="n">is_symlink</span><span class="p">:</span>
+            <span class="c1"># Read the symlink target from the file content</span>
+            <span class="n">link_target</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">member</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Resolve the link target relative to the member&#39;s directory.</span>
+            <span class="c1"># Pass the archive-relative dirname and link target as separate parts to</span>
+            <span class="c1"># safe_path_join, which canonicalises and validates containment in one step.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">link_target</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">safe_path_join</span><span class="p">(</span>
+                        <span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">member</span><span class="p">),</span> <span class="n">link_target</span>
+                    <span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Symlink </span><span class="si">{</span><span class="n">member</span><span class="si">}</span><span class="s2"> points outside extraction directory: </span><span class="si">{</span><span class="n">link_target</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Absolute symlinks - make them relative to extraction path</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">safe_path_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">link_target</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Symlink </span><span class="si">{</span><span class="n">member</span><span class="si">}</span><span class="s2"> points outside extraction directory: </span><span class="si">{</span><span class="n">link_target</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+
+    <span class="n">zip_file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_version2int</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;X.X.X =&gt; X0X0X&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;-&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.*&quot;</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.*&quot;</span><span class="p">,</span> <span class="s2">&quot;.0&quot;</span><span class="p">)</span>  <span class="c1"># X.X.* =&gt; X.X.0</span>
+    <span class="n">v_list</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_list</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">v_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+    <span class="n">v_new</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v_list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">v_new</span> <span class="o">+=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">v_new</span> <span class="o">+=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">v_new</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">v_new</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_version</span><span class="p">(</span><span class="n">cause</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">__version</span> <span class="o">=</span> <span class="n">__version__</span>
+    <span class="k">if</span> <span class="s2">&quot;dev&quot;</span> <span class="ow">in</span> <span class="n">__version</span><span class="p">:</span>
+        <span class="n">__version</span> <span class="o">=</span> <span class="n">__version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="s2">&quot;beta&quot;</span> <span class="ow">in</span> <span class="n">__version</span><span class="p">:</span>
+        <span class="n">__version</span> <span class="o">=</span> <span class="n">__version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">__version</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cause</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;==&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&gt;&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cause</span> <span class="ow">and</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;==&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">v</span> <span class="o">==</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cause</span> <span class="ow">and</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp_parts</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp_parts</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;=&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">in</span> <span class="n">cause</span><span class="p">:</span>
+        <span class="n">temp_parts</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;=&quot;</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cause</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">cause</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">_version2int</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">check</span>
+
+
+<div class="viewcode-block" id="download">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.download">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download corpus.</span>
+
+<span class="sd">    The available corpus names can be seen in this file:</span>
+<span class="sd">    https://pythainlp.org/pythainlp-corpus/db.json</span>
+
+<span class="sd">    This function always performs the download regardless of the</span>
+<span class="sd">    ``PYTHAINLP_OFFLINE`` environment variable, because an explicit call</span>
+<span class="sd">    to ``download()`` is a deliberate user action.</span>
+<span class="sd">    ``PYTHAINLP_OFFLINE`` only blocks the *automatic* download triggered</span>
+<span class="sd">    by :func:`pythainlp.corpus.get_corpus_path`.</span>
+
+<span class="sd">    :param str name: corpus name</span>
+<span class="sd">    :param bool force: force downloading</span>
+<span class="sd">    :param str url: URL of the corpus catalog</span>
+<span class="sd">    :param str version: version of the corpus</span>
+<span class="sd">    :return: **True** if the corpus is found and successfully downloaded.</span>
+<span class="sd">             Otherwise, it returns **False**.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import download  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; download(&quot;wiki_lm_lstm&quot;, force=True)  # doctest: +SKIP</span>
+<span class="sd">        Corpus: wiki_lm_lstm</span>
+<span class="sd">        - Downloading: wiki_lm_lstm 0.1</span>
+<span class="sd">        ...</span>
+
+<span class="sd">    By default, downloaded corpora and models will be saved in</span>
+<span class="sd">    ``$HOME/pythainlp-data/``</span>
+<span class="sd">    (e.g. ``/Users/bact/pythainlp-data/wiki_lm_lstm.pth``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_read_only_mode</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyThaiNLP is in read-only mode. It cannot download.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">corpus_db_url</span><span class="p">()</span>
+
+    <span class="n">corpus_db</span> <span class="o">=</span> <span class="n">get_corpus_db</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">corpus_db</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot download corpus catalog from: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">corpus_db_dict</span> <span class="o">=</span> <span class="n">corpus_db</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="c1"># check if corpus is available</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">corpus_db_dict</span><span class="p">:</span>
+        <span class="n">db_path</span> <span class="o">=</span> <span class="n">corpus_db_path</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_path</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">local_db</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">local_db</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_default&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+
+        <span class="n">corpus</span> <span class="o">=</span> <span class="n">corpus_db_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">version</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;versions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">_check_version</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="s2">&quot;pythainlp_version&quot;</span><span class="p">]):</span>
+                    <span class="n">version</span> <span class="o">=</span> <span class="n">v</span>
+
+        <span class="c1"># version may still be None here</span>
+        <span class="k">if</span> <span class="n">version</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;versions&quot;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus not found.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">_check_version</span><span class="p">(</span><span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;versions&quot;</span><span class="p">][</span><span class="n">version</span><span class="p">][</span><span class="s2">&quot;pythainlp_version&quot;</span><span class="p">])</span>
+            <span class="ow">is</span> <span class="kc">False</span>
+        <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus version not supported.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">corpus_versions</span> <span class="o">=</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;versions&quot;</span><span class="p">][</span><span class="n">version</span><span class="p">]</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">corpus_versions</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Do not check version here</span>
+            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="c1"># Record corpus no. if found in local database</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="k">break</span>
+
+        <span class="c1"># If not found in local, download it</span>
+        <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Downloading: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">_download</span><span class="p">(</span>
+                <span class="n">corpus_versions</span><span class="p">[</span><span class="s2">&quot;download_url&quot;</span><span class="p">],</span>
+                <span class="n">file_name</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">_check_hash</span><span class="p">(</span>
+                <span class="n">file_name</span><span class="p">,</span>
+                <span class="n">corpus_versions</span><span class="p">[</span><span class="s2">&quot;md5&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+            <span class="n">is_folder</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">foldername</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="n">corpus_versions</span><span class="p">[</span><span class="s2">&quot;is_tar_gz&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+                <span class="n">is_folder</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">foldername</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">)):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">))</span>
+                <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+                    <span class="n">_safe_extract_tar</span><span class="p">(</span><span class="n">tar</span><span class="p">,</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">corpus_versions</span><span class="p">[</span><span class="s2">&quot;is_zip&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+                <span class="n">is_folder</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">foldername</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">)):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">))</span>
+                <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span>
+                    <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span>
+                <span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+                    <span class="n">_safe_extract_zip</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="n">foldername</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">found</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>
+                <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">found</span><span class="p">][</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_name</span>
+                <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">found</span><span class="p">][</span><span class="s2">&quot;is_folder&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_folder</span>
+                <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">found</span><span class="p">][</span><span class="s2">&quot;foldername&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">foldername</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># This awkward behavior is for backward-compatibility with</span>
+                <span class="c1"># database files generated previously using TinyDB</span>
+                <span class="k">if</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]:</span>
+                    <span class="n">corpus_no</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">no</span><span class="p">)</span> <span class="k">for</span> <span class="n">no</span> <span class="ow">in</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">corpus_no</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">corpus_no</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+                    <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file_name</span><span class="p">,</span>
+                    <span class="s2">&quot;is_folder&quot;</span><span class="p">:</span> <span class="n">is_folder</span><span class="p">,</span>
+                    <span class="s2">&quot;foldername&quot;</span><span class="p">:</span> <span class="n">foldername</span><span class="p">,</span>
+                <span class="p">}</span>
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">local_db</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># Check if versions match or if the corpus is found in local database</span>
+        <span class="c1"># but a re-download is not forced</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current_ver</span> <span class="o">=</span> <span class="n">local_db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">found</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">current_ver</span> <span class="o">==</span> <span class="n">version</span><span class="p">:</span>
+                <span class="c1"># Corpus of the same version already exists</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Already up to date.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Corpus exists but is of different version</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Existing version: </span><span class="si">{</span><span class="n">current_ver</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- New version available: </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Use download(data_name, force=True) to update&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corpus not found:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="remove">
+<a class="viewcode-back" href="../../../api/corpus.html#pythainlp.corpus.remove">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove corpus</span>
+
+<span class="sd">    :param str name: corpus name</span>
+<span class="sd">    :return: **True** if the corpus is found and successfully removed.</span>
+<span class="sd">             Otherwise, it returns **False**.</span>
+<span class="sd">    :rtype: bool</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.corpus import remove, get_corpus_path  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; remove(&quot;ttc&quot;)  # doctest: +SKIP</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; get_corpus_path(&quot;ttc&quot;)  # doctest: +SKIP</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_read_only_mode</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyThaiNLP is in read-only mode. It cannot remove corpus.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">corpus_db_path</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">corpus</span> <span class="k">for</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">get_corpus_path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_folder&quot;</span><span class="p">):</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">get_full_data_path</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">corpus</span> <span class="ow">in</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">corpus</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;_default&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">corpus_db_path</span><span class="p">(),</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_safe_directory_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make safe directory name</span>
+
+<span class="sd">    :param str name: directory name</span>
+<span class="sd">    :return: safe directory name</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Replace invalid characters with an underscore</span>
+    <span class="n">safe_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[&lt;&gt;:&quot;/</span><span class="se">\\</span><span class="s1">|?*]&#39;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="c1"># Remove leading/trailing spaces or periods (especially important for Windows)</span>
+    <span class="n">safe_name</span> <span class="o">=</span> <span class="n">safe_name</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; .&quot;</span><span class="p">)</span>
+    <span class="c1"># Prevent names that are reserved on Windows</span>
+    <span class="n">reserved_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;CON&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PRN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;AUX&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NUL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;COM9&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LPT9&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="n">safe_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">reserved_names</span><span class="p">:</span>
+        <span class="n">safe_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">safe_name</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># Prepend underscore to avoid conflict</span>
+    <span class="k">return</span> <span class="n">safe_name</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_hf_hub</span><span class="p">(</span><span class="n">repo_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;HuggingFace Hub in :mod:`pythainlp` data directory.</span>
+
+<span class="sd">    :param str repo_id: repo_id</span>
+<span class="sd">    :param str filename: filename (optional, default is empty string).</span>
+<span class="sd">        If empty, downloads entire snapshot.</span>
+<span class="sd">    :return: path</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">hf_hub_download</span><span class="p">,</span> <span class="n">snapshot_download</span>
+    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;huggingface-hub is not installed.&quot;</span>
+            <span class="s2">&quot; Install it with: pip install huggingface-hub&quot;</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An unexpected error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="n">hf_root</span> <span class="o">=</span> <span class="n">get_full_data_path</span><span class="p">(</span><span class="s2">&quot;hf_models&quot;</span><span class="p">)</span>
+    <span class="n">name_dir</span> <span class="o">=</span> <span class="n">make_safe_directory_name</span><span class="p">(</span><span class="n">repo_id</span><span class="p">)</span>
+    <span class="n">root_project</span> <span class="o">=</span> <span class="n">safe_path_join</span><span class="p">(</span><span class="n">hf_root</span><span class="p">,</span> <span class="n">name_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">hf_hub_download</span><span class="p">(</span>
+            <span class="n">repo_id</span><span class="o">=</span><span class="n">repo_id</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">root_project</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">snapshot_download</span><span class="p">(</span>
+            <span class="n">repo_id</span><span class="o">=</span><span class="n">repo_id</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">root_project</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.transliterate.pali &mdash; PyThaiNLP fd089d9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=093a0b9b"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.transliterate.pali</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.transliterate.pali</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+
+<div class="viewcode-block" id="pronunciate_pali">
+<a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.pronunciate_pali">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pronunciate_pali</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert pali word to Thai pronunciation</span>
+
+<span class="sd">    :param str word: Pali word (written in Thai script) to be pronunciated.</span>
+
+<span class="sd">    :return: A string of Thai letters indicating</span>
+<span class="sd">             how the input text should be pronounced.</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.transliterate import pronunciate_pali</span>
+<span class="sd">        &gt;&gt;&gt; pronunciate_pali(&#39;ภควา&#39;)</span>
+<span class="sd">        &#39;ภะคะวา&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pronunciate_pali(&#39;สมฺมา&#39;)</span>
+<span class="sd">        &#39;สัมมา&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pronunciate_pali(&#39;มยํ&#39;)</span>
+<span class="sd">        &#39;มะยัง&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pronunciate_pali(&#39;สฺวากฺขา&#39;)</span>
+<span class="sd">        &#39;สวากขาโต&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. จัดการช่องว่างที่อาจพิมพ์เกินมาก่อนนฤคหิต</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; ํ&quot;</span><span class="p">,</span> <span class="s2">&quot;ํ&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ฺ &quot;</span><span class="p">,</span> <span class="s2">&quot;ฺ&quot;</span><span class="p">)</span>
+
+    <span class="c1"># --- กฎข้อ 3: นฤคหิต (ํ) ---</span>
+    <span class="c1"># แบบมีสระหน้า (เ-ไ) เช่น โกํ -&gt; โกง</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([เ-ไ][ก-ฮ])ํ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1ง_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="c1"># แบบมีสระบน/ล่าง (ะ-ู) เช่น สุ ํ -&gt; สุง</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([ก-ฮ][ะ-ู])ํ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1ง_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="c1"># แบบพยัญชนะเดี่ยว เช่น หํ -&gt; หัง</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([ก-ฮ])ํ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1ัง_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+
+    <span class="c1"># --- กฎข้อ 4 &amp; 5: พินทุ (ฺ) เป็นตัวควบกล้ำ (ต้นคำ) ---</span>
+    <span class="c1"># ถ้าพินทุอยู่พยัญชนะตัวแรกของคำ (ไม่มีตัวอื่นนำหน้า) ให้มาร์คเป็นตัวควบกล้ำ (_C_)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(^|\s)([ก-ฮ])ฺ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1\2_C_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+
+    <span class="c1"># --- กฎข้อ 2: พินทุ (ฺ) เป็นตัวสะกด ---</span>
+    <span class="c1"># แบบมีสระนำหน้า เช่น เนยฺ -&gt; เนย</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([เ-ไ][ก-ฮ])([ก-ฮ])ฺ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1\2_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="c1"># แบบมีสระบน/ล่าง เช่น ทิฏฺ -&gt; ทิฏ</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([ก-ฮ][ะ-ู])([ก-ฮ])ฺ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1\2_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="c1"># แบบพยัญชนะเดี่ยว (สะกด) เช่น สมฺ -&gt; สัม (เพิ่มไม้หันอากาศ)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([ก-ฮ])([ก-ฮ])ฺ&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1ั\2_F_&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+
+    <span class="c1"># --- กฎข้อ 1: พยัญชนะที่ไม่มีเครื่องหมาย ให้อ่านเสียง &quot;อะ&quot; ---</span>
+    <span class="c1"># หาพยัญชนะที่: ไม่ได้ตามหลัง เ-ไ และ ไม่ได้นำหน้าสระ, ไม่ใช่ตัวสะกด(_F_), ไม่ใช่ตัวควบ(_C_)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;![เ-ไ])([ก-ฮ])(?![ะ-ู็-์]|_F_|_C_)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1ะ&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+
+    <span class="c1"># ทำความสะอาด Marker ที่เราใช้ทดไว้ตอนประมวลผล (_F_ = Final, _C_ = Cluster)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_F_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_C_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">word</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

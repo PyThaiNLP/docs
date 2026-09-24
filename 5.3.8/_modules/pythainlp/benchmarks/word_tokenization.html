@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.benchmarks.word_tokenization &mdash; PyThaiNLP 1177047 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a72485e6"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.benchmarks.word_tokenization</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.benchmarks.word_tokenization</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">accumulate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"CharLevelStat"</span><span class="p">,</span>
+    <span class="s2">"GlobalStat"</span><span class="p">,</span>
+    <span class="s2">"TokenizationScore"</span><span class="p">,</span>
+    <span class="s2">"TokenizationStat"</span><span class="p">,</span>
+    <span class="s2">"WordLevelStat"</span><span class="p">,</span>
+    <span class="s2">"benchmark"</span><span class="p">,</span>
+    <span class="s2">"char_eval_function"</span><span class="p">,</span>
+    <span class="s2">"compute_stats"</span><span class="p">,</span>
+    <span class="s2">"evaluate_word_tokenization"</span><span class="p">,</span>
+    <span class="s2">"evaluation"</span><span class="p">,</span>
+    <span class="s2">"preprocessing"</span><span class="p">,</span>
+    <span class="s2">"word_eval_function"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">SEPARATOR</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"|"</span>
+
+<span class="c1"># regex for removing one space surrounded by separators, i.e. | |</span>
+<span class="n">SURROUNDING_SEPS_RX</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="s2">"</span><span class="si">{sep}</span><span class="s2">? ?</span><span class="si">{sep}</span><span class="s2">$"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="c1"># regex for removing repeated separators, i.e. ||||</span>
+<span class="n">MULTIPLE_SEPS_RX</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span><span class="si">}</span><span class="s2">+"</span><span class="p">)</span>
+
+<span class="c1"># regex for removing tags, i.e. &lt;NE&gt;, &lt;/NE&gt;</span>
+<span class="n">TAG_RX</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;\/?[A-Z]+&gt;"</span><span class="p">)</span>
+
+<span class="c1"># regex for removing trailing separators, i.e.  a|dog| -&gt; a|dog</span>
+<span class="n">TAILING_SEP_RX</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span><span class="si">}</span><span class="s2">$"</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CharLevelStat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Character-level confusion matrix statistics for tokenization."""</span>
+
+    <span class="n">tp</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">fp</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">tn</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">fn</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">WordLevelStat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Word-level tokenization statistics."""</span>
+
+    <span class="n">correctly_tokenized_words</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">total_words_in_sample</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">total_words_in_ref_sample</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GlobalStat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Global tokenization indicator as a binary indicator string."""</span>
+
+    <span class="n">tokenization_indicators</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TokenizationStat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Tokenization quality statistics at character, word, and global level."""</span>
+
+    <span class="n">char_level</span><span class="p">:</span> <span class="n">CharLevelStat</span>
+    <span class="n">word_level</span><span class="p">:</span> <span class="n">WordLevelStat</span>
+    <span class="n">global_</span><span class="p">:</span> <span class="n">GlobalStat</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TokenizationScore</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Tokenization evaluation score containing character and word scores."""</span>
+
+    <span class="n">char_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">word_score</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_f1</span><span class="p">(</span><span class="n">precision</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">recall</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compute f1.</span>
+
+<span class="sd">    :param float precision</span>
+<span class="sd">    :param float recall</span>
+
+<span class="sd">    :return: f1</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">precision</span> <span class="o">==</span> <span class="n">recall</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_flatten_result</span><span class="p">(</span>
+    <span class="n">my_dict</span><span class="p">:</span> <span class="n">TokenizationStat</span><span class="p">,</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_flatten_result</span><span class="p">(</span>
+    <span class="n">my_dict</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span> <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_flatten_result</span><span class="p">(</span>
+    <span class="n">my_dict</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">":"</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""Flatten a two-level dictionary.</span>
+
+<span class="sd">    Uses keys from the first level as a prefix for keys in the second level.</span>
+<span class="sd">    For example::</span>
+
+<span class="sd">        my_dict = {"a": {"b": 7}}</span>
+<span class="sd">        _flatten_result(my_dict)</span>
+<span class="sd">        # {"a:b": 7}</span>
+
+<span class="sd">    :param my_dict: dictionary containing stats</span>
+<span class="sd">    :type my_dict: TokenizationStat or</span>
+<span class="sd">        collections.abc.Mapping[str,</span>
+<span class="sd">        collections.abc.Mapping[str, Union[int, str]]]</span>
+<span class="sd">    :param str sep: separator between the two keys (default: ``":"``)</span>
+
+<span class="sd">    :return: a flat dictionary with combined keys</span>
+<span class="sd">    :rtype: dict[str, Union[int, str]]</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k1</span><span class="si">}{</span><span class="n">sep</span><span class="si">}{</span><span class="n">k2</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span>
+        <span class="k">for</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kv2</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k2</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kv2</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+
+
+<div class="viewcode-block" id="benchmark">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.benchmark">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span><span class="n">ref_samples</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">samples</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"pd.DataFrame"</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Performance benchmarking for samples.</span>
+
+<span class="sd">    See :func:`pythainlp.benchmarks.word_tokenization.compute_stats`</span>
+<span class="sd">    for computed metrics.</span>
+
+<span class="sd">    :param list[str] ref_samples: ground truth</span>
+<span class="sd">    :param list[str] samples: samples to evaluate</span>
+
+<span class="sd">    :return: dataframe with shape ``len(samples) × len(metrics)``</span>
+<span class="sd">    :rtype: pandas.DataFrame</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ref_samples</span><span class="p">,</span> <span class="n">samples</span><span class="p">)):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">preprocessing</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">s</span><span class="p">:</span>
+                <span class="n">stats</span> <span class="o">=</span> <span class="n">compute_stats</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+                <span class="n">flat_stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">_flatten_result</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+                <span class="n">flat_stats</span><span class="p">[</span><span class="s2">"expected"</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+                <span class="n">flat_stats</span><span class="p">[</span><span class="s2">"actual"</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flat_stats</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">reason</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">[Error]</span>
+<span class="s2">Reason: </span><span class="si">%s</span>
+
+<span class="s2">Pair (i=</span><span class="si">%d</span><span class="s2">)</span>
+<span class="s2">--- label</span>
+<span class="si">%s</span>
+<span class="s2">--- sample</span>
+<span class="si">%s</span>
+<span class="s2">"""</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(),</span>
+                <span class="n">i</span><span class="p">,</span>
+                <span class="n">r</span><span class="p">,</span>
+                <span class="n">s</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="preprocessing">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.preprocessing">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocessing</span><span class="p">(</span><span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remove_space</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Clean up text before performing evaluation.</span>
+
+<span class="sd">    :param str text: text to be preprocessed</span>
+<span class="sd">    :param bool remove_space: whether to remove white space</span>
+
+<span class="sd">    :return: preprocessed text</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    """</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">SURROUNDING_SEPS_RX</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">remove_space</span><span class="p">:</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">MULTIPLE_SEPS_RX</span><span class="p">,</span> <span class="n">SEPARATOR</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">TAG_RX</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">TAILING_SEP_RX</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">txt</span></div>
+
+
+
+<div class="viewcode-block" id="compute_stats">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.compute_stats">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_stats</span><span class="p">(</span><span class="n">ref_sample</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw_sample</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TokenizationStat</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compute statistics for tokenization quality.</span>
+
+<span class="sd">    These statistics include:</span>
+
+<span class="sd">    **Character-level**:</span>
+<span class="sd">      True Positive, False Positive, True Negative, False Negative</span>
+<span class="sd">    **Word-level**:</span>
+<span class="sd">      Precision, Recall, and F1</span>
+<span class="sd">    **Global**:</span>
+<span class="sd">      A ``{0, 1}`` sequence indicating whether each word</span>
+<span class="sd">      is tokenized correctly.</span>
+
+<span class="sd">    :param str ref_sample: ground truth sample</span>
+<span class="sd">    :param str raw_sample: sample to evaluate</span>
+
+<span class="sd">    :return: character-level, word-level, and global tokenization metrics</span>
+<span class="sd">    :rtype: TokenizationStat</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+    <span class="n">ref_sample_arr</span> <span class="o">=</span> <span class="n">_binary_representation</span><span class="p">(</span><span class="n">ref_sample</span><span class="p">)</span>
+    <span class="n">sample_arr</span> <span class="o">=</span> <span class="n">_binary_representation</span><span class="p">(</span><span class="n">raw_sample</span><span class="p">)</span>
+
+    <span class="c1"># Compute character-level statistics</span>
+    <span class="n">c_pos_pred</span><span class="p">,</span> <span class="n">c_neg_pred</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sample_arr</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sample_arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">c_pos_pred</span> <span class="o">=</span> <span class="n">c_pos_pred</span><span class="p">[</span><span class="n">c_pos_pred</span> <span class="o">&lt;</span> <span class="n">ref_sample_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">c_neg_pred</span> <span class="o">=</span> <span class="n">c_neg_pred</span><span class="p">[</span><span class="n">c_neg_pred</span> <span class="o">&lt;</span> <span class="n">ref_sample_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="n">c_tp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">[</span><span class="n">c_pos_pred</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">c_fp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">[</span><span class="n">c_pos_pred</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">c_tn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">[</span><span class="n">c_neg_pred</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">c_fn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">[</span><span class="n">c_neg_pred</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Compute word-level statistics</span>
+
+    <span class="c1"># Find correctly tokenized words in the reference sample</span>
+    <span class="n">word_boundaries</span> <span class="o">=</span> <span class="n">_find_word_boundaries</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">)</span>
+
+    <span class="c1"># Find correctly tokenized words in the sample</span>
+    <span class="n">ss_boundaries</span> <span class="o">=</span> <span class="n">_find_word_boundaries</span><span class="p">(</span><span class="n">sample_arr</span><span class="p">)</span>
+    <span class="n">tokenization_indicators</span> <span class="o">=</span> <span class="n">_find_words_correctly_tokenized</span><span class="p">(</span>
+        <span class="n">word_boundaries</span><span class="p">,</span> <span class="n">ss_boundaries</span>
+    <span class="p">)</span>
+
+    <span class="n">correctly_tokenized_words</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tokenization_indicators</span><span class="p">))</span>
+
+    <span class="n">tokenization_indicators_str</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">tokenization_indicators</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"char_level"</span><span class="p">:</span> <span class="n">CharLevelStat</span><span class="p">(</span>
+            <span class="n">tp</span><span class="o">=</span><span class="n">c_tp</span><span class="p">,</span>
+            <span class="n">fp</span><span class="o">=</span><span class="n">c_fp</span><span class="p">,</span>
+            <span class="n">tn</span><span class="o">=</span><span class="n">c_tn</span><span class="p">,</span>
+            <span class="n">fn</span><span class="o">=</span><span class="n">c_fn</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s2">"word_level"</span><span class="p">:</span> <span class="n">WordLevelStat</span><span class="p">(</span>
+            <span class="n">correctly_tokenized_words</span><span class="o">=</span><span class="n">correctly_tokenized_words</span><span class="p">,</span>
+            <span class="n">total_words_in_sample</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sample_arr</span><span class="p">)),</span>
+            <span class="n">total_words_in_ref_sample</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ref_sample_arr</span><span class="p">)),</span>
+        <span class="p">),</span>
+        <span class="s2">"global_"</span><span class="p">:</span> <span class="n">GlobalStat</span><span class="p">(</span>
+            <span class="n">tokenization_indicators</span><span class="o">=</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokenization_indicators_str</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_binary_representation</span><span class="p">(</span>
+    <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"NDArray[np.int8]"</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Transform text into {0, 1} sequence.</span>
+
+<span class="sd">    where (1) indicates that the corresponding character is the beginning of</span>
+<span class="sd">    a word. For example, ผม|ไม่|ชอบ|กิน|ผัก -&gt; 10100...</span>
+
+<span class="sd">    :param str txt: input text that we want to transform</span>
+<span class="sd">    :param bool verbose: for debugging purposes</span>
+
+<span class="sd">    :return: {0, 1} sequence</span>
+<span class="sd">    :rtype: numpy.typing.NDArray[numpy.int8]</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+    <span class="n">chars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+
+    <span class="n">boundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">chars</span> <span class="o">==</span> <span class="n">SEPARATOR</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">boundary</span> <span class="o">=</span> <span class="n">boundary</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">boundary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="n">bin_rept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">-</span> <span class="n">boundary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="n">bin_rept</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">boundary</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">sample_wo_seps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+
+    <span class="c1"># sanity check</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_wo_seps</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_rept</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Length mismatch: sample_wo_seps=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_wo_seps</span><span class="p">)</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"bin_rept=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_rept</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sample_wo_seps</span><span class="p">,</span> <span class="n">bin_rept</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> -- </span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">bin_rept</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_find_word_boundaries</span><span class="p">(</span>
+    <span class="n">bin_reps</span><span class="p">:</span> <span class="s2">"NDArray[np.int8]"</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""Find the starting and ending location of each word.</span>
+
+<span class="sd">    :param numpy.typing.NDArray[numpy.int8] bin_reps: binary representation</span>
+<span class="sd">        of a text</span>
+
+<span class="sd">    :return: list of tuples (start, end)</span>
+<span class="sd">    :rtype: list[tuple[int, int]]</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+    <span class="n">boundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">bin_reps</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">start_idx</span> <span class="o">=</span> <span class="n">boundary</span>
+    <span class="n">end_idx</span> <span class="o">=</span> <span class="n">boundary</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="n">bin_reps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">start_idx</span><span class="p">,</span> <span class="n">end_idx</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_find_words_correctly_tokenized</span><span class="p">(</span>
+    <span class="n">ref_boundaries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">predicted_boundaries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Find whether each word is correctly tokenized.</span>
+
+<span class="sd">    :param list[tuple[int, int]] ref_boundaries: word boundaries of</span>
+<span class="sd">        the reference tokenization</span>
+<span class="sd">    :param list[tuple[int, int]] predicted_boundaries: word boundaries of</span>
+<span class="sd">        the predicted tokenization</span>
+
+<span class="sd">    :return: binary sequence; 1 means the word is tokenized correctly</span>
+<span class="sd">    :rtype: tuple[int, ...]</span>
+<span class="sd">    """</span>
+    <span class="n">ref_b</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ref_boundaries</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_boundaries</span><span class="p">)))</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ref_b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">predicted_boundaries</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">labels</span>
+
+
+<div class="viewcode-block" id="char_eval_function">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.char_eval_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">char_eval_function</span><span class="p">(</span>
+    <span class="n">y_true</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
+    <span class="n">y_pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compute character-level F1 score for boundary indicators.</span>
+
+<span class="sd">    Calculates precision, recall, and binary F1 score for boundary (1)</span>
+<span class="sd">    labels between true and predicted character boundary sequences.</span>
+<span class="sd">    Ported from SEFR CUT (``sefr_cut.evaluation``).</span>
+
+<span class="sd">    :param y_true: ground truth binary boundary sequence</span>
+<span class="sd">    :type y_true: Union[list[int], tuple[int, ...]]</span>
+<span class="sd">    :param y_pred: predicted binary boundary sequence</span>
+<span class="sd">    :type y_pred: Union[list[int], tuple[int, ...]]</span>
+
+<span class="sd">    :return: character-level F1 score</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    """</span>
+    <span class="n">min_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
+    <span class="n">tp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_len</span><span class="p">))</span>
+    <span class="n">fp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_len</span><span class="p">))</span>
+    <span class="n">fn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_len</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">min_len</span><span class="p">:</span>
+        <span class="n">fp</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">min_len</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">tp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fp</span><span class="p">)</span>
+    <span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_f1</span><span class="p">(</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="word_eval_function">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.word_eval_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">word_eval_function</span><span class="p">(</span>
+    <span class="n">train</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">test</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compute word-level F1 score for tokenized word lists.</span>
+
+<span class="sd">    Calculates the F1 score based on word boundary span overlap between</span>
+<span class="sd">    the ground truth word tokens and predicted word tokens.</span>
+<span class="sd">    Ported from SEFR CUT (``sefr_cut.evaluation``).</span>
+
+<span class="sd">    :param list[str] train: ground truth word tokens</span>
+<span class="sd">    :param list[str] test: predicted word tokens</span>
+
+<span class="sd">    :return: word-level F1 score</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">train</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">test</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="n">train_acc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">train</span><span class="p">),</span> <span class="n">func</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">))</span>
+    <span class="n">test_acc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">test</span><span class="p">),</span> <span class="n">func</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">))</span>
+    <span class="n">train_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">train_acc</span><span class="p">],</span> <span class="n">train_acc</span><span class="p">))</span>
+    <span class="n">test_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">test_acc</span><span class="p">],</span> <span class="n">test_acc</span><span class="p">))</span>
+    <span class="n">correct</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_set</span> <span class="o">&amp;</span> <span class="n">test_set</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">correct</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_f1</span><span class="p">(</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_preprocess_attacut</span><span class="p">(</span>
+    <span class="n">sentence_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">"""Convert segmented sentences to raw text and binary boundary indicators.</span>
+
+<span class="sd">    Adapted from SEFR CUT preprocessing.</span>
+
+<span class="sd">    :param list[str] sentence_lines: list of segmented sentences</span>
+<span class="sd">        containing separators (``"|"``)</span>
+
+<span class="sd">    :return: a tuple of (raw_text_list, binary_labels_list)</span>
+<span class="sd">    :rtype: tuple[list[str], list[list[int]]]</span>
+<span class="sd">    """</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentence_lines</span><span class="p">:</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+        <span class="n">sentence</span> <span class="o">=</span> <span class="n">SEPARATOR</span> <span class="o">+</span> <span class="n">sentence</span>
+        <span class="n">y_char</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)):</span>
+            <span class="n">current_char</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">before_char</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="n">idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">current_char</span> <span class="o">==</span> <span class="n">SEPARATOR</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">target</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">before_char</span> <span class="o">==</span> <span class="n">SEPARATOR</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">y_char</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_char</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_evaluation_input</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]],</span>
+    <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Normalize evaluation input into a 1D list containing a single string.</span>
+
+<span class="sd">    Handles string, list of strings, or list of list of strings.</span>
+
+<span class="sd">    :param x: input text or tokens</span>
+<span class="sd">    :type x: Union[str, list[str], list[list[str]]]</span>
+<span class="sd">    :param str sep: separator to join tokens or sentences (default: ``""``)</span>
+
+<span class="sd">    :return: list containing a single concatenated string</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Input must be a string, list of strings, or list of list of "</span>
+            <span class="sa">f</span><span class="s2">"strings, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">flat</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sub</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">flat</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="n">sep</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+
+
+<div class="viewcode-block" id="evaluate_word_tokenization">
+<a class="viewcode-back" href="../../../api/benchmarks.html#pythainlp.benchmarks.word_tokenization.evaluate_word_tokenization">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_word_tokenization</span><span class="p">(</span>
+    <span class="n">x_true</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]],</span>
+    <span class="n">x_pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]],</span>
+    <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TokenizationScore</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Evaluate word tokenization performance at character and word levels.</span>
+
+<span class="sd">    Computes character-level F1 score and word-level F1 score between</span>
+<span class="sd">    the ground truth (``x_true``) and predicted segmentation (``x_pred``).</span>
+<span class="sd">    Ported from SEFR CUT (``sefr_cut.evaluation``).</span>
+
+<span class="sd">    Supports multiple input representations:</span>
+
+<span class="sd">    - Strings delimited by ``"|"`` (e.g., ``"สวัสดี|ประเทศไทย"``)</span>
+<span class="sd">    - Single-element lists of delimited strings (e.g., ``["สวัสดี|ประเทศไทย"]``)</span>
+<span class="sd">    - 2D lists of strings (e.g., ``[["สวัสดี|"], ["ประเทศไทย"]]``)</span>
+<span class="sd">    - 1D lists of token strings with ``sep="|"`` (e.g., ``["สวัสดี", "ประเทศไทย"]``)</span>
+
+<span class="sd">    :param x_true: ground truth text or tokens</span>
+<span class="sd">    :type x_true: Union[str, list[str], list[list[str]]]</span>
+<span class="sd">    :param x_pred: predicted text or tokens</span>
+<span class="sd">    :type x_pred: Union[str, list[str], list[list[str]]]</span>
+<span class="sd">    :param str sep: separator to join sub-elements when input is a list of</span>
+<span class="sd">        tokens without boundaries (default: ``""``)</span>
+
+<span class="sd">    :return: tokenization score containing character score and word score</span>
+<span class="sd">    :rtype: TokenizationScore</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        from pythainlp.benchmarks import evaluate_word_tokenization</span>
+
+<span class="sd">        answer = "สวัสดี|ประเทศไทย"</span>
+<span class="sd">        pred = "สวัสดี|ประเทศ|ไทย"</span>
+<span class="sd">        char_score, word_score = evaluate_word_tokenization(answer, pred)</span>
+<span class="sd">        print(f"Char Score: {char_score}, Word Score: {word_score}")</span>
+<span class="sd">        # Char Score: 0.8, Word Score: 0.4</span>
+<span class="sd">    """</span>
+    <span class="n">x_true_1d</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">_normalize_evaluation_input</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">)</span>
+    <span class="n">x_pred_1d</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">_normalize_evaluation_input</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">)</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">y_true_boolean</span> <span class="o">=</span> <span class="n">_preprocess_attacut</span><span class="p">(</span><span class="n">x_true_1d</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">y_pred_boolean</span> <span class="o">=</span> <span class="n">_preprocess_attacut</span><span class="p">(</span><span class="n">x_pred_1d</span><span class="p">)</span>
+
+    <span class="n">char_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">y_true_boolean</span> <span class="ow">and</span> <span class="n">y_pred_boolean</span><span class="p">:</span>
+        <span class="n">char_score</span> <span class="o">=</span> <span class="n">char_eval_function</span><span class="p">(</span><span class="n">y_true_boolean</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_boolean</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">true_words</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x_true_1d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span><span class="p">]</span>
+    <span class="n">pred_words</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x_pred_1d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span><span class="p">]</span>
+    <span class="n">word_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">word_eval_function</span><span class="p">(</span><span class="n">true_words</span><span class="p">,</span> <span class="n">pred_words</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">TokenizationScore</span><span class="p">(</span><span class="n">char_score</span><span class="o">=</span><span class="n">char_score</span><span class="p">,</span> <span class="n">word_score</span><span class="o">=</span><span class="n">word_score</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

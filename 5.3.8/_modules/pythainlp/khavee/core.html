@@ -1,0 +1,1067 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.khavee.core &mdash; PyThaiNLP 1177047 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a72485e6"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chat.html">pythainlp.chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.khavee.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.khavee.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1"># ruff: noqa: C901</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_consonants</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">subword_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove_tonemark</span><span class="p">,</span> <span class="n">sound_syllable</span>
+
+
+<div class="viewcode-block" id="KhaveeVerifier">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">KhaveeVerifier</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Verifier for Thai poetry (ฉันทลักษณ์) principles.</span>
+
+<span class="sd">    Provides methods to analyze Thai words and validate poetic structures</span>
+<span class="sd">    according to traditional Thai prosody rules. This class checks vowel</span>
+<span class="sd">    sounds (สระ), spelling sections (มาตราตัวสะกด), rhymes (สัมผัส),</span>
+<span class="sd">    syllable weight (ครุ/ลหุ), and full Thai klon 4/8 poem structure (กลอน).</span>
+
+<span class="sd">    This class is designed to be deterministic according to the Royal Society of</span>
+<span class="sd">    Thailand's orthographic standards. The only exception is the use of "ssg" for</span>
+<span class="sd">    syllable segmentation in the :meth:`check_klon` method.</span>
+
+<span class="sd">    Key capabilities:</span>
+<span class="sd">    - :meth:`check_sara` -&gt; Identify the phonetic vowel sound of a Thai word,</span>
+<span class="sd">    handling complex vowels (สระประสม), transformed vowels (สระเปลี่ยนรูป),</span>
+<span class="sd">    and reduced vowels (สระลดรูป).</span>
+<span class="sd">    - :meth:`check_marttra` -&gt; Determine the orthographic spelling section</span>
+<span class="sd">    (relative to the final consonant) per Royal Society standards.</span>
+<span class="sd">    - :meth:`is_sumpus` -&gt; Evaluate whether two words rhyme by comparing</span>
+<span class="sd">    both vowel sound and spelling section, with phonetic normalisation</span>
+<span class="sd">    for สระเกิน (e.g., อำ, ไอ).</span>
+<span class="sd">    - :meth:`check_karu_lahu` -&gt; Classify a syllable as heavy (ครุ) or</span>
+<span class="sd">    light (ลหุ) for meter analysis.</span>
+<span class="sd">    - :meth:`check_klon` -&gt; Validate an entire poem against traditional</span>
+<span class="sd">    กลอนสี่ (4-syllable) or กลอนแปด (8-syllable) rhyme rules.</span>
+<span class="sd">    - :meth:`check_aek_too` -&gt; Identify tonal marks (เอก/โท) on Thai words.</span>
+<span class="sd">    - :meth:`handle_karun_sound_silence` -&gt; Strip characters silenced by</span>
+<span class="sd">    the การันย์ marker (e.g., \"โอห์ม\" → \"โอ\").</span>
+<span class="sd">    - :meth:`_has_true_final_yl` and :meth:`_is_true_final` -&gt; Determine</span>
+<span class="sd">    whether a word-ending \"ย\" or \"ล\" is a genuine final consonant</span>
+<span class="sd">    rather than part of an initial cluster or vowel digraph.</span>
+
+<span class="sd">    :Example:</span>
+<span class="sd">        Basic usage::</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier</span>
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()</span>
+<span class="sd">            &gt;&gt;&gt; kv.check_sara("เริง")</span>
+<span class="sd">            'เออ'</span>
+<span class="sd">            &gt;&gt;&gt; kv.is_sumpus("สรร", "อัน")</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; kv.check_klon(</span>
+<span class="sd">            ...     'ฉันชื่อหมูกรอบ ฉันชอบกินไก่ แล้ววิ่งตามไป ไล่หมาน้ำทอง',</span>
+<span class="sd">            ...     k_type=4</span>
+<span class="sd">            ... )</span>
+<span class="sd">            'The poem is correct according to the principle.'</span>
+
+<span class="sd">    :Note:</span>
+<span class="sd">        The method :meth:`check_klon` requires the external ``ssg`` library.</span>
+<span class="sd">    """</span>
+    <span class="c1"># explicitly include ฤ and ฦ as they act as initial consonants but aren't in thai_consonants</span>
+    <span class="n">VALID_CONSONANTS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">thai_consonants</span> <span class="o">+</span> <span class="s2">"ฤฦ"</span><span class="p">)</span>
+
+    <span class="c1"># Pali/Sanskrit loanwords where the final -ิ or -ุ is orthographically</span>
+    <span class="c1"># present but phonetically silent. Stripping it is harmless in check_sara</span>
+    <span class="c1"># (the leading vowel is detected first) and necessary in check_marttra</span>
+    <span class="c1"># (to expose the true final consonant for spelling-section classification).</span>
+    <span class="n">_MASKING_TERMINAL_VOWELS</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"เกียรติ"</span><span class="p">,</span> <span class="s2">"ชาติ"</span><span class="p">,</span> <span class="s2">"ญาติ"</span><span class="p">,</span> <span class="s2">"มัติ"</span><span class="p">,</span> <span class="s2">"วัติ"</span><span class="p">,</span> <span class="s2">"บัติ"</span><span class="p">,</span> <span class="s2">"ญัติ"</span><span class="p">,</span>
+        <span class="s2">"ยัติ"</span><span class="p">,</span> <span class="s2">"ภูมิ"</span><span class="p">,</span> <span class="s2">"พฤติ"</span><span class="p">,</span> <span class="s2">"พรรดิ"</span><span class="p">,</span> <span class="s2">"วรรดิ"</span><span class="p">,</span> <span class="s2">"พยาธิ"</span><span class="p">,</span> <span class="s2">"โพธิ"</span><span class="p">,</span>
+        <span class="s2">"เกตุ"</span><span class="p">,</span> <span class="s2">"เมรุ"</span><span class="p">,</span> <span class="s2">"เหตุ"</span><span class="p">,</span> <span class="s2">"ธาตุ"</span><span class="p">,</span> <span class="s2">"วุฒิ"</span><span class="p">,</span> <span class="s2">"สมมุติ"</span><span class="p">,</span> <span class="s2">"วิมุติ"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Syllables that are always light (ลหุ) regardless of orthography.</span>
+    <span class="n">_LAHU_SYLLABLE_OVERRIDES</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"บ"</span><span class="p">,</span> <span class="s2">"บ่"</span><span class="p">,</span> <span class="s2">"ณ"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"ก็"</span><span class="p">,</span> <span class="s2">"ฤ"</span><span class="p">,</span> <span class="s2">"ฦ"</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="c1"># Pre-computed frozensets for high-frequency set operations</span>
+    <span class="n">_SINGLE_CHAR_WORDS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"บ"</span><span class="p">,</span> <span class="s2">"ณ"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"พณ"</span><span class="p">,</span> <span class="s2">"ฤ"</span><span class="p">,</span> <span class="s2">"ฦ"</span><span class="p">})</span>
+
+    <span class="c1"># Initial cluster sets for _is_true_final</span>
+    <span class="n">_LAM_CLUSTERS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"กล"</span><span class="p">,</span> <span class="s2">"ขล"</span><span class="p">,</span> <span class="s2">"คล"</span><span class="p">,</span> <span class="s2">"ปล"</span><span class="p">,</span> <span class="s2">"ผล"</span><span class="p">,</span> <span class="s2">"พล"</span><span class="p">,</span> <span class="s2">"หล"</span><span class="p">,</span> <span class="s2">"ถล"</span><span class="p">,</span> <span class="s2">"ฉล"</span><span class="p">,</span> <span class="s2">"สล"</span><span class="p">,</span> <span class="s2">"ศล"</span><span class="p">,</span> <span class="s2">"ตล"</span>
+    <span class="p">})</span>
+    <span class="n">_RUA_CLUSTERS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"กร"</span><span class="p">,</span> <span class="s2">"ขร"</span><span class="p">,</span> <span class="s2">"คร"</span><span class="p">,</span> <span class="s2">"ตร"</span><span class="p">,</span> <span class="s2">"ปร"</span><span class="p">,</span> <span class="s2">"พร"</span><span class="p">,</span> <span class="s2">"ฟร"</span><span class="p">,</span> <span class="s2">"บร"</span><span class="p">,</span> <span class="s2">"ศร"</span><span class="p">,</span> <span class="s2">"สร"</span><span class="p">,</span> <span class="s2">"หร"</span>
+    <span class="p">})</span>
+    <span class="n">_WA_CLUSTERS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"กว"</span><span class="p">,</span> <span class="s2">"ขว"</span><span class="p">,</span> <span class="s2">"คว"</span><span class="p">,</span> <span class="s2">"สว"</span><span class="p">,</span> <span class="s2">"หว"</span><span class="p">,</span> <span class="s2">"ทว"</span><span class="p">,</span> <span class="s2">"ชว"</span><span class="p">,</span> <span class="s2">"ศว"</span><span class="p">,</span> <span class="s2">"ถว"</span>
+    <span class="p">})</span>
+    <span class="n">_WA_WHITELIST</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"เขว"</span><span class="p">,</span> <span class="s2">"เหว่"</span><span class="p">,</span> <span class="s2">"แคว"</span><span class="p">,</span> <span class="s2">"แหว"</span><span class="p">,</span> <span class="s2">"โคว"</span><span class="p">,</span> <span class="s2">"โหว"</span><span class="p">,</span> <span class="s2">"โหว่"</span><span class="p">})</span>
+
+    <span class="c1"># Spelling sections (มาตราตัวสะกด)</span>
+    <span class="n">_OPEN_SYLLABLE_VOWELS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"า"</span><span class="p">,</span> <span class="s2">"ๅ"</span><span class="p">,</span> <span class="s2">"ะ"</span><span class="p">,</span> <span class="s2">"ิ"</span><span class="p">,</span> <span class="s2">"ี"</span><span class="p">,</span> <span class="s2">"ึ"</span><span class="p">,</span> <span class="s2">"ุ"</span><span class="p">,</span> <span class="s2">"ู"</span><span class="p">,</span> <span class="s2">"อ"</span><span class="p">})</span>
+    <span class="n">_KOK_CHARS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"ก"</span><span class="p">,</span> <span class="s2">"ข"</span><span class="p">,</span> <span class="s2">"ค"</span><span class="p">,</span> <span class="s2">"ฆ"</span><span class="p">})</span>
+    <span class="n">_KOD_CHARS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"จ"</span><span class="p">,</span> <span class="s2">"ช"</span><span class="p">,</span> <span class="s2">"ซ"</span><span class="p">,</span> <span class="s2">"ฎ"</span><span class="p">,</span> <span class="s2">"ฏ"</span><span class="p">,</span> <span class="s2">"ฐ"</span><span class="p">,</span> <span class="s2">"ฑ"</span><span class="p">,</span> <span class="s2">"ฒ"</span><span class="p">,</span> <span class="s2">"ด"</span><span class="p">,</span> <span class="s2">"ต"</span><span class="p">,</span> <span class="s2">"ถ"</span><span class="p">,</span> <span class="s2">"ท"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"ศ"</span><span class="p">,</span> <span class="s2">"ษ"</span><span class="p">,</span> <span class="s2">"ส"</span>
+    <span class="p">})</span>
+    <span class="n">_KON_CHARS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"ญ"</span><span class="p">,</span> <span class="s2">"ณ"</span><span class="p">,</span> <span class="s2">"น"</span><span class="p">,</span> <span class="s2">"ร"</span><span class="p">,</span> <span class="s2">"ล"</span><span class="p">,</span> <span class="s2">"ฬ"</span><span class="p">})</span>
+    <span class="n">_KOB_CHARS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"บ"</span><span class="p">,</span> <span class="s2">"ป"</span><span class="p">,</span> <span class="s2">"พ"</span><span class="p">,</span> <span class="s2">"ฟ"</span><span class="p">,</span> <span class="s2">"ภ"</span><span class="p">})</span>
+
+    <span class="c1"># Karu / Lahu prosody</span>
+    <span class="n">_LONG_VOWELS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span>
+        <span class="s2">"อา"</span><span class="p">,</span> <span class="s2">"อี"</span><span class="p">,</span> <span class="s2">"อือ"</span><span class="p">,</span> <span class="s2">"อู"</span><span class="p">,</span> <span class="s2">"เอ"</span><span class="p">,</span> <span class="s2">"แอ"</span><span class="p">,</span> <span class="s2">"เออ"</span><span class="p">,</span> <span class="s2">"โอ"</span><span class="p">,</span> <span class="s2">"ออ"</span><span class="p">,</span> <span class="s2">"เอีย"</span><span class="p">,</span> <span class="s2">"เอือ"</span><span class="p">,</span> <span class="s2">"อัว"</span>
+    <span class="p">})</span>
+    <span class="n">_SPECIAL_VOWELS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"อำ"</span><span class="p">,</span> <span class="s2">"ไอ"</span><span class="p">,</span> <span class="s2">"เอา"</span><span class="p">})</span>
+    <span class="n">_EXPLICIT_SARA_WORDS</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">"เออะ"</span><span class="p">,</span> <span class="s2">"เออ"</span><span class="p">,</span> <span class="s2">"เอ"</span><span class="p">,</span> <span class="s2">"เอะ"</span><span class="p">,</span> <span class="s2">"เอา"</span><span class="p">,</span> <span class="s2">"เอาะ"</span><span class="p">})</span>
+
+<div class="viewcode-block" id="KhaveeVerifier.__init__">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Initialize the KhaveeVerifier class."""</span></div>
+
+
+    <span class="c1"># For backward compatibility, this method is kept as a private method.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_has_true_final_yl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check if ย or ล is a true final consonant</span>
+<span class="sd">        (not just part of the vowel sound with ไ/ใ)</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: True if ย or ล is a true final consonant</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_true_final</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_true_final</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check if the last character is a true final consonant</span>
+<span class="sd">        (not part of a vowel sound or an initial cluster).</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: True if the ending character acts as a final consonant</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        """</span>
+        <span class="c1"># Handle การันย์</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_karun_sound_silence</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="c1"># Store original word to distinguish tone-dependent structures</span>
+        <span class="n">original_word</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="c1"># Strip tone marks first so words like 'ใกล้' properly evaluate as ending in 'ล'</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">remove_tonemark</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">last_char</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">consonants</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">VALID_CONSONANTS</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># คำควบกล้ำ / อักษรนำ (initial clusters)</span>
+        <span class="n">cluster</span> <span class="o">=</span> <span class="n">consonants</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">consonants</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># ไ/ใ never take a final consonant ย here is silent (ไทย, ไชย)</span>
+        <span class="c1"># Check for ย inside เ-ีย (เสีย, เมีย) (part of the vowel)</span>
+        <span class="k">if</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ย"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s2">"ไ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"ใ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"ี"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># Guard Clauses: If it's not ending in ล, ร, ว, or doesn't have exactly 2</span>
+        <span class="c1"># consonants, or lacks pre-posed vowels, it bypasses the cluster checks.</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="k">if</span> <span class="n">last_char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">"ลรว"</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="c1"># Check for ล, ร, ว in initial clusters (คำควบกล้ำ / อักษรนำ)</span>
+        <span class="c1"># with pre-posed vowels เ-, แ-, โ-, ไ-, ใ-</span>
+        <span class="c1"># (เปล, เถล, แผล, โหล, ไกล, ใกล้, โปร, แตร, ไกว, เขว)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"แ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"โ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"ไ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"ใ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="c1"># Check for ล</span>
+        <span class="k">if</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ล"</span> <span class="ow">and</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LAM_CLUSTERS</span><span class="p">:</span>
+            <span class="c1"># Exception 'เพล' - แม่กน (monk food ฉันเพล) Returns True, otherwise False</span>
+            <span class="k">return</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">"เพล"</span>
+
+        <span class="c1"># Check for ร</span>
+        <span class="k">if</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ร"</span> <span class="ow">and</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_RUA_CLUSTERS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># Check for ว (ควบแท้ and อักษรนำ)</span>
+        <span class="k">if</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ว"</span><span class="p">:</span>
+            <span class="c1"># With ไ/ใ, 'ว' is ALWAYS a cluster (ไกว, ไขว้)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s2">"ไ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"ใ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">cluster</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WA_CLUSTERS</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+            <span class="c1"># With เ/แ/โ, 'ว' is mostly is a true final (เลว, เหว, แก้ว, แห้ว).</span>
+            <span class="c1"># Whitelist อักษรนำ/คำควบกล้ำ as exceptions</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"แ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"โ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">):</span>
+                <span class="c1"># USE ORIGINAL_WORD to safely catch open syllables แม่ ก กา</span>
+                <span class="c1"># เดินเขว, ว้าเหว่, แม่น้ำแคว, ตวาดแหว, โควตา, ช่องโหว่</span>
+                <span class="k">if</span> <span class="n">original_word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WA_WHITELIST</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># If it passed all the filters above, it is a true final (จัย, สมัย, ชล, ผล, เหนื่อย)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="KhaveeVerifier.check_sara">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_sara">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_sara</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check the phonetic vowel sound (สระ) of a Thai word.</span>
+
+<span class="sd">        Extracts the core vowel representation used for rhyme matching,</span>
+<span class="sd">        handling complex vowel combinations,</span>
+<span class="sd">        transformed vowels (สระเปลี่ยนรูป), and reductions (สระลดรูป).</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: The name of the vowel sound of the word (e.g., 'เออ', 'อะ', 'เอาะ')</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.check_sara("เริง"))  # doctest: +SKIP</span>
+<span class="sd">            'เออ'</span>
+<span class="sd">        """</span>
+        <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">countoa</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Count occurrences of 'อ'</span>
+
+        <span class="c1"># Store original word to safely evaluate exceptions (like ฤทธิ์) after Karun stripping</span>
+        <span class="n">original_word</span> <span class="o">=</span> <span class="n">word</span>
+
+        <span class="c1"># In case of การันย์ (word stripped of Karun characters)</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_karun_sound_silence</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="c1"># Remove tonemarks for checking endings safely</span>
+        <span class="n">word_req</span> <span class="o">=</span> <span class="n">remove_tonemark</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="c1"># Empty string / weird input should return empty string (Catches "", "อ์", "้", etc.)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word_req</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">""</span>
+
+        <span class="c1"># Intercept Pali/Sanskrit words with silent terminal vowels (สระที่ไม่ออกเสียงท้ายคำ)</span>
+        <span class="c1"># Removing the final character -ิ or -ุ</span>
+        <span class="k">if</span> <span class="n">word_req</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_MASKING_TERMINAL_VOWELS</span><span class="p">):</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">word_req</span> <span class="o">=</span> <span class="n">word_req</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># In case of สระเดี่ยว</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ั"</span> <span class="ow">and</span> <span class="n">word_req</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ว"</span><span class="p">):</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อัว"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"ะ"</span><span class="p">,</span> <span class="s2">"ั"</span><span class="p">):</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อะ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ิ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อิ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ุ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อุ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ึ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อึ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ี"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อี"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ู"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อู"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ื"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อือ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"เ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"แ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"แอ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"า"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อา"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"โ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"โอ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"ำ"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อำ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"อ"</span><span class="p">:</span>
+                <span class="n">countoa</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"ไ"</span><span class="p">,</span> <span class="s2">"ใ"</span><span class="p">):</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ไอ"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"็"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"็"</span><span class="p">)</span>
+
+        <span class="c1"># In case of รร</span>
+        <span class="k">if</span> <span class="s2">"รร"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"กม"</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อำ"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อะ"</span><span class="p">)</span>
+
+        <span class="c1"># Clean up 'ออ' if 'อ' is acting purely as an initial consonant (อต, อด, อบ, อวบ)</span>
+        <span class="k">if</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">word</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"อ"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">countoa</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of ออ (Clean redundant ออ from compound vowels like คือ, มือ)</span>
+        <span class="k">if</span> <span class="n">countoa</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">"อ"</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="s2">"เ"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of เอ เอ (merging two 'เอ' into 'แอ')</span>
+        <span class="k">if</span> <span class="n">sara</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"แอ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of สระประสม</span>
+        <span class="k">if</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อะ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อะ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอะ"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"แอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อะ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"แอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อะ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"แอะ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of สระประสม Transformed vowels ไม้ไต่คู้ (-็)</span>
+        <span class="k">if</span> <span class="s2">"็"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"็"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอะ"</span><span class="p">)</span>  <span class="c1"># เจ็ด, เป็น, เด็ก</span>
+            <span class="k">elif</span> <span class="s2">"แอ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"แอ"</span><span class="p">)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"แอะ"</span><span class="p">)</span>  <span class="c1"># แข็ง, แท็กซี่, แย็บ</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+                    <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอาะ"</span><span class="p">)</span>  <span class="c1"># ก็, ล็อก, ผล็อย</span>
+
+        <span class="k">if</span> <span class="s2">"เอะ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอะ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เออะ"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อิ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อิ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เออ"</span><span class="p">)</span>  <span class="c1"># เกิด, เมิน</span>
+        <span class="k">elif</span> <span class="s2">"อ"</span> <span class="o">==</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เออ"</span><span class="p">)</span>  <span class="c1"># เหม่อ</span>
+        <span class="k">elif</span> <span class="s2">"โอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อะ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"โอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อะ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"โอะ"</span><span class="p">)</span>  <span class="c1"># โต๊ะ</span>
+        <span class="k">elif</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อี"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อี"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอีย"</span><span class="p">)</span>  <span class="c1"># เรียน</span>
+        <span class="k">elif</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"อา"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เอ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อา"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอา"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"า"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"ะ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอาะ"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">"อือ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="s2">"เออ"</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"เออ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"อือ"</span><span class="p">)</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เอือ"</span><span class="p">)</span>  <span class="c1"># มะเขือ, เสือ, เงือก</span>
+        <span class="k">elif</span> <span class="s2">"ออ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sara</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"ว"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sara</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word_req</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"บวร"</span><span class="p">,</span> <span class="s2">"วร"</span><span class="p">}:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อัว"</span><span class="p">)</span>  <span class="c1"># ควร, บวก, สวม</span>
+
+        <span class="k">if</span> <span class="s2">"ั"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"กา"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">"อัว"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sara</span><span class="p">:</span>
+                <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ไอ"</span><span class="p">]</span>
+
+        <span class="c1"># In case of อ</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_EXPLICIT_SARA_WORDS</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
+
+        <span class="c1"># In case of เ-ือ</span>
+        <span class="k">if</span> <span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"ื"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="s2">"อ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"เอือ"</span><span class="p">]</span>
+
+        <span class="c1"># In case of เ-ย (ลดรูป เ-อ) เลย, เคย, เอย</span>
+        <span class="k">if</span> <span class="s2">"เอ"</span> <span class="ow">in</span> <span class="n">sara</span> <span class="ow">and</span> <span class="n">word_req</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ย"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_true_final</span><span class="p">(</span><span class="n">original_word</span><span class="p">):</span>
+            <span class="c1"># Ensure no competing vowels exist ('เตียง' uses เอีย, not เออ)</span>
+            <span class="n">other_vowels</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sara</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"เอ"</span><span class="p">,</span> <span class="s2">"ออ"</span><span class="p">}]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">other_vowels</span><span class="p">:</span>
+                <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"เออ"</span><span class="p">]</span>
+
+        <span class="c1"># In case of ฤ ฦ</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ex</span> <span class="ow">in</span> <span class="n">original_word</span> <span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"ฤา"</span><span class="p">,</span> <span class="s2">"ฤๅ"</span><span class="p">,</span> <span class="s2">"ฦา"</span><span class="p">,</span> <span class="s2">"ฦๅ"</span><span class="p">)):</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"อือ"</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s2">"ฤ"</span> <span class="ow">in</span> <span class="n">original_word</span> <span class="ow">or</span> <span class="s2">"ฦ"</span> <span class="ow">in</span> <span class="n">original_word</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># for 'เออ' (ฤกษ์ - เริก) the only 'เออ' sound exception of ฤ</span>
+            <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">"ฤก"</span> <span class="ow">or</span> <span class="n">original_word</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"ฤกษ"</span><span class="p">):</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"เออ"</span><span class="p">)</span>
+            <span class="c1"># for 'อิ' (กฤษณ์, กฤษณะ, ตฤณ, ตฤตีย, ทฤษฎี, ประกฤติ, วิกฤต, ฤทธิ์, อังกฤษ)</span>
+            <span class="c1"># Use original_word here to ensure stripped Karun characters (like ธิ์) are evaluated</span>
+            <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="n">ex</span> <span class="ow">in</span> <span class="n">original_word</span> <span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span>
+                     <span class="p">(</span><span class="s2">"กฤช"</span><span class="p">,</span> <span class="s2">"กฤต"</span><span class="p">,</span> <span class="s2">"กฤษ"</span><span class="p">,</span> <span class="s2">"ตฤต"</span><span class="p">,</span> <span class="s2">"ตฤณ"</span><span class="p">,</span> <span class="s2">"ทฤษ"</span><span class="p">,</span> <span class="s2">"ปฤษ"</span><span class="p">,</span> <span class="s2">"ศฤง"</span><span class="p">,</span> <span class="s2">"สฤต"</span><span class="p">,</span> <span class="s2">"ฤทธ"</span><span class="p">)):</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อิ"</span><span class="p">)</span>
+            <span class="c1"># Default 'อึ' (รึ) (ฤดู, ฤทัย, พฤษภาคมม)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"อึ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of สระลดรูป (ออ, โอะ)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sara</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"ร"</span><span class="p">:</span>
+                <span class="c1"># Words ending with ร without vowels usually take the 'ออ' sound (พร, นคร)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ออ"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Other consonants without vowels usually take the hidden 'โอะ' sound (นม, กรด)</span>
+                <span class="n">sara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"โอะ"</span><span class="p">)</span>
+
+        <span class="c1"># In case of นิกหิต (-ํ) + า (miss-typed of สระอำ) or standalone นิกหิต (-ํ) 'อัง'</span>
+        <span class="k">if</span> <span class="s2">"ํ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">"ํา"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+                <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"อำ"</span><span class="p">]</span>  <span class="c1"># The strict decomposed 'อำ' typo</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Standalone sounds like 'อัง' (อะ + ง) from pali/sanskrit</span>
+                <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"อะ"</span><span class="p">]</span>
+
+        <span class="c1"># In case of บ่ / บ</span>
+        <span class="k">if</span> <span class="n">word_req</span> <span class="o">==</span> <span class="s2">"บ"</span><span class="p">:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ออ"</span><span class="p">]</span>
+
+        <span class="c1"># In case of isolated symbols as words (ลดรูป อะ)</span>
+        <span class="k">if</span> <span class="n">word_req</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"ณ"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"อ"</span><span class="p">,</span> <span class="s2">"พณ"</span><span class="p">}:</span>
+            <span class="n">sara</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"อะ"</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sara</span><span class="p">:</span>
+            <span class="c1"># Fallback: If no explicit vowel is found and it doesn't fit closed-syllable</span>
+            <span class="c1"># reductions, assume the implied short 'a' (เสียงอะกึ่งมาตรา).</span>
+            <span class="k">return</span> <span class="s2">"อะ"</span>
+
+        <span class="k">return</span> <span class="n">sara</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.check_marttra">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_marttra">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_marttra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check the spelling section (มาตราตัวสะกด) of a Thai word.</span>
+
+<span class="sd">        Note: This function strictly adheres to orthographic spelling (รูป) based on</span>
+<span class="sd">        the Royal Society of Thailand (ราชบัณฑิตยสภา) standards, rather than phonetics (เสียง).</span>
+<span class="sd">        Therefore, words ending in สระเกิน (อำ, ไอ, ใอ, เอา) as well as ฤ, ฤๅ, ฦ, ฦๅ</span>
+<span class="sd">        are correctly classified grammatically as แม่ ก กา ("กา"). Phonetic rhyming</span>
+<span class="sd">        for these vowels is handled dynamically in the `is_sumpus` function.</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: name of the spelling section of the word (e.g., กา, กก, กด, กน, กบ, กม, เกย, เกอว)</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.check_marttra("สาว"))  # doctest: +SKIP</span>
+<span class="sd">            'เกอว'</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.check_marttra("ทำ"))  # doctest: +SKIP</span>
+<span class="sd">            'กา'</span>
+<span class="sd">        """</span>
+        <span class="c1"># Resolve Karun first to prevents "ศาสตร์" or "ศุกร์"</span>
+        <span class="c1"># from complicating the cluster logic.</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_karun_sound_silence</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="c1"># is_true_final process requires the original word</span>
+        <span class="c1"># to check for exceptions in อักษรนำ/คำควบกล้ำ</span>
+        <span class="n">original_word</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">remove_tonemark</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="c1"># Empty string should be returned as empty string (Catches "", "อ์", "้", etc.)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">""</span>
+
+        <span class="c1"># Intercept Pali/Sanskrit words with silent terminal vowels (สระที่ไม่ออกเสียงท้ายคำ)</span>
+        <span class="c1"># Removing the final character -ิ or -ุ</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_MASKING_TERMINAL_VOWELS</span><span class="p">):</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Handle consonant clusters ending with ร</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"ร"</span><span class="p">:</span>
+            <span class="n">prev_char</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+            <span class="c1"># Safe to always strip</span>
+            <span class="c1"># (e.g., บุตร, เนตร, มิตร, เกษตร, บัตร, เพชร, กอปร (อ่านว่า กอบ))</span>
+            <span class="k">if</span> <span class="n">prev_char</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"ต"</span><span class="p">,</span> <span class="s2">"ช"</span><span class="p">,</span> <span class="s2">"ป"</span><span class="p">}:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Ambiguous (e.g., มังกร vs จักร, สุนทร vs สมุทร)</span>
+            <span class="c1"># Only strip 'ร' if the cluster is preceded by a specific short vowel.</span>
+            <span class="k">elif</span> <span class="n">prev_char</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"ก"</span><span class="p">,</span> <span class="s2">"ข"</span><span class="p">,</span> <span class="s2">"ค"</span><span class="p">,</span> <span class="s2">"ฆ"</span><span class="p">,</span> <span class="s2">"ท"</span><span class="p">}:</span>
+                <span class="n">char_before_prev</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+
+                <span class="c1"># If preceded by -ั, -ิ, -ี, -ุ, -ู (e.g., จั-ก-ร, สมุ-ท-ร)</span>
+                <span class="k">if</span> <span class="n">char_before_prev</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"ั"</span><span class="p">,</span> <span class="s2">"ิ"</span><span class="p">,</span> <span class="s2">"ี"</span><span class="p">,</span> <span class="s2">"ุ"</span><span class="p">,</span> <span class="s2">"ู"</span><span class="p">}:</span>
+                    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="c1"># (Words like นคร, มังกร, สุนทร will correctly BYPASS this and remain แม่กน)</span>
+
+        <span class="c1"># Check for อักษรตัวเดียวแทนคำ Standalone words</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SINGLE_CHAR_WORDS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กา"</span>
+
+        <span class="c1"># -------------------------------------------------------------------------</span>
+        <span class="c1"># สระเกิน (อำ, ไอ, ใอ, เอา) Orthographic Handlers</span>
+        <span class="c1"># According to the Royal Society, these are classified structurally as แม่ ก กา.</span>
+        <span class="c1"># Phonetic rhyming (e.g. กรรม rhyming with จำ) is normalized in `is_sumpus`.</span>
+        <span class="c1"># -------------------------------------------------------------------------</span>
+
+        <span class="c1"># Check for ำ or นิคหิต (-ํ) + า</span>
+        <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"ำ"</span> <span class="ow">or</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ํา"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">"กา"</span>
+
+        <span class="c1"># Check for standalone นิคหิต (-ํ) 'อัง'</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ํ"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">"กง"</span>
+
+        <span class="c1"># Any word with exactly 1 consonant (and not ending in ำ/ํ)</span>
+        <span class="c1"># cannot have a final consonant and therefore must be "กา"</span>
+
+        <span class="n">consonants</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">VALID_CONSONANTS</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">consonants</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กา"</span>
+
+        <span class="c1"># Check for ไ/ใ</span>
+        <span class="k">if</span> <span class="s2">"ไ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"ใ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">"ยลรว"</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"กา"</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_true_final</span><span class="p">(</span><span class="n">original_word</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s2">"กา"</span>
+
+        <span class="c1"># Check for เ, แ, โ + ย, ร, ล, ว (คำควบกล้ำ / อักษรนำ)</span>
+        <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">"ยลรว"</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"เ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"แ"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s2">"โ"</span> <span class="ow">in</span> <span class="n">word</span><span class="p">):</span>
+            <span class="c1"># ไม่ใช่ตัวสะกดแท้ -&gt; แม่ก กา</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_true_final</span><span class="p">(</span><span class="n">original_word</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s2">"กา"</span>
+
+        <span class="c1"># Check for ตัวสะกด final consonants</span>
+        <span class="c1"># Add รากยาว "ๅ" (not สระอา) for word like ฤๅ(ษี)</span>
+        <span class="n">last_char</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">last_char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_OPEN_SYLLABLE_VOWELS</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"ี"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ย"</span><span class="p">)</span>  <span class="c1"># Catch สระเอีย (เสีย, เมีย)</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"ื"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"อ"</span><span class="p">)</span>  <span class="c1"># Catch สระอือ (เรือ, เสือ)</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"ั"</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">and</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ว"</span><span class="p">)</span>  <span class="c1"># Catch สระอัว (ตัว, ชั่ว, กลัว, อัว)</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="s2">"กา"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ง"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กง"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ม"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กม"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ย"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"เกย"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="o">==</span> <span class="s2">"ว"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"เกอว"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_KOK_CHARS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กก"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_KOD_CHARS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กด"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_KON_CHARS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กน"</span>
+        <span class="k">elif</span> <span class="n">last_char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_KOB_CHARS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กบ"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"กา"</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.is_sumpus">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.is_sumpus">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_sumpus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check the rhyme (สัมผัส) between two Thai words.</span>
+
+<span class="sd">        This function evaluates both the vowel sound (สระ) and the spelling section (มาตราตัวสะกด).</span>
+<span class="sd">        It incorporates phonetic normalization for สระเกิน (อำ, ไอ, ใอ) to ensure that</span>
+<span class="sd">        words with matching sounds but differing orthographies (e.g., "จำ" and "กรรม")</span>
+<span class="sd">        are correctly evaluated as rhymes.</span>
+
+<span class="sd">        :param str word1: First Thai word</span>
+<span class="sd">        :param str word2: Second Thai word</span>
+<span class="sd">        :return: True if the words rhyme, False otherwise.</span>
+<span class="sd">        :rtype: bool</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.is_sumpus("สรร", "อัน"))  # doctest: +SKIP</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.is_sumpus("จำ", "กรรม"))  # doctest: +SKIP</span>
+<span class="sd">            True</span>
+<span class="sd">        """</span>
+        <span class="c1"># Empty string should be returned as False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">word2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">marttra1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+        <span class="n">marttra2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+        <span class="n">sara1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+        <span class="n">sara2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+
+        <span class="c1"># -------------------------------------------------------------------------</span>
+        <span class="c1"># Phonetic Normalization for สระเกิน (อำ, ไอ, ใอ)</span>
+        <span class="c1">#</span>
+        <span class="c1"># While check_marttra classifies words like "วัย" as อะ+เกย and "ใจ" as ไอ+กา,</span>
+        <span class="c1"># poetry cares about the sound (เสียง).</span>
+        <span class="c1"># We normalize the phonetic CVC structures into their สระเกิน counterparts.</span>
+        <span class="c1"># ('เอา' requires no normalizer as native Thai spelling forces the /aw/ sound</span>
+        <span class="c1"># to use 'เ-า', bypassing the need for an อะ+เกอว collision).</span>
+        <span class="c1"># -------------------------------------------------------------------------</span>
+
+        <span class="c1"># อัย -&gt; ไอ (Normalize 'อะ' + 'เกย' to 'ไอ' + 'กา')</span>
+        <span class="k">if</span> <span class="n">sara1</span> <span class="o">==</span> <span class="s2">"อะ"</span> <span class="ow">and</span> <span class="n">marttra1</span> <span class="o">==</span> <span class="s2">"เกย"</span><span class="p">:</span>
+            <span class="n">sara1</span> <span class="o">=</span> <span class="s2">"ไอ"</span>
+            <span class="n">marttra1</span> <span class="o">=</span> <span class="s2">"กา"</span>
+        <span class="k">if</span> <span class="n">sara2</span> <span class="o">==</span> <span class="s2">"อะ"</span> <span class="ow">and</span> <span class="n">marttra2</span> <span class="o">==</span> <span class="s2">"เกย"</span><span class="p">:</span>
+            <span class="n">sara2</span> <span class="o">=</span> <span class="s2">"ไอ"</span>
+            <span class="n">marttra2</span> <span class="o">=</span> <span class="s2">"กา"</span>
+        <span class="c1"># อัม -&gt; อำ (Normalize both 'อำ' and 'อะ' + 'กม' to 'อำ' + 'กา')</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">sara1</span> <span class="o">==</span> <span class="s2">"อะ"</span> <span class="ow">or</span> <span class="n">sara1</span> <span class="o">==</span> <span class="s2">"อำ"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">marttra1</span> <span class="o">==</span> <span class="s2">"กม"</span><span class="p">:</span>
+            <span class="n">sara1</span> <span class="o">=</span> <span class="s2">"อำ"</span>
+            <span class="n">marttra1</span> <span class="o">=</span> <span class="s2">"กา"</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">sara2</span> <span class="o">==</span> <span class="s2">"อะ"</span> <span class="ow">or</span> <span class="n">sara2</span> <span class="o">==</span> <span class="s2">"อำ"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">marttra2</span> <span class="o">==</span> <span class="s2">"กม"</span><span class="p">:</span>
+            <span class="n">sara2</span> <span class="o">=</span> <span class="s2">"อำ"</span>
+            <span class="n">marttra2</span> <span class="o">=</span> <span class="s2">"กา"</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">marttra1</span> <span class="o">==</span> <span class="n">marttra2</span> <span class="ow">and</span> <span class="n">sara1</span> <span class="o">==</span> <span class="n">sara2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.check_karu_lahu">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_karu_lahu">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_karu_lahu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Classify a Thai syllable as heavy (ครุ karu) or light (ลหุ lahu).</span>
+
+<span class="sd">        Syllable weight is determined by Thai prosody rules for classical poetry:</span>
+
+<span class="sd">        - A syllable is heavy (ครุ) if it contains a long vowel, ends with any</span>
+<span class="sd">          final consonant (including sonorant finals / นมยวง), or contains one</span>
+<span class="sd">          of the special inherently bound vowels (อำ, ไอ, ใอ, เอา).</span>
+<span class="sd">        - A syllable is light (ลหุ) if it is an open syllable (แม่ ก กา)</span>
+<span class="sd">          containing a short vowel with no final consonant.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text (str): A single Thai syllable or word to classify.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Union[str, bool]: "karu" for heavy syllables or "lahu" for light syllables.</span>
+<span class="sd">            or False if the input is an empty string.</span>
+<span class="sd">        """</span>
+        <span class="c1"># Empty string should be returned as False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">text</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LAHU_SYLLABLE_OVERRIDES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"lahu"</span>
+
+        <span class="n">marttra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_marttra</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">sara</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sara</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">marttra</span> <span class="o">!=</span> <span class="s2">"กา"</span>
+            <span class="ow">or</span> <span class="n">sara</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LONG_VOWELS</span>
+            <span class="ow">or</span> <span class="n">sara</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SPECIAL_VOWELS</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="s2">"karu"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"lahu"</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.check_klon">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_klon">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_klon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">k_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Check the suitability of the poem according to Thai principles.</span>
+
+<span class="sd">        :param str text: Thai poem</span>
+<span class="sd">        :param int k_type: type of Thai poem (4 or 8)</span>
+<span class="sd">        :return: the check results of the suitability of the poem according to Thai principles.</span>
+<span class="sd">        :rtype: Union[list[str], str]</span>
+
+<span class="sd">        ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="sd">        กลอนสี่ (Klon 4) Diagram:</span>
+<span class="sd">        วรรคที่ ๑ (สดับ)    วรรคที่ ๒ (รับ)</span>
+<span class="sd">        วรรคที่ ๓ (รอง)    วรรคที่ ๔ (ส่ง)</span>
+
+<span class="sd">              ┏━━━━━━━━┯━┓    [สัมผัสคำที่ 1 หรือ 2]</span>
+<span class="sd">        O O O X        X X O O</span>
+<span class="sd">              ┏━━━━━━━━┯━┳━━━┛</span>
+<span class="sd">        O O O X        X X O X ━┓</span>
+<span class="sd">              ┏━━━━━━━━┯━┓      ┃ สัมผัสระหว่างบท (Inter-stanza rhyme)</span>
+<span class="sd">        O O O X        X X O O ━┛</span>
+<span class="sd">              ┏━━━━━━━━┯━┳━━━┛</span>
+<span class="sd">        O O O X        X X O X</span>
+
+<span class="sd">        ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="sd">        กลอนแปด (Klon 8) Diagram:</span>
+<span class="sd">        วรรคที่ ๑ (สดับ)    วรรคที่ ๒ (รับ)</span>
+<span class="sd">        วรรคที่ ๓ (รอง)    วรรคที่ ๔ (ส่ง)</span>
+
+<span class="sd">                      ┏━━━━━━━━┯━┯━┳━┯━┑    [สัมผัสคำที่ 3 หรือ 5 / อนุโลม 1,2,4]</span>
+<span class="sd">        O O O O O O O X        O O X O O O O X</span>
+<span class="sd">                      ┏━━━━━━━━┯━┯━┳━┯━━━━━━━┛</span>
+<span class="sd">        O O O O O O O X        O O X O O O O X ━┓</span>
+<span class="sd">                      ┏━━━━━━━━┯━┯━┳━┯━┑        ┃ สัมผัสระหว่างบท (Inter-stanza rhyme)</span>
+<span class="sd">        O O O O O O O X        O O X O O O O X ━┛</span>
+<span class="sd">                      ┏━━━━━━━━┯━┯━┳━┯━━━━━━━┛</span>
+<span class="sd">        O O O O O O O X        O O X O O O O X</span>
+
+<span class="sd">        ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.check_klon(  # doctest: +SKIP</span>
+<span class="sd">            ...     'ฉันชื่อหมูกรอบ ฉันชอบกินไก่ แล้ววิ่งตามไป ไล่หมาน้ำทอง \</span>
+<span class="sd">            ...     ฉันมันคนเก่ง เอ๋งเอ๋งคะนอง มีคนจับจอง เป็นของน้องเธียร', \</span>
+<span class="sd">            ...     k_type=4</span>
+<span class="sd">            ... ))</span>
+<span class="sd">            The poem is correct according to the principle.</span>
+<span class="sd">        """</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">__import__</span><span class="p">(</span><span class="s2">"ssg"</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">"The 'ssg' library is required for comprehensive poem analysis (check_klon). "</span>
+                <span class="s2">"Please install it using: pip install ssg"</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="n">k_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="s2">"Something went wrong. Make sure you enter it in the correct form (k_type 4 or 8)."</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Normalize spacing and split phrases/sentences across arbitrary whitespace</span>
+            <span class="n">waks</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="c1"># Ensure the poem has complete stanzas (4 waks per stanza)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">waks</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">waks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"The poem does not have complete stanzas (บท). A stanza must contain exactly 4 sentences (วรรค)."</span>
+
+            <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">stanzas</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># วรรคสดับ (Wak 1), วรรครับ (Wak 2), วรรครอง (Wak 3), วรรคส่ง (Wak 4)</span>
+            <span class="n">wak_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Wak 1"</span><span class="p">,</span> <span class="s2">"Wak 2"</span><span class="p">,</span> <span class="s2">"Wak 3"</span><span class="p">,</span> <span class="s2">"Wak 4"</span><span class="p">]</span>
+
+            <span class="c1"># 1. Tokenize and group sentences into stanzas (4 Waks per stanza)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">waks</span><span class="p">),</span> <span class="mi">4</span><span class="p">):</span>
+                <span class="n">stanza</span> <span class="o">=</span> <span class="p">[</span><span class="n">subword_tokenize</span><span class="p">(</span><span class="n">waks</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">],</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"ssg"</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+                <span class="n">stanzas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stanza</span><span class="p">)</span>
+
+            <span class="c1"># 2. Evaluate rules for each stanza</span>
+            <span class="k">for</span> <span class="n">stanza_index</span><span class="p">,</span> <span class="n">stanza</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stanzas</span><span class="p">):</span>
+                <span class="n">wak1</span><span class="p">,</span> <span class="n">wak2</span><span class="p">,</span> <span class="n">wak3</span><span class="p">,</span> <span class="n">wak4</span> <span class="o">=</span> <span class="n">stanza</span>
+
+                <span class="c1"># Safety check against empty sentences</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="n">wak1</span><span class="p">,</span> <span class="n">wak2</span><span class="p">,</span> <span class="n">wak3</span><span class="p">,</span> <span class="n">wak4</span><span class="p">)):</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stanza (บทที่) </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> contains empty sentences."</span><span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Check word counts</span>
+                <span class="n">max_words</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">if</span> <span class="n">k_type</span> <span class="o">==</span> <span class="mi">8</span> <span class="k">else</span> <span class="mi">5</span>
+                <span class="k">for</span> <span class="n">wak_index</span><span class="p">,</span> <span class="n">wak</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stanza</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wak</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_words</span><span class="p">:</span>
+                        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">"Stanza (บทที่) </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="n">wak_index</span><span class="p">]</span><span class="si">}</span><span class="s2">: "</span>
+                            <span class="sa">f</span><span class="s2">"Word count exceeds </span><span class="si">{</span><span class="n">max_words</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">wak</span><span class="si">}</span><span class="s2">"</span>
+                        <span class="p">)</span>
+
+                <span class="c1"># Define rhyme target lengths based on Klon type</span>
+                <span class="c1"># Klon 8: Targets first 5 words (อนุโลม 1, 2, 4 บังคับ 3, 5)</span>
+                <span class="c1"># Klon 4: Targets first 2 words</span>
+                <span class="k">if</span> <span class="n">k_type</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+                    <span class="n">wak2_targets</span> <span class="o">=</span> <span class="n">wak2</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+                    <span class="n">wak4_targets</span> <span class="o">=</span> <span class="n">wak4</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Klon 4: If the target sentence has 5 words, check the first 3 words.</span>
+                    <span class="c1"># Otherwise, check the standard first 2 words.</span>
+                    <span class="n">limit_wak2</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wak2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">2</span>
+                    <span class="n">limit_wak4</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wak4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">2</span>
+
+                    <span class="n">wak2_targets</span> <span class="o">=</span> <span class="n">wak2</span><span class="p">[:</span><span class="n">limit_wak2</span><span class="p">]</span>
+                    <span class="n">wak4_targets</span> <span class="o">=</span> <span class="n">wak4</span><span class="p">[:</span><span class="n">limit_wak4</span><span class="p">]</span>
+
+                <span class="c1"># Extract the last word of each Wak</span>
+                <span class="n">wak1_last</span> <span class="o">=</span> <span class="n">wak1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">wak2_last</span> <span class="o">=</span> <span class="n">wak2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">wak3_last</span> <span class="o">=</span> <span class="n">wak3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+                <span class="c1"># Rule 1: วรรคสดับ -&gt; วรรครับ</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">wak1_last</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">wak2_targets</span><span class="p">):</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"Rhyme error in Stanza (บทที่) </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: "</span>
+                        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">wak1_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">) does not rhyme with </span><span class="si">{</span><span class="n">wak2_targets</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+                    <span class="p">)</span>
+
+                <span class="c1"># Rule 2: วรรครับ -&gt; วรรครอง</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">wak2_last</span><span class="p">,</span> <span class="n">wak3_last</span><span class="p">):</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"Rhyme error in Stanza (บทที่) </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: "</span>
+                        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">wak2_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">) does not rhyme with '</span><span class="si">{</span><span class="n">wak3_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+                    <span class="p">)</span>
+
+                <span class="c1"># Rule 3: วรรครอง -&gt; วรรคส่ง</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">wak3_last</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">wak4_targets</span><span class="p">):</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"Rhyme error in Stanza (บทที่) </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: "</span>
+                        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">wak3_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">) does not rhyme with </span><span class="si">{</span><span class="n">wak4_targets</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+                    <span class="p">)</span>
+
+                <span class="c1"># Rule 4: สัมผัสระหว่างบท (Inter-stanza)</span>
+                <span class="k">if</span> <span class="n">stanza_index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># Target Wak 4 of the previous stanza</span>
+                    <span class="n">prev_wak4_last</span> <span class="o">=</span> <span class="n">stanzas</span><span class="p">[</span><span class="n">stanza_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sumpus</span><span class="p">(</span><span class="n">prev_wak4_last</span><span class="p">,</span> <span class="n">wak2_last</span><span class="p">):</span>
+                        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">"Inter-stanza rhyme error (ผิดสัมผัสระหว่างบท) between Stanza </span><span class="si">{</span><span class="n">stanza_index</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">stanza_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: "</span>
+                            <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">prev_wak4_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">) does not rhyme with '</span><span class="si">{</span><span class="n">wak2_last</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">wak_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+                        <span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">errors</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"The poem is correct according to the principle."</span>
+            <span class="k">return</span> <span class="n">errors</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Something went wrong during evaluation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.check_aek_too">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.check_aek_too">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_aek_too</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">dead_syllable_as_aek</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Checker of Thai tonal words</span>
+
+<span class="sd">        :param Union[list[str], str] text: Thai word or list of Thai words</span>
+<span class="sd">        :param bool dead_syllable_as_aek: if True, dead syllable will</span>
+<span class="sd">            be considered as aek</span>
+<span class="sd">        :return: the check result if the word is aek or too</span>
+<span class="sd">            or False (not both) or list of check results if input is list</span>
+<span class="sd">        :rtype: Union[list[bool], List[str], bool, str]</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; from pythainlp.khavee import KhaveeVerifier  # doctest: +SKIP</span>
+
+<span class="sd">            &gt;&gt;&gt; kv = KhaveeVerifier()  # doctest: +SKIP</span>
+
+<span class="sd">            &gt;&gt;&gt; # การเช็คคำเอกโท</span>
+<span class="sd">            &gt;&gt;&gt; print(  # doctest: +SKIP</span>
+<span class="sd">            ...     kv.check_aek_too("เอง"),</span>
+<span class="sd">            ...     kv.check_aek_too("เอ่ง"),</span>
+<span class="sd">            ...     kv.check_aek_too("เอ้ง"),</span>
+<span class="sd">            ... )</span>
+<span class="sd">            &gt;&gt;&gt; # -&gt; False, aek, too</span>
+<span class="sd">            &gt;&gt;&gt; print(kv.check_aek_too(["เอง", "เอ่ง", "เอ้ง"]))  # doctest: +SKIP</span>
+<span class="sd">            &gt;&gt;&gt; # -&gt; [False, 'aek', 'too']  ^^^^^^^^^^ # ใช้ List ได้เหมือนกัน</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">check_aek_too</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dead_syllable_as_aek</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>  <span class="c1"># type: ignore[misc]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"text must be str or iterable list[str]"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">"่"</span> <span class="ow">in</span> <span class="n">text</span> <span class="ow">and</span> <span class="s2">"้"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"aek"</span>
+        <span class="k">elif</span> <span class="s2">"้"</span> <span class="ow">in</span> <span class="n">text</span> <span class="ow">and</span> <span class="s2">"่"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"too"</span>
+        <span class="k">if</span> <span class="n">dead_syllable_as_aek</span> <span class="ow">and</span> <span class="n">sound_syllable</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"dead"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"aek"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="KhaveeVerifier.handle_karun_sound_silence">
+<a class="viewcode-back" href="../../../api/khavee.html#pythainlp.khavee.KhaveeVerifier.handle_karun_sound_silence">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">handle_karun_sound_silence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Handle silent sounds in Thai words using '-์' character (Karun)</span>
+<span class="sd">        by stripping all characters before the 'Karun' character</span>
+<span class="sd">        that should be silenced</span>
+
+<span class="sd">        :param str word: Thai word</span>
+<span class="sd">        :return: Thai word with silent consonant stripped</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        """</span>
+        <span class="c1"># Only process if the word ends with Karun (-์)</span>
+        <span class="c1"># [word like โอห์ม which has Karun in the middle will not be processed]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"์"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word</span>
+
+        <span class="c1"># For specific multi-letter Karun silent suffixes</span>
+        <span class="c1"># 'พระลักษมณ์' -&gt; strip 'ษมณ์' (leaving 'ก' for แม่กก)</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"กษมณ์"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+        <span class="c1"># 'ลักษณ์', 'ทรลักษณ์' -&gt; strip 'ษณ์' avoid breaking 'สัมภาษณ์'</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"กษณ์"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+        <span class="c1"># 'กษัตริย์' -&gt; strip 'ริย์'</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ตริย์"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+        <span class="c1"># 'กาญจน์' -&gt; strip 'จน์' avoid breaking 'โรจน์'</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ญจน์"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="c1"># For 2-Consonant Karun silent suffixes</span>
+        <span class="c1"># ตร์: ศาสตร์, ภาพยนตร์, กาสาวพัสตร์, เวทมนตร์</span>
+        <span class="c1"># ทร์: จันทร์, บดินทร์, ภูมินทร์, นราธิเบนทร์</span>
+        <span class="c1"># ดร์: นิรันดร์</span>
+        <span class="c1"># ฎร์: ราษฎร์, สุราษฎร์</span>
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">"ตร์"</span><span class="p">,</span> <span class="s2">"ทร์"</span><span class="p">,</span> <span class="s2">"ดร์"</span><span class="p">,</span> <span class="s2">"ฎร์"</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="c1"># For Standard Karun silent suffixes (1 Consonant + Optional Vowel + Karun)</span>
+        <span class="c1"># สัตว์ (ว์), แพทย์ (ย์), พันธุ์ (พันธุ์), สิทธิ์ (ธิ์)</span>
+        <span class="c1"># Check if there is an upper/lower vowel right before the Karun (พันธุ์, ธิ์)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"ิ"</span><span class="p">,</span> <span class="s2">"ี"</span><span class="p">,</span> <span class="s2">"ึ"</span><span class="p">,</span> <span class="s2">"ื"</span><span class="p">,</span> <span class="s2">"ุ"</span><span class="p">,</span> <span class="s2">"ู"</span><span class="p">,</span> <span class="s2">"ั"</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

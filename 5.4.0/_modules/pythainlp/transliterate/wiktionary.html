@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.transliterate.wiktionary &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.transliterate.wiktionary</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.transliterate.wiktionary</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""</span>
+<span class="sd">Thai pronunciation transliteration from the Wiktionary th-pron module.</span>
+
+<span class="sd">Source code: https://en.wiktionary.org/wiki/Module:th-pron</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">unicodedata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_digits</span><span class="p">,</span> <span class="n">thai_tonemarks</span>
+
+<span class="n">_THAI_RANGE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"[ก-๛̄]"</span>
+
+<span class="n">_SYSTEMS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"paiboon"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"royin"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"ipa"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_INITIAL</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"ก"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"จ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"j"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"t͡ɕ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ด"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"d"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ฎ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"d"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ฏ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"dt"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ต"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"dt"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"บ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ป"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"bp"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"อ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"@"</span><span class="p">,</span> <span class="s2">"ʔ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+    <span class="s2">"ง"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ng"</span><span class="p">,</span> <span class="s2">"$ng"</span><span class="p">,</span> <span class="s2">"ŋ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ณ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"น"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ม"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ญ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"j"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ย"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"j"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ร"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"r"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ล"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฬ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ว"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"w"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ค"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"kh"</span><span class="p">,</span> <span class="s2">"kʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฅ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"kh"</span><span class="p">,</span> <span class="s2">"kʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฆ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"kh"</span><span class="p">,</span> <span class="s2">"kʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ข"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"kh"</span><span class="p">,</span> <span class="s2">"kʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ฃ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"kh"</span><span class="p">,</span> <span class="s2">"kʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ช"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"t͡ɕʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฌ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"t͡ɕʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฉ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"t͡ɕʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ฑ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฒ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ท"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ธ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฐ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ถ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"tʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"พ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"ph"</span><span class="p">,</span> <span class="s2">"pʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ภ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"ph"</span><span class="p">,</span> <span class="s2">"pʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ผ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"ph"</span><span class="p">,</span> <span class="s2">"pʰ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ฟ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ฝ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ซ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ศ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ษ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ส"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"ฮ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"h"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
+    <span class="s2">"ห"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"h"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หง"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ng"</span><span class="p">,</span> <span class="s2">"$ng"</span><span class="p">,</span> <span class="s2">"ŋ"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หน"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หม"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หญ"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"j"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หย"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"y"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"j"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หร"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"r"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หล"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"หว"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"w"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"…"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"…"</span><span class="p">,</span> <span class="s2">"…"</span><span class="p">,</span> <span class="s2">"…"</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">""</span><span class="p">},</span>
+    <span class="s2">""</span><span class="p">:</span> <span class="p">{</span><span class="s2">"seq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">],</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">""</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">_VOWEL</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"open"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"ะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span>
+        <span class="s2">""</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span>
+        <span class="s2">"ิ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"i"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">],</span>
+        <span class="s2">"ึ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉ"</span><span class="p">,</span> <span class="s2">"ue"</span><span class="p">,</span> <span class="s2">"ɯ"</span><span class="p">],</span>
+        <span class="s2">"ุ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"u"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">],</span>
+        <span class="s2">"เะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"e"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"eʔ"</span><span class="p">],</span>
+        <span class="s2">"แะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛ"</span><span class="p">,</span> <span class="s2">"ae"</span><span class="p">,</span> <span class="s2">"ɛʔ"</span><span class="p">],</span>
+        <span class="s2">"โะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"o"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"oʔ"</span><span class="p">],</span>
+        <span class="s2">"เาะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔ"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"ɔʔ"</span><span class="p">],</span>
+        <span class="s2">"็"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔ"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"ɔ"</span><span class="p">],</span>
+        <span class="s2">"เิ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤ"</span><span class="p">],</span>
+        <span class="s2">"เอะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤʔ"</span><span class="p">],</span>
+        <span class="s2">"า"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"aa"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"aː"</span><span class="p">],</span>
+        <span class="s2">"ี"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ii"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"iː"</span><span class="p">],</span>
+        <span class="s2">"ู"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uu"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">,</span> <span class="s2">"uː"</span><span class="p">],</span>
+        <span class="s2">"ือ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉʉ"</span><span class="p">,</span> <span class="s2">"ue"</span><span class="p">,</span> <span class="s2">"ɯː"</span><span class="p">],</span>
+        <span class="s2">"เ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ee"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"eː"</span><span class="p">],</span>
+        <span class="s2">"แ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛɛ"</span><span class="p">,</span> <span class="s2">"ae"</span><span class="p">,</span> <span class="s2">"ɛː"</span><span class="p">],</span>
+        <span class="s2">"โ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"oo"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"oː"</span><span class="p">],</span>
+        <span class="s2">"อ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔɔ"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"ɔː"</span><span class="p">],</span>
+        <span class="s2">"ร"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔɔn"</span><span class="p">,</span> <span class="s2">"on"</span><span class="p">,</span> <span class="s2">"ɔːn"</span><span class="p">],</span>
+        <span class="s2">"เอ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤː"</span><span class="p">],</span>
+        <span class="s2">"เียะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ia"</span><span class="p">,</span> <span class="s2">"ia"</span><span class="p">,</span> <span class="s2">"ia̯ʔ"</span><span class="p">],</span>
+        <span class="s2">"เือะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉa"</span><span class="p">,</span> <span class="s2">"uea"</span><span class="p">,</span> <span class="s2">"ɯa̯ʔ"</span><span class="p">],</span>
+        <span class="s2">"ัวะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ua"</span><span class="p">,</span> <span class="s2">"ua"</span><span class="p">,</span> <span class="s2">"ua̯ʔ"</span><span class="p">],</span>
+        <span class="s2">"เีย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"iia"</span><span class="p">,</span> <span class="s2">"ia"</span><span class="p">,</span> <span class="s2">"ia̯"</span><span class="p">],</span>
+        <span class="s2">"เือ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉʉa"</span><span class="p">,</span> <span class="s2">"uea"</span><span class="p">,</span> <span class="s2">"ɯa̯"</span><span class="p">],</span>
+        <span class="s2">"ัว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uua"</span><span class="p">,</span> <span class="s2">"ua"</span><span class="p">,</span> <span class="s2">"ua̯"</span><span class="p">],</span>
+        <span class="s2">"ิว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"iu"</span><span class="p">,</span> <span class="s2">"io"</span><span class="p">,</span> <span class="s2">"iw"</span><span class="p">],</span>
+        <span class="s2">"ีว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"iiu"</span><span class="p">,</span> <span class="s2">"io"</span><span class="p">,</span> <span class="s2">"iːw"</span><span class="p">],</span>
+        <span class="s2">"เ็ว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"eo"</span><span class="p">,</span> <span class="s2">"eo"</span><span class="p">,</span> <span class="s2">"ew"</span><span class="p">],</span>
+        <span class="s2">"แ็ว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛo"</span><span class="p">,</span> <span class="s2">"aeo"</span><span class="p">,</span> <span class="s2">"ɛw"</span><span class="p">],</span>
+        <span class="s2">"เา"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ao"</span><span class="p">,</span> <span class="s2">"ao"</span><span class="p">,</span> <span class="s2">"aw"</span><span class="p">],</span>
+        <span class="s2">"เว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"eeo"</span><span class="p">,</span> <span class="s2">"eo"</span><span class="p">,</span> <span class="s2">"eːw"</span><span class="p">],</span>
+        <span class="s2">"แว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛɛo"</span><span class="p">,</span> <span class="s2">"aeo"</span><span class="p">,</span> <span class="s2">"ɛːw"</span><span class="p">],</span>
+        <span class="s2">"าว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"aao"</span><span class="p">,</span> <span class="s2">"ao"</span><span class="p">,</span> <span class="s2">"aːw"</span><span class="p">],</span>
+        <span class="s2">"เอว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əəo"</span><span class="p">,</span> <span class="s2">"oeu"</span><span class="p">,</span> <span class="s2">"ɤːw"</span><span class="p">],</span>
+        <span class="s2">"โว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"oow"</span><span class="p">,</span> <span class="s2">"ou"</span><span class="p">,</span> <span class="s2">"oːw"</span><span class="p">],</span>
+        <span class="s2">"เียว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"iao"</span><span class="p">,</span> <span class="s2">"iao"</span><span class="p">,</span> <span class="s2">"ia̯w"</span><span class="p">],</span>
+        <span class="s2">"ัย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aj"</span><span class="p">],</span>
+        <span class="s2">"ใ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aj"</span><span class="p">],</span>
+        <span class="s2">"ไ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aj"</span><span class="p">],</span>
+        <span class="s2">"ไย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aj"</span><span class="p">],</span>
+        <span class="s2">"ึย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉi"</span><span class="p">,</span> <span class="s2">"uei"</span><span class="p">,</span> <span class="s2">"ɯj"</span><span class="p">],</span>
+        <span class="s2">"็อย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔi"</span><span class="p">,</span> <span class="s2">"oi"</span><span class="p">,</span> <span class="s2">"ɔj"</span><span class="p">],</span>
+        <span class="s2">"เิ็ย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əi"</span><span class="p">,</span> <span class="s2">"oei"</span><span class="p">,</span> <span class="s2">"ɤj"</span><span class="p">],</span>
+        <span class="s2">"ุย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ui"</span><span class="p">,</span> <span class="s2">"ui"</span><span class="p">,</span> <span class="s2">"uj"</span><span class="p">],</span>
+        <span class="s2">"าย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"aai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aːj"</span><span class="p">],</span>
+        <span class="s2">"อย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔɔi"</span><span class="p">,</span> <span class="s2">"oi"</span><span class="p">,</span> <span class="s2">"ɔːj"</span><span class="p">],</span>
+        <span class="s2">"โย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ooi"</span><span class="p">,</span> <span class="s2">"oi"</span><span class="p">,</span> <span class="s2">"oːj"</span><span class="p">],</span>
+        <span class="s2">"เย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əəi"</span><span class="p">,</span> <span class="s2">"oei"</span><span class="p">,</span> <span class="s2">"ɤːj"</span><span class="p">],</span>
+        <span class="s2">"ูย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uui"</span><span class="p">,</span> <span class="s2">"ui"</span><span class="p">,</span> <span class="s2">"uːj"</span><span class="p">],</span>
+        <span class="s2">"วย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uai"</span><span class="p">,</span> <span class="s2">"uai"</span><span class="p">,</span> <span class="s2">"ua̯j"</span><span class="p">],</span>
+        <span class="s2">"เือย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉai"</span><span class="p">,</span> <span class="s2">"ueai"</span><span class="p">,</span> <span class="s2">"ɯa̯j"</span><span class="p">],</span>
+        <span class="s2">"ำ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"am"</span><span class="p">,</span> <span class="s2">"am"</span><span class="p">,</span> <span class="s2">"am"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"closed"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"ั"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span>
+        <span class="s2">"รร"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span>
+        <span class="s2">"ิ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"i"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">],</span>
+        <span class="s2">"ึ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉ"</span><span class="p">,</span> <span class="s2">"ue"</span><span class="p">,</span> <span class="s2">"ɯ"</span><span class="p">],</span>
+        <span class="s2">"ุ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"u"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">],</span>
+        <span class="s2">"เ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ee"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"eː"</span><span class="p">],</span>
+        <span class="s2">"เ็"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"e"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">],</span>
+        <span class="s2">"แ็"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛ"</span><span class="p">,</span> <span class="s2">"ae"</span><span class="p">,</span> <span class="s2">"ɛ"</span><span class="p">],</span>
+        <span class="s2">"แ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɛɛ"</span><span class="p">,</span> <span class="s2">"ae"</span><span class="p">,</span> <span class="s2">"ɛː"</span><span class="p">],</span>
+        <span class="s2">""</span><span class="p">:</span> <span class="p">[</span><span class="s2">"o"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">],</span>
+        <span class="s2">"็อ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔ"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"ɔ"</span><span class="p">],</span>
+        <span class="s2">"เิ็"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤ"</span><span class="p">],</span>
+        <span class="s2">"า"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"aa"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"aː"</span><span class="p">],</span>
+        <span class="s2">"ี"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ii"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"iː"</span><span class="p">],</span>
+        <span class="s2">"ื"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉʉ"</span><span class="p">,</span> <span class="s2">"ue"</span><span class="p">,</span> <span class="s2">"ɯː"</span><span class="p">],</span>
+        <span class="s2">"ู"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uu"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">,</span> <span class="s2">"uː"</span><span class="p">],</span>
+        <span class="s2">"โ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"oo"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"oː"</span><span class="p">],</span>
+        <span class="s2">"อ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔɔ"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"ɔː"</span><span class="p">],</span>
+        <span class="s2">"เิ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤː"</span><span class="p">],</span>
+        <span class="s2">"เอ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"əə"</span><span class="p">,</span> <span class="s2">"oe"</span><span class="p">,</span> <span class="s2">"ɤː"</span><span class="p">],</span>
+        <span class="s2">"เีย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"iia"</span><span class="p">,</span> <span class="s2">"ia"</span><span class="p">,</span> <span class="s2">"ia̯"</span><span class="p">],</span>
+        <span class="s2">"เือ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʉʉa"</span><span class="p">,</span> <span class="s2">"uea"</span><span class="p">,</span> <span class="s2">"ɯa̯"</span><span class="p">],</span>
+        <span class="s2">"ว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uua"</span><span class="p">,</span> <span class="s2">"ua"</span><span class="p">,</span> <span class="s2">"ua̯"</span><span class="p">],</span>
+        <span class="s2">"ไ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"ai"</span><span class="p">,</span> <span class="s2">"aj"</span><span class="p">],</span>
+        <span class="s2">"เา"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ao"</span><span class="p">,</span> <span class="s2">"ao"</span><span class="p">,</span> <span class="s2">"aw"</span><span class="p">],</span>
+        <span class="s2">"็อย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ɔi"</span><span class="p">,</span> <span class="s2">"oi"</span><span class="p">,</span> <span class="s2">"ɔj"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">_UNROM_LONG</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"เีย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เือ"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ัว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เือย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"วาย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เอว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เียว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_LIVE_EXC</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"ัย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ใ"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ไ"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ไย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ุย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"วย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"็อย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เิ็ย"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เา"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ิว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"เ็ว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"แ็ว"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"ำ"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_CODA</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"ก"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"ข"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"ฃ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"ค"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"ฅ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"ฆ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"k̚"</span><span class="p">],</span>
+    <span class="s2">"จ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฉ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ช"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">,</span> <span class="s2">"t͡ɕʰ"</span><span class="p">],</span>
+    <span class="s2">"ซ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span>
+    <span class="s2">"ฌ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฎ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฏ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฐ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฑ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ฒ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ด"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ต"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ถ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ท"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ธ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ศ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ษ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"t̚"</span><span class="p">],</span>
+    <span class="s2">"ส"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">],</span>
+    <span class="s2">"บ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"ป"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"ผ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"ฝ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"พ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"ฟ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">],</span>
+    <span class="s2">"ภ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"p̚"</span><span class="p">],</span>
+    <span class="s2">"ง"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ng"</span><span class="p">,</span> <span class="s2">"ng$"</span><span class="p">,</span> <span class="s2">"ŋ"</span><span class="p">],</span>
+    <span class="s2">"ญ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span>
+    <span class="s2">"ณ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span>
+    <span class="s2">"น"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span>
+    <span class="s2">"ร"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span>
+    <span class="s2">"ล"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">],</span>
+    <span class="s2">"ฬ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">],</span>
+    <span class="s2">"ม"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">],</span>
+    <span class="s2">"ฯ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ʔ"</span><span class="p">,</span> <span class="s2">"ʔ"</span><span class="p">,</span> <span class="s2">"ʔ"</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">_TONE_FROM_MARK</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"่"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"falling"</span><span class="p">},</span>
+    <span class="s2">"้"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"falling"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"falling"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"๊"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"๋"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"rising"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"rising"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"rising"</span><span class="p">},</span>
+    <span class="s2">"̄"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">_TONE_NO_MARK</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"dead-short"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">},</span>
+    <span class="s2">"dead-long"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"falling"</span><span class="p">},</span>
+    <span class="s2">"live"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"high"</span><span class="p">:</span> <span class="s2">"rising"</span><span class="p">,</span> <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"mid"</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">_TONE_ROM_MARKS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"high"</span><span class="p">:</span> <span class="s2">"́"</span><span class="p">,</span>
+    <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"̀"</span><span class="p">,</span>
+    <span class="s2">"rising"</span><span class="p">:</span> <span class="s2">"̌"</span><span class="p">,</span>
+    <span class="s2">"falling"</span><span class="p">:</span> <span class="s2">"̂"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_TONE_LEVELS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"high"</span><span class="p">:</span> <span class="s2">"˦˥"</span><span class="p">,</span>
+    <span class="s2">"mid"</span><span class="p">:</span> <span class="s2">"˧"</span><span class="p">,</span>
+    <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"˨˩"</span><span class="p">,</span>
+    <span class="s2">"rising"</span><span class="p">:</span> <span class="s2">"˩˩˦"</span><span class="p">,</span>
+    <span class="s2">"falling"</span><span class="p">:</span> <span class="s2">"˥˩"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_DIGIT_MAP</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">thai_digits</span><span class="p">,</span> <span class="s2">"0123456789"</span><span class="p">))</span>
+<span class="n">_RE_THAI_DIGIT</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">thai_digits</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+
+<span class="c1"># Final consonant character class</span>
+<span class="n">_FINAL_C</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง]"</span>
+
+<span class="n">_MGVC_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">"^([รลว]?)([ิึุ็ีืัำู]?[าอรยว]?[วยร]?ะ?)(</span><span class="si">{</span><span class="n">_FINAL_C</span><span class="si">}</span><span class="s2">?)$"</span><span class="p">)</span>
+<span class="n">_FULL_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">rf</span><span class="s2">"^([เแโใไ]?)(หฺ[ก-รลว-ฮ])(ฺ?[รลว]?)([ิึุ็ีืัู]?็?[่้๊๋̄]?[าอรยวำ]?[วยร]?ะ?)(</span><span class="si">{</span><span class="n">_FINAL_C</span><span class="si">}</span><span class="s2">?</span><span class="si">{</span><span class="n">_FINAL_C</span><span class="si">}</span><span class="s2">?)$"</span>
+<span class="p">)</span>
+<span class="n">_PARTIAL_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">rf</span><span class="s2">"^([เแโใไ]?)([ก-รลว-ฮ])(ฺ?[รลว]?)([ิึุ็ีืัู]?็?[่้๊๋̄]?[าอรยวำ]?[วยร]?ะ?)(</span><span class="si">{</span><span class="n">_FINAL_C</span><span class="si">}</span><span class="s2">?</span><span class="si">{</span><span class="n">_FINAL_C</span><span class="si">}</span><span class="s2">?)$"</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_c2_decomp</span><span class="p">(</span><span class="n">c2_char</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_CODA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">])[</span><span class="n">seq_idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">c2_char</span><span class="p">)</span>
+
+
+<span class="n">_TONE_MARK_CHARS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">thai_tonemarks</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\u0304</span><span class="s2">"</span>
+<span class="n">_RE_TONE_MARK</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">_TONE_MARK_CHARS</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+<span class="n">_RE_TWO_TONE_MARKS</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">_TONE_MARK_CHARS</span><span class="si">}</span><span class="s2">].?[</span><span class="si">{</span><span class="n">_TONE_MARK_CHARS</span><span class="si">}</span><span class="s2">]"</span>
+<span class="p">)</span>
+<span class="n">_RE_HO_PAIR</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^ห.$"</span><span class="p">)</span>
+<span class="n">_RE_DOUBLED_VOWEL</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"([aiʉueɛoɔə])\1"</span><span class="p">)</span>
+<span class="n">_RE_SONORANT</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[มญณนรลฬง]"</span><span class="p">)</span>
+<span class="n">_FIRST_VOWEL_PATTERN</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"^([^aiʉueɛoɔə]*)([aiʉueɛoɔə])"</span>
+<span class="n">_RE_THAI_RUN</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_THAI_RANGE</span><span class="si">}</span><span class="s2">+"</span><span class="p">)</span>
+
+<span class="c1"># Cleanup steps for Royal Institute output, applied in order</span>
+<span class="n">_ROYIN_CLEANUPS</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="n">repl</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"^@"</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"([\s\W])@"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"@"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"^\$ng"</span><span class="p">,</span> <span class="s2">"ng"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"([\s\W])\$ng"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1ng"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"([aeiou])\$ng"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1-ng"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"\$ng"</span><span class="p">,</span> <span class="s2">"ng"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"ng\$([^\w\s])"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"ng\1"</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">"ng\$"</span><span class="p">,</span> <span class="s2">"ng"</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_apply_ho_rule</span><span class="p">(</span>
+    <span class="n">c1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Re-split a syllable that starts with HO HIP plus a consonant."""</span>
+    <span class="k">if</span> <span class="n">_RE_HO_PAIR</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">c1</span><span class="p">):</span>
+        <span class="n">mgvc_match</span> <span class="o">=</span> <span class="n">_MGVC_PATTERN</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">c1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span> <span class="o">+</span> <span class="n">v2</span> <span class="o">+</span> <span class="n">c2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mgvc_match</span><span class="p">:</span>
+            <span class="n">g_new</span><span class="p">,</span> <span class="n">v2_new</span><span class="p">,</span> <span class="n">c2_new</span> <span class="o">=</span> <span class="n">mgvc_match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+            <span class="n">c1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="s2">"ห"</span><span class="p">,</span> <span class="n">g_new</span><span class="p">,</span> <span class="n">v2_new</span><span class="p">,</span> <span class="n">c2_new</span>
+            <span class="k">if</span> <span class="n">g</span> <span class="ow">and</span> <span class="n">v2</span> <span class="o">!=</span> <span class="s2">"ย"</span><span class="p">:</span>
+                <span class="n">c1</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">g</span><span class="p">,</span> <span class="s2">""</span>
+    <span class="k">return</span> <span class="n">c1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">c2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_lookup_vowel</span><span class="p">(</span>
+    <span class="n">v1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">openness</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return the vowel output, the original vowel, and the glide output.</span>
+
+<span class="sd">    The glide output is empty if the glide is part of the vowel.</span>
+<span class="sd">    """</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="n">_VOWEL</span><span class="p">[</span><span class="n">openness</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v1</span> <span class="o">+</span> <span class="n">g</span> <span class="o">+</span> <span class="n">v2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vowels</span><span class="p">[</span><span class="n">v1</span> <span class="o">+</span> <span class="n">g</span> <span class="o">+</span> <span class="n">v2</span><span class="p">][</span><span class="n">seq_idx</span><span class="p">],</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">g</span> <span class="o">+</span> <span class="n">v2</span><span class="p">,</span> <span class="s2">""</span>
+
+    <span class="n">v_lookup</span> <span class="o">=</span> <span class="n">vowels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v_lookup</span><span class="p">[</span><span class="n">seq_idx</span><span class="p">]</span> <span class="k">if</span> <span class="n">v_lookup</span> <span class="k">else</span> <span class="p">(</span><span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">)</span>
+    <span class="n">g_lookup</span> <span class="o">=</span> <span class="n">_INITIAL</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"ฺ"</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span> <span class="n">_INITIAL</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">,</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"list[str]"</span><span class="p">,</span> <span class="n">g_lookup</span><span class="p">[</span><span class="s2">"seq"</span><span class="p">])[</span><span class="n">seq_idx</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_vowel_length</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">orig_v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return "long" or "short" for a vowel."""</span>
+    <span class="k">if</span> <span class="n">_RE_DOUBLED_VOWEL</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">"ː"</span> <span class="ow">in</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">orig_v</span> <span class="ow">in</span> <span class="n">_UNROM_LONG</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"long"</span>
+    <span class="k">return</span> <span class="s2">"short"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_syllable_life</span><span class="p">(</span><span class="n">c2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">orig_v</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return "live" or "dead" for a syllable."""</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">_RE_SONORANT</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="n">orig_v</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ย"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"i"</span><span class="p">))</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="n">c2</span> <span class="o">==</span> <span class="s2">""</span> <span class="ow">and</span> <span class="n">length</span> <span class="o">==</span> <span class="s2">"long"</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="n">_LIVE_EXC</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">orig_v</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"live"</span>
+    <span class="k">return</span> <span class="s2">"dead"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_tone_name</span><span class="p">(</span>
+    <span class="n">tmark</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">life</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Return the tone name from the tone mark, life, length, and class."""</span>
+    <span class="k">if</span> <span class="n">tmark</span><span class="p">:</span>
+        <span class="n">tone_dict</span> <span class="o">=</span> <span class="n">_TONE_FROM_MARK</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tmark</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tone_dict</span> <span class="o">=</span> <span class="n">_TONE_NO_MARK</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">life</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">_TONE_NO_MARK</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">life</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">tone_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="k">if</span> <span class="n">tone_dict</span> <span class="k">else</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_syllable</span><span class="p">(</span><span class="n">match</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">seq_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Transliterate one syllable matched by a syllable pattern."""</span>
+    <span class="n">v1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+
+    <span class="n">tmark_match</span> <span class="o">=</span> <span class="n">_RE_TONE_MARK</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+    <span class="n">tmark</span> <span class="o">=</span> <span class="n">tmark_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">tmark_match</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">_RE_TONE_MARK</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+
+    <span class="n">c1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">_apply_ho_rule</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">g</span> <span class="o">==</span> <span class="s2">"ล"</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">v2</span> <span class="o">+</span> <span class="n">c2</span><span class="p">):</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">g</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="n">openness</span> <span class="o">=</span> <span class="s2">"closed"</span> <span class="k">if</span> <span class="n">c2</span> <span class="o">!=</span> <span class="s2">""</span> <span class="k">else</span> <span class="s2">"open"</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">orig_v</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">_lookup_vowel</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">openness</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">)</span>
+
+    <span class="n">c1_clean</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"ฺ"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c1_clean</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_INITIAL</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ini</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"list[str]"</span><span class="p">,</span> <span class="n">_INITIAL</span><span class="p">[</span><span class="n">c1_clean</span><span class="p">][</span><span class="s2">"seq"</span><span class="p">])[</span><span class="n">seq_idx</span><span class="p">]</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"str"</span><span class="p">,</span> <span class="n">_INITIAL</span><span class="p">[</span><span class="n">c1_clean</span><span class="p">][</span><span class="s2">"class"</span><span class="p">])</span>
+
+    <span class="n">length</span> <span class="o">=</span> <span class="n">_vowel_length</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">orig_v</span><span class="p">)</span>
+    <span class="n">life</span> <span class="o">=</span> <span class="n">_syllable_life</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">orig_v</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">c2</span> <span class="ow">in</span> <span class="n">_CODA</span><span class="p">:</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">_CODA</span><span class="p">[</span><span class="n">c2</span><span class="p">][</span><span class="n">seq_idx</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">_c2_decomp</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">)</span>
+
+    <span class="n">tone</span> <span class="o">=</span> <span class="n">_tone_name</span><span class="p">(</span><span class="n">tmark</span><span class="p">,</span> <span class="n">life</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"paiboon"</span><span class="p">:</span>
+        <span class="n">mark</span> <span class="o">=</span> <span class="n">_TONE_ROM_MARKS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tone</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="k">if</span> <span class="n">tone</span> <span class="k">else</span> <span class="s2">""</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_FIRST_VOWEL_PATTERN</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="se">\\</span><span class="s2">g&lt;1&gt;</span><span class="se">\\</span><span class="s2">g&lt;2&gt;</span><span class="si">{</span><span class="n">mark</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"ipa"</span><span class="p">:</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">+</span> <span class="p">(</span><span class="n">_TONE_LEVELS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tone</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="k">if</span> <span class="n">tone</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ini</span> <span class="o">+</span> <span class="n">g</span> <span class="o">+</span> <span class="n">v</span> <span class="o">+</span> <span class="n">c2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_word</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Transliterate a run of Thai characters."""</span>
+    <span class="k">if</span> <span class="n">_RE_TWO_TONE_MARKS</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">word</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">match</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_syllable</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">seq_idx</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+    <span class="n">word</span> <span class="o">=</span> <span class="n">_FULL_PATTERN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">convert</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_PARTIAL_PATTERN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">convert</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="transliterate_wiktionary">
+<a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.transliterate_wiktionary">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">transliterate_wiktionary</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ipa"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Transliterate Thai text using Wiktionary th-pron logic.</span>
+
+<span class="sd">    :param str text: Thai text to be transliterated, a single word or</span>
+<span class="sd">        a text fragment</span>
+<span class="sd">    :param str mode: output mode, one of ``paiboon``, ``royin``, or</span>
+<span class="sd">        ``ipa`` (default). An unsupported mode returns the text unchanged</span>
+<span class="sd">    :return: transliterated text</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; transliterate_wiktionary("แมว", mode="royin")</span>
+<span class="sd">        'maeo'</span>
+<span class="sd">    """</span>
+    <span class="n">seq_idx</span> <span class="o">=</span> <span class="n">_SYSTEMS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seq_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">text</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_RE_THAI_RUN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">_process_word</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">seq_idx</span><span class="p">,</span> <span class="n">mode</span><span class="p">),</span> <span class="n">text</span>
+    <span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_RE_THAI_DIGIT</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">_DIGIT_MAP</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)],</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"royin"</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span> <span class="ow">in</span> <span class="n">_ROYIN_CLEANUPS</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"ipa"</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[ \-–]"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"([aiɯu])([˥-˩]+)$"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1ʔ\2"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFC"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_word_dict">
+<a class="viewcode-back" href="../../../api/transliterate.html#pythainlp.transliterate.get_word_dict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_word_dict</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return Wiktionary transliteration outputs in all supported systems.</span>
+
+<span class="sd">    :param str word: Thai word to be transliterated</span>
+<span class="sd">    :return: dictionary with the keys ``word``, ``paiboon``, ``royin``,</span>
+<span class="sd">        and ``ipa``</span>
+<span class="sd">    :rtype: dict[str, str]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; get_word_dict("แมว")</span>
+<span class="sd">        {'word': 'แมว', 'paiboon': 'mɛɛo', 'royin': 'maeo', 'ipa': 'mɛːw˧'}</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"word"</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span>
+        <span class="s2">"paiboon"</span><span class="p">:</span> <span class="n">transliterate_wiktionary</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"paiboon"</span><span class="p">),</span>
+        <span class="s2">"royin"</span><span class="p">:</span> <span class="n">transliterate_wiktionary</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"royin"</span><span class="p">),</span>
+        <span class="s2">"ipa"</span><span class="p">:</span> <span class="n">transliterate_wiktionary</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"ipa"</span><span class="p">),</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

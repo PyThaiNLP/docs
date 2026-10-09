@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.braille.core &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.braille.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.braille.core</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""Core functions for converting Thai text to braille."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trie</span>
+
+<span class="c1"># Thai character to braille pattern mapping</span>
+<span class="c1"># Braille patterns are represented as dot numbers (1-8)</span>
+<span class="c1"># Following international braille standards</span>
+<span class="n">thai_braille_mapping_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"ก"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1245"</span><span class="p">],</span>
+    <span class="s2">"ข"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"13"</span><span class="p">],</span>
+    <span class="s2">"ฃ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"356"</span><span class="p">,</span> <span class="s2">"13"</span><span class="p">],</span>
+    <span class="s2">"ค"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"136"</span><span class="p">],</span>
+    <span class="s2">"ฅ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"36"</span><span class="p">,</span> <span class="s2">"136"</span><span class="p">],</span>
+    <span class="s2">"ฆ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"136"</span><span class="p">],</span>
+    <span class="s2">"ง"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12456"</span><span class="p">],</span>
+    <span class="s2">"จ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"245"</span><span class="p">],</span>
+    <span class="s2">"ฉ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"34"</span><span class="p">],</span>
+    <span class="s2">"ช"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"346"</span><span class="p">],</span>
+    <span class="s2">"ซ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2346"</span><span class="p">],</span>
+    <span class="s2">"ฌ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"346"</span><span class="p">],</span>
+    <span class="s2">"ญ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"13456"</span><span class="p">],</span>
+    <span class="s2">"ฎ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"145"</span><span class="p">],</span>
+    <span class="s2">"ฏ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"1256"</span><span class="p">],</span>
+    <span class="s2">"ฐ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"2345"</span><span class="p">],</span>
+    <span class="s2">"ฑ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"23456"</span><span class="p">],</span>
+    <span class="s2">"ฒ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"36"</span><span class="p">,</span> <span class="s2">"23456"</span><span class="p">],</span>
+    <span class="s2">"ณ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"1345"</span><span class="p">],</span>
+    <span class="s2">"ด"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"145"</span><span class="p">],</span>
+    <span class="s2">"ต"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1256"</span><span class="p">],</span>
+    <span class="s2">"ถ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2345"</span><span class="p">],</span>
+    <span class="s2">"ท"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"23456"</span><span class="p">],</span>
+    <span class="s2">"ธ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"356"</span><span class="p">,</span> <span class="s2">"23456"</span><span class="p">],</span>
+    <span class="s2">"น"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1345"</span><span class="p">],</span>
+    <span class="s2">"บ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1236"</span><span class="p">],</span>
+    <span class="s2">"ป"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12346"</span><span class="p">],</span>
+    <span class="s2">"ผ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1234"</span><span class="p">],</span>
+    <span class="s2">"ฝ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1346"</span><span class="p">],</span>
+    <span class="s2">"พ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1456"</span><span class="p">],</span>
+    <span class="s2">"ฟ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1246"</span><span class="p">],</span>
+    <span class="s2">"ภ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"1456"</span><span class="p">],</span>
+    <span class="s2">"ม"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"134"</span><span class="p">],</span>
+    <span class="s2">"ย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"13456"</span><span class="p">],</span>
+    <span class="s2">"ร"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1235"</span><span class="p">],</span>
+    <span class="s2">"ล"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"123"</span><span class="p">],</span>
+    <span class="s2">"ว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2456"</span><span class="p">],</span>
+    <span class="s2">"ศ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">],</span>
+    <span class="s2">"ษ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"36"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">],</span>
+    <span class="s2">"ส"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"234"</span><span class="p">],</span>
+    <span class="s2">"ห"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"125"</span><span class="p">],</span>
+    <span class="s2">"ฬ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"123"</span><span class="p">],</span>
+    <span class="s2">"อ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"135"</span><span class="p">],</span>
+    <span class="s2">"ฮ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"123456"</span><span class="p">],</span>
+    <span class="s2">"ฤ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1235"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">],</span>
+    <span class="s2">"ฦ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"123"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">],</span>
+    <span class="s2">"&lt;N&gt;"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"3456"</span><span class="p">],</span>  <span class="c1"># Number prefix (used by replace_number function)</span>
+    <span class="s2">"1"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">],</span>
+    <span class="s2">"2"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12"</span><span class="p">],</span>
+    <span class="s2">"3"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"14"</span><span class="p">],</span>
+    <span class="s2">"4"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"145"</span><span class="p">],</span>
+    <span class="s2">"5"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"15"</span><span class="p">],</span>
+    <span class="s2">"6"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"124"</span><span class="p">],</span>
+    <span class="s2">"7"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1245"</span><span class="p">],</span>
+    <span class="s2">"8"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"125"</span><span class="p">],</span>
+    <span class="s2">"9"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"24"</span><span class="p">],</span>
+    <span class="s2">"0"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"245"</span><span class="p">],</span>
+    <span class="s2">"๑"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">],</span>
+    <span class="s2">"๒"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12"</span><span class="p">],</span>
+    <span class="s2">"๓"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"14"</span><span class="p">],</span>
+    <span class="s2">"๔"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"145"</span><span class="p">],</span>
+    <span class="s2">"๕"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"15"</span><span class="p">],</span>
+    <span class="s2">"๖"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"124"</span><span class="p">],</span>
+    <span class="s2">"๗"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1245"</span><span class="p">],</span>
+    <span class="s2">"๘"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"125"</span><span class="p">],</span>
+    <span class="s2">"๙"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"24"</span><span class="p">],</span>
+    <span class="s2">"๐"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"245"</span><span class="p">],</span>
+    <span class="s2">"ะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">],</span>
+    <span class="s2">"า"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"16"</span><span class="p">],</span>
+    <span class="s2">"ิ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12"</span><span class="p">],</span>
+    <span class="s2">"ี"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"23"</span><span class="p">],</span>
+    <span class="s2">"ุ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"14"</span><span class="p">],</span>
+    <span class="s2">"ู"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"25"</span><span class="p">],</span>
+    <span class="s2">"ึ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"246"</span><span class="p">],</span>
+    <span class="s2">"ื"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"26"</span><span class="p">],</span>
+    <span class="s2">"เ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"124"</span><span class="p">],</span>
+    <span class="s2">"โ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"24"</span><span class="p">],</span>
+    <span class="s2">"ั"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"345"</span><span class="p">],</span>
+    <span class="s2">"ำ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1356"</span><span class="p">],</span>
+    <span class="s2">"แ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"126"</span><span class="p">],</span>
+    <span class="s2">"ไ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"156"</span><span class="p">],</span>
+    <span class="s2">"ใ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"156"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">],</span>
+    <span class="s2">"่"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"35"</span><span class="p">],</span>
+    <span class="s2">"้"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"256"</span><span class="p">],</span>
+    <span class="s2">"๊"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2356"</span><span class="p">],</span>
+    <span class="s2">"๋"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"236"</span><span class="p">],</span>
+    <span class="s2">"์"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"356"</span><span class="p">],</span>
+    <span class="s2">"ๆ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2"</span><span class="p">],</span>
+    <span class="s2">" "</span><span class="p">:</span> <span class="p">[</span><span class="s2">"-1"</span><span class="p">],</span>
+    <span class="s2">"ฯ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"56"</span><span class="p">,</span> <span class="s2">"23"</span><span class="p">],</span>  <span class="c1"># Thai abbreviation mark</span>
+    <span class="s2">"ฯลฯ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"56"</span><span class="p">,</span> <span class="s2">"123"</span><span class="p">],</span>  <span class="c1"># Thai abbreviation (special multi-character case)</span>
+    <span class="s2">"."</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"256"</span><span class="p">],</span>
+    <span class="s2">"@"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">],</span>
+    <span class="s2">"?"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"236"</span><span class="p">],</span>
+    <span class="s2">"!"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"235"</span><span class="p">],</span>
+    <span class="s2">";"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"23"</span><span class="p">],</span>
+    <span class="s2">":"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">],</span>
+    <span class="s2">"/"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"34"</span><span class="p">],</span>
+    <span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"456"</span><span class="p">,</span> <span class="s2">"16"</span><span class="p">],</span>
+    <span class="s2">"-"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"36"</span><span class="p">],</span>
+    <span class="s2">"="</span><span class="p">:</span> <span class="p">[</span><span class="s2">"56"</span><span class="p">,</span> <span class="s2">"2356"</span><span class="p">],</span>
+    <span class="s2">"%"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"4"</span><span class="p">,</span> <span class="s2">"356"</span><span class="p">],</span>
+    <span class="s1">'"'</span><span class="p">:</span> <span class="p">[</span><span class="s2">"5"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">],</span>
+    <span class="s2">"("</span><span class="p">:</span> <span class="p">[</span><span class="s2">"5"</span><span class="p">,</span> <span class="s2">"126"</span><span class="p">],</span>
+    <span class="s2">")"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"5"</span><span class="p">,</span> <span class="s2">"345"</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Special vowel patterns for Thai braille</span>
+<span class="n">_dict_2</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"เ-อ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"146"</span><span class="p">],</span>
+    <span class="s2">"เ-ีย"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12356"</span><span class="p">],</span>
+    <span class="s2">"เ-ือ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"12345"</span><span class="p">],</span>
+    <span class="s2">"-ัว"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"15"</span><span class="p">],</span>
+    <span class="s2">"เ-า"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"235"</span><span class="p">],</span>
+    <span class="s2">"เ-าะ"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"135"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Merge special vowel patterns into main mapping</span>
+<span class="n">thai_braille_mapping_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">thai_braille_mapping_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">_dict_2</span><span class="p">}</span>
+
+<span class="c1"># Template patterns for vowel matching</span>
+<span class="n">_v1</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"เ-tอ"</span><span class="p">,</span> <span class="s2">"เ-ีtย"</span><span class="p">,</span> <span class="s2">"เ-ืtอ"</span><span class="p">,</span> <span class="s2">"-ัtว"</span><span class="p">,</span> <span class="s2">"เ-tา"</span><span class="p">,</span> <span class="s2">"เ-tาะ"</span><span class="p">]</span>
+
+<span class="c1"># Create trie for efficient pattern matching</span>
+<span class="n">char_trie</span><span class="p">:</span> <span class="n">Trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">thai_braille_mapping_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="n">_v1</span> <span class="o">+</span> <span class="p">[</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"&lt;N&gt;"</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Build vowel replacement patterns</span>
+<span class="n">_vowel_patterns</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"([ก-ฮ])"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"([่้๊๋])"</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">",</span><span class="se">\\</span><span class="s2">1"</span>
+    <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">2"</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_v1</span>
+<span class="p">]</span>
+<span class="n">_vowel_patterns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"([ก-ฮ])"</span><span class="p">)</span> <span class="o">+</span> <span class="s2">",</span><span class="se">\\</span><span class="s2">1"</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_dict_2</span><span class="p">]</span>
+<span class="n">_VOWELS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_vowel_patterns</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">replace_number</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Add a number prefix if a word starts with a digit.</span>
+
+<span class="sd">    :param str word: word to check</span>
+<span class="sd">    :return: word with a number prefix if it starts with a digit</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">"1234567890๐๑๒๓๔๕๖๗๘๙"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"&lt;N&gt;"</span> <span class="o">+</span> <span class="n">word</span>
+    <span class="k">return</span> <span class="n">word</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_replace_vowels</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Replace complex Thai vowel patterns for braille conversion.</span>
+
+<span class="sd">    :param str word: word containing Thai vowels</span>
+<span class="sd">    :return: word with vowels replaced for braille processing</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">replacement</span> <span class="ow">in</span> <span class="n">_VOWELS</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">word</span>
+
+
+<div class="viewcode-block" id="thai_word_braille">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.thai_word_braille">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_word_braille</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert a Thai word to braille representation.</span>
+
+<span class="sd">    :param str word: Thai word to convert</span>
+<span class="sd">    :return: braille representation of the word</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.braille import thai_word_braille</span>
+<span class="sd">        &gt;&gt;&gt; thai_word_braille("กก")</span>
+<span class="sd">        '⠛⠛'</span>
+<span class="sd">        &gt;&gt;&gt; thai_word_braille("น้ำ")</span>
+<span class="sd">        '⠝⠲⠵'</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">""</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">_replace_vowels</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">replace_number</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">_temp</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">char_trie</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"mm"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Handle multiple spaces by converting each space individually</span>
+            <span class="n">_temp</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="n">thai_braille_mapping_dict</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">token</span>
+                <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">thai_braille_mapping_dict</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">thai_braille_mapping_dict</span><span class="p">:</span>
+            <span class="n">_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thai_braille_mapping_dict</span><span class="p">[</span><span class="n">token</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_temp</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">""</span>
+    <span class="n">braille_obj</span> <span class="o">=</span> <span class="n">Braille</span><span class="p">(</span><span class="n">_temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">braille_obj</span><span class="o">.</span><span class="n">tobraille</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="thai_text_braille">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.thai_text_braille">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_text_braille</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert Thai text to braille representation, word by word.</span>
+
+<span class="sd">    :param str text: Thai text to convert</span>
+<span class="sd">    :return: list of braille representations, one per word</span>
+<span class="sd">    :rtype: list[str]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.braille import thai_text_braille</span>
+<span class="sd">        &gt;&gt;&gt; thai_text_braille("สวัสดี ครับ")</span>
+<span class="sd">        ['⠎⠺⠜⠎⠙⠆', ' ', '⠥⠗⠜⠧']</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">thai_word_braille</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="Braille">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.Braille">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Braille</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert braille dot patterns to Unicode braille characters.</span>
+
+<span class="sd">    :param data: braille dot patterns as a list or a string</span>
+<span class="sd">    :type data: Union[list[list[str]], list[str], str]</span>
+<span class="sd">    """</span>
+
+<div class="viewcode-block" id="Braille.__init__">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.Braille.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Initialize the braille converter.</span>
+
+<span class="sd">        :param data: braille dot patterns as a list or a string</span>
+<span class="sd">        :type data: Union[list[list[str]], list[str], str]</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputdata</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">nested_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                    <span class="n">nested_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">nested_data</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">if</span> <span class="n">data</span> <span class="k">else</span> <span class="p">[]</span>
+
+        <span class="c1"># International standard Braille mapping</span>
+        <span class="c1"># Dots 1,2,3 = left column (top, middle, bottom)</span>
+        <span class="c1"># Dots 4,5,6 = right column (top, middle, bottom)</span>
+        <span class="c1"># Dots 7,8 = bottom row (left, right) for 8-dot Braille</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"-1"</span><span class="p">:</span> <span class="s2">" "</span><span class="p">,</span>
+            <span class="s2">"0"</span><span class="p">:</span> <span class="s2">"⠀"</span><span class="p">,</span>
+            <span class="s2">"1"</span><span class="p">:</span> <span class="s2">"⠁"</span><span class="p">,</span>
+            <span class="s2">"12"</span><span class="p">:</span> <span class="s2">"⠃"</span><span class="p">,</span>
+            <span class="s2">"123"</span><span class="p">:</span> <span class="s2">"⠇"</span><span class="p">,</span>
+            <span class="s2">"1234"</span><span class="p">:</span> <span class="s2">"⠏"</span><span class="p">,</span>
+            <span class="s2">"12345"</span><span class="p">:</span> <span class="s2">"⠟"</span><span class="p">,</span>
+            <span class="s2">"123456"</span><span class="p">:</span> <span class="s2">"⠿"</span><span class="p">,</span>
+            <span class="s2">"1234567"</span><span class="p">:</span> <span class="s2">"⡿"</span><span class="p">,</span>
+            <span class="s2">"12345678"</span><span class="p">:</span> <span class="s2">"⣿"</span><span class="p">,</span>
+            <span class="s2">"1234568"</span><span class="p">:</span> <span class="s2">"⢿"</span><span class="p">,</span>
+            <span class="s2">"123457"</span><span class="p">:</span> <span class="s2">"⡟"</span><span class="p">,</span>
+            <span class="s2">"1234578"</span><span class="p">:</span> <span class="s2">"⣟"</span><span class="p">,</span>
+            <span class="s2">"123458"</span><span class="p">:</span> <span class="s2">"⢟"</span><span class="p">,</span>
+            <span class="s2">"12346"</span><span class="p">:</span> <span class="s2">"⠯"</span><span class="p">,</span>
+            <span class="s2">"123467"</span><span class="p">:</span> <span class="s2">"⡯"</span><span class="p">,</span>
+            <span class="s2">"1234678"</span><span class="p">:</span> <span class="s2">"⣯"</span><span class="p">,</span>
+            <span class="s2">"123468"</span><span class="p">:</span> <span class="s2">"⢯"</span><span class="p">,</span>
+            <span class="s2">"12347"</span><span class="p">:</span> <span class="s2">"⡏"</span><span class="p">,</span>
+            <span class="s2">"123478"</span><span class="p">:</span> <span class="s2">"⣏"</span><span class="p">,</span>
+            <span class="s2">"12348"</span><span class="p">:</span> <span class="s2">"⢏"</span><span class="p">,</span>
+            <span class="s2">"1235"</span><span class="p">:</span> <span class="s2">"⠗"</span><span class="p">,</span>
+            <span class="s2">"12356"</span><span class="p">:</span> <span class="s2">"⠷"</span><span class="p">,</span>
+            <span class="s2">"123567"</span><span class="p">:</span> <span class="s2">"⡷"</span><span class="p">,</span>
+            <span class="s2">"1235678"</span><span class="p">:</span> <span class="s2">"⣷"</span><span class="p">,</span>
+            <span class="s2">"123568"</span><span class="p">:</span> <span class="s2">"⢷"</span><span class="p">,</span>
+            <span class="s2">"12357"</span><span class="p">:</span> <span class="s2">"⡗"</span><span class="p">,</span>
+            <span class="s2">"123578"</span><span class="p">:</span> <span class="s2">"⣗"</span><span class="p">,</span>
+            <span class="s2">"12358"</span><span class="p">:</span> <span class="s2">"⢗"</span><span class="p">,</span>
+            <span class="s2">"1236"</span><span class="p">:</span> <span class="s2">"⠧"</span><span class="p">,</span>
+            <span class="s2">"12367"</span><span class="p">:</span> <span class="s2">"⡧"</span><span class="p">,</span>
+            <span class="s2">"123678"</span><span class="p">:</span> <span class="s2">"⣧"</span><span class="p">,</span>
+            <span class="s2">"12368"</span><span class="p">:</span> <span class="s2">"⢧"</span><span class="p">,</span>
+            <span class="s2">"1237"</span><span class="p">:</span> <span class="s2">"⡇"</span><span class="p">,</span>
+            <span class="s2">"12378"</span><span class="p">:</span> <span class="s2">"⣇"</span><span class="p">,</span>
+            <span class="s2">"1238"</span><span class="p">:</span> <span class="s2">"⢇"</span><span class="p">,</span>
+            <span class="s2">"124"</span><span class="p">:</span> <span class="s2">"⠋"</span><span class="p">,</span>
+            <span class="s2">"1245"</span><span class="p">:</span> <span class="s2">"⠛"</span><span class="p">,</span>
+            <span class="s2">"12456"</span><span class="p">:</span> <span class="s2">"⠻"</span><span class="p">,</span>
+            <span class="s2">"124567"</span><span class="p">:</span> <span class="s2">"⡻"</span><span class="p">,</span>
+            <span class="s2">"1245678"</span><span class="p">:</span> <span class="s2">"⣻"</span><span class="p">,</span>
+            <span class="s2">"124568"</span><span class="p">:</span> <span class="s2">"⢻"</span><span class="p">,</span>
+            <span class="s2">"12457"</span><span class="p">:</span> <span class="s2">"⡛"</span><span class="p">,</span>
+            <span class="s2">"124578"</span><span class="p">:</span> <span class="s2">"⣛"</span><span class="p">,</span>
+            <span class="s2">"12458"</span><span class="p">:</span> <span class="s2">"⢛"</span><span class="p">,</span>
+            <span class="s2">"1246"</span><span class="p">:</span> <span class="s2">"⠫"</span><span class="p">,</span>
+            <span class="s2">"12467"</span><span class="p">:</span> <span class="s2">"⡫"</span><span class="p">,</span>
+            <span class="s2">"124678"</span><span class="p">:</span> <span class="s2">"⣫"</span><span class="p">,</span>
+            <span class="s2">"12468"</span><span class="p">:</span> <span class="s2">"⢫"</span><span class="p">,</span>
+            <span class="s2">"1247"</span><span class="p">:</span> <span class="s2">"⡋"</span><span class="p">,</span>
+            <span class="s2">"12478"</span><span class="p">:</span> <span class="s2">"⣋"</span><span class="p">,</span>
+            <span class="s2">"1248"</span><span class="p">:</span> <span class="s2">"⢋"</span><span class="p">,</span>
+            <span class="s2">"125"</span><span class="p">:</span> <span class="s2">"⠓"</span><span class="p">,</span>
+            <span class="s2">"1256"</span><span class="p">:</span> <span class="s2">"⠳"</span><span class="p">,</span>
+            <span class="s2">"12567"</span><span class="p">:</span> <span class="s2">"⡳"</span><span class="p">,</span>
+            <span class="s2">"125678"</span><span class="p">:</span> <span class="s2">"⣳"</span><span class="p">,</span>
+            <span class="s2">"12568"</span><span class="p">:</span> <span class="s2">"⢳"</span><span class="p">,</span>
+            <span class="s2">"1257"</span><span class="p">:</span> <span class="s2">"⡓"</span><span class="p">,</span>
+            <span class="s2">"12578"</span><span class="p">:</span> <span class="s2">"⣓"</span><span class="p">,</span>
+            <span class="s2">"1258"</span><span class="p">:</span> <span class="s2">"⢓"</span><span class="p">,</span>
+            <span class="s2">"126"</span><span class="p">:</span> <span class="s2">"⠣"</span><span class="p">,</span>
+            <span class="s2">"1267"</span><span class="p">:</span> <span class="s2">"⡣"</span><span class="p">,</span>
+            <span class="s2">"12678"</span><span class="p">:</span> <span class="s2">"⣣"</span><span class="p">,</span>
+            <span class="s2">"1268"</span><span class="p">:</span> <span class="s2">"⢣"</span><span class="p">,</span>
+            <span class="s2">"127"</span><span class="p">:</span> <span class="s2">"⡃"</span><span class="p">,</span>
+            <span class="s2">"1278"</span><span class="p">:</span> <span class="s2">"⣃"</span><span class="p">,</span>
+            <span class="s2">"128"</span><span class="p">:</span> <span class="s2">"⢃"</span><span class="p">,</span>
+            <span class="s2">"13"</span><span class="p">:</span> <span class="s2">"⠅"</span><span class="p">,</span>
+            <span class="s2">"134"</span><span class="p">:</span> <span class="s2">"⠍"</span><span class="p">,</span>
+            <span class="s2">"1345"</span><span class="p">:</span> <span class="s2">"⠝"</span><span class="p">,</span>
+            <span class="s2">"13456"</span><span class="p">:</span> <span class="s2">"⠽"</span><span class="p">,</span>
+            <span class="s2">"134567"</span><span class="p">:</span> <span class="s2">"⡽"</span><span class="p">,</span>
+            <span class="s2">"1345678"</span><span class="p">:</span> <span class="s2">"⣽"</span><span class="p">,</span>
+            <span class="s2">"134568"</span><span class="p">:</span> <span class="s2">"⢽"</span><span class="p">,</span>
+            <span class="s2">"13457"</span><span class="p">:</span> <span class="s2">"⡝"</span><span class="p">,</span>
+            <span class="s2">"134578"</span><span class="p">:</span> <span class="s2">"⣝"</span><span class="p">,</span>
+            <span class="s2">"13458"</span><span class="p">:</span> <span class="s2">"⢝"</span><span class="p">,</span>
+            <span class="s2">"1346"</span><span class="p">:</span> <span class="s2">"⠭"</span><span class="p">,</span>
+            <span class="s2">"13467"</span><span class="p">:</span> <span class="s2">"⡭"</span><span class="p">,</span>
+            <span class="s2">"134678"</span><span class="p">:</span> <span class="s2">"⣭"</span><span class="p">,</span>
+            <span class="s2">"13468"</span><span class="p">:</span> <span class="s2">"⢭"</span><span class="p">,</span>
+            <span class="s2">"1347"</span><span class="p">:</span> <span class="s2">"⡍"</span><span class="p">,</span>
+            <span class="s2">"13478"</span><span class="p">:</span> <span class="s2">"⣍"</span><span class="p">,</span>
+            <span class="s2">"1348"</span><span class="p">:</span> <span class="s2">"⢍"</span><span class="p">,</span>
+            <span class="s2">"135"</span><span class="p">:</span> <span class="s2">"⠕"</span><span class="p">,</span>
+            <span class="s2">"1356"</span><span class="p">:</span> <span class="s2">"⠵"</span><span class="p">,</span>
+            <span class="s2">"13567"</span><span class="p">:</span> <span class="s2">"⡵"</span><span class="p">,</span>
+            <span class="s2">"135678"</span><span class="p">:</span> <span class="s2">"⣵"</span><span class="p">,</span>
+            <span class="s2">"13568"</span><span class="p">:</span> <span class="s2">"⢵"</span><span class="p">,</span>
+            <span class="s2">"1357"</span><span class="p">:</span> <span class="s2">"⡕"</span><span class="p">,</span>
+            <span class="s2">"13578"</span><span class="p">:</span> <span class="s2">"⣕"</span><span class="p">,</span>
+            <span class="s2">"1358"</span><span class="p">:</span> <span class="s2">"⢕"</span><span class="p">,</span>
+            <span class="s2">"136"</span><span class="p">:</span> <span class="s2">"⠥"</span><span class="p">,</span>
+            <span class="s2">"1367"</span><span class="p">:</span> <span class="s2">"⡥"</span><span class="p">,</span>
+            <span class="s2">"13678"</span><span class="p">:</span> <span class="s2">"⣥"</span><span class="p">,</span>
+            <span class="s2">"1368"</span><span class="p">:</span> <span class="s2">"⢥"</span><span class="p">,</span>
+            <span class="s2">"137"</span><span class="p">:</span> <span class="s2">"⡅"</span><span class="p">,</span>
+            <span class="s2">"1378"</span><span class="p">:</span> <span class="s2">"⣅"</span><span class="p">,</span>
+            <span class="s2">"138"</span><span class="p">:</span> <span class="s2">"⢅"</span><span class="p">,</span>
+            <span class="s2">"14"</span><span class="p">:</span> <span class="s2">"⠉"</span><span class="p">,</span>
+            <span class="s2">"145"</span><span class="p">:</span> <span class="s2">"⠙"</span><span class="p">,</span>
+            <span class="s2">"1456"</span><span class="p">:</span> <span class="s2">"⠹"</span><span class="p">,</span>
+            <span class="s2">"14567"</span><span class="p">:</span> <span class="s2">"⡹"</span><span class="p">,</span>
+            <span class="s2">"145678"</span><span class="p">:</span> <span class="s2">"⣹"</span><span class="p">,</span>
+            <span class="s2">"14568"</span><span class="p">:</span> <span class="s2">"⢹"</span><span class="p">,</span>
+            <span class="s2">"1457"</span><span class="p">:</span> <span class="s2">"⡙"</span><span class="p">,</span>
+            <span class="s2">"14578"</span><span class="p">:</span> <span class="s2">"⣙"</span><span class="p">,</span>
+            <span class="s2">"1458"</span><span class="p">:</span> <span class="s2">"⢙"</span><span class="p">,</span>
+            <span class="s2">"146"</span><span class="p">:</span> <span class="s2">"⠩"</span><span class="p">,</span>
+            <span class="s2">"1467"</span><span class="p">:</span> <span class="s2">"⡩"</span><span class="p">,</span>
+            <span class="s2">"14678"</span><span class="p">:</span> <span class="s2">"⣩"</span><span class="p">,</span>
+            <span class="s2">"1468"</span><span class="p">:</span> <span class="s2">"⢩"</span><span class="p">,</span>
+            <span class="s2">"147"</span><span class="p">:</span> <span class="s2">"⡉"</span><span class="p">,</span>
+            <span class="s2">"1478"</span><span class="p">:</span> <span class="s2">"⣉"</span><span class="p">,</span>
+            <span class="s2">"148"</span><span class="p">:</span> <span class="s2">"⢉"</span><span class="p">,</span>
+            <span class="s2">"15"</span><span class="p">:</span> <span class="s2">"⠑"</span><span class="p">,</span>
+            <span class="s2">"156"</span><span class="p">:</span> <span class="s2">"⠱"</span><span class="p">,</span>
+            <span class="s2">"1567"</span><span class="p">:</span> <span class="s2">"⡱"</span><span class="p">,</span>
+            <span class="s2">"15678"</span><span class="p">:</span> <span class="s2">"⣱"</span><span class="p">,</span>
+            <span class="s2">"1568"</span><span class="p">:</span> <span class="s2">"⢱"</span><span class="p">,</span>
+            <span class="s2">"157"</span><span class="p">:</span> <span class="s2">"⡑"</span><span class="p">,</span>
+            <span class="s2">"1578"</span><span class="p">:</span> <span class="s2">"⣑"</span><span class="p">,</span>
+            <span class="s2">"158"</span><span class="p">:</span> <span class="s2">"⢑"</span><span class="p">,</span>
+            <span class="s2">"16"</span><span class="p">:</span> <span class="s2">"⠡"</span><span class="p">,</span>
+            <span class="s2">"167"</span><span class="p">:</span> <span class="s2">"⡡"</span><span class="p">,</span>
+            <span class="s2">"1678"</span><span class="p">:</span> <span class="s2">"⣡"</span><span class="p">,</span>
+            <span class="s2">"168"</span><span class="p">:</span> <span class="s2">"⢡"</span><span class="p">,</span>
+            <span class="s2">"17"</span><span class="p">:</span> <span class="s2">"⡁"</span><span class="p">,</span>
+            <span class="s2">"178"</span><span class="p">:</span> <span class="s2">"⣁"</span><span class="p">,</span>
+            <span class="s2">"18"</span><span class="p">:</span> <span class="s2">"⢁"</span><span class="p">,</span>
+            <span class="s2">"2"</span><span class="p">:</span> <span class="s2">"⠂"</span><span class="p">,</span>
+            <span class="s2">"23"</span><span class="p">:</span> <span class="s2">"⠆"</span><span class="p">,</span>
+            <span class="s2">"234"</span><span class="p">:</span> <span class="s2">"⠎"</span><span class="p">,</span>
+            <span class="s2">"2345"</span><span class="p">:</span> <span class="s2">"⠞"</span><span class="p">,</span>
+            <span class="s2">"23456"</span><span class="p">:</span> <span class="s2">"⠾"</span><span class="p">,</span>
+            <span class="s2">"234567"</span><span class="p">:</span> <span class="s2">"⡾"</span><span class="p">,</span>
+            <span class="s2">"2345678"</span><span class="p">:</span> <span class="s2">"⣾"</span><span class="p">,</span>
+            <span class="s2">"234568"</span><span class="p">:</span> <span class="s2">"⢾"</span><span class="p">,</span>
+            <span class="s2">"23457"</span><span class="p">:</span> <span class="s2">"⡞"</span><span class="p">,</span>
+            <span class="s2">"234578"</span><span class="p">:</span> <span class="s2">"⣞"</span><span class="p">,</span>
+            <span class="s2">"23458"</span><span class="p">:</span> <span class="s2">"⢞"</span><span class="p">,</span>
+            <span class="s2">"2346"</span><span class="p">:</span> <span class="s2">"⠮"</span><span class="p">,</span>
+            <span class="s2">"23467"</span><span class="p">:</span> <span class="s2">"⡮"</span><span class="p">,</span>
+            <span class="s2">"234678"</span><span class="p">:</span> <span class="s2">"⣮"</span><span class="p">,</span>
+            <span class="s2">"23468"</span><span class="p">:</span> <span class="s2">"⢮"</span><span class="p">,</span>
+            <span class="s2">"2347"</span><span class="p">:</span> <span class="s2">"⡎"</span><span class="p">,</span>
+            <span class="s2">"23478"</span><span class="p">:</span> <span class="s2">"⣎"</span><span class="p">,</span>
+            <span class="s2">"2348"</span><span class="p">:</span> <span class="s2">"⢎"</span><span class="p">,</span>
+            <span class="s2">"235"</span><span class="p">:</span> <span class="s2">"⠖"</span><span class="p">,</span>
+            <span class="s2">"2356"</span><span class="p">:</span> <span class="s2">"⠶"</span><span class="p">,</span>
+            <span class="s2">"23567"</span><span class="p">:</span> <span class="s2">"⡶"</span><span class="p">,</span>
+            <span class="s2">"235678"</span><span class="p">:</span> <span class="s2">"⣶"</span><span class="p">,</span>
+            <span class="s2">"23568"</span><span class="p">:</span> <span class="s2">"⢶"</span><span class="p">,</span>
+            <span class="s2">"2357"</span><span class="p">:</span> <span class="s2">"⡖"</span><span class="p">,</span>
+            <span class="s2">"23578"</span><span class="p">:</span> <span class="s2">"⣖"</span><span class="p">,</span>
+            <span class="s2">"2358"</span><span class="p">:</span> <span class="s2">"⢖"</span><span class="p">,</span>
+            <span class="s2">"236"</span><span class="p">:</span> <span class="s2">"⠦"</span><span class="p">,</span>
+            <span class="s2">"2367"</span><span class="p">:</span> <span class="s2">"⡦"</span><span class="p">,</span>
+            <span class="s2">"23678"</span><span class="p">:</span> <span class="s2">"⣦"</span><span class="p">,</span>
+            <span class="s2">"2368"</span><span class="p">:</span> <span class="s2">"⢦"</span><span class="p">,</span>
+            <span class="s2">"237"</span><span class="p">:</span> <span class="s2">"⡆"</span><span class="p">,</span>
+            <span class="s2">"2378"</span><span class="p">:</span> <span class="s2">"⣆"</span><span class="p">,</span>
+            <span class="s2">"238"</span><span class="p">:</span> <span class="s2">"⢆"</span><span class="p">,</span>
+            <span class="s2">"24"</span><span class="p">:</span> <span class="s2">"⠊"</span><span class="p">,</span>
+            <span class="s2">"245"</span><span class="p">:</span> <span class="s2">"⠚"</span><span class="p">,</span>
+            <span class="s2">"2456"</span><span class="p">:</span> <span class="s2">"⠺"</span><span class="p">,</span>
+            <span class="s2">"24567"</span><span class="p">:</span> <span class="s2">"⡺"</span><span class="p">,</span>
+            <span class="s2">"245678"</span><span class="p">:</span> <span class="s2">"⣺"</span><span class="p">,</span>
+            <span class="s2">"24568"</span><span class="p">:</span> <span class="s2">"⢺"</span><span class="p">,</span>
+            <span class="s2">"2457"</span><span class="p">:</span> <span class="s2">"⡚"</span><span class="p">,</span>
+            <span class="s2">"24578"</span><span class="p">:</span> <span class="s2">"⣚"</span><span class="p">,</span>
+            <span class="s2">"2458"</span><span class="p">:</span> <span class="s2">"⢚"</span><span class="p">,</span>
+            <span class="s2">"246"</span><span class="p">:</span> <span class="s2">"⠪"</span><span class="p">,</span>
+            <span class="s2">"2467"</span><span class="p">:</span> <span class="s2">"⡪"</span><span class="p">,</span>
+            <span class="s2">"24678"</span><span class="p">:</span> <span class="s2">"⣪"</span><span class="p">,</span>
+            <span class="s2">"2468"</span><span class="p">:</span> <span class="s2">"⢪"</span><span class="p">,</span>
+            <span class="s2">"247"</span><span class="p">:</span> <span class="s2">"⡊"</span><span class="p">,</span>
+            <span class="s2">"2478"</span><span class="p">:</span> <span class="s2">"⣊"</span><span class="p">,</span>
+            <span class="s2">"248"</span><span class="p">:</span> <span class="s2">"⢊"</span><span class="p">,</span>
+            <span class="s2">"25"</span><span class="p">:</span> <span class="s2">"⠒"</span><span class="p">,</span>
+            <span class="s2">"256"</span><span class="p">:</span> <span class="s2">"⠲"</span><span class="p">,</span>
+            <span class="s2">"2567"</span><span class="p">:</span> <span class="s2">"⡲"</span><span class="p">,</span>
+            <span class="s2">"25678"</span><span class="p">:</span> <span class="s2">"⣲"</span><span class="p">,</span>
+            <span class="s2">"2568"</span><span class="p">:</span> <span class="s2">"⢲"</span><span class="p">,</span>
+            <span class="s2">"257"</span><span class="p">:</span> <span class="s2">"⡒"</span><span class="p">,</span>
+            <span class="s2">"2578"</span><span class="p">:</span> <span class="s2">"⣒"</span><span class="p">,</span>
+            <span class="s2">"258"</span><span class="p">:</span> <span class="s2">"⢒"</span><span class="p">,</span>
+            <span class="s2">"26"</span><span class="p">:</span> <span class="s2">"⠢"</span><span class="p">,</span>
+            <span class="s2">"267"</span><span class="p">:</span> <span class="s2">"⡢"</span><span class="p">,</span>
+            <span class="s2">"2678"</span><span class="p">:</span> <span class="s2">"⣢"</span><span class="p">,</span>
+            <span class="s2">"268"</span><span class="p">:</span> <span class="s2">"⢢"</span><span class="p">,</span>
+            <span class="s2">"27"</span><span class="p">:</span> <span class="s2">"⡂"</span><span class="p">,</span>
+            <span class="s2">"278"</span><span class="p">:</span> <span class="s2">"⣂"</span><span class="p">,</span>
+            <span class="s2">"28"</span><span class="p">:</span> <span class="s2">"⢂"</span><span class="p">,</span>
+            <span class="s2">"3"</span><span class="p">:</span> <span class="s2">"⠄"</span><span class="p">,</span>
+            <span class="s2">"34"</span><span class="p">:</span> <span class="s2">"⠌"</span><span class="p">,</span>
+            <span class="s2">"345"</span><span class="p">:</span> <span class="s2">"⠜"</span><span class="p">,</span>
+            <span class="s2">"3456"</span><span class="p">:</span> <span class="s2">"⠼"</span><span class="p">,</span>
+            <span class="s2">"34567"</span><span class="p">:</span> <span class="s2">"⡼"</span><span class="p">,</span>
+            <span class="s2">"345678"</span><span class="p">:</span> <span class="s2">"⣼"</span><span class="p">,</span>
+            <span class="s2">"34568"</span><span class="p">:</span> <span class="s2">"⢼"</span><span class="p">,</span>
+            <span class="s2">"3457"</span><span class="p">:</span> <span class="s2">"⡜"</span><span class="p">,</span>
+            <span class="s2">"34578"</span><span class="p">:</span> <span class="s2">"⣜"</span><span class="p">,</span>
+            <span class="s2">"3458"</span><span class="p">:</span> <span class="s2">"⢜"</span><span class="p">,</span>
+            <span class="s2">"346"</span><span class="p">:</span> <span class="s2">"⠬"</span><span class="p">,</span>
+            <span class="s2">"3467"</span><span class="p">:</span> <span class="s2">"⡬"</span><span class="p">,</span>
+            <span class="s2">"34678"</span><span class="p">:</span> <span class="s2">"⣬"</span><span class="p">,</span>
+            <span class="s2">"3468"</span><span class="p">:</span> <span class="s2">"⢬"</span><span class="p">,</span>
+            <span class="s2">"347"</span><span class="p">:</span> <span class="s2">"⡌"</span><span class="p">,</span>
+            <span class="s2">"3478"</span><span class="p">:</span> <span class="s2">"⣌"</span><span class="p">,</span>
+            <span class="s2">"348"</span><span class="p">:</span> <span class="s2">"⢌"</span><span class="p">,</span>
+            <span class="s2">"35"</span><span class="p">:</span> <span class="s2">"⠔"</span><span class="p">,</span>
+            <span class="s2">"356"</span><span class="p">:</span> <span class="s2">"⠴"</span><span class="p">,</span>
+            <span class="s2">"3567"</span><span class="p">:</span> <span class="s2">"⡴"</span><span class="p">,</span>
+            <span class="s2">"35678"</span><span class="p">:</span> <span class="s2">"⣴"</span><span class="p">,</span>
+            <span class="s2">"3568"</span><span class="p">:</span> <span class="s2">"⢴"</span><span class="p">,</span>
+            <span class="s2">"357"</span><span class="p">:</span> <span class="s2">"⡔"</span><span class="p">,</span>
+            <span class="s2">"3578"</span><span class="p">:</span> <span class="s2">"⣔"</span><span class="p">,</span>
+            <span class="s2">"358"</span><span class="p">:</span> <span class="s2">"⢔"</span><span class="p">,</span>
+            <span class="s2">"36"</span><span class="p">:</span> <span class="s2">"⠤"</span><span class="p">,</span>
+            <span class="s2">"367"</span><span class="p">:</span> <span class="s2">"⡤"</span><span class="p">,</span>
+            <span class="s2">"3678"</span><span class="p">:</span> <span class="s2">"⣤"</span><span class="p">,</span>
+            <span class="s2">"368"</span><span class="p">:</span> <span class="s2">"⢤"</span><span class="p">,</span>
+            <span class="s2">"37"</span><span class="p">:</span> <span class="s2">"⡄"</span><span class="p">,</span>
+            <span class="s2">"378"</span><span class="p">:</span> <span class="s2">"⣄"</span><span class="p">,</span>
+            <span class="s2">"38"</span><span class="p">:</span> <span class="s2">"⢄"</span><span class="p">,</span>
+            <span class="s2">"4"</span><span class="p">:</span> <span class="s2">"⠈"</span><span class="p">,</span>
+            <span class="s2">"45"</span><span class="p">:</span> <span class="s2">"⠘"</span><span class="p">,</span>
+            <span class="s2">"456"</span><span class="p">:</span> <span class="s2">"⠸"</span><span class="p">,</span>
+            <span class="s2">"4567"</span><span class="p">:</span> <span class="s2">"⡸"</span><span class="p">,</span>
+            <span class="s2">"45678"</span><span class="p">:</span> <span class="s2">"⣸"</span><span class="p">,</span>
+            <span class="s2">"4568"</span><span class="p">:</span> <span class="s2">"⢸"</span><span class="p">,</span>
+            <span class="s2">"457"</span><span class="p">:</span> <span class="s2">"⡘"</span><span class="p">,</span>
+            <span class="s2">"4578"</span><span class="p">:</span> <span class="s2">"⣘"</span><span class="p">,</span>
+            <span class="s2">"458"</span><span class="p">:</span> <span class="s2">"⢘"</span><span class="p">,</span>
+            <span class="s2">"46"</span><span class="p">:</span> <span class="s2">"⠨"</span><span class="p">,</span>
+            <span class="s2">"467"</span><span class="p">:</span> <span class="s2">"⡨"</span><span class="p">,</span>
+            <span class="s2">"4678"</span><span class="p">:</span> <span class="s2">"⣨"</span><span class="p">,</span>
+            <span class="s2">"468"</span><span class="p">:</span> <span class="s2">"⢨"</span><span class="p">,</span>
+            <span class="s2">"47"</span><span class="p">:</span> <span class="s2">"⡈"</span><span class="p">,</span>
+            <span class="s2">"478"</span><span class="p">:</span> <span class="s2">"⣈"</span><span class="p">,</span>
+            <span class="s2">"48"</span><span class="p">:</span> <span class="s2">"⢈"</span><span class="p">,</span>
+            <span class="s2">"5"</span><span class="p">:</span> <span class="s2">"⠐"</span><span class="p">,</span>
+            <span class="s2">"56"</span><span class="p">:</span> <span class="s2">"⠰"</span><span class="p">,</span>
+            <span class="s2">"567"</span><span class="p">:</span> <span class="s2">"⡰"</span><span class="p">,</span>
+            <span class="s2">"5678"</span><span class="p">:</span> <span class="s2">"⣰"</span><span class="p">,</span>
+            <span class="s2">"568"</span><span class="p">:</span> <span class="s2">"⢰"</span><span class="p">,</span>
+            <span class="s2">"57"</span><span class="p">:</span> <span class="s2">"⡐"</span><span class="p">,</span>
+            <span class="s2">"578"</span><span class="p">:</span> <span class="s2">"⣐"</span><span class="p">,</span>
+            <span class="s2">"58"</span><span class="p">:</span> <span class="s2">"⢐"</span><span class="p">,</span>
+            <span class="s2">"6"</span><span class="p">:</span> <span class="s2">"⠠"</span><span class="p">,</span>
+            <span class="s2">"67"</span><span class="p">:</span> <span class="s2">"⡠"</span><span class="p">,</span>
+            <span class="s2">"678"</span><span class="p">:</span> <span class="s2">"⣠"</span><span class="p">,</span>
+            <span class="s2">"68"</span><span class="p">:</span> <span class="s2">"⢠"</span><span class="p">,</span>
+            <span class="s2">"7"</span><span class="p">:</span> <span class="s2">"⡀"</span><span class="p">,</span>
+            <span class="s2">"78"</span><span class="p">:</span> <span class="s2">"⣀"</span><span class="p">,</span>
+            <span class="s2">"8"</span><span class="p">:</span> <span class="s2">"⢀"</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Braille.tobraille">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.Braille.tobraille">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tobraille</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Convert dot patterns to braille Unicode characters.</span>
+
+<span class="sd">        :return: Unicode braille representation</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">""</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputdata</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">""</span>
+            <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="n">pattern_str</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="p">)))</span>
+                <span class="k">if</span> <span class="n">pattern_str</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">pattern_str</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="n">pattern_str</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="s2">"list[str]"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pattern_str</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Braille.printbraille">
+<a class="viewcode-back" href="../../../api/braille.html#pythainlp.braille.Braille.printbraille">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">printbraille</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Mirror dot patterns for physical braille printing.</span>
+
+<span class="sd">        Follow the international standard: swap dots 1↔4, 2↔5, 3↔6, 7↔8.</span>
+
+<span class="sd">        :return: mirrored braille for printing</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        """</span>
+        <span class="n">mirror_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"1"</span><span class="p">:</span> <span class="s2">"4"</span><span class="p">,</span>
+            <span class="s2">"2"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>
+            <span class="s2">"3"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span>
+            <span class="s2">"4"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+            <span class="s2">"5"</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">,</span>
+            <span class="s2">"6"</span><span class="p">:</span> <span class="s2">"3"</span><span class="p">,</span>
+            <span class="s2">"7"</span><span class="p">:</span> <span class="s2">"8"</span><span class="p">,</span>
+            <span class="s2">"8"</span><span class="p">:</span> <span class="s2">"7"</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputdata</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">mirrored_patterns</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="n">mirrored</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mirror_map</span><span class="p">[</span><span class="n">dot</span><span class="p">]</span> <span class="k">for</span> <span class="n">dot</span> <span class="ow">in</span> <span class="n">pattern</span><span class="p">)</span>
+                <span class="n">mirrored_sorted</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">mirrored</span><span class="p">))</span>
+                <span class="n">mirrored_patterns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">mirrored_sorted</span><span class="p">])</span>
+            <span class="n">mirrored_patterns</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mirrored_patterns</span><span class="p">)</span>
+        <span class="n">mirrored</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">mirror_map</span><span class="p">[</span><span class="n">dot</span><span class="p">]</span> <span class="k">for</span> <span class="n">dot</span> <span class="ow">in</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"list[str]"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">mirrored_sorted</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">mirrored</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">mirrored_sorted</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

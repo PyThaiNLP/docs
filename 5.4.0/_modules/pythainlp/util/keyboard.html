@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.keyboard &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.keyboard</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.keyboard</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""Functions related to keyboard layout."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="n">EN_TH_KEYB_PAIRS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Z"</span><span class="p">:</span> <span class="s2">"("</span><span class="p">,</span>
+    <span class="s2">"z"</span><span class="p">:</span> <span class="s2">"ผ"</span><span class="p">,</span>
+    <span class="s2">"X"</span><span class="p">:</span> <span class="s2">")"</span><span class="p">,</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="s2">"ป"</span><span class="p">,</span>
+    <span class="s2">"C"</span><span class="p">:</span> <span class="s2">"ฉ"</span><span class="p">,</span>
+    <span class="s2">"c"</span><span class="p">:</span> <span class="s2">"แ"</span><span class="p">,</span>
+    <span class="s2">"V"</span><span class="p">:</span> <span class="s2">"ฮ"</span><span class="p">,</span>
+    <span class="s2">"v"</span><span class="p">:</span> <span class="s2">"อ"</span><span class="p">,</span>
+    <span class="s2">"B"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e3a</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># พินทุ</span>
+    <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e34</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอุ</span>
+    <span class="s2">"N"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e4c</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># การันต์</span>
+    <span class="s2">"n"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e37</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอือ</span>
+    <span class="s2">"M"</span><span class="p">:</span> <span class="s2">"?"</span><span class="p">,</span>
+    <span class="s2">"m"</span><span class="p">:</span> <span class="s2">"ท"</span><span class="p">,</span>
+    <span class="s2">"&lt;"</span><span class="p">:</span> <span class="s2">"ฒ"</span><span class="p">,</span>
+    <span class="s2">","</span><span class="p">:</span> <span class="s2">"ม"</span><span class="p">,</span>
+    <span class="s2">"&gt;"</span><span class="p">:</span> <span class="s2">"ฬ"</span><span class="p">,</span>
+    <span class="s2">"."</span><span class="p">:</span> <span class="s2">"ใ"</span><span class="p">,</span>
+    <span class="s2">"?"</span><span class="p">:</span> <span class="s2">"ฦ"</span><span class="p">,</span>
+    <span class="s2">"/"</span><span class="p">:</span> <span class="s2">"ฝ"</span><span class="p">,</span>
+    <span class="s2">"A"</span><span class="p">:</span> <span class="s2">"ฤ"</span><span class="p">,</span>
+    <span class="s2">"a"</span><span class="p">:</span> <span class="s2">"ฟ"</span><span class="p">,</span>
+    <span class="s2">"S"</span><span class="p">:</span> <span class="s2">"ฆ"</span><span class="p">,</span>
+    <span class="s2">"s"</span><span class="p">:</span> <span class="s2">"ห"</span><span class="p">,</span>
+    <span class="s2">"D"</span><span class="p">:</span> <span class="s2">"ฏ"</span><span class="p">,</span>
+    <span class="s2">"d"</span><span class="p">:</span> <span class="s2">"ก"</span><span class="p">,</span>
+    <span class="s2">"F"</span><span class="p">:</span> <span class="s2">"โ"</span><span class="p">,</span>
+    <span class="s2">"f"</span><span class="p">:</span> <span class="s2">"ด"</span><span class="p">,</span>
+    <span class="s2">"G"</span><span class="p">:</span> <span class="s2">"ฌ"</span><span class="p">,</span>
+    <span class="s2">"g"</span><span class="p">:</span> <span class="s2">"เ"</span><span class="p">,</span>
+    <span class="s2">"H"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e47</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้ไต่คู้</span>
+    <span class="s2">"h"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e49</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้โท</span>
+    <span class="s2">"J"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e4b</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้จัตวา</span>
+    <span class="s2">"j"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e48</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้เอก</span>
+    <span class="s2">"K"</span><span class="p">:</span> <span class="s2">"ษ"</span><span class="p">,</span>
+    <span class="s2">"k"</span><span class="p">:</span> <span class="s2">"า"</span><span class="p">,</span>
+    <span class="s2">"L"</span><span class="p">:</span> <span class="s2">"ศ"</span><span class="p">,</span>
+    <span class="s2">"l"</span><span class="p">:</span> <span class="s2">"ส"</span><span class="p">,</span>
+    <span class="s2">":"</span><span class="p">:</span> <span class="s2">"ซ"</span><span class="p">,</span>
+    <span class="s2">";"</span><span class="p">:</span> <span class="s2">"ว"</span><span class="p">,</span>
+    <span class="s1">'"'</span><span class="p">:</span> <span class="s2">"."</span><span class="p">,</span>
+    <span class="s2">"'"</span><span class="p">:</span> <span class="s2">"ง"</span><span class="p">,</span>
+    <span class="s2">"Q"</span><span class="p">:</span> <span class="s2">"๐"</span><span class="p">,</span>
+    <span class="s2">"q"</span><span class="p">:</span> <span class="s2">"ๆ"</span><span class="p">,</span>
+    <span class="s2">"W"</span><span class="p">:</span> <span class="s1">'"'</span><span class="p">,</span>
+    <span class="s2">"w"</span><span class="p">:</span> <span class="s2">"ไ"</span><span class="p">,</span>
+    <span class="s2">"E"</span><span class="p">:</span> <span class="s2">"ฎ"</span><span class="p">,</span>
+    <span class="s2">"e"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e33</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอำ</span>
+    <span class="s2">"R"</span><span class="p">:</span> <span class="s2">"ฑ"</span><span class="p">,</span>
+    <span class="s2">"r"</span><span class="p">:</span> <span class="s2">"พ"</span><span class="p">,</span>
+    <span class="s2">"T"</span><span class="p">:</span> <span class="s2">"ธ"</span><span class="p">,</span>
+    <span class="s2">"t"</span><span class="p">:</span> <span class="s2">"ะ"</span><span class="p">,</span>
+    <span class="s2">"Y"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e4d</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># นิคหิต</span>
+    <span class="s2">"y"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e31</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้หันอากาศ</span>
+    <span class="s2">"U"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e4a</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># ไม้ตรี</span>
+    <span class="s2">"u"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e35</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอ ี</span>
+    <span class="s2">"I"</span><span class="p">:</span> <span class="s2">"ณ"</span><span class="p">,</span>
+    <span class="s2">"i"</span><span class="p">:</span> <span class="s2">"ร"</span><span class="p">,</span>
+    <span class="s2">"O"</span><span class="p">:</span> <span class="s2">"ฯ"</span><span class="p">,</span>
+    <span class="s2">"o"</span><span class="p">:</span> <span class="s2">"น"</span><span class="p">,</span>
+    <span class="s2">"P"</span><span class="p">:</span> <span class="s2">"ญ"</span><span class="p">,</span>
+    <span class="s2">"p"</span><span class="p">:</span> <span class="s2">"ย"</span><span class="p">,</span>
+    <span class="s2">"{"</span><span class="p">:</span> <span class="s2">"ฐ"</span><span class="p">,</span>
+    <span class="s2">"["</span><span class="p">:</span> <span class="s2">"บ"</span><span class="p">,</span>
+    <span class="s2">"}"</span><span class="p">:</span> <span class="s2">","</span><span class="p">,</span>
+    <span class="s2">"]"</span><span class="p">:</span> <span class="s2">"ล"</span><span class="p">,</span>
+    <span class="s2">"|"</span><span class="p">:</span> <span class="s2">"ฅ"</span><span class="p">,</span>
+    <span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">:</span> <span class="s2">"ฃ"</span><span class="p">,</span>
+    <span class="s2">"~"</span><span class="p">:</span> <span class="s2">"%"</span><span class="p">,</span>
+    <span class="s2">"`"</span><span class="p">:</span> <span class="s2">"_"</span><span class="p">,</span>
+    <span class="s2">"@"</span><span class="p">:</span> <span class="s2">"๑"</span><span class="p">,</span>
+    <span class="s2">"2"</span><span class="p">:</span> <span class="s2">"/"</span><span class="p">,</span>
+    <span class="s2">"#"</span><span class="p">:</span> <span class="s2">"๒"</span><span class="p">,</span>
+    <span class="s2">"3"</span><span class="p">:</span> <span class="s2">"-"</span><span class="p">,</span>
+    <span class="s2">"$"</span><span class="p">:</span> <span class="s2">"๓"</span><span class="p">,</span>
+    <span class="s2">"4"</span><span class="p">:</span> <span class="s2">"ภ"</span><span class="p">,</span>
+    <span class="s2">"%"</span><span class="p">:</span> <span class="s2">"๔"</span><span class="p">,</span>
+    <span class="s2">"5"</span><span class="p">:</span> <span class="s2">"ถ"</span><span class="p">,</span>
+    <span class="s2">"^"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e39</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอู</span>
+    <span class="s2">"6"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e38</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอุ</span>
+    <span class="s2">"&amp;"</span><span class="p">:</span> <span class="s2">"฿"</span><span class="p">,</span>
+    <span class="s2">"7"</span><span class="p">:</span> <span class="s2">"</span><span class="se">\u0e36</span><span class="s2">"</span><span class="p">,</span>  <span class="c1"># สระอึ</span>
+    <span class="s2">"*"</span><span class="p">:</span> <span class="s2">"๕"</span><span class="p">,</span>
+    <span class="s2">"8"</span><span class="p">:</span> <span class="s2">"ค"</span><span class="p">,</span>
+    <span class="s2">"("</span><span class="p">:</span> <span class="s2">"๖"</span><span class="p">,</span>
+    <span class="s2">"9"</span><span class="p">:</span> <span class="s2">"ต"</span><span class="p">,</span>
+    <span class="s2">")"</span><span class="p">:</span> <span class="s2">"๗"</span><span class="p">,</span>
+    <span class="s2">"0"</span><span class="p">:</span> <span class="s2">"จ"</span><span class="p">,</span>
+    <span class="s2">"_"</span><span class="p">:</span> <span class="s2">"๘"</span><span class="p">,</span>
+    <span class="s2">"-"</span><span class="p">:</span> <span class="s2">"ข"</span><span class="p">,</span>
+    <span class="s2">"+"</span><span class="p">:</span> <span class="s2">"๙"</span><span class="p">,</span>
+    <span class="s2">"="</span><span class="p">:</span> <span class="s2">"ช"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">TH_EN_KEYB_PAIRS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">EN_TH_KEYB_PAIRS</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">EN_TH_TRANSLATE_TABLE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span>
+    <span class="n">cast</span><span class="p">(</span><span class="s2">"dict[str, Union[int, str, None]]"</span><span class="p">,</span> <span class="n">EN_TH_KEYB_PAIRS</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">TH_EN_TRANSLATE_TABLE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span>
+    <span class="n">cast</span><span class="p">(</span><span class="s2">"dict[str, Union[int, str, None]]"</span><span class="p">,</span> <span class="n">TH_EN_KEYB_PAIRS</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">TIS_820_2531_MOD</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"ๅ"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">,</span> <span class="s2">"ภ"</span><span class="p">,</span> <span class="s2">"ถ"</span><span class="p">,</span> <span class="s2">"ุ"</span><span class="p">,</span> <span class="s2">"ึ"</span><span class="p">,</span> <span class="s2">"ค"</span><span class="p">,</span> <span class="s2">"ต"</span><span class="p">,</span> <span class="s2">"จ"</span><span class="p">,</span> <span class="s2">"ข"</span><span class="p">,</span> <span class="s2">"ช"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ๆ"</span><span class="p">,</span> <span class="s2">"ไ"</span><span class="p">,</span> <span class="s2">"ำ"</span><span class="p">,</span> <span class="s2">"พ"</span><span class="p">,</span> <span class="s2">"ะ"</span><span class="p">,</span> <span class="s2">"ั"</span><span class="p">,</span> <span class="s2">"ี"</span><span class="p">,</span> <span class="s2">"ร"</span><span class="p">,</span> <span class="s2">"น"</span><span class="p">,</span> <span class="s2">"ย"</span><span class="p">,</span> <span class="s2">"บ"</span><span class="p">,</span> <span class="s2">"ล"</span><span class="p">,</span> <span class="s2">"ฃ"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ฟ"</span><span class="p">,</span> <span class="s2">"ห"</span><span class="p">,</span> <span class="s2">"ก"</span><span class="p">,</span> <span class="s2">"ด"</span><span class="p">,</span> <span class="s2">"เ"</span><span class="p">,</span> <span class="s2">"้"</span><span class="p">,</span> <span class="s2">"่"</span><span class="p">,</span> <span class="s2">"า"</span><span class="p">,</span> <span class="s2">"ส"</span><span class="p">,</span> <span class="s2">"ว"</span><span class="p">,</span> <span class="s2">"ง"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ผ"</span><span class="p">,</span> <span class="s2">"ป"</span><span class="p">,</span> <span class="s2">"แ"</span><span class="p">,</span> <span class="s2">"อ"</span><span class="p">,</span> <span class="s2">"ิ"</span><span class="p">,</span> <span class="s2">"ื"</span><span class="p">,</span> <span class="s2">"ท"</span><span class="p">,</span> <span class="s2">"ม"</span><span class="p">,</span> <span class="s2">"ใ"</span><span class="p">,</span> <span class="s2">"ฝ"</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">TIS_820_2531_MOD_SHIFT</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"%"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="s2">"๑"</span><span class="p">,</span> <span class="s2">"๒"</span><span class="p">,</span> <span class="s2">"๓"</span><span class="p">,</span> <span class="s2">"๔"</span><span class="p">,</span> <span class="s2">"ู"</span><span class="p">,</span> <span class="s2">"฿"</span><span class="p">,</span> <span class="s2">"๕"</span><span class="p">,</span> <span class="s2">"๖"</span><span class="p">,</span> <span class="s2">"๗"</span><span class="p">,</span> <span class="s2">"๘"</span><span class="p">,</span> <span class="s2">"๙"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"๐"</span><span class="p">,</span> <span class="s1">'"'</span><span class="p">,</span> <span class="s2">"ฎ"</span><span class="p">,</span> <span class="s2">"ฑ"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"ํ"</span><span class="p">,</span> <span class="s2">"๊"</span><span class="p">,</span> <span class="s2">"ณ"</span><span class="p">,</span> <span class="s2">"ฯ"</span><span class="p">,</span> <span class="s2">"ญ"</span><span class="p">,</span> <span class="s2">"ฐ"</span><span class="p">,</span> <span class="s2">","</span><span class="p">,</span> <span class="s2">"ฅ"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ฤ"</span><span class="p">,</span> <span class="s2">"ฆ"</span><span class="p">,</span> <span class="s2">"ฏ"</span><span class="p">,</span> <span class="s2">"โ"</span><span class="p">,</span> <span class="s2">"ฌ"</span><span class="p">,</span> <span class="s2">"็"</span><span class="p">,</span> <span class="s2">"๋"</span><span class="p">,</span> <span class="s2">"ษ"</span><span class="p">,</span> <span class="s2">"ศ"</span><span class="p">,</span> <span class="s2">"ซ"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">")"</span><span class="p">,</span> <span class="s2">"ฉ"</span><span class="p">,</span> <span class="s2">"ฮ"</span><span class="p">,</span> <span class="s2">"ฺ"</span><span class="p">,</span> <span class="s2">"์"</span><span class="p">,</span> <span class="s2">"?"</span><span class="p">,</span> <span class="s2">"ฒ"</span><span class="p">,</span> <span class="s2">"ฬ"</span><span class="p">,</span> <span class="s2">"ฦ"</span><span class="p">],</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="eng_to_thai">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.eng_to_thai">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">eng_to_thai</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert text typed in the wrong layout to Thai Kedmanee.</span>
+
+<span class="sd">    The text was typed with the English-US Qwerty keyboard layout.</span>
+
+<span class="sd">    :param str text: text typed with the wrong layout</span>
+<span class="sd">        (Thai typed using an English keyboard)</span>
+<span class="sd">    :return: Thai text, corrected from the wrong keyboard layout</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Intentionally type "ธนาคารแห่งประเทศไทย", but got "Tok8kicsj'xitgmLwmp":</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import eng_to_thai</span>
+<span class="sd">        &gt;&gt;&gt; eng_to_thai("Tok8kicsj'xitgmLwmp")</span>
+<span class="sd">        'ธนาคารแห่งประเทศไทย'</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">EN_TH_TRANSLATE_TABLE</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="thai_to_eng">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thai_to_eng">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_to_eng</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert text typed in the wrong layout to English-US Qwerty.</span>
+
+<span class="sd">    The text was typed with the Thai Kedmanee keyboard layout.</span>
+
+<span class="sd">    :param str text: text typed with the wrong layout</span>
+<span class="sd">        (English typed using a Thai keyboard)</span>
+<span class="sd">    :return: English text, corrected from the wrong keyboard layout</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">    Intentionally type "Bank of Thailand", but got "ฺฟืา นด ธ้ฟรสฟืก":</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import thai_to_eng</span>
+<span class="sd">        &gt;&gt;&gt; thai_to_eng("ฺฟืา นด ธ้ฟรสฟืก")</span>
+<span class="sd">        'Bank of Thailand'</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">TH_EN_TRANSLATE_TABLE</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_keyboard_dist</span><span class="p">(</span><span class="n">c1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shift_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate the Euclidean distance between two Thai characters.</span>
+
+<span class="sd">    The distance follows the location of the characters on a Thai</span>
+<span class="sd">    keyboard layout. The calculation uses a modified TIS 820-2531</span>
+<span class="sd">    standard layout, which is developed from the Kedmanee layout and is</span>
+<span class="sd">    the most commonly used Thai keyboard layout.</span>
+
+<span class="sd">    The modified TIS 820-2531 is TIS 820-2531 with a few key extensions</span>
+<span class="sd">    proposed in the TIS 820-2536 draft. See Figure 4, notice the grey</span>
+<span class="sd">    keys, in</span>
+<span class="sd">    https://www.nectec.or.th/it-standards/keyboard_layout/thai-key.html</span>
+
+<span class="sd">    Note that the latest TIS 820-2538 has slight changes in layout from</span>
+<span class="sd">    TIS 820-2531. See Figure 2, notice the Thai Baht sign and the ฅ-ฃ</span>
+<span class="sd">    pair, in</span>
+<span class="sd">    https://www.nectec.or.th/it-standards/std820/std820.html</span>
+<span class="sd">    Since keyboard manufacturers have not widely adopted TIS 820-2538,</span>
+<span class="sd">    this function uses the de facto standard modified TIS 820-2531.</span>
+
+<span class="sd">    :param str c1: first character</span>
+<span class="sd">    :param str c2: second character</span>
+<span class="sd">    :param float shift_dist: distance to return if the characters are</span>
+<span class="sd">        on shifted keys</span>
+<span class="sd">    :return: Euclidean distance between the two characters</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import thai_keyboard_dist</span>
+<span class="sd">        &gt;&gt;&gt; thai_keyboard_dist("ด", "ะ")</span>
+<span class="sd">        1.4142135623730951</span>
+<span class="sd">        &gt;&gt;&gt; thai_keyboard_dist("ฟ", "ฤ")</span>
+<span class="sd">        0.0</span>
+<span class="sd">        &gt;&gt;&gt; thai_keyboard_dist("ฟ", "ห")</span>
+<span class="sd">        1.0</span>
+<span class="sd">        &gt;&gt;&gt; thai_keyboard_dist("ฟ", "ก")</span>
+<span class="sd">        2.0</span>
+<span class="sd">        &gt;&gt;&gt; thai_keyboard_dist("ฟ", "ฤ", 0.5)</span>
+<span class="sd">        0.5</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_char_coord</span><span class="p">(</span>
+        <span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">layouts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">layouts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layouts</span> <span class="o">=</span> <span class="p">[</span><span class="n">TIS_820_2531_MOD</span><span class="p">,</span> <span class="n">TIS_820_2531_MOD_SHIFT</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">layout</span> <span class="ow">in</span> <span class="n">layouts</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">layout</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+                    <span class="n">r</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+                    <span class="n">c</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">ch</span> <span class="o">+</span> <span class="s2">" not found in given keyboard layout"</span><span class="p">)</span>
+
+    <span class="n">coord1</span> <span class="o">=</span> <span class="n">get_char_coord</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+    <span class="n">coord2</span> <span class="o">=</span> <span class="n">get_char_coord</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+    <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">coord1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">coord2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">coord1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">coord2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">distance</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">c1</span> <span class="o">!=</span> <span class="n">c2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">shift_dist</span>
+    <span class="k">return</span> <span class="n">distance</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

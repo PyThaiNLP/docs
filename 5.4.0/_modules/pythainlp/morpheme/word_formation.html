@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.morpheme.word_formation &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.morpheme.word_formation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.morpheme.word_formation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""Thai word formation functions."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp</span><span class="w"> </span><span class="kn">import</span> <span class="n">thai_consonants</span>
+
+<span class="c1"># Consonant that follows nighit, by the first consonant of the next word.</span>
+<span class="c1"># Each consonant appears in at most one row, sorted in Thai alphabetical</span>
+<span class="c1"># order. ฎ and ด are kept for compatibility.</span>
+<span class="c1"># Unsupported: ฃ ฅ ซ บ ฝ ฟ อ ฮ</span>
+<span class="n">_NIGHIT_ENDINGS</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">((</span><span class="s2">"ก"</span><span class="p">,</span> <span class="s2">"ข"</span><span class="p">,</span> <span class="s2">"ค"</span><span class="p">,</span> <span class="s2">"ฆ"</span><span class="p">,</span> <span class="s2">"ง"</span><span class="p">),</span> <span class="s2">"ง"</span><span class="p">),</span>
+    <span class="p">((</span><span class="s2">"จ"</span><span class="p">,</span> <span class="s2">"ฉ"</span><span class="p">,</span> <span class="s2">"ช"</span><span class="p">,</span> <span class="s2">"ฌ"</span><span class="p">,</span> <span class="s2">"ญ"</span><span class="p">),</span> <span class="s2">"ญ"</span><span class="p">),</span>
+    <span class="p">((</span><span class="s2">"ฎ"</span><span class="p">,</span> <span class="s2">"ฏ"</span><span class="p">,</span> <span class="s2">"ฐ"</span><span class="p">,</span> <span class="s2">"ฑ"</span><span class="p">,</span> <span class="s2">"ฒ"</span><span class="p">,</span> <span class="s2">"ณ"</span><span class="p">),</span> <span class="s2">"ณ"</span><span class="p">),</span>
+    <span class="p">((</span><span class="s2">"ด"</span><span class="p">,</span> <span class="s2">"ต"</span><span class="p">,</span> <span class="s2">"ถ"</span><span class="p">,</span> <span class="s2">"ท"</span><span class="p">,</span> <span class="s2">"ธ"</span><span class="p">,</span> <span class="s2">"น"</span><span class="p">),</span> <span class="s2">"น"</span><span class="p">),</span>
+    <span class="p">((</span><span class="s2">"ป"</span><span class="p">,</span> <span class="s2">"ผ"</span><span class="p">,</span> <span class="s2">"พ"</span><span class="p">,</span> <span class="s2">"ภ"</span><span class="p">,</span> <span class="s2">"ม"</span><span class="p">),</span> <span class="s2">"ม"</span><span class="p">),</span>
+    <span class="p">((</span><span class="s2">"ย"</span><span class="p">,</span> <span class="s2">"ร"</span><span class="p">,</span> <span class="s2">"ล"</span><span class="p">,</span> <span class="s2">"ว"</span><span class="p">,</span> <span class="s2">"ศ"</span><span class="p">,</span> <span class="s2">"ษ"</span><span class="p">,</span> <span class="s2">"ส"</span><span class="p">,</span> <span class="s2">"ห"</span><span class="p">,</span> <span class="s2">"ฬ"</span><span class="p">),</span> <span class="s2">"ง"</span><span class="p">),</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_nighit_ending</span><span class="p">(</span><span class="n">consonant</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Return the consonant that follows nighit, or None if unsupported."""</span>
+    <span class="k">for</span> <span class="n">consonants</span><span class="p">,</span> <span class="n">ending</span> <span class="ow">in</span> <span class="n">_NIGHIT_ENDINGS</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">consonant</span> <span class="ow">in</span> <span class="n">consonants</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ending</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="nighit">
+<a class="viewcode-back" href="../../../api/morpheme.html#pythainlp.morpheme.nighit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">nighit</span><span class="p">(</span><span class="n">w1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">w2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create a new word using Nighit (นิคหิต or ํ).</span>
+
+<span class="sd">    Nighit is the niggahita in Thai, used to form new words</span>
+<span class="sd">    from Pali roots. This function applies a simple rule to</span>
+<span class="sd">    combine two Thai words derived from Pali.</span>
+
+<span class="sd">    Reference:</span>
+<span class="sd">    https://www.trueplookpanya.com/learning/detail/1180</span>
+
+<span class="sd">    :param str w1: Thai word ending with a nighit (ํ)</span>
+<span class="sd">    :param str w2: Thai word to be combined with ``w1``</span>
+<span class="sd">    :return: combined Thai word</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :raises TypeError: if ``w1`` or ``w2`` is not a string</span>
+<span class="sd">    :raises NotImplementedError: if ``w1`` does not end with ํ, or the</span>
+<span class="sd">        first consonant of ``w2`` is not supported</span>
+<span class="sd">    :raises ValueError: if ``w2`` contains no Thai consonant</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.morpheme import nighit</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "คีต")</span>
+<span class="sd">        'สังคีต'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "จร")</span>
+<span class="sd">        'สัญจร'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "ญา")</span>
+<span class="sd">        'สัญญา'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "มา")</span>
+<span class="sd">        'สัมมา'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "ฐาน")</span>
+<span class="sd">        'สัณฐาน'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "นิษฐาน")</span>
+<span class="sd">        'สันนิษฐาน'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "ปทา")</span>
+<span class="sd">        'สัมปทา'</span>
+<span class="sd">        &gt;&gt;&gt; nighit("สํ", "โยค")</span>
+<span class="sd">        'สังโยค'</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Both w1 and w2 must be strings."</span><span class="p">)</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="n">w1</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="n">w2</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">w1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">w2</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">w2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">w1</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">w1</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ํ"</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The function doesn't support </span><span class="si">{</span><span class="n">w1</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="n">list_w1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+    <span class="n">list_w2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span>
+    <span class="n">newword</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">newword</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_w1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">newword</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ั"</span><span class="p">)</span>
+    <span class="n">_consonants</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">thai_consonants</span><span class="p">)</span>
+    <span class="n">consonants_in_w2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_w2</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_consonants</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">consonants_in_w2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"w2 </span><span class="si">{</span><span class="n">w2</span><span class="si">!r}</span><span class="s2"> contains no Thai consonants."</span><span class="p">)</span>
+    <span class="n">consonant_start</span> <span class="o">=</span> <span class="n">consonants_in_w2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ending</span> <span class="o">=</span> <span class="n">_nighit_ending</span><span class="p">(</span><span class="n">consonant_start</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ending</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""</span>
+<span class="s2">        The function doesn't support </span><span class="si">{</span><span class="n">w1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">w2</span><span class="si">}</span><span class="s2">.</span>
+<span class="s2">        """</span><span class="p">)</span>
+    <span class="n">newword</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ending</span><span class="p">)</span>
+    <span class="n">newword</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list_w2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">newword</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

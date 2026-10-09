@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.util.date &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.util.date</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.util.date</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""</span>
+<span class="sd">Thai date and time conversion.</span>
+
+<span class="sd">Note: It does not take into account the change of New Year's Day in</span>
+<span class="sd">Thailand.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"convert_years"</span><span class="p">,</span>
+    <span class="s2">"thai_abbr_months"</span><span class="p">,</span>
+    <span class="s2">"thai_abbr_weekdays"</span><span class="p">,</span>
+    <span class="s2">"thai_full_months"</span><span class="p">,</span>
+    <span class="s2">"thai_full_weekdays"</span><span class="p">,</span>
+    <span class="s2">"thai_strptime"</span><span class="p">,</span>
+    <span class="s2">"thaiword_to_date"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.util._calendar</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ERA_OFFSETS_FROM_BE</span>
+
+<span class="n">thai_abbr_weekdays</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"จ"</span><span class="p">,</span> <span class="s2">"อ"</span><span class="p">,</span> <span class="s2">"พ"</span><span class="p">,</span> <span class="s2">"พฤ"</span><span class="p">,</span> <span class="s2">"ศ"</span><span class="p">,</span> <span class="s2">"ส"</span><span class="p">,</span> <span class="s2">"อา"</span><span class="p">]</span>
+<span class="n">thai_full_weekdays</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"วันจันทร์"</span><span class="p">,</span>
+    <span class="s2">"วันอังคาร"</span><span class="p">,</span>
+    <span class="s2">"วันพุธ"</span><span class="p">,</span>
+    <span class="s2">"วันพฤหัสบดี"</span><span class="p">,</span>
+    <span class="s2">"วันศุกร์"</span><span class="p">,</span>
+    <span class="s2">"วันเสาร์"</span><span class="p">,</span>
+    <span class="s2">"วันอาทิตย์"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">thai_abbr_months</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"ม.ค."</span><span class="p">,</span>
+    <span class="s2">"ก.พ."</span><span class="p">,</span>
+    <span class="s2">"มี.ค."</span><span class="p">,</span>
+    <span class="s2">"เม.ย."</span><span class="p">,</span>
+    <span class="s2">"พ.ค."</span><span class="p">,</span>
+    <span class="s2">"มิ.ย."</span><span class="p">,</span>
+    <span class="s2">"ก.ค."</span><span class="p">,</span>
+    <span class="s2">"ส.ค."</span><span class="p">,</span>
+    <span class="s2">"ก.ย."</span><span class="p">,</span>
+    <span class="s2">"ต.ค."</span><span class="p">,</span>
+    <span class="s2">"พ.ย."</span><span class="p">,</span>
+    <span class="s2">"ธ.ค."</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">thai_full_months</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"มกราคม"</span><span class="p">,</span>
+    <span class="s2">"กุมภาพันธ์"</span><span class="p">,</span>
+    <span class="s2">"มีนาคม"</span><span class="p">,</span>
+    <span class="s2">"เมษายน"</span><span class="p">,</span>
+    <span class="s2">"พฤษภาคม"</span><span class="p">,</span>
+    <span class="s2">"มิถุนายน"</span><span class="p">,</span>
+    <span class="s2">"กรกฎาคม"</span><span class="p">,</span>
+    <span class="s2">"สิงหาคม"</span><span class="p">,</span>
+    <span class="s2">"กันยายน"</span><span class="p">,</span>
+    <span class="s2">"ตุลาคม"</span><span class="p">,</span>
+    <span class="s2">"พฤศจิกายน"</span><span class="p">,</span>
+    <span class="s2">"ธันวาคม"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">thai_full_month_lists</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"มกราคม"</span><span class="p">,</span> <span class="s2">"มกรา"</span><span class="p">,</span> <span class="s2">"ม.ค."</span><span class="p">,</span> <span class="s2">"01"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"กุมภาพันธ์"</span><span class="p">,</span> <span class="s2">"กุมภา"</span><span class="p">,</span> <span class="s2">"ก.พ."</span><span class="p">,</span> <span class="s2">"02"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"มีนาคม"</span><span class="p">,</span> <span class="s2">"มีนา"</span><span class="p">,</span> <span class="s2">"มี.ค."</span><span class="p">,</span> <span class="s2">"03"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"เมษายน"</span><span class="p">,</span> <span class="s2">"เมษา"</span><span class="p">,</span> <span class="s2">"เม.ย."</span><span class="p">,</span> <span class="s2">"04"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"พฤษภาคม"</span><span class="p">,</span> <span class="s2">"พฤษภา"</span><span class="p">,</span> <span class="s2">"พ.ค."</span><span class="p">,</span> <span class="s2">"05"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"มิถุนายน"</span><span class="p">,</span> <span class="s2">"มิถุนา"</span><span class="p">,</span> <span class="s2">"มิ.ย."</span><span class="p">,</span> <span class="s2">"06"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"กรกฎาคม"</span><span class="p">,</span> <span class="s2">"ก.ค."</span><span class="p">,</span> <span class="s2">"07"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"สิงหาคม"</span><span class="p">,</span> <span class="s2">"สิงหา"</span><span class="p">,</span> <span class="s2">"ส.ค."</span><span class="p">,</span> <span class="s2">"08"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"กันยายน"</span><span class="p">,</span> <span class="s2">"กันยา"</span><span class="p">,</span> <span class="s2">"ก.ย."</span><span class="p">,</span> <span class="s2">"09"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ตุลาคม"</span><span class="p">,</span> <span class="s2">"ตุลา"</span><span class="p">,</span> <span class="s2">"ต.ค."</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"พฤศจิกายน"</span><span class="p">,</span> <span class="s2">"พฤศจิกา"</span><span class="p">,</span> <span class="s2">"พ.ย."</span><span class="p">,</span> <span class="s2">"11"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ธันวาคม"</span><span class="p">,</span> <span class="s2">"ธันวา"</span><span class="p">,</span> <span class="s2">"ธ.ค."</span><span class="p">,</span> <span class="s2">"12"</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">thai_full_month_lists_regex</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"("</span> <span class="o">+</span> <span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thai_full_month_lists</span><span class="p">])</span> <span class="o">+</span> <span class="s2">")"</span>
+<span class="p">)</span>
+<span class="n">year_all_regex</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(\d\d\d\d|\d\d)"</span>
+<span class="n">dates_list</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"("</span>
+    <span class="o">+</span> <span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"0"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="s2">")"</span>
+<span class="p">)</span>
+
+<span class="n">_DAY</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"วันนี้"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"คืนนี้"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"พรุ่งนี้"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"วันพรุ่งนี้"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"คืนถัดจากนี้"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"คืนหน้า"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"มะรืน"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"มะรืนนี้"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"วันมะรืนนี้"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ถัดจากพรุ่งนี้"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ถัดจากวันพรุ่งนี้"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"เมื่อวาน"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"เมื่อวานนี้"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"วานนี้"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"เมื่อคืน"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"เมื่อคืนนี้"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"วานซืน"</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"เมื่อวานซืน"</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"เมื่อวานของเมื่อวาน"</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_known_era</span><span class="p">(</span><span class="n">era</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">era</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">era</span> <span class="ow">in</span> <span class="n">_ERA_OFFSETS_FROM_BE</span>
+
+
+<div class="viewcode-block" id="convert_years">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.convert_years">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_years</span><span class="p">(</span><span class="n">year</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"be"</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ad"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert a year from one era to another.</span>
+
+<span class="sd">    :param str year: year, as an integer string</span>
+<span class="sd">    :param str src: source era</span>
+<span class="sd">    :param str target: target era</span>
+<span class="sd">    :return: converted year</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :raises NotImplementedError: if ``src`` or ``target`` is not a</span>
+<span class="sd">        supported era</span>
+<span class="sd">    :raises ValueError: if ``year`` is not an integer string</span>
+
+<span class="sd">    Options for ``src`` and ``target``:</span>
+<span class="sd">        * *be* - Buddhist Era</span>
+<span class="sd">        * *ad* - Anno Domini</span>
+<span class="sd">        * *re* - Rattanakosin Era</span>
+<span class="sd">        * *ah* - Anno Hegirae</span>
+
+<span class="sd">    **Warning**: This function works properly only after 1941,</span>
+<span class="sd">    because Thailand changed its calendar in 1941.</span>
+<span class="sd">    Historians need to take the correct calendar into account.</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import convert_years</span>
+<span class="sd">        &gt;&gt;&gt; # Convert Buddhist Era (BE) to Anno Domini (AD)</span>
+<span class="sd">        &gt;&gt;&gt; convert_years("2566", src="be", target="ad")</span>
+<span class="sd">        '2023'</span>
+<span class="sd">        &gt;&gt;&gt; # Convert AD to BE</span>
+<span class="sd">        &gt;&gt;&gt; convert_years("2023", src="ad", target="be")</span>
+<span class="sd">        '2566'</span>
+<span class="sd">        &gt;&gt;&gt; # Convert BE to Rattanakosin Era (RE)</span>
+<span class="sd">        &gt;&gt;&gt; convert_years("2566", src="be", target="re")</span>
+<span class="sd">        '242'</span>
+<span class="sd">        &gt;&gt;&gt; # The same era returns the year as a normalized integer string</span>
+<span class="sd">        &gt;&gt;&gt; convert_years("2566", src="be", target="be")</span>
+<span class="sd">        '2566'</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_known_era</span><span class="p">(</span><span class="n">src</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">_is_known_era</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"This function doesn't support </span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+    <span class="n">be_year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">-</span> <span class="n">_ERA_OFFSETS_FROM_BE</span><span class="p">[</span><span class="n">src</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">be_year</span> <span class="o">+</span> <span class="n">_ERA_OFFSETS_FROM_BE</span><span class="p">[</span><span class="n">target</span><span class="p">])</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_find_month</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">thai_full_month_lists</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># Not found in list</span>
+
+
+<span class="c1"># Directives of thai_strptime() and their regular expressions.</span>
+<span class="c1"># The order matters: each replacement is applied in turn.</span>
+<span class="n">_STRPTIME_REGEX</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">dates_list</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"%B"</span><span class="p">,</span> <span class="n">thai_full_month_lists_regex</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"%Y"</span><span class="p">,</span> <span class="n">year_all_regex</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"%H"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"(\d\d|\d)"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"%M"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"(\d\d|\d)"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"%S"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"(\d\d|\d)"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"</span><span class="si">%f</span><span class="s2">"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"(\d+)"</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">_TIME_KEYS</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"H"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fmt_to_regex</span><span class="p">(</span><span class="n">fmt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">directive</span><span class="p">,</span> <span class="n">regex</span> <span class="ow">in</span> <span class="n">_STRPTIME_REGEX</span><span class="p">:</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">directive</span><span class="p">,</span> <span class="n">regex</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fmt</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fmt_keys</span><span class="p">(</span><span class="n">fmt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Names of the directives in ``fmt``, with the separators removed."""</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fmt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"%"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="s2">""</span>
+    <span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_full_year</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">add_year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Normalize a year text, and convert a BE year to an AD year.</span>
+
+<span class="sd">    Add a year below 100 to ``add_year``, or to 2500 (BE) or 2000 (AD)</span>
+<span class="sd">    if ``add_year`` is None.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"be"</span><span class="p">,</span> <span class="s2">"ad"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">add_year</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">add_year</span> <span class="o">=</span> <span class="mi">2500</span> <span class="k">if</span> <span class="n">year</span> <span class="o">==</span> <span class="s2">"be"</span> <span class="k">else</span> <span class="mi">2000</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">add_year</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">==</span> <span class="s2">"be"</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">convert_years</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s2">"be"</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"ad"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<div class="viewcode-block" id="thai_strptime">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thai_strptime">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thai_strptime</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">year</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"be"</span><span class="p">,</span>
+    <span class="n">add_year</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tzinfo</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ZoneInfo</span><span class="p">]</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">"Asia/Bangkok"</span><span class="p">),</span>  <span class="c1"># noqa: B008</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Parse Thai date and time text into a :class:`datetime.datetime`.</span>
+
+<span class="sd">    :param str text: text containing date and time</span>
+<span class="sd">    :param str fmt: string containing date and time directives</span>
+<span class="sd">    :param str year: era of the year in the text</span>
+<span class="sd">        (*ad* for Anno Domini, *be* for Buddhist Era)</span>
+<span class="sd">    :param Optional[int] add_year: year to add to a two-digit year</span>
+<span class="sd">        (default is None)</span>
+<span class="sd">    :param Optional[zoneinfo.ZoneInfo] tzinfo: time zone</span>
+<span class="sd">        (default is Asia/Bangkok)</span>
+<span class="sd">    :return: parsed date and time</span>
+<span class="sd">    :rtype: datetime.datetime</span>
+
+<span class="sd">    Supported directives in ``fmt``:</span>
+<span class="sd">        * *%d* - Day (1 - 31)</span>
+<span class="sd">        * *%B* - Thai month (03, 3, มี.ค., or มีนาคม)</span>
+<span class="sd">        * *%Y* - Year (66, 2566, or 2023)</span>
+<span class="sd">        * *%H* - Hour (0 - 23)</span>
+<span class="sd">        * *%M* - Minute (0 - 59)</span>
+<span class="sd">        * *%S* - Second (0 - 59)</span>
+<span class="sd">        * *%f* - Microsecond</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import thai_strptime</span>
+
+<span class="sd">        &gt;&gt;&gt; thai_strptime("15 ก.ค. 2565 09:00:01", "%d %B %Y %H:%M:%S")</span>
+<span class="sd">        datetime.datetime(2022, 7, 15, 9, 0, 1, tzinfo=zoneinfo.ZoneInfo(key='Asia/Bangkok'))</span>
+<span class="sd">    """</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"%-m"</span><span class="p">,</span> <span class="s2">"%m"</span><span class="p">)</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="si">%-d</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"%b"</span><span class="p">,</span> <span class="s2">"%B"</span><span class="p">)</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"%-y"</span><span class="p">,</span> <span class="s2">"%y"</span><span class="p">)</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">_fmt_keys</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="n">y_matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">_fmt_to_regex</span><span class="p">(</span><span class="n">fmt</span><span class="p">),</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">y_matches</span><span class="p">[</span><span class="mi">0</span><span class="p">])}</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"d"</span><span class="p">]</span>
+    <span class="n">m</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_find_month</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"B"</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Y"</span><span class="p">]</span>
+    <span class="n">time_parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">keys</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_TIME_KEYS</span>
+    <span class="p">]</span>
+    <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">time_parts</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">_full_year</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">add_year</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">(</span>
+        <span class="n">year</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="n">month</span><span class="o">=</span><span class="n">m</span><span class="p">,</span>
+        <span class="n">day</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">),</span>
+        <span class="n">hour</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">hour</span><span class="p">),</span>
+        <span class="n">minute</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">minute</span><span class="p">),</span>
+        <span class="n">second</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">second</span><span class="p">),</span>
+        <span class="n">microsecond</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
+        <span class="n">tzinfo</span><span class="o">=</span><span class="n">tzinfo</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="now_reign_year">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.now_reign_year">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">now_reign_year</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return the current reign year of the 10th King of Chakri dynasty.</span>
+
+<span class="sd">    :return: reign year of the 10th King of Chakri dynasty</span>
+<span class="sd">    :rtype: int</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import now_reign_year  # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; text = "เป็นปีที่ {reign_year} ในรัชกาลปัจจุบัน"\\  # doctest: +SKIP</span>
+<span class="sd">        ...     .format(reign_year=now_reign_year())</span>
+<span class="sd">        &gt;&gt;&gt; print(text)  # doctest: +SKIP</span>
+<span class="sd">        เป็นปีที่ 11 ในรัชกาลปัจจุบัน</span>
+<span class="sd">    """</span>
+    <span class="n">now_</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">now_</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="mi">2015</span>  <span class="c1"># hard coded</span></div>
+
+
+
+<div class="viewcode-block" id="reign_year_to_ad">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.reign_year_to_ad">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">reign_year_to_ad</span><span class="p">(</span><span class="n">reign_year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reign</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert a reign year to an AD year.</span>
+
+<span class="sd">    Return the AD year for a reign year of the 7th to 10th King of</span>
+<span class="sd">    Chakri dynasty, Thailand.</span>
+<span class="sd">    For instance, the AD year of the 4th reign year of the 10th King is</span>
+<span class="sd">    2019.</span>
+
+<span class="sd">    :param int reign_year: reign year of the King</span>
+<span class="sd">    :param int reign: reign of the King (7, 8, 9, or 10)</span>
+<span class="sd">    :return: AD year of the given reign and reign year</span>
+<span class="sd">    :rtype: int</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import reign_year_to_ad</span>
+<span class="sd">        &gt;&gt;&gt; print(</span>
+<span class="sd">        ...     "The 4th reign year of the King Rama X is in",</span>
+<span class="sd">        ...     reign_year_to_ad(4, 10),</span>
+<span class="sd">        ... )</span>
+<span class="sd">        The 4th reign year of the King Rama X is in 2019</span>
+<span class="sd">        &gt;&gt;&gt; print(</span>
+<span class="sd">        ...     "The 1st reign year of the King Rama IX is in",</span>
+<span class="sd">        ...     reign_year_to_ad(1, 9),</span>
+<span class="sd">        ... )</span>
+<span class="sd">        The 1st reign year of the King Rama IX is in 1946</span>
+<span class="sd">    """</span>
+    <span class="n">ad</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">ad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign_year</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2015</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="n">ad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign_year</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1945</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">ad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign_year</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1928</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">ad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">reign_year</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1924</span>
+    <span class="k">return</span> <span class="n">ad</span></div>
+
+
+
+<div class="viewcode-block" id="thaiword_to_date">
+<a class="viewcode-back" href="../../../api/util.html#pythainlp.util.thaiword_to_date">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thaiword_to_date</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert Thai relative date to :class:`datetime.datetime`.</span>
+
+<span class="sd">    :param str text: Thai text containing a relative date</span>
+<span class="sd">    :param datetime.datetime date: reference date</span>
+<span class="sd">        (default is datetime.datetime.now())</span>
+<span class="sd">    :return: date and time if it can be calculated, otherwise None</span>
+<span class="sd">    :rtype: Optional[datetime.datetime]</span>
+
+<span class="sd">    :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from datetime import datetime</span>
+<span class="sd">        &gt;&gt;&gt; from pythainlp.util import thaiword_to_date</span>
+
+<span class="sd">        &gt;&gt;&gt; thaiword_to_date("พรุ่งนี้", datetime(2024, 1, 31))</span>
+<span class="sd">        datetime.datetime(2024, 2, 1, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; thaiword_to_date("เมื่อวาน", datetime(2024, 1, 31))</span>
+<span class="sd">        datetime.datetime(2024, 1, 30, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; print(thaiword_to_date("ไม่มีคำนี้"))</span>
+<span class="sd">        None</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">text</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_DAY</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">day_num</span> <span class="o">=</span> <span class="n">_DAY</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">date</span><span class="p">:</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">day_num</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

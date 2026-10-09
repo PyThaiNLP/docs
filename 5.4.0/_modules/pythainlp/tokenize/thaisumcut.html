@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.tokenize.thaisumcut &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/transliterate.html">pythainlp.transliterate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythainlp.tokenize.thaisumcut</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythainlp.tokenize.thaisumcut</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: 2016-2026 PyThaiNLP Project</span>
+<span class="c1"># SPDX-FileCopyrightText: 2020 Nakhun Chumpolsathien</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">"""</span>
+<span class="sd">Tokenize Thai text into sentences with the ThaiSum sentence segmentor.</span>
+
+<span class="sd">This is an implementation of the sentence segmentor by</span>
+<span class="sd">Nakhun Chumpolsathien, 2020. The original code is from</span>
+<span class="sd">https://github.com/nakhunchumpolsathien/ThaiSum</span>
+
+<span class="sd">Cite:</span>
+
+<span class="sd">.. code-block:: bibtex</span>
+
+<span class="sd">    @mastersthesis{chumpolsathien_2020,</span>
+<span class="sd">        title={Using Knowledge Distillation from Keyword Extraction</span>
+<span class="sd">            to Improve the Informativeness of Neural Cross-lingual</span>
+<span class="sd">            Summarization},</span>
+<span class="sd">        author={Chumpolsathien, Nakhun},</span>
+<span class="sd">        year={2020},</span>
+<span class="sd">        school={Beijing Institute of Technology}</span>
+<span class="sd">    }</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">_TH_ALPHABETS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"([ก-๙])"</span>
+<span class="n">_TH_CONJUNCTION</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(ทำให้|โดย|เพราะ|นอกจากนี้|แต่|กรณีที่|หลังจากนี้|ต่อมา|ภายหลัง|นับตั้งแต่|หลังจาก|ซึ่งเหตุการณ์|ผู้สื่อข่าวรายงานอีก|ส่วนที่|ส่วนสาเหตุ|ฉะนั้น|เพราะฉะนั้น|เพื่อ|เนื่องจาก|จากการสอบสวนทราบว่า|จากกรณี|จากนี้|อย่างไรก็ดี)"</span>
+<span class="n">_TH_CITE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(กล่าวว่า|เปิดเผยว่า|รายงานว่า|ให้การว่า|เผยว่า|บนทวิตเตอร์ว่า|แจ้งว่า|พลเมืองดีว่า|อ้างว่า)"</span>
+<span class="n">_TH_KA_KRUB</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(ครับ|ค่ะ)"</span>
+<span class="n">_TH_STOP_AFTER</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(หรือไม่|โดยเร็ว|แล้ว|อีกด้วย)"</span>
+<span class="n">_TH_STOP_BEFORE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(ล่าสุด|เบื้องต้น|ซึ่ง|ทั้งนี้|แม้ว่า|เมื่อ|แถมยัง|ตอนนั้น|จนเป็นเหตุให้|จากนั้น|อย่างไรก็ตาม|และก็|อย่างใดก็ตาม|เวลานี้|เช่น|กระทั่ง)"</span>
+<span class="n">_DIGIT</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"([0-9])"</span>
+<span class="n">_TH_TITLE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"(นาย|นาง|นางสาว|เด็กชาย|เด็กหญิง|น.ส.|ด.ช.|ด.ญ.)"</span>
+
+<span class="c1"># Phrases that contain a splitting word.</span>
+<span class="c1"># Replace them with a placeholder before splitting, and restore them after.</span>
+<span class="c1"># The order matters: a replacement can change what later ones match.</span>
+<span class="n">_PROTECT</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"โดยเร็ว"</span><span class="p">,</span> <span class="s2">"&lt;rth_Doeirew&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพื่อน"</span><span class="p">,</span> <span class="s2">"&lt;rth_friend&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่ง"</span><span class="p">,</span> <span class="s2">"&lt;rth_but&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยสาร"</span><span class="p">,</span> <span class="s2">"&lt;rth_passenger&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แล้วแต่"</span><span class="p">,</span> <span class="s2">"&lt;rth_leawtea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือเปล่า"</span><span class="p">,</span> <span class="s2">"&lt;rth_repraw&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือไม่"</span><span class="p">,</span> <span class="s2">"&lt;rth_remai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จึงรุ่งเรืองกิจ"</span><span class="p">,</span> <span class="s2">"&lt;rth_tanatorn_lastname&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ตั้งแต่"</span><span class="p">,</span> <span class="s2">"&lt;rth_tangtea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่ละ"</span><span class="p">,</span> <span class="s2">"&lt;rth_teala&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"วิตแล้ว"</span><span class="p">,</span> <span class="s2">"&lt;rth_chiwitleaw&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยประ"</span><span class="p">,</span> <span class="s2">"&lt;rth_doipra&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่หลังจากนั้น"</span><span class="p">,</span> <span class="s2">"&lt;rth_tealangjaknan&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"พรรคเพื่อ"</span><span class="p">,</span> <span class="s2">"&lt;for_party&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่เนื่อง"</span><span class="p">,</span> <span class="s2">"&lt;rth_teaneung&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพื่อทำให้"</span><span class="p">,</span> <span class="s2">"เพื่อ&lt;rth_tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ทำเพื่อ"</span><span class="p">,</span> <span class="s2">"ทำ&lt;rth_for&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จึงทำให้"</span><span class="p">,</span> <span class="s2">"จึง&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"มาโดยตลอด"</span><span class="p">,</span> <span class="s2">"&lt;madoitalod&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่อย่างใด"</span><span class="p">,</span> <span class="s2">"&lt;teayangdaikptam&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่หลังจาก"</span><span class="p">,</span> <span class="s2">"แต่&lt;langjak&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"คงทำให้"</span><span class="p">,</span> <span class="s2">"&lt;rth_kongtamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่ทั้งนี้"</span><span class="p">,</span> <span class="s2">"แต่&lt;tangni&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"มีแต่"</span><span class="p">,</span> <span class="s2">"มี&lt;tea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เหตุที่ทำให้"</span><span class="p">,</span> <span class="s2">"&lt;hedteetamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยหลังจาก"</span><span class="p">,</span> <span class="s2">"โดย&lt;langjak&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่งหลังจาก"</span><span class="p">,</span> <span class="s2">"ซึ่ง&lt;langjak&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ตั้งโดย"</span><span class="p">,</span> <span class="s2">"&lt;rth_tangdoi&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยตรง"</span><span class="p">,</span> <span class="s2">"&lt;rth_doitong&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"นั้นหรือ"</span><span class="p">,</span> <span class="s2">"&lt;rth_nanhlor&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่งต้องทำให้"</span><span class="p">,</span> <span class="s2">"ซึ่งต้อง&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ชื่อต่อมา"</span><span class="p">,</span> <span class="s2">"ชื่อ&lt;tomar&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยเร่งด่วน"</span><span class="p">,</span> <span class="s2">"&lt;doi&gt;เร่งด่วน"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ไม่ได้ทำให้"</span><span class="p">,</span> <span class="s2">"ไม่ได้&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จะทำให้"</span><span class="p">,</span> <span class="s2">"จะ&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จนทำให้"</span><span class="p">,</span> <span class="s2">"จน&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เว้นแต่"</span><span class="p">,</span> <span class="s2">"เว้น&lt;rth_tea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ก็ทำให้"</span><span class="p">,</span> <span class="s2">"ก็&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">" ณ ตอนนั้น"</span><span class="p">,</span> <span class="s2">" ณ &lt;tonnan&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"บางส่วน"</span><span class="p">,</span> <span class="s2">"บาง&lt;rth_suan&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือแม้แต่"</span><span class="p">,</span> <span class="s2">"หรือ&lt;rth_meatea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยทำให้"</span><span class="p">,</span> <span class="s2">"โดย&lt;tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือเพราะ"</span><span class="p">,</span> <span class="s2">"หรือ&lt;rth_orbecause&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"มาแต่"</span><span class="p">,</span> <span class="s2">"มา&lt;rth_tea&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่ไม่ทำให้"</span><span class="p">,</span> <span class="s2">"แต่&lt;maitamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ฉะนั้นเมื่อ"</span><span class="p">,</span> <span class="s2">"ฉะนั้น&lt;rth_moe&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพราะฉะนั้น"</span><span class="p">,</span> <span class="s2">"เพราะ&lt;rth_chanan&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพราะหลังจาก"</span><span class="p">,</span> <span class="s2">"เพราะ&lt;rth_langjak&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"สามารถทำให้"</span><span class="p">,</span> <span class="s2">"สามารถ&lt;rth_tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อาจทำ"</span><span class="p">,</span> <span class="s2">"อาจ&lt;rth_tam&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จะทำ"</span><span class="p">,</span> <span class="s2">"จะ&lt;rth_tam&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"และนอกจากนี้"</span><span class="p">,</span> <span class="s2">"นอกจากนี้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อีกทั้งเพื่อ"</span><span class="p">,</span> <span class="s2">"อีกทั้ง&lt;rth_for&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ทั้งนี้เพื่อ"</span><span class="p">,</span> <span class="s2">"ทั้งนี้&lt;rth_for&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เวลาต่อมา"</span><span class="p">,</span> <span class="s2">"เวลา&lt;rth_toma&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อย่างไรก็ตาม"</span><span class="p">,</span> <span class="s2">"อย่างไรก็ตาม"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อย่างไรก็ตามหลังจาก"</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;อย่างไรก็ตาม&lt;rth_langjak&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่งทำให้"</span><span class="p">,</span> <span class="s2">"ซึ่ง&lt;rth_tamhai&gt;"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยประมาท"</span><span class="p">,</span> <span class="s2">"&lt;doi&gt;ประมาท"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยธรรม"</span><span class="p">,</span> <span class="s2">"&lt;doi&gt;ธรรม"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดยสัจจริง"</span><span class="p">,</span> <span class="s2">"&lt;doi&gt;สัจจริง"</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Restore the placeholders; this is not the exact reverse of _PROTECT.</span>
+<span class="n">_RESTORE</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_Doeirew&gt;"</span><span class="p">,</span> <span class="s2">"โดยเร็ว"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_friend&gt;"</span><span class="p">,</span> <span class="s2">"เพื่อน"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_but&gt;"</span><span class="p">,</span> <span class="s2">"แต่ง"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_passenger&gt;"</span><span class="p">,</span> <span class="s2">"โดยสาร"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_leawtea&gt;"</span><span class="p">,</span> <span class="s2">"แล้วแต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_repraw&gt;"</span><span class="p">,</span> <span class="s2">"หรือเปล่า"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_remai&gt;"</span><span class="p">,</span> <span class="s2">"หรือไม่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_tanatorn_lastname&gt;"</span><span class="p">,</span> <span class="s2">"จึงรุ่งเรืองกิจ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_tangtea&gt;"</span><span class="p">,</span> <span class="s2">"ตั้งแต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_teala&gt;"</span><span class="p">,</span> <span class="s2">"แต่ละ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_chiwitleaw&gt;"</span><span class="p">,</span> <span class="s2">"วิตแล้ว"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_doipra&gt;"</span><span class="p">,</span> <span class="s2">"โดยประ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_tealangjaknan&gt;"</span><span class="p">,</span> <span class="s2">"แต่หลังจากนั้น"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;for_party&gt;"</span><span class="p">,</span> <span class="s2">"พรรคเพื่อ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_teaneung&gt;"</span><span class="p">,</span> <span class="s2">"แต่เนื่อง"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพื่อ&lt;rth_tamhai&gt;"</span><span class="p">,</span> <span class="s2">"เพื่อทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ทำ&lt;rth_for&gt;"</span><span class="p">,</span> <span class="s2">"ทำเพื่อ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จึง&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"จึงทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;madoitalod&gt;"</span><span class="p">,</span> <span class="s2">"มาโดยตลอด"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่&lt;langjak&gt;"</span><span class="p">,</span> <span class="s2">"แต่หลังจาก"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่&lt;tangni&gt;"</span><span class="p">,</span> <span class="s2">"แต่ทั้งนี้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"มี&lt;tea&gt;"</span><span class="p">,</span> <span class="s2">"มีแต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;teayangdaikptam&gt;"</span><span class="p">,</span> <span class="s2">"แต่อย่างใด"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_kongtamhai&gt;"</span><span class="p">,</span> <span class="s2">"คงทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;hedteetamhai&gt;"</span><span class="p">,</span> <span class="s2">"เหตุที่ทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดย&lt;langjak&gt;"</span><span class="p">,</span> <span class="s2">"โดยหลังจาก"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่ง&lt;langjak&gt;"</span><span class="p">,</span> <span class="s2">"ซึ่งหลังจาก"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_tangdoi&gt;"</span><span class="p">,</span> <span class="s2">"ตั้งโดย"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_doitong&gt;"</span><span class="p">,</span> <span class="s2">"โดยตรง"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;rth_nanhlor&gt;"</span><span class="p">,</span> <span class="s2">"นั้นหรือ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่งต้อง&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"ซึ่งต้องทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ชื่อ&lt;tomar&gt;"</span><span class="p">,</span> <span class="s2">"ชื่อต่อมา"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;doi&gt;เร่งด่วน"</span><span class="p">,</span> <span class="s2">"โดยเร่งด่วน"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ไม่ได้&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"ไม่ได้ทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จะ&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"จะทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จน&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"จนทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เว้น&lt;rth_tea&gt;"</span><span class="p">,</span> <span class="s2">"เว้นแต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ก็&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"ก็ทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">" ณ &lt;tonnan&gt;"</span><span class="p">,</span> <span class="s2">" ณ ตอนนั้น"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"บาง&lt;rth_suan&gt;"</span><span class="p">,</span> <span class="s2">"บางส่วน"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือ&lt;rth_meatea&gt;"</span><span class="p">,</span> <span class="s2">"หรือแม้แต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"โดย&lt;tamhai&gt;"</span><span class="p">,</span> <span class="s2">"โดยทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือ&lt;rth_orbecause&gt;"</span><span class="p">,</span> <span class="s2">"หรือเพราะ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"มา&lt;rth_tea&gt;"</span><span class="p">,</span> <span class="s2">"มาแต่"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"แต่&lt;maitamhai&gt;"</span><span class="p">,</span> <span class="s2">"แต่ไม่ทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ฉะนั้น&lt;rth_moe&gt;"</span><span class="p">,</span> <span class="s2">"ฉะนั้นเมื่อ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพราะ&lt;rth_chanan&gt;"</span><span class="p">,</span> <span class="s2">"เพราะฉะนั้น"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เพราะ&lt;rth_langjak&gt;"</span><span class="p">,</span> <span class="s2">"เพราะหลังจาก"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"สามารถ&lt;rth_tamhai&gt;"</span><span class="p">,</span> <span class="s2">"สามารถทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อาจ&lt;rth_tam&gt;"</span><span class="p">,</span> <span class="s2">"อาจทำ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จะ&lt;rth_tam&gt;"</span><span class="p">,</span> <span class="s2">"จะทำ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อีกทั้ง&lt;rth_for&gt;"</span><span class="p">,</span> <span class="s2">"อีกทั้งเพื่อ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ทั้งนี้&lt;rth_for&gt;"</span><span class="p">,</span> <span class="s2">"ทั้งนี้เพื่อ"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"เวลา&lt;rth_toma&gt;"</span><span class="p">,</span> <span class="s2">"เวลาต่อมา"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"อย่างไรก็ตาม&lt;rth_langjak&gt;"</span><span class="p">,</span> <span class="s2">"อย่างไรก็ตามหลังจาก"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"ซึ่ง&lt;rth_tamhai&gt;"</span><span class="p">,</span> <span class="s2">"ซึ่งทำให้"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;doi&gt;ประมาท"</span><span class="p">,</span> <span class="s2">"โดยประมาท"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;doi&gt;ธรรม"</span><span class="p">,</span> <span class="s2">"โดยธรรม"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"&lt;doi&gt;สัจจริง"</span><span class="p">,</span> <span class="s2">"โดยสัจจริง"</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Words that start a new sentence unless a space follows soon after them:</span>
+<span class="c1"># (keyword, distance from the keyword to the end of the tokens,</span>
+<span class="c1"># distance from the keyword to the space) in token positions.</span>
+<span class="n">_SPLIT_KEYWORDS</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"และ"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"หรือ"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"จึง"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># (pattern, replacement) pairs that mark sentence boundaries with "&lt;stop&gt;".</span>
+<span class="n">_BOUNDARY_RULES</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">Pattern</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span> <span class="n">repl</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">" "</span> <span class="o">+</span> <span class="n">_TH_STOP_BEFORE</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1"</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">_TH_KA_KRUB</span><span class="p">,</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">1&lt;stop&gt;"</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">_TH_CONJUNCTION</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1"</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">_TH_CITE</span><span class="p">,</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">1&lt;stop&gt;"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">" "</span> <span class="o">+</span> <span class="n">_DIGIT</span> <span class="o">+</span> <span class="s2">"[.]"</span> <span class="o">+</span> <span class="n">_TH_TITLE</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1.</span><span class="se">\\</span><span class="s2">2"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">" "</span> <span class="o">+</span> <span class="n">_DIGIT</span> <span class="o">+</span> <span class="n">_DIGIT</span> <span class="o">+</span> <span class="s2">"[.]"</span> <span class="o">+</span> <span class="n">_TH_TITLE</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">2.</span><span class="se">\\</span><span class="s2">3"</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">_TH_ALPHABETS</span> <span class="o">+</span> <span class="n">_TH_STOP_AFTER</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">,</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">2&lt;stop&gt;"</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Number of words in a sentence above which middle_cut() cuts it.</span>
+<span class="n">_MIDDLE_CUT_WORDS</span> <span class="o">=</span> <span class="mi">20</span>
+
+
+<div class="viewcode-block" id="list_to_string">
+<a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.list_to_string">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Join a list of strings and collapse the whitespace.</span>
+
+<span class="sd">    :param list[str] tokens: list of strings</span>
+<span class="sd">    :return: joined string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    """</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">string</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_remove_digit_spaces</span><span class="p">(</span><span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Remove a space before or after a digit."""</span>
+    <span class="n">sentence_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sentence_len</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">sentence_len</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">" "</span><span class="p">:</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[:</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span>
+            <span class="n">sentence_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">sentence_len</span>
+            <span class="ow">and</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">" "</span>
+        <span class="p">):</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[:</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sentence</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">:]</span>
+            <span class="n">sentence_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sentence</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_mark_middle_cuts</span><span class="p">(</span><span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sentence_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Replace the spaces nearest to the partition points with "&lt;stop&gt;"."""</span>
+    <span class="n">partition</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">sentence_size</span> <span class="o">/</span> <span class="n">_MIDDLE_CUT_WORDS</span><span class="p">)</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">partition</span><span class="p">):</span>
+        <span class="n">middle_space</span> <span class="o">=</span> <span class="n">sentence_size</span> <span class="o">/</span> <span class="p">(</span><span class="n">partition</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">spaces</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">if</span> <span class="n">tok</span> <span class="o">==</span> <span class="s2">" "</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">spaces</span><span class="p">:</span>
+            <span class="n">nearest</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">spaces</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">middle_space</span><span class="p">))</span>
+            <span class="n">tokens</span><span class="p">[</span><span class="n">nearest</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;stop&gt;"</span>
+    <span class="k">return</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="middle_cut">
+<a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.middle_cut">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">middle_cut</span><span class="p">(</span><span class="n">sentences</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Split long sentences at the space nearest to the middle.</span>
+
+<span class="sd">    :param list[str] sentences: list of sentences</span>
+<span class="sd">    :return: list of sentences</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    """</span>
+    <span class="n">result_parts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="n">sentence_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">_remove_digit_spaces</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sentence_size</span> <span class="o">&gt;</span> <span class="n">_MIDDLE_CUT_WORDS</span><span class="p">:</span>
+            <span class="n">result_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_mark_middle_cuts</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">sentence_size</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+
+    <span class="n">all_sentences</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">result_parts</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">part</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&lt;stop&gt;"</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">all_sentences</span><span class="p">))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_find_split_positions</span><span class="p">(</span>
+    <span class="n">tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end_gap</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">near_gap</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Find where to put "&lt;stop&gt;" around a keyword.</span>
+
+<span class="sd">    :param list[str] tokens: list of words</span>
+<span class="sd">    :param str keyword: keyword to look for</span>
+<span class="sd">    :param int end_gap: distance from the keyword to the end of the words</span>
+<span class="sd">    :param int near_gap: distance from the keyword to the next space</span>
+<span class="sd">    :return: positions of the spaces to replace with "&lt;stop&gt;",</span>
+<span class="sd">        and positions to insert "&lt;stop&gt;" before</span>
+<span class="sd">    :rtype: tuple[list[int], list[int]]</span>
+<span class="sd">    """</span>
+    <span class="n">last_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="n">keyword_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">replace_positions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">insert_positions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tok</span> <span class="o">==</span> <span class="n">keyword</span><span class="p">:</span>
+            <span class="n">keyword_position</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">keyword_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">keyword_position</span>
+            <span class="ow">and</span> <span class="n">tok</span> <span class="o">==</span> <span class="s2">" "</span>
+            <span class="ow">and</span> <span class="n">space_position</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="ow">and</span> <span class="n">i</span> <span class="o">-</span> <span class="n">keyword_position</span> <span class="o">!=</span> <span class="mi">1</span>
+        <span class="p">):</span>
+            <span class="n">space_position</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">keyword_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="ow">and</span> <span class="n">last_position</span> <span class="o">-</span> <span class="n">keyword_position</span> <span class="o">==</span> <span class="n">end_gap</span>
+        <span class="p">):</span>
+            <span class="n">insert_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_position</span><span class="p">)</span>
+            <span class="n">keyword_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">space_position</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">space_position</span> <span class="o">-</span> <span class="n">keyword_position</span> <span class="o">&lt;</span> <span class="n">near_gap</span><span class="p">:</span>
+                <span class="n">replace_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">space_position</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">insert_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">keyword_position</span><span class="p">)</span>
+            <span class="n">keyword_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">space_position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">replace_positions</span><span class="p">,</span> <span class="n">insert_positions</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_split_around_keyword</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end_gap</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">near_gap</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">replace_positions</span><span class="p">,</span> <span class="n">insert_positions</span> <span class="o">=</span> <span class="n">_find_split_positions</span><span class="p">(</span>
+        <span class="n">tokens</span><span class="p">,</span> <span class="n">keyword</span><span class="p">,</span> <span class="n">end_gap</span><span class="p">,</span> <span class="n">near_gap</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">replace_positions</span><span class="p">:</span>
+        <span class="n">tokens</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;stop&gt;"</span>
+    <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">insert_positions</span><span class="p">:</span>
+        <span class="n">tokens</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="s2">"&lt;stop&gt;"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">list_to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_replace_all</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pairs</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_mark_boundaries</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span> <span class="ow">in</span> <span class="n">_BOUNDARY_RULES</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1"># Move the closing quote before the final punctuation</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".”"</span><span class="p">,</span> <span class="s2">"”."</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'."'</span><span class="p">,</span> <span class="s1">'".'</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'!"'</span><span class="p">,</span> <span class="s1">'"!'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'?"'</span><span class="p">,</span> <span class="s1">'"?'</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ThaiSentenceSegmentor">
+<a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.ThaiSentenceSegmentor">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ThaiSentenceSegmentor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Tokenize Thai text into sentences."""</span>
+
+<div class="viewcode-block" id="ThaiSentenceSegmentor.split_into_sentences">
+<a class="viewcode-back" href="../../../api/tokenize.html#pythainlp.tokenize.thaisumcut.ThaiSentenceSegmentor.split_into_sentences">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_into_sentences</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">isMiddleCut</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Split text into sentences.</span>
+
+<span class="sd">        :param str text: text to be tokenized</span>
+<span class="sd">        :param bool isMiddleCut: also cut long sentences at the middle</span>
+<span class="sd">        :return: list of sentences</span>
+<span class="sd">        :rtype: list[str]</span>
+<span class="sd">        """</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">" </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2"> "</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_replace_all</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">_PROTECT</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">keyword</span><span class="p">,</span> <span class="n">end_gap</span><span class="p">,</span> <span class="n">near_gap</span> <span class="ow">in</span> <span class="n">_SPLIT_KEYWORDS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">_split_around_keyword</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">keyword</span><span class="p">,</span> <span class="n">end_gap</span><span class="p">,</span> <span class="n">near_gap</span><span class="p">)</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_mark_boundaries</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">_replace_all</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">_RESTORE</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="s2">"?&lt;stop&gt;"</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="s2">"!&lt;stop&gt;"</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&lt;prd&gt;"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&lt;stop&gt;"</span><span class="p">)</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">sentences</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">!=</span> <span class="s2">"nan"</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">isMiddleCut</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">middle_cut</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sentences</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythainlp.transliterate &mdash; PyThaiNLP 8077e35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=eea1f72d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d8c6fbd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pythainlp.ulmfit" href="ulmfit.html" />
+    <link rel="prev" title="pythainlp.translate" href="translate.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyThaiNLP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/start.html#tutorial-notebooks">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/command.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/threadsafe.html">Thread safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/license.html">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ancient.html">pythainlp.ancient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="augment.html">pythainlp.augment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">pythainlp.benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="braille.html">pythainlp.braille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chunk.html">pythainlp.chunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classify.html">pythainlp.classify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">pythainlp.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coref.html">pythainlp.coref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus.html">pythainlp.corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="el.html">pythainlp.el</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generate.html">pythainlp.generate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="khavee.html">pythainlp.khavee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lm.html">pythainlp.lm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morpheme.html">pythainlp.morpheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">pythainlp.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phayathaibert.html">pythainlp.phayathaibert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soundex.html">pythainlp.soundex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell.html">pythainlp.spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarize.html">pythainlp.summarize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tag.html">pythainlp.tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenize.html">pythainlp.tokenize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">pythainlp.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translate.html">pythainlp.translate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pythainlp.transliterate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P"><code class="docutils literal notranslate"><span class="pre">FastThaiG2P</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P.__init__"><code class="docutils literal notranslate"><span class="pre">FastThaiG2P.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P.convert"><code class="docutils literal notranslate"><span class="pre">FastThaiG2P.convert()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transliteration-engines">Transliteration Engines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pythainlp.transliterate.royin.romanize"><code class="docutils literal notranslate"><span class="pre">romanize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ulmfit.html">pythainlp.ulmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">pythainlp.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wangchanberta.html">pythainlp.wangchanberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_vector.html">pythainlp.word_vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsd.html">pythainlp.wsd</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyThaiNLP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pythainlp.transliterate</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/transliterate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythainlp-transliterate">
+<h1>pythainlp.transliterate<a class="headerlink" href="#pythainlp-transliterate" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythainlp.transliterate</span></code> module is dedicated to the transliteration of Thai text into romanized form, effectively spelling it out with the English alphabet. This functionality is invaluable for making Thai text more accessible to non-Thai speakers and for various language processing tasks.</p>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">romanize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'royin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback_engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'royin'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#romanize"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Render Thai words in the Latin alphabet (“romanization”).</p>
+<p>The default engine uses the Royal Thai General System of
+Transcription (RTGS) <a class="footnote-reference brackets" href="#rtgs-transcription" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>RTGS is the official system published by the Royal Institute of
+Thailand. (Thai: ถอดเสียงภาษาไทยเป็นอักษรละติน)</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to be romanized. Words separated by
+whitespace are romanized one by one</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – romanization engine
+(see the options below)</p></li>
+<li><p><strong>fallback_engine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – engine for words that are not in the
+lookup dictionary, used only if <code class="docutils literal notranslate"><span class="pre">engine</span></code> is “lookup”
+(default is “royin”)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>text rendered in the Latin alphabet</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Options for engine<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>royin</em> (default) - based on the Royal Thai General System of
+Transcription issued by the Royal Institute of Thailand</p></li>
+<li><p><em>thai2rom</em> - deep learning-based Thai romanization engine
+(requires PyTorch)</p></li>
+<li><p><em>thai2rom_onnx</em> - deep learning-based Thai romanization engine
+with ONNX runtime</p></li>
+<li><p><em>tltk</em> - TLTK: Thai Language Toolkit</p></li>
+<li><p><em>lookup</em> - look up in the Thai-English Transliteration
+dictionary v1.4 compiled by Wannaphong</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">romanize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"royin"</span><span class="p">)</span>
+<span class="go">'samant'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"thai2rom"</span><span class="p">)</span>
+<span class="go">'samat'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"tltk"</span><span class="p">)</span>
+<span class="go">'samat'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"royin"</span><span class="p">)</span>
+<span class="go">'phapn'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"รส ดี"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"royin"</span><span class="p">)</span>  <span class="c1"># subwords</span>
+<span class="go">'rot di'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"thai2rom"</span><span class="p">)</span>
+<span class="go">'phapphayon'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"thai2rom_onnx"</span><span class="p">)</span>
+<span class="go">'phapphayon'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">romanize</span><span class="p">(</span><span class="s2">"ก็อปปี้"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"lookup"</span><span class="p">)</span>
+<span class="go">'copy'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>romanize</cite> function allows you to transliterate Thai text, converting it into a phonetic representation using the English alphabet. It’s a fundamental tool for rendering Thai words and phrases in a more familiar format.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">transliterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'thaig2p'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#transliterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Transliterate Thai text.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to be transliterated</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – transliteration engine
+(see the options below)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transliterated text: a phonetic alphabet (such as IPA)
+for the phonetic engines, or Latin script for <em>icu</em> and
+<em>iso_11940</em></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Options for engine<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>thaig2p</em> (default) - Thai Grapheme-to-Phoneme,
+output is IPA (requires PyTorch)</p></li>
+<li><p><em>icu</em> - pyicu, based on International Components for Unicode
+(ICU), output is Latin script</p></li>
+<li><p><em>ipa</em> - epitran, output is International Phonetic Alphabet
+(IPA)</p></li>
+<li><p><em>tltk_g2p</em> - Thai Grapheme-to-Phoneme from
+<a class="reference external" href="https://pypi.org/project/tltk/">TLTK</a></p></li>
+<li><p><em>iso_11940</em> - Thai text into Latin script with ISO 11940</p></li>
+<li><p><em>tltk_ipa</em> - tltk, output is International Phonetic Alphabet
+(IPA)</p></li>
+<li><p><em>thaig2p_v2</em> - Thai Grapheme-to-Phoneme, output is IPA.
+See <a class="reference external" href="https://huggingface.co/pythainlp/thaig2p-v2.0">https://huggingface.co/pythainlp/thaig2p-v2.0</a></p></li>
+<li><p><em>thaig2p_v4</em> - Thai Grapheme-to-Phoneme (v4), output is IPA.
+See <a class="reference external" href="https://huggingface.co/pythainlp/thaig2p-v4">https://huggingface.co/pythainlp/thaig2p-v4</a></p></li>
+<li><p><em>umt5_thaig2p</em> - Thai Grapheme-to-Phoneme, output is IPA,
+powered by UMT5.
+See <a class="reference external" href="https://huggingface.co/B-K/umt5-thai-g2p-v2-0.5k">https://huggingface.co/B-K/umt5-thai-g2p-v2-0.5k</a></p></li>
+<li><p><em>fastthaig2p</em> - FastThaiG2P, output is IPA (pure Python
+dictionary lookup with text normalization and fallback)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">transliterate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"icu"</span><span class="p">)</span>
+<span class="go">'s̄āmārt̄h'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"ipa"</span><span class="p">)</span>
+<span class="go">'saːmaːrot'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"thaig2p"</span><span class="p">)</span>
+<span class="go">'s aː ˩˩˦ . m aː t̚ ˥˩'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"fastthaig2p"</span><span class="p">)</span>
+<span class="go">'/saː˩˩˦.maːt̚˥˩/'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"tltk_ipa"</span><span class="p">)</span>
+<span class="go">'saː5.maːt3'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"tltk_g2p"</span><span class="p">)</span>
+<span class="go">'saa4~maat2'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"iso_11940"</span><span class="p">)</span>
+<span class="go">'s̄āmārt̄h'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"icu"</span><span class="p">)</span>
+<span class="go">'p̣hāphyntr̒'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"ipa"</span><span class="p">)</span>
+<span class="go">'pʰaːpjanot'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"thaig2p"</span><span class="p">)</span>
+<span class="go">'pʰ aː p̚ ˥˩ . pʰ a ˦˥ . j o n ˧'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"iso_11940"</span><span class="p">)</span>
+<span class="go">'p̣hāphyntr̒'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>transliterate</cite> function serves as a versatile transliteration tool, offering a range of transliteration engines to choose from. It provides flexibility and customization for your transliteration needs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">transliterate_wiktionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ipa'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/wiktionary.html#transliterate_wiktionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Transliterate Thai text using Wiktionary th-pron logic.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to be transliterated, a single word or
+a text fragment</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – output mode, one of <code class="docutils literal notranslate"><span class="pre">paiboon</span></code>, <code class="docutils literal notranslate"><span class="pre">royin</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">ipa</span></code> (default). An unsupported mode returns the text unchanged</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transliterated text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate_wiktionary</span><span class="p">(</span><span class="s2">"แมว"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"royin"</span><span class="p">)</span>
+<span class="go">'maeo'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">pronunciate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'w2p'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/core.html#pronunciate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Convert a Thai word to its pronunciation in Thai letters.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai word to be converted</p></li>
+<li><p><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – pronunciation engine
+(see the options below)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thai letters indicating how the word is pronounced</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Options for engine<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>w2p</em> (default) - Thai Word-to-Phoneme</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">pronunciate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate</span><span class="p">(</span><span class="s2">"สามารถ"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"w2p"</span><span class="p">)</span>
+<span class="go">'สา-มาด'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate</span><span class="p">(</span><span class="s2">"ภาพยนตร์"</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"w2p"</span><span class="p">)</span>
+<span class="go">'พาบ-พะ-ยน'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>This function provides assistance in generating phonetic representations of Thai words, which is particularly useful for language learning and pronunciation practice.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">pronunciate_pali</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/pali.html#pronunciate_pali"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Convert a Pali word to its Thai pronunciation.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Pali word, written in Thai script</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thai letters indicating how the word is pronounced</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">pronunciate_pali</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate_pali</span><span class="p">(</span><span class="s2">"ภควา"</span><span class="p">)</span>
+<span class="go">'ภะคะวา'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate_pali</span><span class="p">(</span><span class="s2">"สมฺมา"</span><span class="p">)</span>
+<span class="go">'สัมมา'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate_pali</span><span class="p">(</span><span class="s2">"มยํ"</span><span class="p">)</span>
+<span class="go">'มะยัง'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pronunciate_pali</span><span class="p">(</span><span class="s2">"สฺวากฺขา"</span><span class="p">)</span>
+<span class="go">'สวากขาโต'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">puan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_pronunciation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/spoonerism.html#puan"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Convert a Thai word to a spoonerism word.</p>
+<p>Syllables without an initial consonant stay in place.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai word to be converted</p></li>
+<li><p><strong>show_pronunciation</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> (default), return the
+pronunciation with syllables separated by hyphens; otherwise
+return the syllables joined without hyphens</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>spoonerism word</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate</span><span class="w"> </span><span class="kn">import</span> <span class="n">puan</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">puan</span><span class="p">(</span><span class="s2">"นาริน"</span><span class="p">)</span>
+<span class="go">'นิน-รา'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">puan</span><span class="p">(</span><span class="s2">"นาริน"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="go">'นินรา'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The <cite>puan</cite> function offers a unique transliteration feature known as “Puan.” It provides a specialized transliteration method for Thai text and is an additional option for rendering Thai text into English characters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.</span></span><span class="sig-name descname"><span class="pre">get_word_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/wiktionary.html#get_word_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Return Wiktionary transliteration outputs in all supported systems.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>word</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai word to be transliterated</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary with the keys <code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">paiboon</span></code>, <code class="docutils literal notranslate"><span class="pre">royin</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">ipa</span></code></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)">dict</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_word_dict</span><span class="p">(</span><span class="s2">"แมว"</span><span class="p">)</span>
+<span class="go">{'word': 'แมว', 'paiboon': 'mɛɛo', 'royin': 'maeo', 'ipa': 'mɛːw˧'}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pythainlp.transliterate.fastthaig2p.FastThaiG2P">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.fastthaig2p.</span></span><span class="sig-name descname"><span class="pre">FastThaiG2P</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ipa_dict_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythainlp/transliterate/fastthaig2p.html#FastThaiG2P"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P" title="Link to this definition"></a></dt>
+<dd><p>FastThaiG2P: Lightning-fast Thai grapheme-to-phoneme conversion.</p>
+<p>Uses a 4-stage pipeline:
+1. Text normalization: expands numbers, units, abbreviations, emails, etc.
+2. Tokenization: segments normalized text with PyThaiNLP’s newmm dictionary engine.
+3. Dictionary lookup: retrieves IPA phonemes from the 62k-word dictionary.
+4. Fallback G2P: handles out-of-vocabulary words using rule-based fallback.</p>
+<p>The <cite>FastThaiG2P</cite> class provides lightning-fast Thai Grapheme-to-Phoneme conversion using a 62k IPA dictionary, text normalization, and rule-based fallback.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.transliterate.fastthaig2p.FastThaiG2P.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ipa_dict_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/fastthaig2p.html#FastThaiG2P.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize FastThaiG2P engine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ipa_dict_path</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – Optional path to custom IPA dictionary JSON.
+If None, loads the default dictionary from pythainlp.corpus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pythainlp.transliterate.fastthaig2p.FastThaiG2P.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/fastthaig2p.html#FastThaiG2P.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.fastthaig2p.FastThaiG2P.convert" title="Link to this definition"></a></dt>
+<dd><p>Convert Thai text to IPA phonemes.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String of IPA phonemes separated by spaces.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate.fastthaig2p</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastThaiG2P</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g2p</span> <span class="o">=</span> <span class="n">FastThaiG2P</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g2p</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"สวัสดีครับ"</span><span class="p">)</span>
+<span class="go">'/sa˨˩.wat̚˨˩.diː˧/ /kʰrap̚˦˥/'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.fastthaig2p.</span></span><span class="sig-name descname"><span class="pre">transliterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/fastthaig2p.html#transliterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Transliterate Thai text to IPA phonemes using FastThaiG2P.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to transliterate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>IPA phonemes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate.fastthaig2p</span><span class="w"> </span><span class="kn">import</span> <span class="n">transliterate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transliterate</span><span class="p">(</span><span class="s2">"สวัสดีครับ"</span><span class="p">)</span>
+<span class="go">'/sa˨˩.wat̚˨˩.diː˧/ /kʰrap̚˦˥/'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.fastthaig2p.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/fastthaig2p.html#normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Normalize text for Thai TTS/G2P.</p>
+<p>Convert numbers, abbreviations, and special characters to speakable
+Thai words.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to normalize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized speakable Thai text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pythainlp.transliterate.fastthaig2p</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalize</span><span class="p">(</span><span class="s2">"มี 42 คน"</span><span class="p">)</span>
+<span class="go">'มี สี่สิบสอง คน'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalize</span><span class="p">(</span><span class="s2">"ราคา 1,000 บาท"</span><span class="p">)</span>
+<span class="go">'ราคา หนึ่งพัน บาท'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalize</span><span class="p">(</span><span class="s2">"เด็กๆ"</span><span class="p">)</span>
+<span class="go">'เด็กเด็ก'</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="transliteration-engines">
+<h2>Transliteration Engines<a class="headerlink" href="#transliteration-engines" title="Link to this heading"></a></h2>
+<p><strong>thai2rom</strong></p>
+<p><strong>royin</strong></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pythainlp.transliterate.royin.romanize">
+<span class="sig-prename descclassname"><span class="pre">pythainlp.transliterate.royin.</span></span><span class="sig-name descname"><span class="pre">romanize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/pythainlp/transliterate/royin.html#romanize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythainlp.transliterate.royin.romanize" title="Link to this definition"></a></dt>
+<dd><p>Render Thai words in the Latin alphabet, using RTGS.</p>
+<p>The Royal Thai General System of Transcription (RTGS) is the
+official system by the Royal Institute of Thailand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Thai text to be romanized</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>text rendered in the Latin alphabet</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+<p>The <cite>royin</cite> engine focuses on transliterating Thai text into English characters. It provides an alternative approach to transliteration, ensuring accurate representation of Thai words.</p>
+</dd></dl>
+
+<p><strong>Transliterate Engines</strong></p>
+<p>This section includes multiple transliteration engines designed to suit various use cases. They offer unique methods for transliterating Thai text into romanized form:</p>
+<ul class="simple">
+<li><p><strong>icu</strong>: Utilizes the ICU transliteration system for phonetic conversion.</p></li>
+<li><p><strong>ipa</strong>: Provides International Phonetic Alphabet (IPA) representation of Thai text.</p></li>
+<li><p><strong>thaig2p</strong>: (default) Transliterates Thai text into the Grapheme-to-Phoneme (G2P) representation.</p></li>
+<li><p><strong>thaig2p_v2</strong>: Transliterates Thai text into the Grapheme-to-Phoneme (G2P) representation. This model is from <a class="reference external" href="https://huggingface.co/pythainlp/thaig2p-v2.0">https://huggingface.co/pythainlp/thaig2p-v2.0</a></p></li>
+<li><p><strong>thaig2p_v4</strong>: Transliterates Thai text into the Grapheme-to-Phoneme (G2P) representation. This model is from <a class="reference external" href="https://huggingface.co/pythainlp/thaig2p-v4">https://huggingface.co/pythainlp/thaig2p-v4</a></p></li>
+<li><p><strong>fastthaig2p</strong>: Fast Thai Grapheme-to-Phoneme converter for IPA transcription with text normalization and fallback.</p></li>
+<li><p><strong>tltk</strong>: Utilizes the TLTK transliteration system for a specific approach to transliteration.</p></li>
+<li><p><strong>iso_11940</strong>: Focuses on the ISO 11940 transliteration standard.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="rtgs-transcription" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Nitaya Kanchanawan. (2006). <a class="reference external" href="http://legacy.orst.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf">Romanization, Transliteration, and Transcription for the Globalization of the Thai Language.</a>
+The Journal of the Royal Institute of Thailand.</p>
+</aside>
+</aside>
+<p>The <cite>pythainlp.transliterate</cite> module offers a comprehensive set of tools and engines for transliterating Thai text into Romanized form. Whether you need a simple transliteration, specific engines for accurate representation, or phonetic rendering, this module provides a wide range of options. Additionally, the module references a publication that highlights the significance of Romanization, Transliteration, and Transcription in making the Thai language accessible to a global audience.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="translate.html" class="btn btn-neutral float-left" title="pythainlp.translate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ulmfit.html" class="btn btn-neutral float-right" title="pythainlp.ulmfit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, PyThaiNLP (Apache Software License 2.0).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
